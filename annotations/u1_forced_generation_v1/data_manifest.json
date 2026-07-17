@@ -1,0 +1,23 @@
+{
+  "sources": {
+    "gold_container": {
+      "path": "/data1/wearable_ai_challenge_data/egoproactive/wearable_ai_2026_egoproactive_val_700.jsonl",
+      "sha256": "feef69ddee605e7070ad0f133636c35739c6964514a46d76da294b6bf1964740",
+      "role": "Container for inference-visible query/domain/task/interval/dialog fields; current answers are stripped before selection."
+    },
+    "r0_session_records": {
+      "path": "/home/lanjinxin/workspace/wearable_ai_challenge/output/experiments/20260713_internvl35_1b_no_plan_r0/session_records.jsonl",
+      "sha256": "00ce567c1d703a857cd73161f45212e919aa45ad4875257d34536d90fb829d76",
+      "role": "Frozen raw R0 responses used for label-independent eligibility."
+    },
+    "d1_predictions": {
+      "path": "/home/lanjinxin/workspace/wearable_ai_challenge/output/experiments/20260714_internvl35_1b_neural_decision_head_d1_oof_v1/variants/fused_linear/predictions.jsonl",
+      "sha256": "04183a4083d160662d5f91bff5432a7ca96595dd66b2b0b64f3b430799143ad9",
+      "role": "Frozen D1 decisions and current fallback output."
+    }
+  },
+  "selection_reads_gold_answers": false,
+  "selection_reads_gold_utterances": false,
+  "past_official_dialog_is_inference_visible": true,
+  "external_data_used": false
+}

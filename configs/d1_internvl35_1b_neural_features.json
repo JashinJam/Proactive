@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "experiment_id": "20260714_internvl35_1b_d1_neural_feature_cache_v1",
+  "hypothesis": "Frozen causal InternVL tag margins and the final assistant-prefix multimodal hidden state may contain session-held-out decision information beyond the promoted scalar timing control.",
+  "model": {
+    "repo_id": "OpenGVLab/InternVL3_5-1B-HF",
+    "revision": "9191dbccf312b537016f041b25d61c72e7c5c9f3",
+    "default_local_path": "/home/lanjinxin/model_weights/InternVL3_5-1B-HF",
+    "license": "Apache-2.0",
+    "total_parameters": 1060897792,
+    "weights_sha256": "11effd1da2fc0929957d56de4129d1e7d2aed044ea878d40bf83e95b63d38b39",
+    "dtype": "bfloat16",
+    "attention_implementation": "sdpa"
+  },
+  "data": {
+    "input": "data/egoproactive/wearable_ai_2026_egoproactive_val_700.jsonl",
+    "video_folder": "data/egoproactive/val",
+    "dataset_repo": "facebook/wearable-ai",
+    "split": "egoproactive/val",
+    "license": "CC-BY-NC-4.0",
+    "input_sha256": "feef69ddee605e7070ad0f133636c35739c6964514a46d76da294b6bf1964740"
+  },
+  "starter_kit": {
+    "path": "data/starter_kit",
+    "model_py_sha256": "3cecb5ab2201b6b4be6aabbdebeeeb5322437e2d8c49d065018230dc9804edbe",
+    "proactive_py_sha256": "7c8adfe9fa2db5af4aace1cd260ec22132b18d82ef747f8a566eb8095e8fbc34",
+    "scorer_py_sha256": "072301da6c65b3e30c7581920d178c6d5136305f2db26914df4785f47d809ee1"
+  },
+  "inference": {
+    "frames_per_interval": 16,
+    "max_frames": 32,
+    "video_frame_size": 448,
+    "pad_token_id": 151643,
+    "max_history_turns": 4,
+    "seed": 20260713
+  },
+  "features": {
+    "hidden_source": "last_language_hidden_at_final_causal_prompt_token_before_forced_tag",
+    "hidden_size": 1024,
+    "tag_margin": "sum_logp_interrupt_tag_minus_sum_logp_silent_tag",
+    "candidate_tags": ["$silent$", "$interrupt$"],
+    "forced_tag_visible_to_saved_hidden": false,
+    "gold_labels_read": false,
+    "storage_dtype": "float32"
+  },
+  "validation_policy": {
+    "source_answers_removed_before_feature_extraction": true,
+    "labels_used_for_feature_extraction": false,
+    "labels_used_for_model_training": false,
+    "classification": "label-free frozen feature cache; downstream OOF heads are val-supervised"
+  }
+}

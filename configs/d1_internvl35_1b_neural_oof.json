@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "experiment_id": "20260714_internvl35_1b_neural_decision_head_d1_oof_v1",
+  "hypothesis": "Frozen tag margins and causal multimodal hidden states provide session-held-out decision signal beyond the promoted strictly causal response-temporal scalar control.",
+  "model": {
+    "repo_id": "OpenGVLab/InternVL3_5-1B-HF",
+    "revision": "9191dbccf312b537016f041b25d61c72e7c5c9f3",
+    "license": "Apache-2.0",
+    "total_parameters": 1060897792,
+    "weights_sha256": "11effd1da2fc0929957d56de4129d1e7d2aed044ea878d40bf83e95b63d38b39"
+  },
+  "data": {
+    "input": "data/egoproactive/wearable_ai_2026_egoproactive_val_700.jsonl",
+    "license": "CC-BY-NC-4.0",
+    "input_sha256": "feef69ddee605e7070ad0f133636c35739c6964514a46d76da294b6bf1964740"
+  },
+  "starter_kit": {
+    "path": "data/starter_kit",
+    "model_py_sha256": "3cecb5ab2201b6b4be6aabbdebeeeb5322437e2d8c49d065018230dc9804edbe",
+    "proactive_py_sha256": "7c8adfe9fa2db5af4aace1cd260ec22132b18d82ef747f8a566eb8095e8fbc34",
+    "scorer_py_sha256": "072301da6c65b3e30c7581920d178c6d5136305f2db26914df4785f47d809ee1"
+  },
+  "r0_reference": {
+    "experiment_dir": "output/experiments/20260713_internvl35_1b_no_plan_r0",
+    "predictions_sha256": "312d0375dd67be2fb244d622a9f302734082f0f251ef0b8dd190b00880879820",
+    "session_records_sha256": "00ce567c1d703a857cd73161f45212e919aa45ad4875257d34536d90fb829d76",
+    "metrics_sha256": "409b639a690e6fc6b4a5396d1bef7c88e8222ddbadd45d9cce0cc53dda7f1671"
+  },
+  "r0f_reference": {
+    "experiment_dir": "output/experiments/20260714_internvl35_1b_response_intent_repair_r0f_valsupervised",
+    "predictions_sha256": "cfda7d147ac3203ff5750a5b65fbac54af5f2bcf4aef4d4fa16db700b25c0e37",
+    "session_records_sha256": "24129f523129a3ac192cc7c3dfc6271a986cc966ef3c705d43be060daa5f74fa",
+    "metrics_sha256": "7e169d602e03501eb644d35c90312a4f4f107cab3e1827cf859f87a07f72687e",
+    "macro_f1": 0.5362
+  },
+  "scalar_oof_reference": {
+    "experiment_dir": "output/experiments/20260714_internvl35_1b_causal_scalar_decision_head_d1_oof_v2",
+    "split_manifest_sha256": "bd537e9e155586cf3af9f26052fda277fa3e1930e378538346cc197432ff86c0",
+    "comparison_sha256": "fd852639f0db025f09dddb4a7b562b423b90ee80f80de6e56b0103020b3ca0e8",
+    "predictions_sha256": "fc34808d65abf452600bb22b3cd4b3d43ac4e7dceb345542573d10e3248de5ee",
+    "metrics_sha256": "e8b392239a418aded4db0209ce45952eb7787a6b18e0f2228acf764713d051bc",
+    "feature_variant": "response_temporal",
+    "macro_f1": 0.6119
+  },
+  "neural_cache": {
+    "path": "output/features/20260714_internvl35_1b_d1_neural_feature_cache_v1",
+    "features_sha256": "cc5a5b3c6184987edc5f041eb2cb01a51ccfd88d6328d8308fcce3a4bd9122bf",
+    "sessions": 700,
+    "chunks": 9935,
+    "hidden_size": 1024,
+    "labels_read_or_stored": false
+  },
+  "features": {
+    "scalar_variant": "response_temporal",
+    "max_history_turns": 4,
+    "max_model_frames": 32,
+    "variants": ["tag_only", "scalar_tag", "hidden_linear", "fused_linear"]
+  },
+  "split": {
+    "folds": 5,
+    "calibration_fold_offset": 1,
+    "source": "frozen_scalar_oof_split_manifest"
+  },
+  "training": {
+    "classifier": "class_balanced_linear_logistic_regression",
+    "optimizer": "lbfgs",
+    "seed": 20260714,
+    "max_iterations": 120,
+    "dtype": "float64",
+    "low_dimensional": {
+      "l2_weights": [0.001],
+      "l2_reduction": "mean"
+    },
+    "hidden_dimensional": {
+      "l2_weights": [0.00001, 0.0001, 0.001, 0.01],
+      "l2_reduction": "sum",
+      "selection": "calibration_fold_macro_f1"
+    },
+    "threshold_selection": "exact_calibration_fold_macro_f1"
+  },
+  "evaluation": {
+    "primary_metric": "macro_f1",
+    "official_scorer": "data/starter_kit/run_evaluation.py",
+    "bootstrap_repetitions": 5000,
+    "bootstrap_seed": 20260714,
+    "promotion_min_delta_vs_scalar_oof": 0.005,
+    "require_positive_bootstrap_lower_bound": true,
+    "require_non_first_chunk_gain": true
+  },
+  "validation_policy": {
+    "neural_cache_generation_reads_labels": false,
+    "classifier_training_reads_public_validation_labels": true,
+    "regularization_and_threshold_use_calibration_fold_labels": true,
+    "test_fold_labels_used_only_after_predictions": true,
+    "classification": "session-level out-of-fold val-supervised neural increment study; not hidden-test generalization"
+  }
+}

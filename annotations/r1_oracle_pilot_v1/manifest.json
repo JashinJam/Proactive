@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "pilot_id": "r1_oracle_pilot_v1",
+  "source": {
+    "input": "data/egoproactive/wearable_ai_2026_egoproactive_val_700.jsonl",
+    "input_sha256": "feef69ddee605e7070ad0f133636c35739c6964514a46d76da294b6bf1964740",
+    "sessions": 700,
+    "chunks": 9935
+  },
+  "selection": {
+    "algorithm": "domain_stratified_sha256_first_k",
+    "seed": "r1-oracle-pilot-v1",
+    "sessions_per_domain": 1,
+    "independent_of_gold_labels": true,
+    "purpose": "Protocol and end-to-end oracle-state pilot; not a population estimate",
+    "sessions": [
+      {
+        "input_index": 14,
+        "video_path": "04cac7c05a572dbb.mp4",
+        "domain": "Chef",
+        "task": "Making peanut butter oat balls",
+        "query": "How do I make peanut butter oat balls?",
+        "query_sha256": "7b8ef16363c0a94f0d92eefc2ff403e4981b1832f0dad731cadc69931217712f",
+        "chunks": 14
+      },
+      {
+        "input_index": 123,
+        "video_path": "30550355d5d91039.mp4",
+        "domain": "Tutorial",
+        "task": "How to loosen a tight screw",
+        "query": "How do I loosen a tight screw?",
+        "query_sha256": "50ab78aed65f6b6a5156691611cba02345b23f8897f920d837dd9633726fcca5",
+        "chunks": 10
+      },
+      {
+        "input_index": 326,
+        "video_path": "7938107eb358de46.mp4",
+        "domain": "Handyman",
+        "task": "Adjusting loose recessed light trim",
+        "query": "How do I adjust loose recessed light trim?",
+        "query_sha256": "dbd2831551afa3a910cd8429c0ba840f940915bb7958e29c7f91b2eefba8893e",
+        "chunks": 12
+      },
+      {
+        "input_index": 687,
+        "video_path": "fcd7ac944675ba99.mp4",
+        "domain": "Arts and Crafts",
+        "task": "Creating a simple finger painting",
+        "query": "How do I create a simple finger painting?",
+        "query_sha256": "998a3d93d2b44e8a3f6a0191ee308efe58691367a82334ff7a173ff0f443680d",
+        "chunks": 14
+      }
+    ]
+  }
+}

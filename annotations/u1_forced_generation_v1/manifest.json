@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "sample_id": "u1_fixed_gate_forced_generation_v1",
+  "selection": {
+    "seed": "20260716-u1-v1",
+    "labels_read": false,
+    "gold_utterances_read": false,
+    "eligibility": "D1 fused OOF answer is the exact fallback and frozen R0 raw response is exactly $silent$; exclude first chunks and old R1 sessions.",
+    "domains": [
+      "Arts and Crafts",
+      "Chef",
+      "Handyman",
+      "Tutorial"
+    ],
+    "sessions_per_domain": 5,
+    "positions_per_session": [
+      "1:second",
+      "2-4",
+      "5-9",
+      "10+"
+    ],
+    "excluded_input_indices": [
+      14,
+      123,
+      326,
+      687
+    ],
+    "selected_sessions": {
+      "Arts and Crafts": [
+        580,
+        19,
+        66,
+        546,
+        56
+      ],
+      "Chef": [
+        196,
+        192,
+        117,
+        244,
+        135
+      ],
+      "Handyman": [
+        434,
+        496,
+        672,
+        342,
+        263
+      ],
+      "Tutorial": [
+        597,
+        293,
+        39,
+        369,
+        673
+      ]
+    },
+    "sessions": 20,
+    "chunks": 80,
+    "smoke_sessions": 4,
+    "smoke_chunks": 16
+  },
+  "coverage": {
+    "by_domain": {
+      "Arts and Crafts": 20,
+      "Chef": 20,
+      "Handyman": 20,
+      "Tutorial": 20
+    },
+    "by_position": {
+      "1:second": 20,
+      "2-4": 20,
+      "5-9": 20,
+      "10+": 20
+    },
+    "smoke_by_domain": {
+      "Arts and Crafts": 4,
+      "Chef": 4,
+      "Handyman": 4,
+      "Tutorial": 4
+    },
+    "smoke_by_position": {
+      "1:second": 4,
+      "2-4": 4,
+      "5-9": 4,
+      "10+": 4
+    }
+  }
+}

@@ -1,0 +1,618 @@
+[
+  {
+    "schema_version": 1,
+    "status": "complete",
+    "input_index": 580,
+    "video_path": "d6cb618bb700b7c0.mp4",
+    "query": "How do I sew on a button?",
+    "task": "Sewing on a button",
+    "domain": "Arts and Crafts",
+    "is_smoke_session": true,
+    "provenance": {
+      "plan_inputs": [
+        "task",
+        "query"
+      ],
+      "chunk_inputs": [
+        "task",
+        "query",
+        "dialog_at_chunk",
+        "video_through_interval_end"
+      ],
+      "excluded_inputs": [
+        "answers",
+        "future_dialog",
+        "future_video"
+      ],
+      "annotation_type": "engineering_smoke_nonblind_diagnostic_only",
+      "blindness_status": "not_formally_blind",
+      "blindness_limitation": "The annotator had previously inspected U1 smoke generation outputs.",
+      "scientific_use": "Schema and runner engineering only; excluded from state-effect conclusions."
+    },
+    "goal": "Sew a button securely onto a garment.",
+    "steps": [
+      {
+        "id": "s1",
+        "text": "Gather a button, needle, thread, scissors, and the garment.",
+        "completion_cues": [
+          "The sewing materials and garment are within reach."
+        ],
+        "incompletion_cues": [
+          "A required sewing item or the garment is missing."
+        ]
+      },
+      {
+        "id": "s2",
+        "text": "Cut a usable length of thread, thread the needle, and secure the thread end.",
+        "completion_cues": [
+          "Thread passes through the needle eye and its end is secured."
+        ],
+        "incompletion_cues": [
+          "The needle is unthreaded, the thread is uncut, or the end is unsecured."
+        ]
+      },
+      {
+        "id": "s3",
+        "text": "Lay the garment flat and position the button at the attachment point.",
+        "completion_cues": [
+          "The button is held at the intended location on flat fabric."
+        ],
+        "incompletion_cues": [
+          "The garment is not positioned or the button location is unclear."
+        ]
+      },
+      {
+        "id": "s4",
+        "text": "Sew repeatedly through the button holes and fabric until the button is secure.",
+        "completion_cues": [
+          "Multiple stitches hold the button firmly against the fabric."
+        ],
+        "incompletion_cues": [
+          "The button remains loose or too few stitches have been made."
+        ]
+      },
+      {
+        "id": "s5",
+        "text": "Secure the final thread on the back and trim the excess.",
+        "completion_cues": [
+          "The final thread is knotted, trimmed, and the button remains secure."
+        ],
+        "incompletion_cues": [
+          "Loose thread remains or the final knot is not secured."
+        ]
+      }
+    ],
+    "sampled_chunk_states": [
+      {
+        "sample_id": "U1-Arts_and_Crafts-S01-1_second",
+        "chunk_index": 1,
+        "observed_through_sec": 10.9,
+        "current_step_id": "s2",
+        "progress": "ongoing",
+        "completion_evidence": [
+          "The thread spool and needle are being handled."
+        ],
+        "incompletion_or_error_evidence": [
+          "Thread is not yet clearly through the needle eye or secured."
+        ],
+        "next_step_id": "s3",
+        "recovery_action": "Guide the thread through the needle eye and secure the end.",
+        "confidence": 0.88
+      },
+      {
+        "sample_id": "U1-Arts_and_Crafts-S01-2-4",
+        "chunk_index": 2,
+        "observed_through_sec": 18.9,
+        "current_step_id": "s2",
+        "progress": "ongoing",
+        "completion_evidence": [
+          "The user is manipulating the needle and thread together."
+        ],
+        "incompletion_or_error_evidence": [
+          "A secured thread end and a ready threaded needle are not yet clearly visible."
+        ],
+        "next_step_id": "s3",
+        "recovery_action": "Finish threading and securing the thread before positioning the button.",
+        "confidence": 0.82
+      },
+      {
+        "sample_id": "U1-Arts_and_Crafts-S01-5-9",
+        "chunk_index": 6,
+        "observed_through_sec": 48.8,
+        "current_step_id": "s2",
+        "progress": "complete",
+        "completion_evidence": [
+          "A needle and prepared thread are visible after prolonged threading and securing motions."
+        ],
+        "incompletion_or_error_evidence": [
+          "The garment and button have not yet been positioned for stitching."
+        ],
+        "next_step_id": "s3",
+        "recovery_action": "Lay the garment flat and place the button at the intended location.",
+        "confidence": 0.8
+      },
+      {
+        "sample_id": "U1-Arts_and_Crafts-S01-10plus",
+        "chunk_index": 12,
+        "observed_through_sec": 99.4,
+        "current_step_id": "s4",
+        "progress": "ongoing",
+        "completion_evidence": [
+          "A white button is positioned on the checked shirt and the needle is passing through the button and fabric repeatedly."
+        ],
+        "incompletion_or_error_evidence": [
+          "The stitch cycle and final securing knot are not yet complete."
+        ],
+        "next_step_id": "s5",
+        "recovery_action": "Continue alternating through the button holes, then secure the thread on the back.",
+        "confidence": 0.96
+      }
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "complete",
+    "input_index": 196,
+    "video_path": "4ad436063d96fea1.mp4",
+    "query": "How do I make a classic grilled cheese sandwich?",
+    "task": "Making a classic grilled cheese sandwich",
+    "domain": "Chef",
+    "is_smoke_session": true,
+    "provenance": {
+      "plan_inputs": [
+        "task",
+        "query"
+      ],
+      "chunk_inputs": [
+        "task",
+        "query",
+        "dialog_at_chunk",
+        "video_through_interval_end"
+      ],
+      "excluded_inputs": [
+        "answers",
+        "future_dialog",
+        "future_video"
+      ],
+      "annotation_type": "engineering_smoke_nonblind_diagnostic_only",
+      "blindness_status": "not_formally_blind",
+      "blindness_limitation": "The annotator had previously inspected U1 smoke generation outputs.",
+      "scientific_use": "Schema and runner engineering only; excluded from state-effect conclusions."
+    },
+    "goal": "Make and serve a classic grilled cheese sandwich.",
+    "steps": [
+      {
+        "id": "s1",
+        "text": "Gather bread, cheese, butter, a plate, a pan, and a spatula.",
+        "completion_cues": [
+          "The ingredients and cooking tools are available."
+        ],
+        "incompletion_cues": [
+          "Bread, cheese, butter, or a cooking tool is missing."
+        ]
+      },
+      {
+        "id": "s2",
+        "text": "Place cheese between two bread slices and press the sandwich together.",
+        "completion_cues": [
+          "Cheese is enclosed between two aligned bread slices."
+        ],
+        "incompletion_cues": [
+          "The cheese is outside the bread or the sandwich is not assembled."
+        ]
+      },
+      {
+        "id": "s3",
+        "text": "Heat the pan over medium heat and melt butter in it.",
+        "completion_cues": [
+          "The pan is hot and melted butter coats the cooking surface."
+        ],
+        "incompletion_cues": [
+          "The pan is cold or butter has not melted."
+        ]
+      },
+      {
+        "id": "s4",
+        "text": "Cook the first side of the sandwich until golden.",
+        "completion_cues": [
+          "The first bread side is evenly golden brown."
+        ],
+        "incompletion_cues": [
+          "The first side is pale, burnt, or not in contact with the pan."
+        ]
+      },
+      {
+        "id": "s5",
+        "text": "Flip the sandwich and cook the second side until golden and the cheese melts.",
+        "completion_cues": [
+          "Both sides are golden and the cheese is warmed or melted."
+        ],
+        "incompletion_cues": [
+          "The second side is undercooked or the cheese remains cold."
+        ]
+      },
+      {
+        "id": "s6",
+        "text": "Remove the sandwich from the pan, place it on a plate, and serve it.",
+        "completion_cues": [
+          "The cooked sandwich is out of the pan and on a serving plate."
+        ],
+        "incompletion_cues": [
+          "The finished sandwich remains in the hot pan or is not plated."
+        ]
+      }
+    ],
+    "sampled_chunk_states": [
+      {
+        "sample_id": "U1-Chef-S01-1_second",
+        "chunk_index": 1,
+        "observed_through_sec": 8.0,
+        "current_step_id": "s2",
+        "progress": "ongoing",
+        "completion_evidence": [
+          "Bread slices are being removed from the bag and placed on the plate."
+        ],
+        "incompletion_or_error_evidence": [
+          "Cheese has not yet been placed between the bread slices."
+        ],
+        "next_step_id": "s3",
+        "recovery_action": "Place the cheese between the two bread slices and close the sandwich.",
+        "confidence": 0.95
+      },
+      {
+        "sample_id": "U1-Chef-S01-2-4",
+        "chunk_index": 3,
+        "observed_through_sec": 24.7,
+        "current_step_id": "s2",
+        "progress": "complete",
+        "completion_evidence": [
+          "Cheese is enclosed between two bread slices and the sandwich has been pressed together."
+        ],
+        "incompletion_or_error_evidence": [
+          "The pan has not yet been heated."
+        ],
+        "next_step_id": "s3",
+        "recovery_action": "Move to the stove and begin heating the pan.",
+        "confidence": 0.94
+      },
+      {
+        "sample_id": "U1-Chef-S01-5-9",
+        "chunk_index": 5,
+        "observed_through_sec": 38.1,
+        "current_step_id": "s3",
+        "progress": "ongoing",
+        "completion_evidence": [
+          "The pan is on the induction cooktop and the heat setting is being turned on."
+        ],
+        "incompletion_or_error_evidence": [
+          "Butter has not yet visibly melted across the pan."
+        ],
+        "next_step_id": "s4",
+        "recovery_action": "Add butter and wait for it to melt before adding the sandwich.",
+        "confidence": 0.93
+      },
+      {
+        "sample_id": "U1-Chef-S01-10plus",
+        "chunk_index": 14,
+        "observed_through_sec": 185.3,
+        "current_step_id": "s6",
+        "progress": "complete",
+        "completion_evidence": [
+          "The sandwich is browned on both sides, removed from the pan, and carried away for serving."
+        ],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": null,
+        "recovery_action": "none",
+        "confidence": 0.91
+      }
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "complete",
+    "input_index": 434,
+    "video_path": "9d8733825f2d1b80.mp4",
+    "query": "How do I replace batteries in smoke detectors?",
+    "task": "Replacing batteries in smoke detectors",
+    "domain": "Handyman",
+    "is_smoke_session": true,
+    "provenance": {
+      "plan_inputs": [
+        "task",
+        "query"
+      ],
+      "chunk_inputs": [
+        "task",
+        "query",
+        "dialog_at_chunk",
+        "video_through_interval_end"
+      ],
+      "excluded_inputs": [
+        "answers",
+        "future_dialog",
+        "future_video"
+      ],
+      "annotation_type": "engineering_smoke_nonblind_diagnostic_only",
+      "blindness_status": "not_formally_blind",
+      "blindness_limitation": "The annotator had previously inspected U1 smoke generation outputs.",
+      "scientific_use": "Schema and runner engineering only; excluded from state-effect conclusions."
+    },
+    "goal": "Replace a smoke detector battery and verify operation.",
+    "steps": [
+      {
+        "id": "s1",
+        "text": "Obtain the correct replacement battery and safe access to the detector.",
+        "completion_cues": [
+          "A compatible battery and stable access are available."
+        ],
+        "incompletion_cues": [
+          "The battery type is unknown or access is unsafe."
+        ]
+      },
+      {
+        "id": "s2",
+        "text": "Detach the detector from its mounting base and open the battery compartment.",
+        "completion_cues": [
+          "The detector is off the base and its battery compartment is accessible."
+        ],
+        "incompletion_cues": [
+          "The detector remains locked to the base or the compartment is closed."
+        ]
+      },
+      {
+        "id": "s3",
+        "text": "Disconnect and remove the old battery.",
+        "completion_cues": [
+          "The old battery is outside the detector and disconnected."
+        ],
+        "incompletion_cues": [
+          "The old battery remains connected or stuck in the compartment."
+        ]
+      },
+      {
+        "id": "s4",
+        "text": "Connect and seat the new battery with the correct orientation.",
+        "completion_cues": [
+          "The new battery is connected and fully seated."
+        ],
+        "incompletion_cues": [
+          "The new battery is loose, reversed, or not connected."
+        ]
+      },
+      {
+        "id": "s5",
+        "text": "Close the compartment and lock the detector back onto its mounting base.",
+        "completion_cues": [
+          "The compartment is closed and the detector is secured to the base."
+        ],
+        "incompletion_cues": [
+          "The compartment is open or the detector remains loose from the base."
+        ]
+      },
+      {
+        "id": "s6",
+        "text": "Use the test button to verify that the detector responds normally.",
+        "completion_cues": [
+          "The detector produces the expected test response."
+        ],
+        "incompletion_cues": [
+          "No test response is observed or the detector signals a fault."
+        ]
+      }
+    ],
+    "sampled_chunk_states": [
+      {
+        "sample_id": "U1-Handyman-S01-1_second",
+        "chunk_index": 1,
+        "observed_through_sec": 10.0,
+        "current_step_id": "s2",
+        "progress": "ongoing",
+        "completion_evidence": [
+          "A screwdriver is being used to loosen the detector while it is held against the ceiling mount."
+        ],
+        "incompletion_or_error_evidence": [
+          "The detector is still attached and the battery compartment is not accessible."
+        ],
+        "next_step_id": "s3",
+        "recovery_action": "Finish releasing the detector from the mounting base before opening it.",
+        "confidence": 0.96
+      },
+      {
+        "sample_id": "U1-Handyman-S01-2-4",
+        "chunk_index": 2,
+        "observed_through_sec": 18.0,
+        "current_step_id": "s2",
+        "progress": "ongoing",
+        "completion_evidence": [
+          "The detector has been loosened further with the screwdriver."
+        ],
+        "incompletion_or_error_evidence": [
+          "It remains at the ceiling and has not yet been opened."
+        ],
+        "next_step_id": "s3",
+        "recovery_action": "Continue detaching the detector without forcing the housing.",
+        "confidence": 0.94
+      },
+      {
+        "sample_id": "U1-Handyman-S01-5-9",
+        "chunk_index": 7,
+        "observed_through_sec": 66.8,
+        "current_step_id": "s4",
+        "progress": "ongoing",
+        "completion_evidence": [
+          "The detector is off the ceiling, its compartment is open, and a new black battery is aligned at the connector."
+        ],
+        "incompletion_or_error_evidence": [
+          "The new battery is not yet visibly seated and the compartment remains open."
+        ],
+        "next_step_id": "s5",
+        "recovery_action": "Seat the battery fully, then close the compartment.",
+        "confidence": 0.9
+      },
+      {
+        "sample_id": "U1-Handyman-S01-10plus",
+        "chunk_index": 10,
+        "observed_through_sec": 115.9,
+        "current_step_id": "s5",
+        "progress": "ongoing",
+        "completion_evidence": [
+          "The battery compartment is closed and the detector is being pressed and rotated against the ceiling base."
+        ],
+        "incompletion_or_error_evidence": [
+          "The detector is not yet clearly locked onto the base and a successful final test is not visible."
+        ],
+        "next_step_id": "s6",
+        "recovery_action": "Finish locking the detector onto the base, then verify it with the test button.",
+        "confidence": 0.9
+      }
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "complete",
+    "input_index": 597,
+    "video_path": "dc4225d35bb8705e.mp4",
+    "query": "How do I fold underwear for drawer storage?",
+    "task": "How to fold underwear for drawer storage",
+    "domain": "Tutorial",
+    "is_smoke_session": true,
+    "provenance": {
+      "plan_inputs": [
+        "task",
+        "query"
+      ],
+      "chunk_inputs": [
+        "task",
+        "query",
+        "dialog_at_chunk",
+        "video_through_interval_end"
+      ],
+      "excluded_inputs": [
+        "answers",
+        "future_dialog",
+        "future_video"
+      ],
+      "annotation_type": "engineering_smoke_nonblind_diagnostic_only",
+      "blindness_status": "not_formally_blind",
+      "blindness_limitation": "The annotator had previously inspected U1 smoke generation outputs.",
+      "scientific_use": "Schema and runner engineering only; excluded from state-effect conclusions."
+    },
+    "goal": "Fold underwear into compact shapes and arrange it in a drawer.",
+    "steps": [
+      {
+        "id": "s1",
+        "text": "Select one clean pair, lay it flat, and smooth the fabric.",
+        "completion_cues": [
+          "One pair lies flat with the waistband and fabric smoothed."
+        ],
+        "incompletion_cues": [
+          "The pair is bunched, twisted, or not on the folding surface."
+        ]
+      },
+      {
+        "id": "s2",
+        "text": "Fold the side and leg sections inward to make a narrow shape.",
+        "completion_cues": [
+          "The sides and legs are aligned inward in a narrow rectangle."
+        ],
+        "incompletion_cues": [
+          "The sides remain spread or the edges are misaligned."
+        ]
+      },
+      {
+        "id": "s3",
+        "text": "Fold the lower section and waistband into a compact rectangle.",
+        "completion_cues": [
+          "The pair forms a compact rectangle that holds its shape."
+        ],
+        "incompletion_cues": [
+          "Loose fabric remains or the rectangle unfolds immediately."
+        ]
+      },
+      {
+        "id": "s4",
+        "text": "Repeat the folding process for the remaining pairs.",
+        "completion_cues": [
+          "Each selected pair has been folded into a compact shape."
+        ],
+        "incompletion_cues": [
+          "An unfolded pair remains on the work surface."
+        ]
+      },
+      {
+        "id": "s5",
+        "text": "Place the folded pairs upright or neatly aligned in the drawer.",
+        "completion_cues": [
+          "The folded pairs are arranged neatly in the drawer and the drawer can close."
+        ],
+        "incompletion_cues": [
+          "Folded pairs remain outside or are disordered in the drawer."
+        ]
+      }
+    ],
+    "sampled_chunk_states": [
+      {
+        "sample_id": "U1-Tutorial-S01-1_second",
+        "chunk_index": 1,
+        "observed_through_sec": 10.0,
+        "current_step_id": "s1",
+        "progress": "ongoing",
+        "completion_evidence": [
+          "A black pair has been selected and moved toward the bed."
+        ],
+        "incompletion_or_error_evidence": [
+          "The pair is still being held and is not yet laid flat or smoothed."
+        ],
+        "next_step_id": "s2",
+        "recovery_action": "Lay the pair flat on the bed and smooth the waistband and legs.",
+        "confidence": 0.94
+      },
+      {
+        "sample_id": "U1-Tutorial-S01-2-4",
+        "chunk_index": 2,
+        "observed_through_sec": 17.9,
+        "current_step_id": "s1",
+        "progress": "complete",
+        "completion_evidence": [
+          "The underwear is laid flat on the bed with the waistband and fabric spread out."
+        ],
+        "incompletion_or_error_evidence": [
+          "The sides and legs have not yet been folded inward."
+        ],
+        "next_step_id": "s2",
+        "recovery_action": "Fold the side and leg sections inward while keeping the edges aligned.",
+        "confidence": 0.95
+      },
+      {
+        "sample_id": "U1-Tutorial-S01-5-9",
+        "chunk_index": 7,
+        "observed_through_sec": 53.9,
+        "current_step_id": "s2",
+        "progress": "not_started",
+        "completion_evidence": [
+          "The selected pair is flat and smoothed on the bed."
+        ],
+        "incompletion_or_error_evidence": [
+          "Its side and leg sections remain spread rather than folded inward."
+        ],
+        "next_step_id": "s3",
+        "recovery_action": "Fold both sides inward first, then form the compact rectangle.",
+        "confidence": 0.9
+      },
+      {
+        "sample_id": "U1-Tutorial-S01-10plus",
+        "chunk_index": 18,
+        "observed_through_sec": 129.2,
+        "current_step_id": "s5",
+        "progress": "complete",
+        "completion_evidence": [
+          "Two compact folded pairs have been placed in the drawer, aligned, and the drawer is being closed."
+        ],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": null,
+        "recovery_action": "none",
+        "confidence": 0.96
+      }
+    ]
+  }
+]

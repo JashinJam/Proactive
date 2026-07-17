@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "experiment_id": "20260715_internvl35_1b_d1_threshold_robustness_v1",
+  "hypothesis": "The single median calibration threshold serialized in the deployable D1 refit transfers across the five frozen OOF linear models without a material Macro F1 loss relative to fold-specific calibration.",
+  "model": {
+    "repo_id": "OpenGVLab/InternVL3_5-1B-HF",
+    "revision": "9191dbccf312b537016f041b25d61c72e7c5c9f3",
+    "license": "Apache-2.0",
+    "total_parameters": 1060897792,
+    "weights_sha256": "11effd1da2fc0929957d56de4129d1e7d2aed044ea878d40bf83e95b63d38b39"
+  },
+  "data": {
+    "input": "data/egoproactive/wearable_ai_2026_egoproactive_val_700.jsonl",
+    "license": "CC-BY-NC-4.0",
+    "input_sha256": "feef69ddee605e7070ad0f133636c35739c6964514a46d76da294b6bf1964740"
+  },
+  "starter_kit": {
+    "path": "data/starter_kit",
+    "model_py_sha256": "3cecb5ab2201b6b4be6aabbdebeeeb5322437e2d8c49d065018230dc9804edbe",
+    "proactive_py_sha256": "7c8adfe9fa2db5af4aace1cd260ec22132b18d82ef747f8a566eb8095e8fbc34",
+    "scorer_py_sha256": "072301da6c65b3e30c7581920d178c6d5136305f2db26914df4785f47d809ee1"
+  },
+  "r0_reference": {
+    "experiment_dir": "output/experiments/20260713_internvl35_1b_no_plan_r0",
+    "session_records_sha256": "00ce567c1d703a857cd73161f45212e919aa45ad4875257d34536d90fb829d76"
+  },
+  "scalar_oof_reference": {
+    "experiment_dir": "output/experiments/20260714_internvl35_1b_causal_scalar_decision_head_d1_oof_v2",
+    "split_manifest_sha256": "bd537e9e155586cf3af9f26052fda277fa3e1930e378538346cc197432ff86c0",
+    "predictions_sha256": "fc34808d65abf452600bb22b3cd4b3d43ac4e7dceb345542573d10e3248de5ee",
+    "feature_variant": "response_temporal",
+    "macro_f1": 0.6119
+  },
+  "neural_cache": {
+    "path": "output/features/20260714_internvl35_1b_d1_neural_feature_cache_v1",
+    "features_sha256": "cc5a5b3c6184987edc5f041eb2cb01a51ccfd88d6328d8308fcce3a4bd9122bf",
+    "hidden_size": 1024,
+    "labels_read_or_stored": false
+  },
+  "neural_oof_reference": {
+    "experiment_dir": "output/experiments/20260714_internvl35_1b_neural_decision_head_d1_oof_v1",
+    "variant": "fused_linear",
+    "diagnostics_sha256": "726071fe259be68e7a66a36b9a759839abe0ffbba1d95a3b262c39bc53d987ee",
+    "oof_records_sha256": "605b18921a0bb4b6739cd2e7547735aafc80618585ea0fa8f963fd4e7a090a85",
+    "predictions_sha256": "04183a4083d160662d5f91bff5432a7ca96595dd66b2b0b64f3b430799143ad9",
+    "metrics_sha256": "371ef8b347a683d27b45bf0eb90e46138dd22afe35724deabb9418fc69439e01",
+    "macro_f1": 0.6341
+  },
+  "final_head_reference": {
+    "experiment_dir": "output/experiments/20260715_internvl35_1b_neural_decision_head_d1_final_v1",
+    "decision_head_sha256": "b8377d0abf7975f0fcb82dca8f374f34d8cecbb8f45477342f07df609f7312d2"
+  },
+  "features": {
+    "variant": "fused_linear",
+    "scalar_variant": "response_temporal",
+    "max_history_turns": 4,
+    "max_model_frames": 32
+  },
+  "split": {
+    "folds": 5,
+    "calibration_fold_offset": 1,
+    "source": "frozen_scalar_oof_split_manifest"
+  },
+  "training_reproduction": {
+    "seed": 20260714,
+    "max_iterations": 120,
+    "l2_weights": [0.00001, 0.0001, 0.001, 0.01],
+    "l2_reduction": "sum",
+    "selection": "calibration_fold_macro_f1"
+  },
+  "audit": {
+    "threshold_offsets": [-0.2, -0.1, -0.05, 0.0, 0.05, 0.1, 0.2],
+    "bootstrap_repetitions": 5000,
+    "bootstrap_seed": 20260715,
+    "gate": {
+      "max_overall_macro_f1_drop": 0.005,
+      "max_worst_fold_macro_f1_drop": 0.02,
+      "max_local_offset_macro_f1_drop": 0.005,
+      "local_offset_radius": 0.05,
+      "min_bootstrap_delta_p2_5": -0.01,
+      "min_class_f1": 0.6
+    },
+    "protocol_disclosure": "The fold-specific thresholds were already visible in the completed D1 diagnostics. Gate tolerances and the unified-threshold comparison were specified before running this audit; this is a deployment robustness diagnostic, not a new held-out model-selection result."
+  },
+  "validation_policy": {
+    "neural_cache_generation_reads_labels": false,
+    "fold_models_and_thresholds_are_reproduced_from_public_validation_labels": true,
+    "test_fold_labels_are_used_only_for_post_prediction_audit_metrics": true,
+    "unified_threshold_is_frozen_in_the_existing_final_head": true,
+    "classification": "session-level OOF deployment-threshold robustness audit on public validation; not hidden-test evidence"
+  }
+}

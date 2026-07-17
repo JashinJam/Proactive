@@ -1,0 +1,167 @@
+[
+  {
+    "schema_version": 1,
+    "status": "complete",
+    "input_index": 687,
+    "video_path": "fcd7ac944675ba99.mp4",
+    "query_sha256": "998a3d93d2b44e8a3f6a0191ee308efe58691367a82334ff7a173ff0f443680d",
+    "provenance": {
+      "plan_inputs": ["task", "query"],
+      "chunk_inputs": ["task", "query", "dialog_at_chunk", "video_through_interval_end"],
+      "excluded_inputs": ["answers", "future_dialog", "future_video"],
+      "annotation_type": "evaluation_only_oracle_non_deployable"
+    },
+    "goal": "How do I create a simple finger painting?",
+    "steps": [
+      {
+        "id": "s1",
+        "text": "Prepare a protected workspace and a usable paint palette.",
+        "completion_cues": ["The table is covered and paper, paints, and a stable palette are arranged."],
+        "incompletion_cues": ["The table is uncovered, materials are missing, or the palette will not hold paint." ]
+      },
+      {
+        "id": "s2",
+        "text": "Dispense the chosen paint colors onto the palette.",
+        "completion_cues": ["Separate usable blobs of the chosen colors are visible on the palette."],
+        "incompletion_cues": ["The palette is empty or a selected color has not been dispensed." ]
+      },
+      {
+        "id": "s3",
+        "text": "Use fingertips to make the first paint marks on the paper.",
+        "completion_cues": ["At least one deliberate fingertip mark is visible on the paper."],
+        "incompletion_cues": ["The paper remains blank or paint has not reached a fingertip." ]
+      },
+      {
+        "id": "s4",
+        "text": "Add more colors and marks to build the picture.",
+        "completion_cues": ["Multiple intentional marks or colors form a simple composition."],
+        "incompletion_cues": ["Only an isolated test mark is present or the composition is unfinished." ]
+      },
+      {
+        "id": "s5",
+        "text": "Finish the picture, let it dry, and clean the workspace and hands.",
+        "completion_cues": ["Painting has stopped, the work is set aside to dry, and paint cleanup is underway."],
+        "incompletion_cues": ["Wet materials remain in active use or paint is left on hands and the workspace." ]
+      }
+    ],
+    "chunk_states": [
+      {"chunk_index": 0, "observed_through_sec": 2.0, "current_step_id": "s1", "progress": "ongoing", "completion_evidence": ["Paint bottles and paper plates are present on the table."], "incompletion_or_error_evidence": ["The table is not yet covered and a palette has not been selected."], "next_step_id": "s2", "confidence": 0.90, "last_update_chunk": 0},
+      {"chunk_index": 1, "observed_through_sec": 3.9, "current_step_id": "s1", "progress": "ongoing", "completion_evidence": ["Newspaper is spread across the work surface."], "incompletion_or_error_evidence": ["A usable paint palette has not yet been selected."], "next_step_id": "s2", "confidence": 0.95, "last_update_chunk": 1},
+      {"chunk_index": 2, "observed_through_sec": 9.2, "current_step_id": "s1", "progress": "ongoing", "completion_evidence": ["A small clear lid has been selected as a possible palette."], "incompletion_or_error_evidence": ["The selected lid appears glossy and may not hold paint reliably."], "next_step_id": "s2", "confidence": 0.80, "last_update_chunk": 2},
+      {"chunk_index": 3, "observed_through_sec": 12.3, "current_step_id": "s1", "progress": "recovered", "completion_evidence": ["A matte paper plate is selected in place of the glossy lid."], "incompletion_or_error_evidence": [], "next_step_id": "s2", "confidence": 0.92, "last_update_chunk": 3},
+      {"chunk_index": 4, "observed_through_sec": 15.4, "current_step_id": "s2", "progress": "ongoing", "completion_evidence": ["The palette is ready and the green paint bottle is selected."], "incompletion_or_error_evidence": ["No paint is yet clearly visible on the palette."], "next_step_id": "s3", "confidence": 0.85, "last_update_chunk": 4},
+      {"chunk_index": 5, "observed_through_sec": 21.0, "current_step_id": "s2", "progress": "ongoing", "completion_evidence": ["A small amount of green paint appears on the palette."], "incompletion_or_error_evidence": ["The remaining chosen colors have not been dispensed."], "next_step_id": "s3", "confidence": 0.72, "last_update_chunk": 5},
+      {"chunk_index": 6, "observed_through_sec": 26.7, "current_step_id": "s2", "progress": "ongoing", "completion_evidence": ["Green paint is prepared and the pink bottle is being opened."], "incompletion_or_error_evidence": ["Pink and the other colors have not all reached the palette."], "next_step_id": "s3", "confidence": 0.88, "last_update_chunk": 6},
+      {"chunk_index": 7, "observed_through_sec": 32.3, "current_step_id": "s2", "progress": "ongoing", "completion_evidence": ["Green and pink paint blobs are visible on the palette."], "incompletion_or_error_evidence": ["Blue and red paint have not yet been dispensed."], "next_step_id": "s3", "confidence": 0.95, "last_update_chunk": 7},
+      {"chunk_index": 8, "observed_through_sec": 34.2, "current_step_id": "s2", "progress": "ongoing", "completion_evidence": ["Green and pink colors are prepared and the blue bottle is being reached for."], "incompletion_or_error_evidence": ["Blue and red are not yet visible on the palette."], "next_step_id": "s3", "confidence": 0.92, "last_update_chunk": 8},
+      {"chunk_index": 9, "observed_through_sec": 41.4, "current_step_id": "s2", "progress": "ongoing", "completion_evidence": ["Blue paint is being dispensed beside the green and pink paint."], "incompletion_or_error_evidence": ["Red paint has not yet been added."], "next_step_id": "s3", "confidence": 0.95, "last_update_chunk": 9},
+      {"chunk_index": 10, "observed_through_sec": 49.4, "current_step_id": "s2", "progress": "ongoing", "completion_evidence": ["Green, pink, and blue blobs are visible while red paint is being handled."], "incompletion_or_error_evidence": ["A finished red paint blob is not yet consistently visible."], "next_step_id": "s3", "confidence": 0.80, "last_update_chunk": 10},
+      {"chunk_index": 11, "observed_through_sec": 56.9, "current_step_id": "s2", "progress": "ongoing", "completion_evidence": ["Three colored paint blobs remain clearly visible on the palette."], "incompletion_or_error_evidence": ["The red color is still not clearly present on the palette."], "next_step_id": "s3", "confidence": 0.88, "last_update_chunk": 11},
+      {"chunk_index": 12, "observed_through_sec": 61.6, "current_step_id": "s2", "progress": "ongoing", "completion_evidence": ["Green, pink, and blue paint are ready and the red bottle is being opened."], "incompletion_or_error_evidence": ["Red paint has not yet been visibly dispensed."], "next_step_id": "s3", "confidence": 0.92, "last_update_chunk": 12},
+      {"chunk_index": 13, "observed_through_sec": 69.6, "current_step_id": "s2", "progress": "complete", "completion_evidence": ["Red paint is dispensed and all four chosen colors are present on the palette."], "incompletion_or_error_evidence": [], "next_step_id": "s3", "confidence": 0.95, "last_update_chunk": 13}
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "complete",
+    "input_index": 14,
+    "video_path": "04cac7c05a572dbb.mp4",
+    "query_sha256": "7b8ef16363c0a94f0d92eefc2ff403e4981b1832f0dad731cadc69931217712f",
+    "provenance": {
+      "plan_inputs": ["task", "query"],
+      "chunk_inputs": ["task", "query", "dialog_at_chunk", "video_through_interval_end"],
+      "excluded_inputs": ["answers", "future_dialog", "future_video"],
+      "annotation_type": "evaluation_only_oracle_non_deployable"
+    },
+    "goal": "How do I make peanut butter oat balls?",
+    "steps": [
+      {"id": "s1", "text": "Gather a mixing bowl, measuring tools, oats, peanut butter, a sweetener, and any mix-ins.", "completion_cues": ["The bowl, tools, and required ingredients are within reach."], "incompletion_cues": ["A bowl, measuring tool, or required ingredient is missing."]},
+      {"id": "s2", "text": "Measure and add the oats, peanut butter, sweetener, and mix-ins to the bowl.", "completion_cues": ["All measured ingredients are together in the mixing bowl."], "incompletion_cues": ["One or more ingredients remain outside the bowl or unmeasured."]},
+      {"id": "s3", "text": "Mix until the ingredients form an even, cohesive mixture.", "completion_cues": ["The mixture is evenly combined and holds together when pressed."], "incompletion_cues": ["Dry oats remain separate, large streaks remain, or the mixture crumbles apart."]},
+      {"id": "s4", "text": "Portion the mixture and roll each portion into a ball.", "completion_cues": ["Rounded portions hold their shape after rolling."], "incompletion_cues": ["Portions remain loose, irregular, or fall apart in the hands."]},
+      {"id": "s5", "text": "Arrange the finished oat balls and chill or serve them.", "completion_cues": ["Finished balls are arranged on a plate or in a storage container."], "incompletion_cues": ["Unshaped mixture remains or finished balls have not been collected."]}
+    ],
+    "chunk_states": [
+      {"chunk_index": 0, "observed_through_sec": 2.0, "current_step_id": "s1", "progress": "ongoing", "completion_evidence": ["Open oats, peanut butter, and measuring items are visible."], "incompletion_or_error_evidence": ["A mixing bowl and all remaining ingredients are not yet clearly arranged."], "next_step_id": "s2", "confidence": 0.88, "last_update_chunk": 0},
+      {"chunk_index": 1, "observed_through_sec": 12.5, "current_step_id": "s2", "progress": "ongoing", "completion_evidence": ["Rolled oats are being measured and poured into a container."], "incompletion_or_error_evidence": ["Peanut butter, sweetener, and mix-ins have not been added."], "next_step_id": "s3", "confidence": 0.92, "last_update_chunk": 1},
+      {"chunk_index": 2, "observed_through_sec": 24.0, "current_step_id": "s2", "progress": "ongoing", "completion_evidence": ["Peanut butter is being scooped for measurement."], "incompletion_or_error_evidence": ["The peanut butter and remaining ingredients are not all in the bowl."], "next_step_id": "s3", "confidence": 0.95, "last_update_chunk": 2},
+      {"chunk_index": 3, "observed_through_sec": 32.0, "current_step_id": "s2", "progress": "ongoing", "completion_evidence": ["Measured peanut butter is transferred into the bowl with the oats."], "incompletion_or_error_evidence": ["Sweetener and chocolate chips are not yet visible in the bowl."], "next_step_id": "s3", "confidence": 0.95, "last_update_chunk": 3},
+      {"chunk_index": 4, "observed_through_sec": 37.6, "current_step_id": "s2", "progress": "ongoing", "completion_evidence": ["The bowl visibly contains oats and peanut butter."], "incompletion_or_error_evidence": ["Sweetener and chocolate chips still have not been added."], "next_step_id": "s3", "confidence": 0.92, "last_update_chunk": 4},
+      {"chunk_index": 5, "observed_through_sec": 45.6, "current_step_id": "s2", "progress": "ongoing", "completion_evidence": ["The honey bottle is selected beside the bowl."], "incompletion_or_error_evidence": ["Honey and chocolate chips are not yet visibly in the bowl."], "next_step_id": "s3", "confidence": 0.90, "last_update_chunk": 5},
+      {"chunk_index": 6, "observed_through_sec": 51.4, "current_step_id": "s2", "progress": "ongoing", "completion_evidence": ["Honey is being squeezed toward the mixing bowl."], "incompletion_or_error_evidence": ["Chocolate chips are not yet visibly added."], "next_step_id": "s3", "confidence": 0.93, "last_update_chunk": 6},
+      {"chunk_index": 7, "observed_through_sec": 59.4, "current_step_id": "s2", "progress": "ongoing", "completion_evidence": ["Honey has been set down and the chocolate-chip package is open."], "incompletion_or_error_evidence": ["Chocolate chips are not yet clearly visible in the bowl."], "next_step_id": "s3", "confidence": 0.85, "last_update_chunk": 7},
+      {"chunk_index": 8, "observed_through_sec": 67.4, "current_step_id": "s3", "progress": "not_started", "completion_evidence": ["The ingredient bowl is held ready for mixing."], "incompletion_or_error_evidence": ["No clear mixing motion or cohesive mixture is visible yet."], "next_step_id": "s4", "confidence": 0.72, "last_update_chunk": 8},
+      {"chunk_index": 9, "observed_through_sec": 75.4, "current_step_id": "s3", "progress": "ongoing", "completion_evidence": ["A hand is combining the ingredients in the bowl."], "incompletion_or_error_evidence": ["Loose oats remain visibly separate."], "next_step_id": "s4", "confidence": 0.90, "last_update_chunk": 9},
+      {"chunk_index": 10, "observed_through_sec": 89.3, "current_step_id": "s3", "progress": "ongoing", "completion_evidence": ["The mixture is being stirred and small clumps are forming."], "incompletion_or_error_evidence": ["The mixture is not yet uniformly cohesive."], "next_step_id": "s4", "confidence": 0.90, "last_update_chunk": 10},
+      {"chunk_index": 11, "observed_through_sec": 97.3, "current_step_id": "s4", "progress": "ongoing", "completion_evidence": ["A portion is being rolled between the palms."], "incompletion_or_error_evidence": ["No finished batch of balls is visible."], "next_step_id": "s5", "confidence": 0.86, "last_update_chunk": 11},
+      {"chunk_index": 12, "observed_through_sec": 129.3, "current_step_id": "s4", "progress": "ongoing", "completion_evidence": ["The hands continue the rolling motion for a portion."], "incompletion_or_error_evidence": ["A completed batch is still not visible."], "next_step_id": "s5", "confidence": 0.78, "last_update_chunk": 12},
+      {"chunk_index": 13, "observed_through_sec": 158.9, "current_step_id": "s4", "progress": "deviated", "completion_evidence": ["A portion of mixture is held in the hand for shaping."], "incompletion_or_error_evidence": ["The portion remains loose and crumbly instead of holding a ball shape."], "next_step_id": "s5", "confidence": 0.90, "last_update_chunk": 13}
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "complete",
+    "input_index": 326,
+    "video_path": "7938107eb358de46.mp4",
+    "query_sha256": "dbd2831551afa3a910cd8429c0ba840f940915bb7958e29c7f91b2eefba8893e",
+    "provenance": {
+      "plan_inputs": ["task", "query"],
+      "chunk_inputs": ["task", "query", "dialog_at_chunk", "video_through_interval_end"],
+      "excluded_inputs": ["answers", "future_dialog", "future_video"],
+      "annotation_type": "evaluation_only_oracle_non_deployable"
+    },
+    "goal": "How do I adjust loose recessed light trim?",
+    "steps": [
+      {"id": "s1", "text": "Set up stable access, switch the light off, and inspect the loose edge.", "completion_cues": ["Stable access is in place, the light is unlit, and the loose part of the trim is identified."], "incompletion_cues": ["Access is unstable, power remains on, or the loose edge has not been located."]},
+      {"id": "s2", "text": "Press evenly around the trim to reseat it.", "completion_cues": ["The trim ring sits evenly against the ceiling after pressure is released."], "incompletion_cues": ["A visible gap remains or the trim springs back away from the ceiling."]},
+      {"id": "s3", "text": "If pressing is insufficient, lower the trim slightly and adjust its spring clips.", "completion_cues": ["The clips are engaged evenly and pull the trim toward the ceiling."], "incompletion_cues": ["A clip is detached, bent incorrectly, or fails to hold the trim."]},
+      {"id": "s4", "text": "Check that the trim is flush and secure, then restore power.", "completion_cues": ["The trim remains flush under a gentle check and the light operates normally."], "incompletion_cues": ["The trim moves, a gap remains, or the light does not operate normally."]}
+    ],
+    "chunk_states": [
+      {"chunk_index": 0, "observed_through_sec": 2.0, "current_step_id": "s1", "progress": "not_started", "completion_evidence": ["The nearby wall switch is visible."], "incompletion_or_error_evidence": ["Power-off status and stable access are not confirmed."], "next_step_id": "s2", "confidence": 0.78, "last_update_chunk": 0},
+      {"chunk_index": 1, "observed_through_sec": 6.4, "current_step_id": "s1", "progress": "ongoing", "completion_evidence": ["The user is moving away to obtain access equipment."], "incompletion_or_error_evidence": ["No stool is positioned and the light has not been inspected."], "next_step_id": "s2", "confidence": 0.82, "last_update_chunk": 1},
+      {"chunk_index": 2, "observed_through_sec": 14.4, "current_step_id": "s1", "progress": "ongoing", "completion_evidence": ["A support device is being carried toward the work area."], "incompletion_or_error_evidence": ["Stable placement and power-off status remain unconfirmed."], "next_step_id": "s2", "confidence": 0.72, "last_update_chunk": 2},
+      {"chunk_index": 3, "observed_through_sec": 27.3, "current_step_id": "s1", "progress": "deviated", "completion_evidence": ["A hand probes around the recessed trim to locate looseness."], "incompletion_or_error_evidence": ["The recessed light appears illuminated during the inspection."], "next_step_id": "s2", "confidence": 0.90, "last_update_chunk": 3},
+      {"chunk_index": 4, "observed_through_sec": 35.3, "current_step_id": "s1", "progress": "recovered", "completion_evidence": ["The light is now unlit and both hands inspect the trim perimeter."], "incompletion_or_error_evidence": [], "next_step_id": "s2", "confidence": 0.92, "last_update_chunk": 4},
+      {"chunk_index": 5, "observed_through_sec": 39.7, "current_step_id": "s2", "progress": "not_started", "completion_evidence": [], "incompletion_or_error_evidence": ["The user has moved away and no reseating action is visible."], "next_step_id": "s3", "confidence": 0.88, "last_update_chunk": 5},
+      {"chunk_index": 6, "observed_through_sec": 47.7, "current_step_id": "s2", "progress": "not_started", "completion_evidence": ["The step stool is visible back in the work area."], "incompletion_or_error_evidence": ["The trim is not yet being pressed or reseated."], "next_step_id": "s3", "confidence": 0.90, "last_update_chunk": 6},
+      {"chunk_index": 7, "observed_through_sec": 55.7, "current_step_id": "s2", "progress": "ongoing", "completion_evidence": ["Both hands press around several edges of the trim."], "incompletion_or_error_evidence": ["A hands-off check has not yet confirmed that the trim stays flush."], "next_step_id": "s3", "confidence": 0.94, "last_update_chunk": 7},
+      {"chunk_index": 8, "observed_through_sec": 63.7, "current_step_id": "s2", "progress": "ongoing", "completion_evidence": ["Pressure continues around the full perimeter and the ring looks more even."], "incompletion_or_error_evidence": ["Final stability after releasing pressure is not yet shown."], "next_step_id": "s3", "confidence": 0.92, "last_update_chunk": 8},
+      {"chunk_index": 9, "observed_through_sec": 73.1, "current_step_id": "s2", "progress": "complete", "completion_evidence": ["The perimeter is pressed once more, appears evenly seated, and the user steps down."], "incompletion_or_error_evidence": [], "next_step_id": "s4", "confidence": 0.90, "last_update_chunk": 9},
+      {"chunk_index": 10, "observed_through_sec": 78.4, "current_step_id": "s4", "progress": "complete", "completion_evidence": ["The trim looks flush from a distance and the recessed light is illuminated normally."], "incompletion_or_error_evidence": [], "next_step_id": null, "confidence": 0.92, "last_update_chunk": 10},
+      {"chunk_index": 11, "observed_through_sec": 86.4, "current_step_id": "s4", "progress": "complete", "completion_evidence": ["The illuminated trim remains seated while receiving a final gentle touch."], "incompletion_or_error_evidence": [], "next_step_id": null, "confidence": 0.94, "last_update_chunk": 11}
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "complete",
+    "input_index": 123,
+    "video_path": "30550355d5d91039.mp4",
+    "query_sha256": "50ab78aed65f6b6a5156691611cba02345b23f8897f920d837dd9633726fcca5",
+    "provenance": {
+      "plan_inputs": ["task", "query"],
+      "chunk_inputs": ["task", "query", "dialog_at_chunk", "video_through_interval_end"],
+      "excluded_inputs": ["answers", "future_dialog", "future_video"],
+      "annotation_type": "evaluation_only_oracle_non_deployable"
+    },
+    "goal": "How do I loosen a tight screw?",
+    "steps": [
+      {"id": "s1", "text": "Choose the correct screwdriver or bit and seat it fully in the screw head.", "completion_cues": ["The driver fits the head without obvious slipping or tilt."], "incompletion_cues": ["No driver is engaged, the size is wrong, or the tip slips in the head."]},
+      {"id": "s2", "text": "Apply firm downward pressure and turn the screw counterclockwise.", "completion_cues": ["The screw rotates and begins to rise out of its hole."], "incompletion_cues": ["The head does not rotate, the tool cams out, or the screw remains fully seated."]},
+      {"id": "s3", "text": "If the screw stays stuck, clear debris, apply lubricant or extra grip, and retry.", "completion_cues": ["The obstruction is cleared or a remedy is applied before another turning attempt."], "incompletion_cues": ["The screw remains stuck and no effective remedy has been applied."]},
+      {"id": "s4", "text": "Back the loosened screw out completely and remove it.", "completion_cues": ["The screw is out of the hole and can be held separately."], "incompletion_cues": ["Any part of the threaded screw remains engaged in the hole."]}
+    ],
+    "chunk_states": [
+      {"chunk_index": 0, "observed_through_sec": 2.0, "current_step_id": "s1", "progress": "not_started", "completion_evidence": ["The target screw head is visible on the lock plate."], "incompletion_or_error_evidence": ["No screwdriver is engaged with the screw."], "next_step_id": "s2", "confidence": 0.96, "last_update_chunk": 0},
+      {"chunk_index": 1, "observed_through_sec": 7.0, "current_step_id": "s2", "progress": "ongoing", "completion_evidence": ["A screwdriver is seated and a turning attempt is underway."], "incompletion_or_error_evidence": ["No clear outward movement of the screw is visible."], "next_step_id": "s3", "confidence": 0.90, "last_update_chunk": 1},
+      {"chunk_index": 2, "observed_through_sec": 10.4, "current_step_id": "s3", "progress": "ongoing", "completion_evidence": ["A cloth is used to clear the area around the screw."], "incompletion_or_error_evidence": ["The screw remains fully seated."], "next_step_id": "s2", "confidence": 0.94, "last_update_chunk": 2},
+      {"chunk_index": 3, "observed_through_sec": 18.4, "current_step_id": "s3", "progress": "ongoing", "completion_evidence": ["Cleaning continues directly over the screw head."], "incompletion_or_error_evidence": ["The screw remains seated and no new turning attempt is visible."], "next_step_id": "s2", "confidence": 0.95, "last_update_chunk": 3},
+      {"chunk_index": 4, "observed_through_sec": 26.4, "current_step_id": "s3", "progress": "ongoing", "completion_evidence": ["Lubricant is sprayed onto the screw through a narrow applicator straw."], "incompletion_or_error_evidence": ["The screw still needs another turning attempt."], "next_step_id": "s2", "confidence": 0.98, "last_update_chunk": 4},
+      {"chunk_index": 5, "observed_through_sec": 42.4, "current_step_id": "s2", "progress": "recovered", "completion_evidence": ["The tool is reapplied after lubrication for another loosening attempt."], "incompletion_or_error_evidence": ["Complete removal is not visible."], "next_step_id": "s4", "confidence": 0.82, "last_update_chunk": 5},
+      {"chunk_index": 6, "observed_through_sec": 50.4, "current_step_id": "s2", "progress": "ongoing", "completion_evidence": ["The treated screw head remains accessible for another attempt."], "incompletion_or_error_evidence": ["The screw still appears seated and no removal is visible."], "next_step_id": "s4", "confidence": 0.78, "last_update_chunk": 6},
+      {"chunk_index": 7, "observed_through_sec": 59.4, "current_step_id": "s2", "progress": "ongoing", "completion_evidence": ["The user returns a hand toward the treated screw area."], "incompletion_or_error_evidence": ["The screw still appears present in the lock plate."], "next_step_id": "s4", "confidence": 0.76, "last_update_chunk": 7},
+      {"chunk_index": 8, "observed_through_sec": 67.7, "current_step_id": "s3", "progress": "ongoing", "completion_evidence": ["A screwdriver is used to tap and work the stuck screw head."], "incompletion_or_error_evidence": ["The screw remains seated after the tapping action."], "next_step_id": "s2", "confidence": 0.92, "last_update_chunk": 8},
+      {"chunk_index": 9, "observed_through_sec": 75.7, "current_step_id": "s2", "progress": "recovered", "completion_evidence": ["A steady counterclockwise turning and wiggling attempt is in progress."], "incompletion_or_error_evidence": ["The screw is not visibly removed by the interval end."], "next_step_id": "s4", "confidence": 0.88, "last_update_chunk": 9}
+    ]
+  }
+]

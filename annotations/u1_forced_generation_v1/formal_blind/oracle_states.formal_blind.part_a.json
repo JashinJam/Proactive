@@ -1,0 +1,932 @@
+[
+  {
+    "schema_version": 1,
+    "status": "complete",
+    "input_index": 19,
+    "video_path": "0529003148c61a83.mp4",
+    "query": "How do I create a quick spray paint resist with a stencil?",
+    "task": "Creating a quick spray paint resist (with stencil)",
+    "domain": "Arts and Crafts",
+    "is_smoke_session": false,
+    "provenance": {
+      "plan_inputs": ["task", "query"],
+      "chunk_inputs": ["task", "query", "dialog_at_chunk", "video_through_interval_end"],
+      "excluded_inputs": ["answers", "future_dialog", "future_video", "model_outputs", "R0/D1 errors"],
+      "annotation_type": "formal_blind_evaluation_only_oracle_non_deployable"
+    },
+    "goal": "Create a clean spray-painted stencil resist on paper.",
+    "steps": [
+      {
+        "id": "s1",
+        "text": "Prepare a protected workspace and place the paper flat.",
+        "completion_cues": ["Protective backing is in place", "Paper lies flat on the work surface"],
+        "incompletion_cues": ["Work surface is unprotected", "Paper is not positioned flat"]
+      },
+      {
+        "id": "s2",
+        "text": "Position and secure the stencil on the paper.",
+        "completion_cues": ["Stencil is aligned on the paper", "Stencil edges are held flat"],
+        "incompletion_cues": ["Stencil is absent or misaligned", "Stencil edges can lift"]
+      },
+      {
+        "id": "s3",
+        "text": "Apply an even light coat of spray paint through the stencil.",
+        "completion_cues": ["Paint covers the stencil openings evenly"],
+        "incompletion_cues": ["Coverage is incomplete", "Heavy paint or drips are visible"]
+      },
+      {
+        "id": "s4",
+        "text": "Let the paint dry, remove the stencil, and inspect the resist.",
+        "completion_cues": ["Paint has dried", "Stencil is removed and the design is revealed"],
+        "incompletion_cues": ["Paint is still wet", "Stencil remains on the finished piece"]
+      }
+    ],
+    "sampled_chunk_states": [
+      {
+        "sample_id": "U1-Arts_and_Crafts-S02-1_second",
+        "chunk_index": 1,
+        "observed_through_sec": 9.6,
+        "current_step_id": "s1",
+        "progress": "complete",
+        "completion_evidence": ["Cardboard backing is spread under the work area.", "White paper is placed and smoothed flat."],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "s2",
+        "recovery_action": "Position the stencil on the paper.",
+        "confidence": 0.95
+      },
+      {
+        "sample_id": "U1-Arts_and_Crafts-S02-2-4",
+        "chunk_index": 3,
+        "observed_through_sec": 22.7,
+        "current_step_id": "s2",
+        "progress": "ongoing",
+        "completion_evidence": ["The floral stencil is aligned on the paper.", "Tape is being applied along the lower edge."],
+        "incompletion_or_error_evidence": ["Some stencil edges still need to be pressed and secured."],
+        "next_step_id": "s3",
+        "recovery_action": "Press the stencil flat and secure the remaining lifted edges.",
+        "confidence": 0.93
+      },
+      {
+        "sample_id": "U1-Arts_and_Crafts-S02-5-9",
+        "chunk_index": 5,
+        "observed_through_sec": 43.0,
+        "current_step_id": "s2",
+        "progress": "complete",
+        "completion_evidence": ["Additional tape is pressed around the stencil perimeter.", "The stencil lies flat and remains aligned."],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "s3",
+        "recovery_action": "Shake the spray can and apply a light even coat.",
+        "confidence": 0.96
+      },
+      {
+        "sample_id": "U1-Arts_and_Crafts-S02-10plus",
+        "chunk_index": 11,
+        "observed_through_sec": 97.0,
+        "current_step_id": "s4",
+        "progress": "ongoing",
+        "completion_evidence": ["An even black spray coat covers the stencil area."],
+        "incompletion_or_error_evidence": ["The stencil remains attached, so the final resist is not revealed."],
+        "next_step_id": null,
+        "recovery_action": "Let the paint dry fully, then remove the tape and lift the stencil.",
+        "confidence": 0.94
+      }
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "complete",
+    "input_index": 66,
+    "video_path": "17d55640c0ceccb8.mp4",
+    "query": "How do I create a button art picture by gluing buttons to paper in a shape?",
+    "task": "Creating a button art picture (gluing buttons to paper in a shape)",
+    "domain": "Arts and Crafts",
+    "is_smoke_session": false,
+    "provenance": {
+      "plan_inputs": ["task", "query"],
+      "chunk_inputs": ["task", "query", "dialog_at_chunk", "video_through_interval_end"],
+      "excluded_inputs": ["answers", "future_dialog", "future_video", "model_outputs", "R0/D1 errors"],
+      "annotation_type": "formal_blind_evaluation_only_oracle_non_deployable"
+    },
+    "goal": "Create a button picture by filling a paper shape with glued buttons.",
+    "steps": [
+      {
+        "id": "s1",
+        "text": "Prepare the work surface, paper, and a visible shape guide.",
+        "completion_cues": ["Paper is on a protected surface", "A shape guide is visible"],
+        "incompletion_cues": ["Paper or shape guide is not ready"]
+      },
+      {
+        "id": "s2",
+        "text": "Select and arrange buttons to fit the planned shape.",
+        "completion_cues": ["Buttons are selected and positioned for the design"],
+        "incompletion_cues": ["Buttons are unsorted or do not cover the intended shape"]
+      },
+      {
+        "id": "s3",
+        "text": "Glue the arranged buttons securely to the paper.",
+        "completion_cues": ["Buttons are attached across the intended shape"],
+        "incompletion_cues": ["Loose buttons or unfilled design areas remain"]
+      },
+      {
+        "id": "s4",
+        "text": "Let the glue set and inspect the completed picture.",
+        "completion_cues": ["Glue is set", "Finished button shape is intact"],
+        "incompletion_cues": ["Glue remains unset", "Buttons need repositioning"]
+      }
+    ],
+    "sampled_chunk_states": [
+      {
+        "sample_id": "U1-Arts_and_Crafts-S03-1_second",
+        "chunk_index": 1,
+        "observed_through_sec": 10.0,
+        "current_step_id": "s1",
+        "progress": "ongoing",
+        "completion_evidence": ["Notebook, paper, and craft materials are being cleared and positioned on the table."],
+        "incompletion_or_error_evidence": ["No protected work surface or visible shape guide is ready yet."],
+        "next_step_id": "s2",
+        "recovery_action": "Cover the table, position the paper, and create the shape guide.",
+        "confidence": 0.78
+      },
+      {
+        "sample_id": "U1-Arts_and_Crafts-S03-2-4",
+        "chunk_index": 2,
+        "observed_through_sec": 18.0,
+        "current_step_id": "s1",
+        "progress": "ongoing",
+        "completion_evidence": ["A large gray plastic sheet is spread across the table."],
+        "incompletion_or_error_evidence": ["The paper and shape guide are not yet positioned."],
+        "next_step_id": "s2",
+        "recovery_action": "Place the paper on the protected surface and draw the shape.",
+        "confidence": 0.94
+      },
+      {
+        "sample_id": "U1-Arts_and_Crafts-S03-5-9",
+        "chunk_index": 6,
+        "observed_through_sec": 62.6,
+        "current_step_id": "s1",
+        "progress": "complete",
+        "completion_evidence": ["The plastic cover protects the table.", "A heart outline with interior sections is drawn clearly on the paper."],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "s2",
+        "recovery_action": "Select buttons that fit the heart design.",
+        "confidence": 0.97
+      },
+      {
+        "sample_id": "U1-Arts_and_Crafts-S03-10plus",
+        "chunk_index": 15,
+        "observed_through_sec": 194.0,
+        "current_step_id": "s4",
+        "progress": "complete",
+        "completion_evidence": ["Buttons are hot-glued into a compact heart-shaped cluster.", "The finished piece is lifted and displayed without visible button movement."],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": null,
+        "recovery_action": "none",
+        "confidence": 0.91
+      }
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "complete",
+    "input_index": 580,
+    "video_path": "d6cb618bb700b7c0.mp4",
+    "query": "How do I sew on a button?",
+    "task": "Sewing on a button",
+    "domain": "Arts and Crafts",
+    "is_smoke_session": false,
+    "provenance": {
+      "plan_inputs": ["task", "query"],
+      "chunk_inputs": ["task", "query", "dialog_at_chunk", "video_through_interval_end"],
+      "excluded_inputs": ["answers", "future_dialog", "future_video", "model_outputs", "R0/D1 errors"],
+      "annotation_type": "formal_blind_evaluation_only_oracle_non_deployable"
+    },
+    "goal": "Attach a button securely to fabric with thread.",
+    "steps": [
+      {
+        "id": "s1",
+        "text": "Gather the button, fabric, needle, thread, and scissors.",
+        "completion_cues": ["Required sewing materials are available"],
+        "incompletion_cues": ["A required tool or material is missing"]
+      },
+      {
+        "id": "s2",
+        "text": "Cut the thread, thread the needle, and secure the thread end.",
+        "completion_cues": ["Needle is threaded", "Thread end is secured"],
+        "incompletion_cues": ["Needle is unthreaded", "Thread has no secured end"]
+      },
+      {
+        "id": "s3",
+        "text": "Position the button and stitch repeatedly through its holes and the fabric.",
+        "completion_cues": ["Button is positioned correctly", "Multiple securing stitches pass through fabric and button"],
+        "incompletion_cues": ["Button is mispositioned", "Too few stitches hold the button"]
+      },
+      {
+        "id": "s4",
+        "text": "Tie off and trim the thread, then check that the button is secure.",
+        "completion_cues": ["Thread is tied off and trimmed", "Button remains firmly attached"],
+        "incompletion_cues": ["Thread end is loose", "Button wobbles excessively"]
+      }
+    ],
+    "sampled_chunk_states": [
+      {
+        "sample_id": "U1-Arts_and_Crafts-S01-1_second",
+        "chunk_index": 1,
+        "observed_through_sec": 10.9,
+        "current_step_id": "s1",
+        "progress": "complete",
+        "completion_evidence": ["Needle, thread spool, scissors, and other sewing materials are on the work mat.", "Thread is being unwound from the spool."],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "s2",
+        "recovery_action": "Cut a usable thread length and thread the needle.",
+        "confidence": 0.92
+      },
+      {
+        "sample_id": "U1-Arts_and_Crafts-S01-2-4",
+        "chunk_index": 2,
+        "observed_through_sec": 18.9,
+        "current_step_id": "s2",
+        "progress": "ongoing",
+        "completion_evidence": ["The thread end is repeatedly aligned with the needle eye."],
+        "incompletion_or_error_evidence": ["A cut length and secured thread end are not yet visible."],
+        "next_step_id": "s3",
+        "recovery_action": "Finish passing the thread through the eye, cut it, and knot the end.",
+        "confidence": 0.78
+      },
+      {
+        "sample_id": "U1-Arts_and_Crafts-S01-5-9",
+        "chunk_index": 6,
+        "observed_through_sec": 48.8,
+        "current_step_id": "s2",
+        "progress": "complete",
+        "completion_evidence": ["Thread is pulled through the needle and cut with scissors.", "The thread end is manipulated into a knot."],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "s3",
+        "recovery_action": "Lay out the fabric and position the button.",
+        "confidence": 0.9
+      },
+      {
+        "sample_id": "U1-Arts_and_Crafts-S01-10plus",
+        "chunk_index": 12,
+        "observed_through_sec": 99.4,
+        "current_step_id": "s3",
+        "progress": "ongoing",
+        "completion_evidence": ["The checkered fabric lies flat and the button is positioned at the work area.", "The needle passes repeatedly through the button and fabric."],
+        "incompletion_or_error_evidence": ["Stitching is still in progress and the thread has not been tied off."],
+        "next_step_id": "s4",
+        "recovery_action": "Complete the securing stitches, then tie off and trim the thread.",
+        "confidence": 0.94
+      }
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "complete",
+    "input_index": 135,
+    "video_path": "33aacac19b8ef511.mp4",
+    "query": "How do I make a breakfast smoothie?",
+    "task": "Making breakfast smoothie",
+    "domain": "Chef",
+    "is_smoke_session": false,
+    "provenance": {
+      "plan_inputs": ["task", "query"],
+      "chunk_inputs": ["task", "query", "dialog_at_chunk", "video_through_interval_end"],
+      "excluded_inputs": ["answers", "future_dialog", "future_video", "model_outputs", "R0/D1 errors"],
+      "annotation_type": "formal_blind_evaluation_only_oracle_non_deployable"
+    },
+    "goal": "Blend a breakfast smoothie from prepared ingredients.",
+    "steps": [
+      {
+        "id": "s1",
+        "text": "Gather and prepare the smoothie ingredients and blender cup.",
+        "completion_cues": ["Ingredients and blender cup are ready"],
+        "incompletion_cues": ["Ingredients or blending vessel are not ready"]
+      },
+      {
+        "id": "s2",
+        "text": "Measure and add fruit, greens, liquid, and any supplements.",
+        "completion_cues": ["Planned ingredients are in the blender cup"],
+        "incompletion_cues": ["A planned ingredient has not been added"]
+      },
+      {
+        "id": "s3",
+        "text": "Secure the blender and blend until smooth.",
+        "completion_cues": ["Cup is secured for blending", "Mixture has a smooth consistency"],
+        "incompletion_cues": ["Cup is not secured", "Distinct unblended pieces remain"]
+      },
+      {
+        "id": "s4",
+        "text": "Open the blender cup and serve the smoothie.",
+        "completion_cues": ["Smoothie is transferred or ready to drink"],
+        "incompletion_cues": ["Smoothie remains inaccessible in the closed blender assembly"]
+      }
+    ],
+    "sampled_chunk_states": [
+      {
+        "sample_id": "U1-Chef-S05-1_second",
+        "chunk_index": 1,
+        "observed_through_sec": 10.0,
+        "current_step_id": "s2",
+        "progress": "ongoing",
+        "completion_evidence": ["The blender cup and all major ingredients are staged together.", "Blueberries appear to have been transferred into the cup."],
+        "incompletion_or_error_evidence": ["Banana, spinach, milk, and supplements remain outside the cup."],
+        "next_step_id": "s3",
+        "recovery_action": "Continue measuring and adding the remaining ingredients.",
+        "confidence": 0.87
+      },
+      {
+        "sample_id": "U1-Chef-S05-2-4",
+        "chunk_index": 2,
+        "observed_through_sec": 34.0,
+        "current_step_id": "s2",
+        "progress": "ongoing",
+        "completion_evidence": ["The collagen container is opened and a scoop is added to the blender cup."],
+        "incompletion_or_error_evidence": ["Several fruit, green, liquid, and protein ingredients remain outside the cup."],
+        "next_step_id": "s3",
+        "recovery_action": "Add the remaining fruit, greens, liquid, and protein powder.",
+        "confidence": 0.92
+      },
+      {
+        "sample_id": "U1-Chef-S05-5-9",
+        "chunk_index": 9,
+        "observed_through_sec": 96.2,
+        "current_step_id": "s2",
+        "progress": "ongoing",
+        "completion_evidence": ["Blueberries and banana pieces are added to the cup.", "Spinach and milk are added after the fruit."],
+        "incompletion_or_error_evidence": ["The protein powder remains outside the cup."],
+        "next_step_id": "s3",
+        "recovery_action": "Add the remaining supplement before securing the cup.",
+        "confidence": 0.96
+      },
+      {
+        "sample_id": "U1-Chef-S05-10plus",
+        "chunk_index": 12,
+        "observed_through_sec": 126.9,
+        "current_step_id": "s2",
+        "progress": "complete",
+        "completion_evidence": ["A scoop of protein powder and a scoop of collagen are added.", "The open cup is shaken by hand with the ingredients inside."],
+        "incompletion_or_error_evidence": ["The cup is not yet sealed or attached to a blender."],
+        "next_step_id": "s3",
+        "recovery_action": "Seal the blender cup and blend the mixture until smooth.",
+        "confidence": 0.94
+      }
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "complete",
+    "input_index": 196,
+    "video_path": "4ad436063d96fea1.mp4",
+    "query": "How do I make a classic grilled cheese sandwich?",
+    "task": "Making a classic grilled cheese sandwich",
+    "domain": "Chef",
+    "is_smoke_session": false,
+    "provenance": {
+      "plan_inputs": ["task", "query"],
+      "chunk_inputs": ["task", "query", "dialog_at_chunk", "video_through_interval_end"],
+      "excluded_inputs": ["answers", "future_dialog", "future_video", "model_outputs", "R0/D1 errors"],
+      "annotation_type": "formal_blind_evaluation_only_oracle_non_deployable"
+    },
+    "goal": "Cook and serve a classic grilled cheese sandwich.",
+    "steps": [
+      {
+        "id": "s1",
+        "text": "Assemble bread and cheese and prepare the cooking surface.",
+        "completion_cues": ["Cheese is between bread slices", "Pan or griddle is ready"],
+        "incompletion_cues": ["Sandwich is not assembled", "Cooking surface is not ready"]
+      },
+      {
+        "id": "s2",
+        "text": "Cook the sandwich until the first side is browned.",
+        "completion_cues": ["First side is browned without burning"],
+        "incompletion_cues": ["First side is pale or burning"]
+      },
+      {
+        "id": "s3",
+        "text": "Flip and cook the second side until browned and the cheese melts.",
+        "completion_cues": ["Second side is browned", "Cheese is melted"],
+        "incompletion_cues": ["Second side is uncooked", "Cheese remains firm"]
+      },
+      {
+        "id": "s4",
+        "text": "Remove the sandwich from heat and serve it.",
+        "completion_cues": ["Sandwich is off the cooking surface and plated"],
+        "incompletion_cues": ["Finished sandwich remains on active heat"]
+      }
+    ],
+    "sampled_chunk_states": [
+      {
+        "sample_id": "U1-Chef-S01-1_second",
+        "chunk_index": 1,
+        "observed_through_sec": 8.0,
+        "current_step_id": "s1",
+        "progress": "ongoing",
+        "completion_evidence": ["Two bread slices are removed and placed on a plate."],
+        "incompletion_or_error_evidence": ["Cheese is not yet between the bread and the pan is not prepared."],
+        "next_step_id": "s2",
+        "recovery_action": "Add cheese between the slices and prepare the pan.",
+        "confidence": 0.96
+      },
+      {
+        "sample_id": "U1-Chef-S01-2-4",
+        "chunk_index": 3,
+        "observed_through_sec": 24.7,
+        "current_step_id": "s1",
+        "progress": "ongoing",
+        "completion_evidence": ["Two cheese slices are placed on the bread and the sandwich is closed."],
+        "incompletion_or_error_evidence": ["Cooking-surface readiness is not yet visible."],
+        "next_step_id": "s2",
+        "recovery_action": "Prepare the pan before placing the sandwich on heat.",
+        "confidence": 0.9
+      },
+      {
+        "sample_id": "U1-Chef-S01-5-9",
+        "chunk_index": 5,
+        "observed_through_sec": 38.1,
+        "current_step_id": "s1",
+        "progress": "complete",
+        "completion_evidence": ["The assembled sandwich is pressed together on the plate.", "An empty pan is placed on the cooktop and the burner is activated."],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "s2",
+        "recovery_action": "Butter the pan and begin cooking the first side.",
+        "confidence": 0.95
+      },
+      {
+        "sample_id": "U1-Chef-S01-10plus",
+        "chunk_index": 14,
+        "observed_through_sec": 185.3,
+        "current_step_id": "s4",
+        "progress": "complete",
+        "completion_evidence": ["The sandwich cooks in melted butter and is flipped.", "Both visible sides are browned and the sandwich is transferred to a plate."],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": null,
+        "recovery_action": "none",
+        "confidence": 0.96
+      }
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "complete",
+    "input_index": 263,
+    "video_path": "65a264cea1bb1ff5.mp4",
+    "query": "How do I lubricate squeaky door hinges?",
+    "task": "Lubricating squeaky door hinges",
+    "domain": "Handyman",
+    "is_smoke_session": false,
+    "provenance": {
+      "plan_inputs": ["task", "query"],
+      "chunk_inputs": ["task", "query", "dialog_at_chunk", "video_through_interval_end"],
+      "excluded_inputs": ["answers", "future_dialog", "future_video", "model_outputs", "R0/D1 errors"],
+      "annotation_type": "formal_blind_evaluation_only_oracle_non_deployable"
+    },
+    "goal": "Lubricate door hinges and eliminate the squeak.",
+    "steps": [
+      {
+        "id": "s1",
+        "text": "Identify the squeaking hinges and protect the surrounding area.",
+        "completion_cues": ["Noisy hinge locations are identified", "Nearby surfaces are protected"],
+        "incompletion_cues": ["Squeak source is unknown", "Surrounding surfaces are exposed"]
+      },
+      {
+        "id": "s2",
+        "text": "Apply lubricant to the hinge pins and moving joints.",
+        "completion_cues": ["Lubricant reaches each noisy hinge joint"],
+        "incompletion_cues": ["A noisy hinge remains untreated", "Lubricant misses the joint"]
+      },
+      {
+        "id": "s3",
+        "text": "Move the door repeatedly to distribute the lubricant.",
+        "completion_cues": ["Door has been cycled through its motion"],
+        "incompletion_cues": ["Lubricant has not been worked into the hinges"]
+      },
+      {
+        "id": "s4",
+        "text": "Wipe excess lubricant and retest for squeaks.",
+        "completion_cues": ["Excess lubricant is removed", "Door moves without the original squeak"],
+        "incompletion_cues": ["Lubricant residue remains", "Squeak persists"]
+      }
+    ],
+    "sampled_chunk_states": [
+      {
+        "sample_id": "U1-Handyman-S05-1_second",
+        "chunk_index": 1,
+        "observed_through_sec": 7.7,
+        "current_step_id": "s1",
+        "progress": "ongoing",
+        "completion_evidence": ["The door is opened and closed while the hinge side is observed."],
+        "incompletion_or_error_evidence": ["No protection is visible around the hinges."],
+        "next_step_id": "s2",
+        "recovery_action": "Protect nearby surfaces before applying lubricant.",
+        "confidence": 0.88
+      },
+      {
+        "sample_id": "U1-Handyman-S05-2-4",
+        "chunk_index": 4,
+        "observed_through_sec": 53.6,
+        "current_step_id": "s2",
+        "progress": "ongoing",
+        "completion_evidence": ["Lubricant is sprayed directly onto the upper and lower hinge joints.", "A paper towel is held near the lower hinge to limit runoff."],
+        "incompletion_or_error_evidence": ["The lower hinge is still receiving treatment."],
+        "next_step_id": "s3",
+        "recovery_action": "Finish treating the lower joint without overspray.",
+        "confidence": 0.93
+      },
+      {
+        "sample_id": "U1-Handyman-S05-5-9",
+        "chunk_index": 6,
+        "observed_through_sec": 73.3,
+        "current_step_id": "s2",
+        "progress": "complete",
+        "completion_evidence": ["The lower hinge receives a final controlled application.", "Visible hinge joints have all been treated and local runoff is wiped."],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "s3",
+        "recovery_action": "Cycle the door repeatedly to work lubricant into the joints.",
+        "confidence": 0.94
+      },
+      {
+        "sample_id": "U1-Handyman-S05-10plus",
+        "chunk_index": 11,
+        "observed_through_sec": 197.3,
+        "current_step_id": "s4",
+        "progress": "ongoing",
+        "completion_evidence": ["The door is cycled after additional lubricant application.", "The hinges are visually inspected and a cloth appears near the lower hinge."],
+        "incompletion_or_error_evidence": ["There is no observable confirmation that the squeak is gone."],
+        "next_step_id": null,
+        "recovery_action": "Wipe remaining runoff and cycle the door once more to confirm quiet motion.",
+        "confidence": 0.78
+      }
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "complete",
+    "input_index": 434,
+    "video_path": "9d8733825f2d1b80.mp4",
+    "query": "How do I replace batteries in smoke detectors?",
+    "task": "Replacing batteries in smoke detectors",
+    "domain": "Handyman",
+    "is_smoke_session": false,
+    "provenance": {
+      "plan_inputs": ["task", "query"],
+      "chunk_inputs": ["task", "query", "dialog_at_chunk", "video_through_interval_end"],
+      "excluded_inputs": ["answers", "future_dialog", "future_video", "model_outputs", "R0/D1 errors"],
+      "annotation_type": "formal_blind_evaluation_only_oracle_non_deployable"
+    },
+    "goal": "Replace smoke-detector batteries and verify detector operation.",
+    "steps": [
+      {
+        "id": "s1",
+        "text": "Prepare safely and remove the detector from its mounting base.",
+        "completion_cues": ["Detector is accessible and detached safely"],
+        "incompletion_cues": ["Detector remains inaccessible on the mount"]
+      },
+      {
+        "id": "s2",
+        "text": "Open the battery compartment, remove old batteries, and install new ones correctly.",
+        "completion_cues": ["Old batteries are removed", "New batteries are seated with correct polarity"],
+        "incompletion_cues": ["Old battery remains", "New battery is absent or reversed"]
+      },
+      {
+        "id": "s3",
+        "text": "Close the compartment and test the detector.",
+        "completion_cues": ["Battery compartment is closed", "Test produces the expected alarm response"],
+        "incompletion_cues": ["Compartment is open", "Detector fails its test"]
+      },
+      {
+        "id": "s4",
+        "text": "Remount the detector and restore its normal operating state.",
+        "completion_cues": ["Detector is secured on its base", "Normal power state is restored"],
+        "incompletion_cues": ["Detector remains detached", "Power state is not restored"]
+      }
+    ],
+    "sampled_chunk_states": [
+      {
+        "sample_id": "U1-Handyman-S01-1_second",
+        "chunk_index": 1,
+        "observed_through_sec": 10.0,
+        "current_step_id": "s1",
+        "progress": "ongoing",
+        "completion_evidence": ["The ceiling detector is being loosened with a small tool."],
+        "incompletion_or_error_evidence": ["The detector remains on its base and power isolation is not observable."],
+        "next_step_id": "s2",
+        "recovery_action": "Release the detector from the mounting base safely.",
+        "confidence": 0.92
+      },
+      {
+        "sample_id": "U1-Handyman-S01-2-4",
+        "chunk_index": 2,
+        "observed_through_sec": 18.0,
+        "current_step_id": "s1",
+        "progress": "ongoing",
+        "completion_evidence": ["Loosening continues around the detector edge."],
+        "incompletion_or_error_evidence": ["The detector is still attached to the ceiling base."],
+        "next_step_id": "s2",
+        "recovery_action": "Twist or release the detector fully from its base.",
+        "confidence": 0.95
+      },
+      {
+        "sample_id": "U1-Handyman-S01-5-9",
+        "chunk_index": 7,
+        "observed_through_sec": 66.8,
+        "current_step_id": "s2",
+        "progress": "ongoing",
+        "completion_evidence": ["The detector is detached and held below the empty mounting base.", "The battery-compartment door is being pried open."],
+        "incompletion_or_error_evidence": ["Old-battery removal and new-battery seating are not yet visible."],
+        "next_step_id": "s3",
+        "recovery_action": "Open the compartment fully, remove the old battery, and seat the replacement correctly.",
+        "confidence": 0.94
+      },
+      {
+        "sample_id": "U1-Handyman-S01-10plus",
+        "chunk_index": 10,
+        "observed_through_sec": 115.9,
+        "current_step_id": "s4",
+        "progress": "ongoing",
+        "completion_evidence": ["The battery compartment is closed and the front test control is pressed.", "The detector is twisted back onto its ceiling base."],
+        "incompletion_or_error_evidence": ["The alarm response and normal power indication cannot be verified from the visible evidence."],
+        "next_step_id": null,
+        "recovery_action": "Confirm the test response and normal power indication after remounting.",
+        "confidence": 0.78
+      }
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "complete",
+    "input_index": 672,
+    "video_path": "f7d1a1243e760c2d.mp4",
+    "query": "How do I test GFCI outlets?",
+    "task": "Testing GFCI outlets",
+    "domain": "Handyman",
+    "is_smoke_session": false,
+    "provenance": {
+      "plan_inputs": ["task", "query"],
+      "chunk_inputs": ["task", "query", "dialog_at_chunk", "video_through_interval_end"],
+      "excluded_inputs": ["answers", "future_dialog", "future_video", "model_outputs", "R0/D1 errors"],
+      "annotation_type": "formal_blind_evaluation_only_oracle_non_deployable"
+    },
+    "goal": "Test a GFCI outlet's trip and reset functions.",
+    "steps": [
+      {
+        "id": "s1",
+        "text": "Clear the outlet and verify that power is initially present.",
+        "completion_cues": ["Outlet is unobstructed", "Tester indicates initial power"],
+        "incompletion_cues": ["Outlet remains loaded", "Initial power is unverified"]
+      },
+      {
+        "id": "s2",
+        "text": "Reset the GFCI if needed and press its test button to trip it.",
+        "completion_cues": ["Test control trips the GFCI"],
+        "incompletion_cues": ["GFCI does not trip"]
+      },
+      {
+        "id": "s3",
+        "text": "Verify that outlet power is off while the GFCI is tripped.",
+        "completion_cues": ["Tester confirms no outlet power"],
+        "incompletion_cues": ["Power remains present after the trip", "Loss of power is unverified"]
+      },
+      {
+        "id": "s4",
+        "text": "Press reset and verify that outlet power is restored.",
+        "completion_cues": ["GFCI resets", "Tester confirms restored power"],
+        "incompletion_cues": ["Reset does not latch", "Power is not restored"]
+      }
+    ],
+    "sampled_chunk_states": [
+      {
+        "sample_id": "U1-Handyman-S03-1_second",
+        "chunk_index": 1,
+        "observed_through_sec": 9.0,
+        "current_step_id": "s1",
+        "progress": "ongoing",
+        "completion_evidence": ["The target GFCI is located and its receptacles appear unobstructed."],
+        "incompletion_or_error_evidence": ["Initial power has not been checked with a tester."],
+        "next_step_id": "s2",
+        "recovery_action": "Use the voltage tester to verify initial power.",
+        "confidence": 0.84
+      },
+      {
+        "sample_id": "U1-Handyman-S03-2-4",
+        "chunk_index": 3,
+        "observed_through_sec": 41.0,
+        "current_step_id": "s1",
+        "progress": "ongoing",
+        "completion_evidence": ["An orange voltage tester is applied to both receptacles."],
+        "incompletion_or_error_evidence": ["The tester result is not legible enough to confirm initial power."],
+        "next_step_id": "s2",
+        "recovery_action": "Obtain a clear initial-power indication before tripping the GFCI.",
+        "confidence": 0.67
+      },
+      {
+        "sample_id": "U1-Handyman-S03-5-9",
+        "chunk_index": 5,
+        "observed_through_sec": 61.3,
+        "current_step_id": "s1",
+        "progress": "complete",
+        "completion_evidence": ["The tester is applied again to both receptacles and visibly illuminates at the outlet."],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "s2",
+        "recovery_action": "Press the GFCI test control to trip the outlet.",
+        "confidence": 0.72
+      },
+      {
+        "sample_id": "U1-Handyman-S03-10plus",
+        "chunk_index": 12,
+        "observed_through_sec": 114.4,
+        "current_step_id": "s4",
+        "progress": "ongoing",
+        "completion_evidence": ["The test and reset controls are pressed in sequence.", "The tester is reapplied after the trip, and reset is pressed again near the end."],
+        "incompletion_or_error_evidence": ["Restored power is not rechecked after the final reset press."],
+        "next_step_id": null,
+        "recovery_action": "Reapply the tester after reset to confirm that power is restored.",
+        "confidence": 0.77
+      }
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "complete",
+    "input_index": 293,
+    "video_path": "70fe7910369441cb.mp4",
+    "query": "How do I fold dress pants without creasing them?",
+    "task": "How to fold dress pants without creasing",
+    "domain": "Tutorial",
+    "is_smoke_session": false,
+    "provenance": {
+      "plan_inputs": ["task", "query"],
+      "chunk_inputs": ["task", "query", "dialog_at_chunk", "video_through_interval_end"],
+      "excluded_inputs": ["answers", "future_dialog", "future_video", "model_outputs", "R0/D1 errors"],
+      "annotation_type": "formal_blind_evaluation_only_oracle_non_deployable"
+    },
+    "goal": "Fold dress pants neatly for storage without adding unwanted creases.",
+    "steps": [
+      {
+        "id": "s1",
+        "text": "Lay the pants flat and smooth the fabric.",
+        "completion_cues": ["Pants lie flat without visible wrinkles"],
+        "incompletion_cues": ["Fabric remains bunched or wrinkled"]
+      },
+      {
+        "id": "s2",
+        "text": "Align the legs and seams into a straight lengthwise fold.",
+        "completion_cues": ["Legs and seams are aligned", "Lengthwise fold is smooth"],
+        "incompletion_cues": ["Legs or seams are offset", "Fabric is trapped in the fold"]
+      },
+      {
+        "id": "s3",
+        "text": "Fold the aligned pants into a compact storage shape.",
+        "completion_cues": ["Waist and hems are aligned in a compact fold"],
+        "incompletion_cues": ["Fold is uneven or not compact"]
+      },
+      {
+        "id": "s4",
+        "text": "Smooth, inspect, and place the folded pants for storage.",
+        "completion_cues": ["Final bundle is smooth and aligned", "Pants are ready for storage"],
+        "incompletion_cues": ["New wrinkles or misalignment remain"]
+      }
+    ],
+    "sampled_chunk_states": [
+      {
+        "sample_id": "U1-Tutorial-S02-1_second",
+        "chunk_index": 1,
+        "observed_through_sec": 9.3,
+        "current_step_id": "s1",
+        "progress": "ongoing",
+        "completion_evidence": ["The pants are selected and held up to identify the waistband and legs."],
+        "incompletion_or_error_evidence": ["The pants are still held and bunched rather than lying flat."],
+        "next_step_id": "s2",
+        "recovery_action": "Lay the pants flat on the bed and smooth the fabric.",
+        "confidence": 0.95
+      },
+      {
+        "sample_id": "U1-Tutorial-S02-2-4",
+        "chunk_index": 2,
+        "observed_through_sec": 17.3,
+        "current_step_id": "s1",
+        "progress": "complete",
+        "completion_evidence": ["The pants are laid flat on the bed.", "Hands smooth the fabric along the legs."],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "s2",
+        "recovery_action": "Align the legs and seams into a straight fold.",
+        "confidence": 0.96
+      },
+      {
+        "sample_id": "U1-Tutorial-S02-5-9",
+        "chunk_index": 7,
+        "observed_through_sec": 47.1,
+        "current_step_id": "s2",
+        "progress": "deviated",
+        "completion_evidence": ["A lengthwise fold is attempted after returning to the pants."],
+        "incompletion_or_error_evidence": ["Phone use and an animal interrupt the fold.", "The pants are left with offset edges when the user walks away."],
+        "next_step_id": "s3",
+        "recovery_action": "Return to the pants and realign both legs and seams smoothly.",
+        "confidence": 0.91
+      },
+      {
+        "sample_id": "U1-Tutorial-S02-10plus",
+        "chunk_index": 14,
+        "observed_through_sec": 96.2,
+        "current_step_id": "s4",
+        "progress": "deviated",
+        "completion_evidence": ["The legs are realigned into a straight lengthwise fold.", "The long fold is reduced to a compact rectangle."],
+        "incompletion_or_error_evidence": ["Scissors are brought to the folded pants and begin cutting the garment edge."],
+        "next_step_id": null,
+        "recovery_action": "Stop cutting, inspect and repair the damage, then refold the pants for storage.",
+        "confidence": 0.98
+      }
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "complete",
+    "input_index": 597,
+    "video_path": "dc4225d35bb8705e.mp4",
+    "query": "How do I fold underwear for drawer storage?",
+    "task": "How to fold underwear for drawer storage",
+    "domain": "Tutorial",
+    "is_smoke_session": false,
+    "provenance": {
+      "plan_inputs": ["task", "query"],
+      "chunk_inputs": ["task", "query", "dialog_at_chunk", "video_through_interval_end"],
+      "excluded_inputs": ["answers", "future_dialog", "future_video", "model_outputs", "R0/D1 errors"],
+      "annotation_type": "formal_blind_evaluation_only_oracle_non_deployable"
+    },
+    "goal": "Fold underwear into compact rectangles and arrange them neatly in a drawer.",
+    "steps": [
+      {
+        "id": "s1",
+        "text": "Lay a clean pair flat and smooth it.",
+        "completion_cues": ["Underwear lies flat and smooth"],
+        "incompletion_cues": ["Pair is bunched or not positioned"]
+      },
+      {
+        "id": "s2",
+        "text": "Fold the sides, crotch, and waistband into a compact rectangle.",
+        "completion_cues": ["Edges align in a compact rectangular fold"],
+        "incompletion_cues": ["Fold is loose or irregular"]
+      },
+      {
+        "id": "s3",
+        "text": "Repeat as needed and place folded pairs in the drawer.",
+        "completion_cues": ["Folded pairs are transferred into the drawer"],
+        "incompletion_cues": ["Pairs remain unfolded or outside the drawer"]
+      },
+      {
+        "id": "s4",
+        "text": "Align the stored pairs neatly and finish the drawer arrangement.",
+        "completion_cues": ["Pairs are upright or aligned neatly in the drawer"],
+        "incompletion_cues": ["Drawer contents remain disordered"]
+      }
+    ],
+    "sampled_chunk_states": [
+      {
+        "sample_id": "U1-Tutorial-S01-1_second",
+        "chunk_index": 1,
+        "observed_through_sec": 10.0,
+        "current_step_id": "s1",
+        "progress": "ongoing",
+        "completion_evidence": ["A clean pair is taken from the clothing area and oriented by its waistband."],
+        "incompletion_or_error_evidence": ["The pair remains held and bunched rather than flat."],
+        "next_step_id": "s2",
+        "recovery_action": "Lay the pair flat on the bed and smooth it.",
+        "confidence": 0.94
+      },
+      {
+        "sample_id": "U1-Tutorial-S01-2-4",
+        "chunk_index": 2,
+        "observed_through_sec": 17.9,
+        "current_step_id": "s1",
+        "progress": "complete",
+        "completion_evidence": ["Two pairs are laid side by side on the bed.", "The waistbands and fabric are spread and smoothed."],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "s2",
+        "recovery_action": "Fold the first pair into a compact rectangle.",
+        "confidence": 0.96
+      },
+      {
+        "sample_id": "U1-Tutorial-S01-5-9",
+        "chunk_index": 7,
+        "observed_through_sec": 53.9,
+        "current_step_id": "s2",
+        "progress": "recovered",
+        "completion_evidence": ["After leaving the bed briefly, the user returns to the folding task.", "One pair is compact, and the second waistband is folded down with its sides moving inward."],
+        "incompletion_or_error_evidence": ["The second compact rectangle is not yet finished."],
+        "next_step_id": "s3",
+        "recovery_action": "Finish aligning and folding the second pair into a rectangle.",
+        "confidence": 0.93
+      },
+      {
+        "sample_id": "U1-Tutorial-S01-10plus",
+        "chunk_index": 18,
+        "observed_through_sec": 129.2,
+        "current_step_id": "s4",
+        "progress": "recovered",
+        "completion_evidence": ["Both pairs are folded into compact rectangles and placed in the drawer.", "After adjusting a clock, the user returns and resumes aligning the drawer contents."],
+        "incompletion_or_error_evidence": ["The final drawer arrangement is still being adjusted at the interval end."],
+        "next_step_id": null,
+        "recovery_action": "Finish aligning the pairs neatly and close the drawer.",
+        "confidence": 0.93
+      }
+    ]
+  }
+]

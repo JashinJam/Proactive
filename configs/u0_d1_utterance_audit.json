@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "experiment_id": "20260716_internvl35_1b_d1_utterance_u0_v1",
+  "hypothesis": "The promoted D1 gate improves binary timing but leaves a measurable content-interface gap that must be separated from plan/state and language-capacity limitations.",
+  "sources": {
+    "gold": {
+      "path": "data/egoproactive/wearable_ai_2026_egoproactive_val_700.jsonl",
+      "sha256": "feef69ddee605e7070ad0f133636c35739c6964514a46d76da294b6bf1964740",
+      "license": "CC-BY-NC-4.0",
+      "role": "Public validation decisions and reference utterances; used only for audit outcomes and the separate answer key."
+    },
+    "r0_session_records": {
+      "path": "output/experiments/20260713_internvl35_1b_no_plan_r0/session_records.jsonl",
+      "sha256": "00ce567c1d703a857cd73161f45212e919aa45ad4875257d34536d90fb829d76",
+      "role": "Frozen raw generations and chunk metadata."
+    },
+    "d1_predictions": {
+      "path": "output/experiments/20260714_internvl35_1b_neural_decision_head_d1_oof_v1/variants/fused_linear/predictions.jsonl",
+      "sha256": "04183a4083d160662d5f91bff5432a7ca96595dd66b2b0b64f3b430799143ad9",
+      "role": "Promoted D1 fused OOF answers."
+    },
+    "d1_oof_records": {
+      "path": "output/experiments/20260714_internvl35_1b_neural_decision_head_d1_oof_v1/variants/fused_linear/oof_records.jsonl",
+      "sha256": "605b18921a0bb4b6739cd2e7547735aafc80618585ea0fa8f963fd4e7a090a85",
+      "role": "Frozen D1 fold, decision, gold-decision, and margin alignment."
+    },
+    "d1_metrics_summary": {
+      "path": "output/experiments/20260714_internvl35_1b_neural_decision_head_d1_oof_v1/variants/fused_linear/metrics_summary.json",
+      "sha256": "8f27a222a0f2dc99ca115eac4ce4591b0615e655e46a313803c30da93eee26a6",
+      "role": "Frozen official scorer result used for count consistency only."
+    }
+  },
+  "review_sampling": {
+    "seed": "20260716-u0-v1",
+    "strata": {
+      "tp_fallback": 40,
+      "tp_nonfallback": 40,
+      "fp_fallback": 40,
+      "fp_nonfallback": 40,
+      "fn_silent": 40
+    },
+    "reviewers": 2,
+    "selection_uses_gold_outcome": true,
+    "blind_file_exposes_gold": false
+  },
+  "evaluation": {
+    "official_decision_metric": "frozen; not recomputed or altered",
+    "content_metrics_ranked_by_c1": false,
+    "human_rubric_scale": "1-5",
+    "automatic_lexical_features": "diagnostic only"
+  },
+  "deployment": {
+    "d1_unique_parameters": 1060898836,
+    "u0_inference_parameters": 0,
+    "model_or_decision_change": false
+  }
+}

@@ -1,0 +1,1622 @@
+[
+  {
+    "schema_version": 1,
+    "status": "pending",
+    "input_index": 580,
+    "video_path": "d6cb618bb700b7c0.mp4",
+    "query": "How do I sew on a button?",
+    "task": "Sewing on a button",
+    "domain": "Arts and Crafts",
+    "is_smoke_session": true,
+    "provenance": {
+      "plan_inputs": [
+        "task",
+        "query"
+      ],
+      "chunk_inputs": [
+        "task",
+        "query",
+        "dialog_at_chunk",
+        "video_through_interval_end"
+      ],
+      "excluded_inputs": [
+        "answers",
+        "future_dialog",
+        "future_video",
+        "R0/D1 errors"
+      ],
+      "annotation_type": "evaluation_only_oracle_non_deployable"
+    },
+    "goal": "How do I sew on a button?",
+    "steps": [],
+    "sampled_chunk_states": [
+      {
+        "sample_id": "U1-Arts_and_Crafts-S01-1_second",
+        "chunk_index": 1,
+        "observed_through_sec": 10.9,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Arts_and_Crafts-S01-2-4",
+        "chunk_index": 2,
+        "observed_through_sec": 18.9,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Arts_and_Crafts-S01-5-9",
+        "chunk_index": 6,
+        "observed_through_sec": 48.8,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Arts_and_Crafts-S01-10plus",
+        "chunk_index": 12,
+        "observed_through_sec": 99.4,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      }
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "pending",
+    "input_index": 19,
+    "video_path": "0529003148c61a83.mp4",
+    "query": "How do I create a quick spray paint resist with a stencil?",
+    "task": "Creating a quick spray paint resist (with stencil)",
+    "domain": "Arts and Crafts",
+    "is_smoke_session": false,
+    "provenance": {
+      "plan_inputs": [
+        "task",
+        "query"
+      ],
+      "chunk_inputs": [
+        "task",
+        "query",
+        "dialog_at_chunk",
+        "video_through_interval_end"
+      ],
+      "excluded_inputs": [
+        "answers",
+        "future_dialog",
+        "future_video",
+        "R0/D1 errors"
+      ],
+      "annotation_type": "evaluation_only_oracle_non_deployable"
+    },
+    "goal": "How do I create a quick spray paint resist with a stencil?",
+    "steps": [],
+    "sampled_chunk_states": [
+      {
+        "sample_id": "U1-Arts_and_Crafts-S02-1_second",
+        "chunk_index": 1,
+        "observed_through_sec": 9.6,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Arts_and_Crafts-S02-2-4",
+        "chunk_index": 3,
+        "observed_through_sec": 22.7,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Arts_and_Crafts-S02-5-9",
+        "chunk_index": 5,
+        "observed_through_sec": 43.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Arts_and_Crafts-S02-10plus",
+        "chunk_index": 11,
+        "observed_through_sec": 97.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      }
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "pending",
+    "input_index": 66,
+    "video_path": "17d55640c0ceccb8.mp4",
+    "query": "How do I create a button art picture by gluing buttons to paper in a shape?",
+    "task": "Creating a button art picture (gluing buttons to paper in a shape)",
+    "domain": "Arts and Crafts",
+    "is_smoke_session": false,
+    "provenance": {
+      "plan_inputs": [
+        "task",
+        "query"
+      ],
+      "chunk_inputs": [
+        "task",
+        "query",
+        "dialog_at_chunk",
+        "video_through_interval_end"
+      ],
+      "excluded_inputs": [
+        "answers",
+        "future_dialog",
+        "future_video",
+        "R0/D1 errors"
+      ],
+      "annotation_type": "evaluation_only_oracle_non_deployable"
+    },
+    "goal": "How do I create a button art picture by gluing buttons to paper in a shape?",
+    "steps": [],
+    "sampled_chunk_states": [
+      {
+        "sample_id": "U1-Arts_and_Crafts-S03-1_second",
+        "chunk_index": 1,
+        "observed_through_sec": 10.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Arts_and_Crafts-S03-2-4",
+        "chunk_index": 2,
+        "observed_through_sec": 18.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Arts_and_Crafts-S03-5-9",
+        "chunk_index": 6,
+        "observed_through_sec": 62.6,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Arts_and_Crafts-S03-10plus",
+        "chunk_index": 15,
+        "observed_through_sec": 194.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      }
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "pending",
+    "input_index": 546,
+    "video_path": "cba0787dd64384ae.mp4",
+    "query": "How do I make a tissue paper flower?",
+    "task": "Making a tissue paper flower",
+    "domain": "Arts and Crafts",
+    "is_smoke_session": false,
+    "provenance": {
+      "plan_inputs": [
+        "task",
+        "query"
+      ],
+      "chunk_inputs": [
+        "task",
+        "query",
+        "dialog_at_chunk",
+        "video_through_interval_end"
+      ],
+      "excluded_inputs": [
+        "answers",
+        "future_dialog",
+        "future_video",
+        "R0/D1 errors"
+      ],
+      "annotation_type": "evaluation_only_oracle_non_deployable"
+    },
+    "goal": "How do I make a tissue paper flower?",
+    "steps": [],
+    "sampled_chunk_states": [
+      {
+        "sample_id": "U1-Arts_and_Crafts-S04-1_second",
+        "chunk_index": 1,
+        "observed_through_sec": 6.4,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Arts_and_Crafts-S04-2-4",
+        "chunk_index": 3,
+        "observed_through_sec": 31.2,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Arts_and_Crafts-S04-5-9",
+        "chunk_index": 6,
+        "observed_through_sec": 75.7,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Arts_and_Crafts-S04-10plus",
+        "chunk_index": 10,
+        "observed_through_sec": 171.4,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      }
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "pending",
+    "input_index": 56,
+    "video_path": "14f7ae08d9edfb96.mp4",
+    "query": "How do I make a straw geometric connector sculpture by cutting straws and threading string through them to create 3D shapes?",
+    "task": "Straw geometric connector sculpture \u2013 cut straws and thread string through to make 3D shapes",
+    "domain": "Arts and Crafts",
+    "is_smoke_session": false,
+    "provenance": {
+      "plan_inputs": [
+        "task",
+        "query"
+      ],
+      "chunk_inputs": [
+        "task",
+        "query",
+        "dialog_at_chunk",
+        "video_through_interval_end"
+      ],
+      "excluded_inputs": [
+        "answers",
+        "future_dialog",
+        "future_video",
+        "R0/D1 errors"
+      ],
+      "annotation_type": "evaluation_only_oracle_non_deployable"
+    },
+    "goal": "How do I make a straw geometric connector sculpture by cutting straws and threading string through them to create 3D shapes?",
+    "steps": [],
+    "sampled_chunk_states": [
+      {
+        "sample_id": "U1-Arts_and_Crafts-S05-1_second",
+        "chunk_index": 1,
+        "observed_through_sec": 4.1,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Arts_and_Crafts-S05-2-4",
+        "chunk_index": 4,
+        "observed_through_sec": 30.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Arts_and_Crafts-S05-5-9",
+        "chunk_index": 9,
+        "observed_through_sec": 86.7,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Arts_and_Crafts-S05-10plus",
+        "chunk_index": 10,
+        "observed_through_sec": 105.5,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      }
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "pending",
+    "input_index": 196,
+    "video_path": "4ad436063d96fea1.mp4",
+    "query": "How do I make a classic grilled cheese sandwich?",
+    "task": "Making a classic grilled cheese sandwich",
+    "domain": "Chef",
+    "is_smoke_session": true,
+    "provenance": {
+      "plan_inputs": [
+        "task",
+        "query"
+      ],
+      "chunk_inputs": [
+        "task",
+        "query",
+        "dialog_at_chunk",
+        "video_through_interval_end"
+      ],
+      "excluded_inputs": [
+        "answers",
+        "future_dialog",
+        "future_video",
+        "R0/D1 errors"
+      ],
+      "annotation_type": "evaluation_only_oracle_non_deployable"
+    },
+    "goal": "How do I make a classic grilled cheese sandwich?",
+    "steps": [],
+    "sampled_chunk_states": [
+      {
+        "sample_id": "U1-Chef-S01-1_second",
+        "chunk_index": 1,
+        "observed_through_sec": 8.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Chef-S01-2-4",
+        "chunk_index": 3,
+        "observed_through_sec": 24.7,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Chef-S01-5-9",
+        "chunk_index": 5,
+        "observed_through_sec": 38.1,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Chef-S01-10plus",
+        "chunk_index": 14,
+        "observed_through_sec": 185.3,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      }
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "pending",
+    "input_index": 192,
+    "video_path": "49528620f24575ba.mp4",
+    "query": "How do I make a classic peanut butter and honey sandwich?",
+    "task": "Making a classic peanut butter and honey sandwich",
+    "domain": "Chef",
+    "is_smoke_session": false,
+    "provenance": {
+      "plan_inputs": [
+        "task",
+        "query"
+      ],
+      "chunk_inputs": [
+        "task",
+        "query",
+        "dialog_at_chunk",
+        "video_through_interval_end"
+      ],
+      "excluded_inputs": [
+        "answers",
+        "future_dialog",
+        "future_video",
+        "R0/D1 errors"
+      ],
+      "annotation_type": "evaluation_only_oracle_non_deployable"
+    },
+    "goal": "How do I make a classic peanut butter and honey sandwich?",
+    "steps": [],
+    "sampled_chunk_states": [
+      {
+        "sample_id": "U1-Chef-S02-1_second",
+        "chunk_index": 1,
+        "observed_through_sec": 14.7,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Chef-S02-2-4",
+        "chunk_index": 3,
+        "observed_through_sec": 31.2,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Chef-S02-5-9",
+        "chunk_index": 6,
+        "observed_through_sec": 51.5,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Chef-S02-10plus",
+        "chunk_index": 19,
+        "observed_through_sec": 152.2,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      }
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "pending",
+    "input_index": 117,
+    "video_path": "2c97b06ef739fe10.mp4",
+    "query": "How do I make a ham and cheese croissant sandwich?",
+    "task": "Making a ham and cheese croissant sandwich",
+    "domain": "Chef",
+    "is_smoke_session": false,
+    "provenance": {
+      "plan_inputs": [
+        "task",
+        "query"
+      ],
+      "chunk_inputs": [
+        "task",
+        "query",
+        "dialog_at_chunk",
+        "video_through_interval_end"
+      ],
+      "excluded_inputs": [
+        "answers",
+        "future_dialog",
+        "future_video",
+        "R0/D1 errors"
+      ],
+      "annotation_type": "evaluation_only_oracle_non_deployable"
+    },
+    "goal": "How do I make a ham and cheese croissant sandwich?",
+    "steps": [],
+    "sampled_chunk_states": [
+      {
+        "sample_id": "U1-Chef-S03-1_second",
+        "chunk_index": 1,
+        "observed_through_sec": 8.5,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Chef-S03-2-4",
+        "chunk_index": 3,
+        "observed_through_sec": 22.4,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Chef-S03-5-9",
+        "chunk_index": 7,
+        "observed_through_sec": 49.1,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Chef-S03-10plus",
+        "chunk_index": 10,
+        "observed_through_sec": 86.9,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      }
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "pending",
+    "input_index": 244,
+    "video_path": "5ed574f36f1b666c.mp4",
+    "query": "How do I make tahini oat snack balls?",
+    "task": "Making tahini oat snack balls",
+    "domain": "Chef",
+    "is_smoke_session": false,
+    "provenance": {
+      "plan_inputs": [
+        "task",
+        "query"
+      ],
+      "chunk_inputs": [
+        "task",
+        "query",
+        "dialog_at_chunk",
+        "video_through_interval_end"
+      ],
+      "excluded_inputs": [
+        "answers",
+        "future_dialog",
+        "future_video",
+        "R0/D1 errors"
+      ],
+      "annotation_type": "evaluation_only_oracle_non_deployable"
+    },
+    "goal": "How do I make tahini oat snack balls?",
+    "steps": [],
+    "sampled_chunk_states": [
+      {
+        "sample_id": "U1-Chef-S04-1_second",
+        "chunk_index": 1,
+        "observed_through_sec": 10.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Chef-S04-2-4",
+        "chunk_index": 3,
+        "observed_through_sec": 43.3,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Chef-S04-5-9",
+        "chunk_index": 5,
+        "observed_through_sec": 58.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Chef-S04-10plus",
+        "chunk_index": 18,
+        "observed_through_sec": 299.4,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      }
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "pending",
+    "input_index": 135,
+    "video_path": "33aacac19b8ef511.mp4",
+    "query": "How do I make a breakfast smoothie?",
+    "task": "Making breakfast smoothie",
+    "domain": "Chef",
+    "is_smoke_session": false,
+    "provenance": {
+      "plan_inputs": [
+        "task",
+        "query"
+      ],
+      "chunk_inputs": [
+        "task",
+        "query",
+        "dialog_at_chunk",
+        "video_through_interval_end"
+      ],
+      "excluded_inputs": [
+        "answers",
+        "future_dialog",
+        "future_video",
+        "R0/D1 errors"
+      ],
+      "annotation_type": "evaluation_only_oracle_non_deployable"
+    },
+    "goal": "How do I make a breakfast smoothie?",
+    "steps": [],
+    "sampled_chunk_states": [
+      {
+        "sample_id": "U1-Chef-S05-1_second",
+        "chunk_index": 1,
+        "observed_through_sec": 10.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Chef-S05-2-4",
+        "chunk_index": 2,
+        "observed_through_sec": 34.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Chef-S05-5-9",
+        "chunk_index": 9,
+        "observed_through_sec": 96.2,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Chef-S05-10plus",
+        "chunk_index": 12,
+        "observed_through_sec": 126.9,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      }
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "pending",
+    "input_index": 434,
+    "video_path": "9d8733825f2d1b80.mp4",
+    "query": "How do I replace batteries in smoke detectors?",
+    "task": "Replacing batteries in smoke detectors",
+    "domain": "Handyman",
+    "is_smoke_session": true,
+    "provenance": {
+      "plan_inputs": [
+        "task",
+        "query"
+      ],
+      "chunk_inputs": [
+        "task",
+        "query",
+        "dialog_at_chunk",
+        "video_through_interval_end"
+      ],
+      "excluded_inputs": [
+        "answers",
+        "future_dialog",
+        "future_video",
+        "R0/D1 errors"
+      ],
+      "annotation_type": "evaluation_only_oracle_non_deployable"
+    },
+    "goal": "How do I replace batteries in smoke detectors?",
+    "steps": [],
+    "sampled_chunk_states": [
+      {
+        "sample_id": "U1-Handyman-S01-1_second",
+        "chunk_index": 1,
+        "observed_through_sec": 10.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Handyman-S01-2-4",
+        "chunk_index": 2,
+        "observed_through_sec": 18.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Handyman-S01-5-9",
+        "chunk_index": 7,
+        "observed_through_sec": 66.8,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Handyman-S01-10plus",
+        "chunk_index": 10,
+        "observed_through_sec": 115.9,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      }
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "pending",
+    "input_index": 496,
+    "video_path": "b5a0f4cfaaaa573f.mp4",
+    "query": "How do I install a key hook by the door?",
+    "task": "Installing a key hook by the door",
+    "domain": "Handyman",
+    "is_smoke_session": false,
+    "provenance": {
+      "plan_inputs": [
+        "task",
+        "query"
+      ],
+      "chunk_inputs": [
+        "task",
+        "query",
+        "dialog_at_chunk",
+        "video_through_interval_end"
+      ],
+      "excluded_inputs": [
+        "answers",
+        "future_dialog",
+        "future_video",
+        "R0/D1 errors"
+      ],
+      "annotation_type": "evaluation_only_oracle_non_deployable"
+    },
+    "goal": "How do I install a key hook by the door?",
+    "steps": [],
+    "sampled_chunk_states": [
+      {
+        "sample_id": "U1-Handyman-S02-1_second",
+        "chunk_index": 1,
+        "observed_through_sec": 9.9,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Handyman-S02-2-4",
+        "chunk_index": 3,
+        "observed_through_sec": 27.4,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Handyman-S02-5-9",
+        "chunk_index": 5,
+        "observed_through_sec": 34.3,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Handyman-S02-10plus",
+        "chunk_index": 10,
+        "observed_through_sec": 66.6,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      }
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "pending",
+    "input_index": 672,
+    "video_path": "f7d1a1243e760c2d.mp4",
+    "query": "How do I test GFCI outlets?",
+    "task": "Testing GFCI outlets",
+    "domain": "Handyman",
+    "is_smoke_session": false,
+    "provenance": {
+      "plan_inputs": [
+        "task",
+        "query"
+      ],
+      "chunk_inputs": [
+        "task",
+        "query",
+        "dialog_at_chunk",
+        "video_through_interval_end"
+      ],
+      "excluded_inputs": [
+        "answers",
+        "future_dialog",
+        "future_video",
+        "R0/D1 errors"
+      ],
+      "annotation_type": "evaluation_only_oracle_non_deployable"
+    },
+    "goal": "How do I test GFCI outlets?",
+    "steps": [],
+    "sampled_chunk_states": [
+      {
+        "sample_id": "U1-Handyman-S03-1_second",
+        "chunk_index": 1,
+        "observed_through_sec": 9.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Handyman-S03-2-4",
+        "chunk_index": 3,
+        "observed_through_sec": 41.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Handyman-S03-5-9",
+        "chunk_index": 5,
+        "observed_through_sec": 61.3,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Handyman-S03-10plus",
+        "chunk_index": 12,
+        "observed_through_sec": 114.4,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      }
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "pending",
+    "input_index": 342,
+    "video_path": "7e5647b597e04e51.mp4",
+    "query": "How do I adjust the tension of my window blinds?",
+    "task": "Adjusting window blind tension",
+    "domain": "Handyman",
+    "is_smoke_session": false,
+    "provenance": {
+      "plan_inputs": [
+        "task",
+        "query"
+      ],
+      "chunk_inputs": [
+        "task",
+        "query",
+        "dialog_at_chunk",
+        "video_through_interval_end"
+      ],
+      "excluded_inputs": [
+        "answers",
+        "future_dialog",
+        "future_video",
+        "R0/D1 errors"
+      ],
+      "annotation_type": "evaluation_only_oracle_non_deployable"
+    },
+    "goal": "How do I adjust the tension of my window blinds?",
+    "steps": [],
+    "sampled_chunk_states": [
+      {
+        "sample_id": "U1-Handyman-S04-1_second",
+        "chunk_index": 1,
+        "observed_through_sec": 10.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Handyman-S04-2-4",
+        "chunk_index": 3,
+        "observed_through_sec": 57.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Handyman-S04-5-9",
+        "chunk_index": 7,
+        "observed_through_sec": 94.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Handyman-S04-10plus",
+        "chunk_index": 11,
+        "observed_through_sec": 128.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      }
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "pending",
+    "input_index": 263,
+    "video_path": "65a264cea1bb1ff5.mp4",
+    "query": "How do I lubricate squeaky door hinges?",
+    "task": "Lubricating squeaky door hinges",
+    "domain": "Handyman",
+    "is_smoke_session": false,
+    "provenance": {
+      "plan_inputs": [
+        "task",
+        "query"
+      ],
+      "chunk_inputs": [
+        "task",
+        "query",
+        "dialog_at_chunk",
+        "video_through_interval_end"
+      ],
+      "excluded_inputs": [
+        "answers",
+        "future_dialog",
+        "future_video",
+        "R0/D1 errors"
+      ],
+      "annotation_type": "evaluation_only_oracle_non_deployable"
+    },
+    "goal": "How do I lubricate squeaky door hinges?",
+    "steps": [],
+    "sampled_chunk_states": [
+      {
+        "sample_id": "U1-Handyman-S05-1_second",
+        "chunk_index": 1,
+        "observed_through_sec": 7.7,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Handyman-S05-2-4",
+        "chunk_index": 4,
+        "observed_through_sec": 53.6,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Handyman-S05-5-9",
+        "chunk_index": 6,
+        "observed_through_sec": 73.3,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Handyman-S05-10plus",
+        "chunk_index": 11,
+        "observed_through_sec": 197.3,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      }
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "pending",
+    "input_index": 597,
+    "video_path": "dc4225d35bb8705e.mp4",
+    "query": "How do I fold underwear for drawer storage?",
+    "task": "How to fold underwear for drawer storage",
+    "domain": "Tutorial",
+    "is_smoke_session": true,
+    "provenance": {
+      "plan_inputs": [
+        "task",
+        "query"
+      ],
+      "chunk_inputs": [
+        "task",
+        "query",
+        "dialog_at_chunk",
+        "video_through_interval_end"
+      ],
+      "excluded_inputs": [
+        "answers",
+        "future_dialog",
+        "future_video",
+        "R0/D1 errors"
+      ],
+      "annotation_type": "evaluation_only_oracle_non_deployable"
+    },
+    "goal": "How do I fold underwear for drawer storage?",
+    "steps": [],
+    "sampled_chunk_states": [
+      {
+        "sample_id": "U1-Tutorial-S01-1_second",
+        "chunk_index": 1,
+        "observed_through_sec": 10.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Tutorial-S01-2-4",
+        "chunk_index": 2,
+        "observed_through_sec": 17.9,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Tutorial-S01-5-9",
+        "chunk_index": 7,
+        "observed_through_sec": 53.9,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Tutorial-S01-10plus",
+        "chunk_index": 18,
+        "observed_through_sec": 129.2,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      }
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "pending",
+    "input_index": 293,
+    "video_path": "70fe7910369441cb.mp4",
+    "query": "How do I fold dress pants without creasing them?",
+    "task": "How to fold dress pants without creasing",
+    "domain": "Tutorial",
+    "is_smoke_session": false,
+    "provenance": {
+      "plan_inputs": [
+        "task",
+        "query"
+      ],
+      "chunk_inputs": [
+        "task",
+        "query",
+        "dialog_at_chunk",
+        "video_through_interval_end"
+      ],
+      "excluded_inputs": [
+        "answers",
+        "future_dialog",
+        "future_video",
+        "R0/D1 errors"
+      ],
+      "annotation_type": "evaluation_only_oracle_non_deployable"
+    },
+    "goal": "How do I fold dress pants without creasing them?",
+    "steps": [],
+    "sampled_chunk_states": [
+      {
+        "sample_id": "U1-Tutorial-S02-1_second",
+        "chunk_index": 1,
+        "observed_through_sec": 9.3,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Tutorial-S02-2-4",
+        "chunk_index": 2,
+        "observed_through_sec": 17.3,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Tutorial-S02-5-9",
+        "chunk_index": 7,
+        "observed_through_sec": 47.1,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Tutorial-S02-10plus",
+        "chunk_index": 14,
+        "observed_through_sec": 96.2,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      }
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "pending",
+    "input_index": 39,
+    "video_path": "0e7a1aa0bc246683.mp4",
+    "query": "How do I put a harness on a dog?",
+    "task": "How to put a harness on a dog",
+    "domain": "Tutorial",
+    "is_smoke_session": false,
+    "provenance": {
+      "plan_inputs": [
+        "task",
+        "query"
+      ],
+      "chunk_inputs": [
+        "task",
+        "query",
+        "dialog_at_chunk",
+        "video_through_interval_end"
+      ],
+      "excluded_inputs": [
+        "answers",
+        "future_dialog",
+        "future_video",
+        "R0/D1 errors"
+      ],
+      "annotation_type": "evaluation_only_oracle_non_deployable"
+    },
+    "goal": "How do I put a harness on a dog?",
+    "steps": [],
+    "sampled_chunk_states": [
+      {
+        "sample_id": "U1-Tutorial-S03-1_second",
+        "chunk_index": 1,
+        "observed_through_sec": 7.2,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Tutorial-S03-2-4",
+        "chunk_index": 4,
+        "observed_through_sec": 26.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Tutorial-S03-5-9",
+        "chunk_index": 9,
+        "observed_through_sec": 64.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Tutorial-S03-10plus",
+        "chunk_index": 10,
+        "observed_through_sec": 72.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      }
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "pending",
+    "input_index": 369,
+    "video_path": "86f3d55356270dfc.mp4",
+    "query": "How do I put on cufflinks?",
+    "task": "How to put on cufflinks",
+    "domain": "Tutorial",
+    "is_smoke_session": false,
+    "provenance": {
+      "plan_inputs": [
+        "task",
+        "query"
+      ],
+      "chunk_inputs": [
+        "task",
+        "query",
+        "dialog_at_chunk",
+        "video_through_interval_end"
+      ],
+      "excluded_inputs": [
+        "answers",
+        "future_dialog",
+        "future_video",
+        "R0/D1 errors"
+      ],
+      "annotation_type": "evaluation_only_oracle_non_deployable"
+    },
+    "goal": "How do I put on cufflinks?",
+    "steps": [],
+    "sampled_chunk_states": [
+      {
+        "sample_id": "U1-Tutorial-S04-1_second",
+        "chunk_index": 1,
+        "observed_through_sec": 18.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Tutorial-S04-2-4",
+        "chunk_index": 3,
+        "observed_through_sec": 33.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Tutorial-S04-5-9",
+        "chunk_index": 8,
+        "observed_through_sec": 90.9,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Tutorial-S04-10plus",
+        "chunk_index": 12,
+        "observed_through_sec": 126.3,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      }
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "pending",
+    "input_index": 673,
+    "video_path": "f891ad213235f93e.mp4",
+    "query": "How do I use commas correctly in a list?",
+    "task": "Use commas correctly in a list",
+    "domain": "Tutorial",
+    "is_smoke_session": false,
+    "provenance": {
+      "plan_inputs": [
+        "task",
+        "query"
+      ],
+      "chunk_inputs": [
+        "task",
+        "query",
+        "dialog_at_chunk",
+        "video_through_interval_end"
+      ],
+      "excluded_inputs": [
+        "answers",
+        "future_dialog",
+        "future_video",
+        "R0/D1 errors"
+      ],
+      "annotation_type": "evaluation_only_oracle_non_deployable"
+    },
+    "goal": "How do I use commas correctly in a list?",
+    "steps": [],
+    "sampled_chunk_states": [
+      {
+        "sample_id": "U1-Tutorial-S05-1_second",
+        "chunk_index": 1,
+        "observed_through_sec": 5.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Tutorial-S05-2-4",
+        "chunk_index": 4,
+        "observed_through_sec": 26.1,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Tutorial-S05-5-9",
+        "chunk_index": 5,
+        "observed_through_sec": 32.3,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "sample_id": "U1-Tutorial-S05-10plus",
+        "chunk_index": 15,
+        "observed_through_sec": 104.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      }
+    ]
+  }
+]

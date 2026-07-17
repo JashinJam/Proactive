@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "experiment_id": "20260716_internvl35_1b_fixed_gate_forced_generation_u1_v1",
+  "hypothesis": "Conditioned on the exact frozen D1 interrupt decisions, forced continuation can distinguish an output-interface failure from missing procedural state or insufficient language capacity.",
+  "model": {
+    "repo_id": "OpenGVLab/InternVL3_5-1B-HF",
+    "revision": "9191dbccf312b537016f041b25d61c72e7c5c9f3",
+    "local_path": "/home/lanjinxin/model_weights/InternVL3_5-1B-HF",
+    "license": "Apache-2.0",
+    "total_parameters": 1060897792,
+    "weights_sha256": "11effd1da2fc0929957d56de4129d1e7d2aed044ea878d40bf83e95b63d38b39"
+  },
+  "sources": {
+    "gold_container": {
+      "path": "data/egoproactive/wearable_ai_2026_egoproactive_val_700.jsonl",
+      "sha256": "feef69ddee605e7070ad0f133636c35739c6964514a46d76da294b6bf1964740",
+      "role": "Container for inference-visible query/domain/task/interval/dialog fields; current answers are stripped before selection."
+    },
+    "r0_session_records": {
+      "path": "output/experiments/20260713_internvl35_1b_no_plan_r0/session_records.jsonl",
+      "sha256": "00ce567c1d703a857cd73161f45212e919aa45ad4875257d34536d90fb829d76",
+      "role": "Frozen raw R0 responses used for label-independent eligibility."
+    },
+    "d1_predictions": {
+      "path": "output/experiments/20260714_internvl35_1b_neural_decision_head_d1_oof_v1/variants/fused_linear/predictions.jsonl",
+      "sha256": "04183a4083d160662d5f91bff5432a7ca96595dd66b2b0b64f3b430799143ad9",
+      "role": "Frozen D1 decisions and current fallback output."
+    },
+    "d1_metrics_summary": {
+      "path": "output/experiments/20260714_internvl35_1b_neural_decision_head_d1_oof_v1/variants/fused_linear/metrics_summary.json",
+      "sha256": "8f27a222a0f2dc99ca115eac4ce4591b0615e655e46a313803c30da93eee26a6",
+      "role": "Frozen official D1 metrics used for strict decision-metric identity checks."
+    }
+  },
+  "prepared_sample": {
+    "items": "annotations/u1_forced_generation_v1/sample_items.jsonl",
+    "items_sha256": "de38746a55fa7649615e4b6405b6d4904d6a891ca49ca0680b34219a2efbb974",
+    "manifest": "annotations/u1_forced_generation_v1/manifest.json",
+    "manifest_sha256": "704e7f15d6da9446e03641cd345e421db157b47635ae3a7c625723229dc2e8be",
+    "oracle_state_template": "annotations/u1_forced_generation_v1/oracle_states.template.json",
+    "oracle_state_template_sha256": "325b5a9434c09135f76d529b8022de49980cc5407ab0956b5c223291a1318365",
+    "smoke_oracle_states": "annotations/u1_forced_generation_v1/oracle_states.smoke.json",
+    "smoke_oracle_states_sha256": "d666df568c9b1af093770da55d75dc845590964c2a6f858782350d17637b5757",
+    "protocol": "annotations/u1_forced_generation_v1/PROTOCOL.md",
+    "protocol_sha256": "99bc9d0242ca551ccfa5490cbce76d25c1eaa8c9bd377303440afbd359ad3f03"
+  },
+  "starter_kit": {
+    "path": "data/starter_kit",
+    "model_py_sha256": "3cecb5ab2201b6b4be6aabbdebeeeb5322437e2d8c49d065018230dc9804edbe",
+    "proactive_py_sha256": "7c8adfe9fa2db5af4aace1cd260ec22132b18d82ef747f8a566eb8095e8fbc34",
+    "scorer_py_sha256": "072301da6c65b3e30c7581920d178c6d5136305f2db26914df4785f47d809ee1"
+  },
+  "video_folder": "data/egoproactive/val",
+  "sampling": {
+    "seed": "20260716-u1-v1",
+    "sessions_per_domain": 5,
+    "positions_per_session": ["1:second", "2-4", "5-9", "10+"],
+    "excluded_input_indices": [14, 123, 326, 687],
+    "exclusion_reason": "Old four-session R1 protocol pilot; not reused in the new U1/P1 evaluation path.",
+    "smoke_sessions_per_domain": 1,
+    "full_sessions": 20,
+    "full_chunks": 80,
+    "smoke_chunks": 16
+  },
+  "variants": [
+    "current_fallback",
+    "forced_no_state",
+    "forced_oracle_step",
+    "forced_oracle_full"
+  ],
+  "inference": {
+    "frames_per_interval": 16,
+    "max_frames": 32,
+    "video_frame_size": 448,
+    "pad_token_id": 151643,
+    "max_history_turns": 4,
+    "max_new_tokens": 64,
+    "do_sample": false,
+    "assistant_prefix": "$interrupt$",
+    "seed": 20260713
+  },
+  "evaluation": {
+    "d1_decisions_must_match_across_variants": true,
+    "official_macro_must_be_identical_across_variants": true,
+    "primary_content_evaluation": "paired blinded human rubric",
+    "automatic_metrics_are_diagnostic_only": true
+  },
+  "deployment": {
+    "experiment_is_oracle_upper_bound": true,
+    "deployable_system_claimed": false,
+    "unique_model_parameters": 1060897792,
+    "second_backbone_copy_added": false
+  }
+}

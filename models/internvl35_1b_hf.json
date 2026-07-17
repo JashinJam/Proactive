@@ -1,0 +1,19 @@
+{
+  "repo_id": "OpenGVLab/InternVL3_5-1B-HF",
+  "revision": "9191dbccf312b537016f041b25d61c72e7c5c9f3",
+  "source_url": "https://huggingface.co/OpenGVLab/InternVL3_5-1B-HF",
+  "license": "Apache-2.0",
+  "weights_file": "model.safetensors",
+  "weights_sha256": "11effd1da2fc0929957d56de4129d1e7d2aed044ea878d40bf83e95b63d38b39",
+  "weights_bytes": 2121890856,
+  "stored_unique_parameters": 1060897792,
+  "parameters_by_component": {
+    "language_model": 751632384,
+    "multi_modal_projector": 5253120,
+    "vision_tower": 304012288
+  },
+  "small_parameter_limit": 2000000000,
+  "small_eligible": true,
+  "audit_date": "2026-07-13",
+  "notes": "Counts are the sum of all unique tensors stored in the pinned BF16 safetensors checkpoint. No auxiliary learned inference component is used in R0."
+}

@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "experiment_id": "20260714_internvl35_1b_response_intent_repair_r0f_valsupervised",
+  "hypothesis": "When the frozen model emits non-empty natural-language guidance without a legal tag, treating that speech act as interrupt repairs format adherence without changing model weights or rerunning inference.",
+  "model": {
+    "repo_id": "OpenGVLab/InternVL3_5-1B-HF",
+    "revision": "9191dbccf312b537016f041b25d61c72e7c5c9f3",
+    "license": "Apache-2.0",
+    "total_parameters": 1060897792,
+    "weights_sha256": "11effd1da2fc0929957d56de4129d1e7d2aed044ea878d40bf83e95b63d38b39"
+  },
+  "data": {
+    "input": "data/egoproactive/wearable_ai_2026_egoproactive_val_700.jsonl",
+    "video_folder": "data/egoproactive/val",
+    "dataset_repo": "facebook/wearable-ai",
+    "split": "egoproactive/val",
+    "license": "CC-BY-NC-4.0",
+    "input_sha256": "feef69ddee605e7070ad0f133636c35739c6964514a46d76da294b6bf1964740"
+  },
+  "starter_kit": {
+    "path": "data/starter_kit",
+    "model_py_sha256": "3cecb5ab2201b6b4be6aabbdebeeeb5322437e2d8c49d065018230dc9804edbe",
+    "proactive_py_sha256": "7c8adfe9fa2db5af4aace1cd260ec22132b18d82ef747f8a566eb8095e8fbc34",
+    "scorer_py_sha256": "072301da6c65b3e30c7581920d178c6d5136305f2db26914df4785f47d809ee1"
+  },
+  "r0_reference": {
+    "experiment_dir": "output/experiments/20260713_internvl35_1b_no_plan_r0",
+    "predictions_sha256": "312d0375dd67be2fb244d622a9f302734082f0f251ef0b8dd190b00880879820",
+    "session_records_sha256": "00ce567c1d703a857cd73161f45212e919aa45ad4875257d34536d90fb829d76",
+    "metrics_sha256": "409b639a690e6fc6b4a5396d1bef7c88e8222ddbadd45d9cce0cc53dda7f1671"
+  },
+  "repair": {
+    "rule": "preserve_explicit_tags_and_prefix_interrupt_to_other_nonempty_raw_text",
+    "empty_raw_fallback": "$silent$",
+    "labels_or_thresholds_read_per_response": false,
+    "selected_after_public_validation_error_analysis": true
+  },
+  "evaluation": {
+    "primary_metric": "macro_f1",
+    "official_scorer": "data/starter_kit/run_evaluation.py"
+  },
+  "validation_policy": {
+    "model_inference_rerun": false,
+    "model_weights_updated": false,
+    "labels_read_by_repair_function": false,
+    "labels_used_after_predictions_are_frozen_for_scoring": true,
+    "labels_used_to_select_this_rule_family": true,
+    "classification": "val-supervised posthoc format ablation; not held-out generalization"
+  }
+}

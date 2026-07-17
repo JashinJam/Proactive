@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "experiment_id": "20260714_internvl35_1b_causal_scalar_decision_head_d1_oof_v2",
+  "hypothesis": "Session-held-out calibration of strictly causal current-index, observed-time, dialog, frame-count, and frozen-response features establishes how much of C1 can be explained without new multimodal representation learning.",
+  "model": {
+    "repo_id": "OpenGVLab/InternVL3_5-1B-HF",
+    "revision": "9191dbccf312b537016f041b25d61c72e7c5c9f3",
+    "license": "Apache-2.0",
+    "total_parameters": 1060897792,
+    "weights_sha256": "11effd1da2fc0929957d56de4129d1e7d2aed044ea878d40bf83e95b63d38b39"
+  },
+  "data": {
+    "input": "data/egoproactive/wearable_ai_2026_egoproactive_val_700.jsonl",
+    "video_folder": "data/egoproactive/val",
+    "dataset_repo": "facebook/wearable-ai",
+    "split": "egoproactive/val",
+    "license": "CC-BY-NC-4.0",
+    "input_sha256": "feef69ddee605e7070ad0f133636c35739c6964514a46d76da294b6bf1964740"
+  },
+  "starter_kit": {
+    "path": "data/starter_kit",
+    "model_py_sha256": "3cecb5ab2201b6b4be6aabbdebeeeb5322437e2d8c49d065018230dc9804edbe",
+    "proactive_py_sha256": "7c8adfe9fa2db5af4aace1cd260ec22132b18d82ef747f8a566eb8095e8fbc34",
+    "scorer_py_sha256": "072301da6c65b3e30c7581920d178c6d5136305f2db26914df4785f47d809ee1"
+  },
+  "r0_reference": {
+    "experiment_dir": "output/experiments/20260713_internvl35_1b_no_plan_r0",
+    "predictions_sha256": "312d0375dd67be2fb244d622a9f302734082f0f251ef0b8dd190b00880879820",
+    "session_records_sha256": "00ce567c1d703a857cd73161f45212e919aa45ad4875257d34536d90fb829d76",
+    "metrics_sha256": "409b639a690e6fc6b4a5396d1bef7c88e8222ddbadd45d9cce0cc53dda7f1671"
+  },
+  "r0f_reference": {
+    "experiment_dir": "output/experiments/20260714_internvl35_1b_response_intent_repair_r0f_valsupervised",
+    "predictions_sha256": "cfda7d147ac3203ff5750a5b65fbac54af5f2bcf4aef4d4fa16db700b25c0e37",
+    "session_records_sha256": "24129f523129a3ac192cc7c3dfc6271a986cc966ef3c705d43be060daa5f74fa",
+    "metrics_sha256": "7e169d602e03501eb644d35c90312a4f4f107cab3e1827cf859f87a07f72687e",
+    "macro_f1": 0.5362
+  },
+  "split": {
+    "algorithm": "domain_stratified_sha256_round_robin",
+    "seed": "d1-session-oof-v1",
+    "folds": 5,
+    "fit_folds_per_rotation": 3,
+    "calibration_fold_offset": 1,
+    "labels_used_for_assignment": false
+  },
+  "features": {
+    "variants": ["temporal", "temporal_domain", "response_temporal"],
+    "max_history_turns": 4,
+    "source": "frozen_r0_raw_records_and_strictly_causal_current_chunk_metadata",
+    "future_session_length_features": false
+  },
+  "training": {
+    "classifier": "class_balanced_linear_logistic_regression",
+    "optimizer": "lbfgs",
+    "seed": 20260714,
+    "max_iterations": 120,
+    "l2_weight": 0.001,
+    "dtype": "float64",
+    "threshold_selection": "exact_calibration_fold_macro_f1"
+  },
+  "evaluation": {
+    "primary_metric": "macro_f1",
+    "official_scorer": "data/starter_kit/run_evaluation.py",
+    "bootstrap_repetitions": 5000,
+    "bootstrap_seed": 20260714,
+    "promotion_min_delta_vs_r0f": 0.015,
+    "require_positive_bootstrap_lower_bound": true,
+    "require_non_first_chunk_gain": true
+  },
+  "validation_policy": {
+    "features_read_gold_labels": false,
+    "fold_assignment_reads_gold_labels": false,
+    "classifier_training_reads_public_validation_labels": true,
+    "threshold_tuning_reads_calibration_fold_labels": true,
+    "test_fold_labels_used_only_after_predictions": true,
+    "classification": "session-level out-of-fold val-supervised development; not hidden-test generalization"
+  }
+}

@@ -1,0 +1,50 @@
+# External data and generated experiment artifacts
+/data
+/output/
+/logs/
+
+# Independent repositories
+/STRIDE/
+/wearable-ai-leaderboard/
+
+# Generated dashboard prediction data
+/presentation/results_dashboard/data.js
+/presentation/results_dashboard/data_manifest.json
+
+# Python and notebook caches
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Editors and operating-system metadata
+.vscode/
+.idea/
+.DS_Store
+
+# Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*credentials*
+*secret*
+
+# Videos, model weights, checkpoints, and binary caches
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.npy
+*.npz
+*.arrow
+
+# Downloaded papers; keep the project-authored Markdown audits and notes
+/literature/**/*.pdf

@@ -51,6 +51,7 @@ from proactive_d1.neural_core import (
     neural_matrix,
 )
 from proactive_d1.merge_neural import validate_session_arrays
+from proactive_d1.run_deploy import PROJECT_ROOT, _tracked_paths
 
 
 def source_rows(count: int = 10) -> list[dict[str, object]]:
@@ -104,6 +105,16 @@ def r0_records(count: int = 10) -> list[dict[str, object]]:
             }
         )
     return records
+
+
+class DeploymentArtifactTest(unittest.TestCase):
+    def test_external_runtime_config_is_not_passed_to_code_snapshot(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            external = Path(directory) / "runtime_config.json"
+            external.write_text("{}\n", encoding="utf-8")
+            self.assertNotIn(external, _tracked_paths(external))
+        internal = PROJECT_ROOT / "configs" / "d1_internvl35_1b_scalar_deploy.json"
+        self.assertIn(internal, _tracked_paths(internal))
 
 
 class FoldManifestTest(unittest.TestCase):

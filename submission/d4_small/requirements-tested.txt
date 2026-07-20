@@ -1,0 +1,15 @@
+# Container pins derived from the 2026-07-19 and 2026-07-20 D4 GPU smokes.
+# The headless OpenCV build replaces the same-version GUI build used locally.
+# Install torch/torchvision from the CUDA index selected by the official image.
+torch==2.6.0
+torchvision==0.21.0
+transformers==5.12.1
+tokenizers==0.22.2
+accelerate==1.14.0
+huggingface-hub==1.20.1
+safetensors==0.8.0
+opencv-python-headless==4.13.0.92
+Pillow==12.2.0
+numpy==2.2.5
+# This package provides the pynvml module without the deprecated pynvml shim.
+nvidia-ml-py==13.610.43

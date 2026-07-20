@@ -16,6 +16,7 @@
 - [C1 Small D2 轻量非线性残差决策头报告](20260715_internvl35_1b_residual_mlp_d2.md)：预注册 width-8 GELU residual MLP 的严格五折 OOF；官方 Macro F1 `0.6351`，相对 D1 仅 `+0.0010` 且 bootstrap 跨 0，未推广。
 - [C1 Small 最终语言 MLP LoRA / 联合决策损失可行性审计](20260715_internvl35_1b_final_mlp_lora_feasibility.md)：历史工程审计，记录朴素 BF16 局部重放、四状态 MLP 校正和两次 bounded smoke；旧 failed 状态保留，并附 2026-07-16 后续正式状态说明。
 - [C1 Small 最终语言 MLP LoRA 严格五折 OOF 实验报告](20260716_internvl35_1b_final_mlp_lora_oof.md)：四状态 full-cache 尾部失败、六状态 700-session exact cache、fixed-batch same-shape 重放、正式五折指标与 bootstrap；主候选 Macro `0.6357`，仅 `+0.0016` 且 2/5 folds 提升，未推广。
+- [C1 Small D4 提交入口与容器前置审计](20260720_internvl35_1b_d4_submission_entrypoint_audit.md)：隐藏输入 adapter、`dialog`/gold-answer 契约、参数与许可证清单、CPU preflight、48 项回归和 10-chunk GPU 逐字段等价验证；明确区分五折 OOF `0.6846` 与最终单一 Docker head。
 - [D1 Utterance 问题诊断与 Planner / Language 后续工作交接](20260716_d1_utterance_planner_language_handoff.md)：固定 fallback 的来源与全量统计、D1 决策/语言接口缺口、当前 planner/language 覆盖审计，以及供执行 Agent 预注册和实施的候选工作包；本文不是 active route 决议。
 - [U0/U1 双人独立盲评执行细则](20260717_u0_u1_human_review_protocol.md)：评分信息边界、逐 session 因果解锁、统一 1--5 分锚点、U0/U1 专用字段、双评审合并、一致性与仲裁规则。人工评分开始前使用此版本。
 

@@ -1,7 +1,7 @@
 # Current Route: C1 Small, PWR-Inspired
 
-> Updated: 2026-07-19  
-> Status: D3 at official OOF Macro F1 0.6690 remains the formally promoted scientific baseline; D4 packages the non-promotable 0.6846 dialog-stage diagnostic as one frozen leaderboard-engineering candidate, with a 1,052-parameter serialized head, 9,935/9,935 online replay, and exact 10-chunk shared-vision GPU smoke; the active next step is submission packaging/entry-point audit, S1 remains paused, and external submission still requires user authorization  
+> Updated: 2026-07-20
+> Status: D3 at official OOF Macro F1 0.6690 remains the formally promoted scientific baseline; D4 remains the frozen leaderboard-engineering candidate and now has a bundled 1,052-parameter head, hidden-input submission adapter, strict two-field publisher, parameter/license/dependency manifests, a CPU preflight, 48 passing R0--D4 regression tests, and an exact 10-chunk adapter GPU smoke; next merge the teammate-owned frame/history policy, adapt the official Docker template when released, and otherwise return to early-chunk utterance/grounding while remaining ratings are pending; leaderboard/container upload still requires user authorization
 > Objective: maximize official C1 Macro F1 in the Small division without sacrificing causality, reproducibility, or prize eligibility
 
 ## 1. Decisions Already Made
@@ -23,6 +23,7 @@
 15. **D3 establishes cross-chunk dynamics as a stable decision signal.** The preregistered primary reaches official OOF Macro `0.6690`, `+0.0349` over exact D1 replay, with positive session-bootstrap lower bound, 5/5 positive folds, 4/4 positive domains, and positive non-first gain. It is promoted for decision development, but the gain includes official dialog-history policy signal and must not be described as purely visual procedural understanding.
 16. **U1-V identifies assistant history as the forced-generation bottleneck.** Removing assistant history makes all 80/80 samples fall back; removing the current interval lowers fallback `30.0% -> 26.25%` and does not trigger the preregistered current-visual gate. Masking all pixels changes wording at a threshold boundary but does not change aggregate fallback. Treat vision as an unstable content modifier, not a reliable state decoder.
 17. **D3-D reconstructs the decision gain from official dialog policy, and D4 is the frozen leaderboard candidate.** Eight answer-stripped causal dialog-stage scalars alone reach `0.6618`; D1 fused plus those scalars reaches diagnostic OOF Macro `0.6846`, with 5/5 positive folds, 4/4 positive domains, and session-bootstrap interval `[+0.0418,+0.0591]` versus D1. D4 does not retroactively promote this result: it full-refits exactly that one feature set, serializes a 1,052-parameter head, reproduces all cached online decisions, and passes an exact GPU smoke. Do not search related features.
+18. **D4 model-facing submission packaging is complete before the official template.** The adapter accepts arbitrary hidden JSONL/video mount paths, requires chunk-aligned official `dialog`, rejects `answers` by default, rewrites only runtime paths/hashes, invokes the frozen D4 runner without a scorer, and atomically publishes exact `video_path/answers` rows. The exact head is bundled in the handoff package. CPU preflight, 48 regressions, and a physical-GPU one-session smoke pass; the adapter prediction is byte-identical to the frozen D4 smoke. The official Docker base/interface remains pending until its announced release, and the project top-level source license still requires an owner decision.
 
 ## 2. Target System Shape
 
@@ -216,8 +217,25 @@ maximum logit difference is `6.32e-8` and peak memory is 3.466 GB.
 
 D4 is now the frozen **leaderboard-engineering candidate**, while D3 remains the
 formally promoted scientific baseline. No feature, L2-grid, threshold-policy, or
-history-window search is allowed. The active next step is submission packaging and
-entry-point audit; do not upload externally without user authorization. See the
+history-window search is allowed on this branch. On 2026-07-20 the model-facing
+submission adapter completed: it accepts organizer JSONL/video paths, requires
+chunk-aligned official dialog, rejects answers by default, writes only the official
+two prediction fields atomically, and records parameter/input/output hashes. CPU
+preflight and 48 regressions pass. A physical-GPU one-session adapter smoke takes
+44.206s, peaks at 3,466,037,248 bytes, sees no preexisting process on the selected
+GPU, and produces a byte-identical prediction file plus 10/10 exact raw response,
+prompt, margin, dialog features, logits, decisions, and answers versus the frozen
+D4 smoke. The hidden-test form values are model license `Apache-2.0` and total/active
+parameters `1.060898844B/1.060898844B`.
+
+The official Docker template is still scheduled for release to top validation
+participants on 2026-08-08, so final CMD/mount/resource adaptation remains pending.
+The teammate-owned frame/history search must produce a synchronized config/manifest
+and rerun the adapter smoke before replacing the current defaults. The project also
+lacks a top-level source-code license; this owner decision must be resolved before
+claiming prize-source eligibility. Do not upload to the leaderboard or container registry without user authorization.
+See the [submission audit](reports/20260720_internvl35_1b_d4_submission_entrypoint_audit.md),
+[submission contract](submission/d4_small/README.md),
 [combined U1-V/D3-D report](reports/20260719_u1_visual_reliance_and_d3_dialog_policy_control.md)
 and [D4 report](reports/20260719_internvl35_1b_d4_dialog_stage_candidate.md).
 
@@ -411,6 +429,8 @@ The following require evidence or user direction and must not be silently assume
 - whether state generation is offline, distilled, or fully online;
 - whether STRIDE-derived boundary pretraining survives license and semantic-gap review;
 - leaderboard target and acceptable latency envelope.
+- which approved top-level source-code license the project owner selects before prize submission;
+- whether a Validation Phase upload uses the transparent five-head OOF artifact or another explicitly identified prediction source.
 
 Record a resolved decision here, with date and supporting report, before downstream agents depend on it.
 

@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "status": "validated handoff artifacts; no leaderboard or container upload performed",
+  "oof_development_evidence": {
+    "classification": "five-fold session-level OOF public-validation evidence",
+    "macro_f1": 0.6846,
+    "interrupt_f1": 0.6893,
+    "silent_f1": 0.6799,
+    "sessions": 700,
+    "chunks": 9935,
+    "predictions_path": "output/experiments/20260718_internvl35_1b_d3_dialog_policy_control_v1/variants/d1_fused_plus_dialog_stage/predictions.jsonl",
+    "predictions_sha256": "467bd7c567d66b3041425b336343290c0b3d742f10d25d2279de987770ae43f5",
+    "metrics_sha256": "3c1f8b81eeac385597e202763c17f0a6fc2ec61b875b19243059fcd19c1d21d1",
+    "fold_heads": 5,
+    "single_hidden_test_model": false,
+    "promotion_eligible_under_original_diagnostic_protocol": false
+  },
+  "hidden_test_model": {
+    "classification": "single all-development refit for organizer Docker inference",
+    "source_head_path": "output/experiments/20260719_internvl35_1b_d4_dialog_stage_final_v1/decision_head.json",
+    "bundle_head_path": "submission/d4_small/decision_head.json",
+    "head_sha256": "531431710a01a71bdd02ffd7a9758428fe282323cc41fae2c1d6859e45408b13",
+    "head_parameters": 1052,
+    "single_hidden_test_model": true,
+    "public_train_fit_macro_f1": 0.7393,
+    "public_train_fit_is_generalization_evidence": false
+  },
+  "submission_form_for_hidden_test_model": {
+    "model_name": "InternVL3.5-1B-D4-DialogStage",
+    "model_license": "Apache-2.0",
+    "total_parameters_billions": 1.060898844,
+    "active_parameters_billions": 1.060898844
+  },
+  "external_actions": {
+    "validation_predictions_uploaded": false,
+    "docker_image_uploaded": false,
+    "requires_user_authorization": true
+  }
+}

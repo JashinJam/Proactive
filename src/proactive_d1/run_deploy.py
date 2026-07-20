@@ -87,7 +87,7 @@ def _write_command(path: Path, argv: list[str]) -> None:
 
 
 def _tracked_paths(config_path: Path) -> list[Path]:
-    return [
+    paths = [
         *sorted((PROJECT_ROOT / "src" / "proactive_r0").glob("*.py")),
         *sorted((PROJECT_ROOT / "src" / "proactive_d1").glob("*.py")),
         *sorted((PROJECT_ROOT / "src" / "proactive_d1" / "tests").glob("*.py")),
@@ -95,7 +95,6 @@ def _tracked_paths(config_path: Path) -> list[Path]:
         *sorted((PROJECT_ROOT / "src" / "proactive_d3" / "tests").glob("*.py")),
         *sorted((PROJECT_ROOT / "src" / "proactive_d4").glob("*.py")),
         *sorted((PROJECT_ROOT / "src" / "proactive_d4" / "tests").glob("*.py")),
-        config_path,
         PROJECT_ROOT / "configs" / "d1_internvl35_1b_scalar_final.json",
         PROJECT_ROOT / "configs" / "d1_internvl35_1b_neural_final.json",
         PROJECT_ROOT / "models" / "internvl35_1b_hf.json",
@@ -103,6 +102,11 @@ def _tracked_paths(config_path: Path) -> list[Path]:
         PROJECT_ROOT / "C1_SPEC.md",
         PROJECT_ROOT / "Agent.md",
     ]
+    # Submission runtime configs live under /tmp and are fingerprinted separately.
+    # code_snapshot only accepts files whose paths are relative to PROJECT_ROOT.
+    if config_path.resolve().is_relative_to(PROJECT_ROOT.resolve()):
+        paths.append(config_path)
+    return paths
 
 
 def _validate_records(

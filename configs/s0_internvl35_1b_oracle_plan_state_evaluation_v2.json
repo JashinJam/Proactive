@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "experiment_id": "20260717_internvl35_1b_oracle_plan_state_s0_v2_evaluation",
+  "targets": {
+    "path": "annotations/state_s0_oracle_plan_v1/prepared/targets.jsonl",
+    "sha256": "09ae879afc8e3c2eb298ec07244201e2c2b461da55b6b96becbd6f74b06595b8",
+    "states": 80,
+    "sessions": 20
+  },
+  "required_views": ["official_dialog", "no_assistant_history"],
+  "required_calibration_mode": "query_plan_no_observation",
+  "bootstrap": {"unit": "session", "repetitions": 10000, "seed": 20260717},
+  "interpretation_bands": {
+    "strong_zero_shot_min_mean_task_macro_f1": 0.45,
+    "weak_usable_min_mean_task_macro_f1": 0.35,
+    "below_weak_is": "insufficient_zero_shot_signal"
+  },
+  "evaluation_reads_targets_after_predictions_are_complete": true,
+  "s0_cannot_promote_submission_model": true
+}
+

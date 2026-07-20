@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "experiment_id": "20260718_internvl35_1b_d3_dialog_policy_control_v1",
+  "hypothesis": "A substantial part of the frozen D3 gain may be reconstructed from the official dialog prefix explicitly exposing whether an assistant turn was added after the previous chunk.",
+  "classification": "preregistered CPU-only post-hoc mechanism control; no promotion eligibility",
+  "protocol": {
+    "path": "annotations/d3_dialog_policy_control_v1/PROTOCOL.md",
+    "sha256": "fbfc31d5bb7ab23ec70b2942257955b3ca608554271dee88f04791a6adc5bfc3"
+  },
+  "base_d3_config": {
+    "path": "configs/d3_internvl35_1b_causal_dynamics_oof.json",
+    "sha256": "0373ccf9971229d4515d79c027731f97b8f71e1f16328bdae2ec839ab8e54d07"
+  },
+  "data": {
+    "input": "data/egoproactive/wearable_ai_2026_egoproactive_val_700.jsonl",
+    "input_sha256": "feef69ddee605e7070ad0f133636c35739c6964514a46d76da294b6bf1964740",
+    "license": "CC-BY-NC-4.0"
+  },
+  "starter_kit": {
+    "path": "data/starter_kit",
+    "model_py_sha256": "3cecb5ab2201b6b4be6aabbdebeeeb5322437e2d8c49d065018230dc9804edbe",
+    "proactive_py_sha256": "7c8adfe9fa2db5af4aace1cd260ec22132b18d82ef747f8a566eb8095e8fbc34",
+    "scorer_py_sha256": "072301da6c65b3e30c7581920d178c6d5136305f2db26914df4785f47d809ee1"
+  },
+  "sources": {
+    "r0_session_records": {
+      "path": "output/experiments/20260713_internvl35_1b_no_plan_r0/session_records.jsonl",
+      "sha256": "00ce567c1d703a857cd73161f45212e919aa45ad4875257d34536d90fb829d76"
+    },
+    "split_manifest": {
+      "path": "output/experiments/20260714_internvl35_1b_causal_scalar_decision_head_d1_oof_v2/split_manifest.json",
+      "sha256": "bd537e9e155586cf3af9f26052fda277fa3e1930e378538346cc197432ff86c0"
+    },
+    "neural_features": {
+      "path": "output/features/20260714_internvl35_1b_d1_neural_feature_cache_v1/features.npz",
+      "sha256": "cc5a5b3c6184987edc5f041eb2cb01a51ccfd88d6328d8308fcce3a4bd9122bf",
+      "hidden_size": 1024
+    },
+    "neural_summary": {
+      "path": "output/features/20260714_internvl35_1b_d1_neural_feature_cache_v1/summary.json",
+      "sha256": "8d9fd1bd9ced6e394cecc4048ee50c16a51804167b7687759f06f1b132b78a8b"
+    },
+    "d1_predictions": {
+      "path": "output/experiments/20260714_internvl35_1b_neural_decision_head_d1_oof_v1/variants/fused_linear/predictions.jsonl",
+      "sha256": "04183a4083d160662d5f91bff5432a7ca96595dd66b2b0b64f3b430799143ad9"
+    },
+    "d1_metrics": {
+      "path": "output/experiments/20260714_internvl35_1b_neural_decision_head_d1_oof_v1/variants/fused_linear/metrics.json",
+      "sha256": "371ef8b347a683d27b45bf0eb90e46138dd22afe35724deabb9418fc69439e01"
+    },
+    "d3_predictions": {
+      "path": "output/experiments/20260717_internvl35_1b_causal_dynamics_d3_oof_v1/variants/dynamics_fused/predictions.jsonl",
+      "sha256": "c8b836d90768ef609747b40d968d1551c5b90aa91c72fd6d017514eed3b3535a"
+    },
+    "d3_metrics": {
+      "path": "output/experiments/20260717_internvl35_1b_causal_dynamics_d3_oof_v1/variants/dynamics_fused/metrics.json",
+      "sha256": "4f661845fb6c7adc92c22ca6aab7d3e641efc7fee56bbd25b1125a9dbdfaeae0"
+    },
+    "d3_comparison": {
+      "path": "output/experiments/20260717_internvl35_1b_causal_dynamics_d3_oof_v1/comparison.json",
+      "sha256": "8328d898623d0b2f96e23d6c5fe40641cb556a176e54398d729ed7c778500c4f"
+    }
+  },
+  "features": {
+    "d1_scalar_variant": "response_temporal",
+    "max_history_turns": 4,
+    "max_model_frames": 32,
+    "dialog_policy_names": [
+      "has_previous_chunk",
+      "assistant_added_since_previous",
+      "assistant_add_count_since_previous",
+      "log1p_visible_assistant_turns",
+      "assistant_turns_per_elapsed_chunk",
+      "log1p_chunks_since_assistant_addition",
+      "log1p_last_assistant_text_length",
+      "last_assistant_has_interrupt_tag"
+    ],
+    "variants": [
+      "d1_fused_replay",
+      "dialog_increment_only",
+      "dialog_stage_only",
+      "d1_fused_plus_dialog_increment",
+      "d1_fused_plus_dialog_stage"
+    ]
+  },
+  "training": {
+    "folds": 5,
+    "calibration_fold_offset": 1,
+    "classifier": "class_balanced_linear_logistic_regression",
+    "optimizer": "lbfgs",
+    "seed": 20260714,
+    "max_iterations": 120,
+    "dtype": "float64",
+    "l2_weights": [0.00001, 0.0001, 0.001, 0.01],
+    "l2_reduction": "sum",
+    "threshold_selection": "exact_calibration_fold_macro_f1"
+  },
+  "references": {
+    "d1_macro_f1": 0.6341,
+    "d1_non_first_macro_f1": 0.6045361849557847,
+    "d3_macro_f1": 0.669,
+    "d3_gain_vs_d1": 0.0349
+  },
+  "evaluation": {
+    "official_scorer": "data/starter_kit/run_evaluation.py",
+    "bootstrap_repetitions": 5000,
+    "bootstrap_seed": 20260717,
+    "mostly_explained_fraction": 0.75,
+    "partly_explained_fraction": 0.25,
+    "all_variants_promotion_eligible": false
+  },
+  "validation_policy": {
+    "dialog_feature_construction_reads_labels": false,
+    "dialog_feature_construction_reads_predictions": false,
+    "dialog_feature_construction_reads_future_chunks": false,
+    "head_fit_reads_fit_fold_public_validation_labels": true,
+    "l2_and_threshold_read_only_calibration_fold_labels": true,
+    "test_fold_labels_used_only_after_predictions": true,
+    "previous_gold_cross_check_runs_after_all_oof_predictions": true
+  }
+}

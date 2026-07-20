@@ -78,3 +78,15 @@ PYTHONNOUSERSITE=1 PYTHONPATH=src \
   --samples annotations/u1_forced_generation_v1/sample_items.jsonl \
   --output <state-ratings-analysis.json>
 ```
+
+Automatic state diagnostics are explicitly non-semantic:
+
+```bash
+PYTHONNOUSERSITE=1 PYTHONPATH=src \
+  /home/lanjinxin/miniconda3/envs/wearable_ai/bin/python \
+  -m proactive_u1.oracle_diagnostics \
+  --samples annotations/u1_forced_generation_v1/sample_items.jsonl \
+  --content-records <no-state-output>/content_records.jsonl \
+  --content-records <full-oracle-output>/content_records.jsonl \
+  --output <full-oracle-output>/analysis/state_content_diagnostics.json
+```

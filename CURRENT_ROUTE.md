@@ -1,7 +1,7 @@
 # Current Route: C1 Small, PWR-Inspired
 
-> Updated: 2026-07-16  
-> Status: D1 fused scalar/tag/hidden remains the promoted scientific and deployment baseline at official OOF Macro F1 0.6341; U0 is complete; U1 fixed-gate generation has completed the 16-chunk three-variant oracle engineering smoke and the full 80-chunk no-state generation, while paired human ratings and the remaining full oracle annotations are pending; external submission still requires user authorization  
+> Updated: 2026-07-19  
+> Status: D3 at official OOF Macro F1 0.6690 remains the formally promoted scientific baseline; D4 packages the non-promotable 0.6846 dialog-stage diagnostic as one frozen leaderboard-engineering candidate, with a 1,052-parameter serialized head, 9,935/9,935 online replay, and exact 10-chunk shared-vision GPU smoke; the active next step is submission packaging/entry-point audit, S1 remains paused, and external submission still requires user authorization  
 > Objective: maximize official C1 Macro F1 in the Small division without sacrificing causality, reproducibility, or prize eligibility
 
 ## 1. Decisions Already Made
@@ -9,7 +9,7 @@
 1. **Primary target is C1 Small.** ProAssist-8B and LiveStar-8B are historical baselines, not deployable Small backbones.
 2. **PWR changes the problem formulation.** The decision should be conditioned on procedural state and visual completion/incompletion evidence, not treated as an isolated gate.
 3. **Official PWR is not reproducible today.** No public training code, checkpoints, plan/cue targets, or Pro2Bench training annotations were found.
-4. **The next question is plan-state value, not RL value.** Establish whether compact procedural state improves C1 before GRPO.
+4. **Plan-state scaling is paused, and RL remains ineligible.** U1-V does not localize the main failure to state, while D3-D shows dialog policy explains most decision gain. Resume state work only on the frozen evidence gates; do not start GRPO.
 5. **Granularity is a testable hypothesis.** It becomes a modeled component only if oracle granularity changes the metric reliably.
 6. **STRIDE data is optional boundary supervision.** It is not direct C1 interrupt supervision and cannot silently become a prize-critical dependency.
 7. **R0 backbone is InternVL3.5-1B-HF.** The pinned Apache-2.0 checkpoint at revision `9191dbccf312b537016f041b25d61c72e7c5c9f3` contains 1,060,897,792 unique parameters and is within the 2B Small limit.
@@ -19,7 +19,10 @@
 11. **A generic nonlinear head is not the missing capacity.** The single preregistered width-8 residual MLP reaches `0.6351`, only `+0.0010` over D1, with paired-session 95% interval `[-0.0011,+0.0031]`, 3/5 strictly positive folds, and two domains slightly worse. It is not promoted and must not be post-hoc tuned on the same folds.
 12. **Final-MLP adaptation learns tag-margin signal but does not provide a stable fused gain.** Naive three-position BF16 replay and the two historical feasibility smokes retain their failed status. A six-state, same-batch-corrected cache later reproduced all 9,935 D1 rows exactly and enabled the one frozen OOF run. `adapted_fused_linear` reaches `0.6357`, only `+0.0016` over D1, with bootstrap `[-0.00425,+0.00756]` and 2/5 positive folds. It is rejected; do not search more ranks, layers, or learning rates on the same split.
 13. **Decision and content quality are separate objectives.** D1 remains frozen for leaderboard development while utterance quality is audited independently. Content diagnostics must not be folded into or substituted for the official C1 Macro F1.
-14. **U0/U1 precede the larger oracle-state replication.** First establish a reproducible content baseline, then hold every D1 interrupt/silent decision fixed while comparing current fallback, forced generation without state, and answer-blind oracle-state-conditioned generation. This distinguishes a gate-to-language interface break from missing procedural state or insufficient language capacity before committing to larger annotation or training.
+14. **U0/U1 diagnostics now block the larger oracle-state replication.** Reviewer A and U1-V identify a strong language-history interface effect but no repeatable step/progress residual. Keep the frozen state package gate, but do not expand annotation while it remains unresolved.
+15. **D3 establishes cross-chunk dynamics as a stable decision signal.** The preregistered primary reaches official OOF Macro `0.6690`, `+0.0349` over exact D1 replay, with positive session-bootstrap lower bound, 5/5 positive folds, 4/4 positive domains, and positive non-first gain. It is promoted for decision development, but the gain includes official dialog-history policy signal and must not be described as purely visual procedural understanding.
+16. **U1-V identifies assistant history as the forced-generation bottleneck.** Removing assistant history makes all 80/80 samples fall back; removing the current interval lowers fallback `30.0% -> 26.25%` and does not trigger the preregistered current-visual gate. Masking all pixels changes wording at a threshold boundary but does not change aggregate fallback. Treat vision as an unstable content modifier, not a reliable state decoder.
+17. **D3-D reconstructs the decision gain from official dialog policy, and D4 is the frozen leaderboard candidate.** Eight answer-stripped causal dialog-stage scalars alone reach `0.6618`; D1 fused plus those scalars reaches diagnostic OOF Macro `0.6846`, with 5/5 positive folds, 4/4 positive domains, and session-bootstrap interval `[+0.0418,+0.0591]` versus D1. D4 does not retroactively promote this result: it full-refits exactly that one feature set, serializes a 1,052-parameter head, reproduces all cached online decisions, and passes an exact GPU smoke. Do not search related features.
 
 ## 2. Target System Shape
 
@@ -100,7 +103,7 @@ R1 protocol pilot completed on 2026-07-14 over a label-independent, domain-strat
 
 The pilot also exposed a separate format confound: all four full-state first chunks generated instruction-like text or a malformed tag and were scored silent. Two subsequent grammar-controlled smokes collapsed toward all-interrupt and were stopped before the complete factorial. Posthoc response-intent repair gives frozen R0 `0.5994` and full state `0.5895` on the same four sessions, so state still does not beat the repaired no-plan reference. See the [R1 pilot report](reports/20260714_internvl35_1b_oracle_state_r1_pilot_v1.md).
 
-This is a **no-positive-signal pilot**, not evidence that procedural state has zero value. Four sessions cannot establish a population effect or a stable null result. D1/D2 have now stabilized the decision interface and shown that generic head/last-layer capacity is not the main missing factor. A new, larger, pre-registered session-level oracle-state replication is therefore the active next route. It must use an independent evaluation set and a decision-level interface; it must not simply scale the cancelled zero-shot serialization.
+This is a **no-positive-signal pilot**, not evidence that procedural state has zero value. Four sessions cannot establish a population effect or a stable null result. A larger preregistered session-level oracle-state replication remains a possible future route, but U1-V and D3-D now pause it: neither localizes the active residual to step/progress, while dialog policy explains the stronger decision gains. If the frozen state gate later reactivates replication, it must use an independent evaluation set and a decision-level interface; it must not simply scale the cancelled zero-shot serialization.
 
 ### D1: Frozen Multimodal Decision-Head Calibration
 
@@ -165,7 +168,58 @@ The six-state cache uses `73,728 bytes/chunk`, or `732,487,680 bytes` (`698.5546
 
 The single frozen five-fold OOF completed on 2026-07-16. `adapted_tag_only`, `adapted_hidden_linear`, and `adapted_fused_linear` obtain official Macro F1 `0.5879/0.6064/0.6357`. The primary fused result is `+0.0016` over D1; paired-session bootstrap is `[-0.00425,+0.00756]`, only folds 2 and 4 improve, and only the non-first and non-collapse gates pass. Non-first Macro does improve `0.60454 -> 0.61017`, concentrated at chunks 5+, but Chef declines `-0.0086` and only 2/4 domains improve. No adapter is promoted or full-refit. See the [formal OOF report](reports/20260716_internvl35_1b_final_mlp_lora_oof.md) and retain the [feasibility audit](reports/20260715_internvl35_1b_final_mlp_lora_feasibility.md) as engineering history.
 
-Do not try more ranks, layers, MLP widths, L2 ranges, or post-hoc learning rates. Complete U0 and the fixed-gate U1 pilot first, then use their diagnosis to finalize the larger pre-registered oracle-state replication. The replication must not reuse the four-session pilot as its evaluation set and must be sized for session-level uncertainty. Proceed to granularity only if state information then gives a repeatable benefit.
+Do not try more ranks, layers, MLP widths, L2 ranges, or post-hoc learning rates. The remaining U1 ratings retain their frozen authority for future utterance/state conclusions, but they no longer block D4 leaderboard decision engineering. Any later larger oracle-state replication must not reuse the four-session pilot as its evaluation set and must be sized for session-level uncertainty. Proceed to granularity only if state information then gives a repeatable benefit.
+
+### D3: Frozen-Cache Causal Dynamics
+
+D3 is preregistered on 2026-07-17 while U1 human ratings are pending. It is independent of utterance ratings and uses no new backbone inference. The hypothesis is that strictly causal cross-chunk changes contain procedural-progress signal missing from D1's current-chunk representation.
+
+The frozen label-free dynamics are eight scalars (previous/history-mean tag-margin differences plus previous/history-mean hidden cosine and RMS change) and the 1,024-dimensional `current_hidden - previous_hidden`. First-chunk dynamics are zero; all historical means exclude the current chunk. The split, class-balanced linear learner, four-value clean D1 L2 grid, calibration policy, threshold policy, and official scorer remain unchanged.
+
+Only `dynamics_fused = D1 fused + 8 dynamics scalars + hidden delta` is promotion-eligible. `d1_fused_replay`, scalar-only dynamics, and hidden-delta-only dynamics are frozen diagnostics and cannot be selected after results. Promotion requires at least `+0.005` official Macro over D1 `0.6341`, positive session-bootstrap lower bound, at least 4/5 positive folds and 3/4 positive domains, positive non-first gain, and both class F1 values at least `0.60`. No post-hoc feature, L2, rolling-window, or threshold search is allowed on the same folds.
+
+D3 completed on 2026-07-17 over all 700 sessions / 9,935 chunks. Exact D1 replay reproduces Macro `0.6341` and the frozen prediction SHA256. Diagnostic scalar and hidden-delta variants reach `0.6551/0.6594`; the single promotion-eligible `dynamics_fused` reaches official Macro **`0.6690`**, interrupt/silent F1 `0.6845/0.6535`, and predicted-interrupt rate `50.82%`. Relative to D1, paired-session bootstrap gives median `+0.03506` and 95% interval `[+0.02654,+0.04372]`; all five folds and all four domains improve, while non-first Macro rises `0.60454 -> 0.64460`. All preregistered gates pass. Do not post-hoc search new dynamics, windows, L2 values, or thresholds on these folds.
+
+The interpretation is narrower than “visual progress solved.” For all 9,235 non-first public-validation chunks, whether `dialog[i]` adds an assistant turn over `dialog[i-1]` exactly equals the previous gold interrupt decision. This is a legal causal input under the official prefix, but creates an annotation/dialog-policy signal. D3 gains `+0.04061` in the no-new-assistant-turn group and only `+0.00145` in the new-turn group. Treat D3 as a valid official-protocol decision improvement, not proof of purely visual temporal understanding; self-fed dialog robustness remains open.
+
+A 2,076-parameter all-development head is serialized using frozen median L2 `0.01` and threshold `0.14439966662436324`, for 1,060,899,868 total/active system parameters. Independent OOF and final refits are byte-identical. The session-local online state reproduces every cached dynamic feature exactly and all 9,935 decisions, with maximum logit difference `2.95e-7`. D3 is integrated into the existing shared-vision deployment CLI; a physical-GPU 10-chunk smoke matches frozen raw response, prompt tokens, margin, hidden, dynamics, decision, and answer exactly, with maximum logit difference `7.22e-8`, 42.989s wall time, and 3.466 GB peak memory. Full submission/container packaging remains separate and requires user authorization. See the [formal D3 report](reports/20260717_internvl35_1b_causal_dynamics_d3.md).
+
+### D3-D and D4: Dialog-Policy Control to Leaderboard Candidate
+
+D3-D completed on 2026-07-19 as a preregistered, CPU-only, non-promotable
+mechanism control. It derives eight scalars only from the answer-stripped official
+dialog prefix. The smallest two-feature previous-assistant-increment control
+reaches Macro `0.6475`; eight dialog-stage scalars without neural features reach
+`0.6618`, reconstructing `79.4%` of the D3 gain. D1 fused plus the two increment
+features reaches `0.6749`; D1 fused plus all eight reaches **`0.6846`**, interrupt/
+silent F1 `0.6893/0.6799`, and non-first Macro `0.6596`.
+
+For the `0.6846` diagnostic, all five folds and four domains improve over D1;
+the paired-session interval is `[+0.0418,+0.0591]`. The most stable top dialog
+coefficient in every fold is time since the last assistant addition. After all
+OOF predictions were frozen, `assistant_added_since_previous` again matches the
+previous gold action on 9,235/9,235 non-first chunks. This establishes that
+official-dialog intervention rhythm, not demonstrated procedural-state decoding,
+explains most of the measured gain. It remains a causal and benchmark-visible
+leaderboard signal, with a self-fed-dialog distribution-shift caveat.
+
+Do not retroactively promote `0.6846`: the D3-D protocol explicitly made all five
+variants diagnostic. D4 completed on 2026-07-19 using exactly the frozen eight
+features and the existing finalization policy: median OOF L2 `0.01`, median OOF
+threshold `0.1263874797442615`, and one full-development fit. The serialized head
+has 1,052 parameters (1,060,898,844 total system parameters); its full-fit Macro
+`0.7393` is training sanity only. Online dialog features match offline values with
+zero difference, all 9,935 cached decisions match, and maximum logit difference is
+`2.55e-7`. A physical-GPU shared-vision smoke matches raw response, prompt tokens,
+tag margin, hidden, eight dialog features, decision, and answer on 10/10 chunks;
+maximum logit difference is `6.32e-8` and peak memory is 3.466 GB.
+
+D4 is now the frozen **leaderboard-engineering candidate**, while D3 remains the
+formally promoted scientific baseline. No feature, L2-grid, threshold-policy, or
+history-window search is allowed. The active next step is submission packaging and
+entry-point audit; do not upload externally without user authorization. See the
+[combined U1-V/D3-D report](reports/20260719_u1_visual_reliance_and_d3_dialog_policy_control.md)
+and [D4 report](reports/20260719_internvl35_1b_d4_dialog_stage_candidate.md).
 
 ### U0: Frozen-Gate Utterance Audit
 
@@ -186,9 +240,23 @@ Use the exact frozen D1 OOF interrupt/silent decisions. On a label-independent s
 
 All variants must have identical decisions and sample order. Oracle annotations may use only the query, official prior dialog, and video evidence through the current interval; current/future gold answers, future dialog, and future video are prohibited. Evaluate content separately from official Macro. If forced no-state generation succeeds, prioritize repairing the gate-to-language interface; if only oracle state succeeds, proceed with the larger state replication; if both fail, prioritize fit-fold-only utterance supervision before a deployable state updater.
 
-U1 progress on 2026-07-16: a label-independent sample is frozen from D1-fallback/R0-explicit-silent chunks, excluding the old four R1 sessions. It contains 20 sessions / 80 chunks, exactly 20 per domain and 20 per second/2--4/5--9/10+ position. The three-variant 16-chunk oracle engineering smoke reproduces all 16 R0 raw `$silent$` outputs and keeps the complete 9,935-chunk official Macro at `0.6341` for every content variant. No-state, oracle-step, and oracle-full each produce 9 non-empty continuations and 7 immediate EOS. A provenance audit found that the smoke annotator had already inspected the corresponding generation outputs, so the old oracle file is now explicitly nonblind and engineering-only; its qualitative differences are not state-effect evidence. A fresh isolated-context annotation of all 20 sessions / 80 states is required for the formal oracle comparison.
+U1 progress through 2026-07-17: a label-independent sample is frozen from D1-fallback/R0-explicit-silent chunks, excluding the old four R1 sessions. It contains 20 sessions / 80 chunks, exactly 20 per domain and 20 per second/2--4/5--9/10+ position. A provenance audit found that the original 16-chunk smoke annotator had already inspected the corresponding generation outputs, so that oracle file is now explicitly nonblind and engineering-only.
 
-The full 80-chunk `forced_no_state` run also reproduces 80/80 R0 raw outputs and preserves every D1 decision and official metric. It yields 56/80 non-empty continuations and 24/80 immediate EOS. Non-empty rates are strongly position-dependent: second `4/20`, 2--4 `13/20`, 5--9 `20/20`, and 10+ `19/20`. Automatic lexical diagnostics find nine completion-claim phrases and two within-session exact repeats; qualitative inspection exposes task and timing errors, so non-empty output cannot be treated as useful guidance. A deterministic 160-candidate paired blind-review package is frozen. Do not promote interface-only generation or reject state before paired human ratings and the full oracle comparison. See the [U1 progress report](reports/20260716_u1_fixed_gate_forced_generation_progress.md).
+All 20 sessions / 80 states were therefore re-annotated by two isolated-context agents from sanitized inputs. Static plans used only query/task; dynamic states used prior dialog and only the explicit causal video intervals, excluding interval gaps, future information, gold answers, and model outputs. The merged formal oracle SHA256 is `e8f1e0736398d46193009ddb3966599ccc2f8629cfaecdd55f270b5ec6018850`; strict coverage, timestamp, target-marker, step-reference, confidence, and provenance checks pass.
+
+The full formal run reproduces 80/80 frozen R0 raw responses and preserves all 9,935 D1 decisions plus official Macro `0.6341`. No-state, oracle-step, and oracle-full yield 56/80, 56/80, and 57/80 non-empty continuations. Step changes 43 texts but never changes empty/nonempty status; full changes 53 and recovers one additional second-chunk continuation. These are non-semantic diagnostics, not evidence of content gain. The frozen state package rerates no-state/step/full together as 240 blind candidates rather than reusing interface-package no-state scores. See the [formal U1 report](reports/20260717_u1_formal_blind_oracle_generation.md). Do not promote/reject state until both reviewers finish and `state_ratings.py` applies the preregistered gates.
+
+U1-V completed on 2026-07-19 over the same frozen 80 chunks without reading
+reviewer scores. The reused full view has 30% fallback. Removing assistant history
+makes 80/80 fall back, a `+70pp` change; removing only the current interval lowers
+fallback to `26.25%`, with mean text similarity `0.7734`, so the preregistered
+current-visual gate does not trigger. Full masking keeps fallback at 30% but lowers
+mean similarity to `0.6479`, narrowly crossing the frozen `0.65` any-visual
+threshold. Qualitative discordant cases show that vision sometimes changes the
+specific step, but history supplies the generation skeleton and can produce
+plausible stale instructions without current visual evidence. Prioritize early
+language cold start and grounding only after the D4 decision candidate; do not
+resume S1 from this result.
 
 ### R2: Granularity Sensitivity
 
@@ -204,6 +272,85 @@ Replace oracle state with a deployable causal state updater. Measure:
 - oracle-to-predicted performance gap;
 - false-negative state staleness;
 - parameter and latency cost.
+
+S0 preregistration update (2026-07-17): while U1 human ratings remain pending,
+run an independent oracle-plan/predicted-dynamic-state feasibility study on the
+existing 20-session / 80-state formal set. The prediction runner receives the
+query-only four-step static plan, current causal frames, and either the official
+dialog prefix or a diagnostic prefix with assistant history removed. It scores
+fixed equal-length candidates for step (`s1--s4`), progress (five protocol
+classes), and error-present, with one shared vision pass and no free-form JSON.
+The formal oracle remains evaluation-only and is stored separately from runner
+inputs. Report step/progress/error Macro F1, joint accuracy, domain/position
+breakdowns, and paired session bootstrap between dialog views. Mean task Macro
+F1 `>=0.45` is a strong zero-shot signal, `0.35--0.45` is weak-but-usable, and
+`<0.35` is insufficient zero-shot signal. This classification is frozen before
+state predictions but was designed after the experimenter had inspected the
+oracle schema/examples/aggregate distribution; it is not a never-seen-label
+benchmark and cannot promote a submission model.
+
+S0 engineering revision before formal inference: the target-isolated one-state
+v1 smoke exposed a strong monotonic option-digit prior despite equal token
+length. V1 is retained as an unevaluated engineering failure and must not be
+cited as state efficacy. V2 freezes one content-free calibration per
+session/target using query + oracle plan but no video/dialog, then predicts from
+`observed_logp - content_free_logp`. Raw and calibrated scores are retained;
+no temperature, prompt, mapping, or permutation search is allowed after formal
+predictions.
+
+S0 result (2026-07-17): both target-isolated 80-state views completed with the
+frozen v2 calibration and no ratings/answers read. `official_dialog` obtains
+step/progress/error Macro F1 `0.2226/0.1348/0.5098`, mean task Macro `0.2891`,
+joint step-progress accuracy `0.05`, and composite correctness `0.4083`.
+`no_assistant_history` obtains `0.2601/0.0167/0.2024`, mean task Macro `0.1597`,
+joint accuracy `0`, and composite `0.2333`. Both fail the frozen weak threshold
+`0.35`, and neither has a fully correct three-field state. Official dialog does
+improve composite by `+0.1750`, paired-session 95% `[+0.1125,+0.2375]`, but the
+predictions collapse toward `s4/complete/error-present`; without assistant
+history they collapse toward `s1/not-started/error-absent`. This is dialog-stage
+signal, not reliable visual state decoding. Do not tune S0 further.
+
+S1 preparation is frozen: 32 new answer/model-output/rating-blind sessions,
+excluding U1 formal and old R1, contain 444 contiguous states. The primary split
+is 24 train sessions / 318 states and 8 held-out sessions / 126 states, balanced
+by domain and covering short/middle/long. All 32 query-only four-step plans were
+frozen before new S1 video inspection (plan SHA256 `eefc6a0ab4c4da6ee66182a39e69da2e9dc175ee53901f998a6ae722e251ba71`).
+The plan author had previously seen official dialog for train inputs 20 and 25
+during engineering inspection; this is recorded rather than claimed as isolated
+plan authorship. Dynamic annotation is append-only and the renderer only exposes
+the next unrecorded explicit interval. As of 2026-07-18, inputs 20 and 25 are
+complete: 2/32 sessions and 23/444 states, record SHA256
+`f81a2b00e2fb676a9a6d1ef22a4c81e517158550aeec5f7325b363095683e4bb`.
+
+The S1 model path is also frozen before label completion: a label-independent
+five-fold train-session split, shared-L2 selection over pooled train OOF, exact
+`7/1043/2075` feature variants, strict annotation validation, and physically
+separate train-only and one-shot held-out commands. Nine unit tests and the
+full 9,935-row label-free feature audit pass. No decoder has been trained and no
+held-out annotation has been read.
+
+S1 pause decision (2026-07-18): reviewer A completed U0 and the 160-candidate
+U1 interface package. Forced no-state improves content composite by `+1.1725`,
+session-bootstrap 95% `[+0.8875,+1.45]`, and all four domains are positive, but
+hallucination increases `+2.5pp`, just above the frozen `+2pp` cap. The effect is
+negative at second chunks (`-0.35`, 80% generation fallback) and large at 5--9
+and 10+ (`+2.06/+1.93`). Actual model history is capped at four assistant turns;
+one-turn contexts have 81.5% fallback, while two-to-four-turn contexts rarely
+fall back. This strongly implicates the language/history interface but does not
+prove that vision is unused. Reviewer B was not read, and the separate
+240-candidate no-state/step/full package is not present in the supplied A CSV.
+
+Pause the remaining 421 S1 states without deleting any asset. U1-V and D3-D are
+now complete: U1-V identifies assistant history rather than current visual state
+as the dominant generation dependency, and D3-D reconstructs most or more than
+all of D3's OOF gain from official dialog-stage features. Neither result satisfies
+the state-resumption gate. Resume S1 only if the separate state-package ratings
+pass or a new, independently frozen residual audit localizes repeatable errors to
+step/progress transitions. Reviewer B and the state package may be incorporated
+later under their frozen gates, but they no longer block D4 decision engineering.
+See the [A-only diagnostic](reports/20260718_u0_u1_reviewer_a_diagnostic.md),
+[combined U1-V/D3-D report](reports/20260719_u1_visual_reliance_and_d3_dialog_policy_control.md),
+and [S0 report](reports/20260717_internvl35_1b_oracle_plan_state_s0.md).
 
 ### R4: Noisy-Plan Robustness
 

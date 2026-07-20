@@ -1,0 +1,234 @@
+{
+  "schema_version": 1,
+  "status": "frozen label-independent S1 train-session CV split",
+  "seed": "20260718-state-s1-cv-v1",
+  "folds": 5,
+  "algorithm": "domain_stratified_sha256_rank_modulo_folds",
+  "labels_answers_model_outputs_errors_ratings_read": false,
+  "heldout_annotations_read": false,
+  "sessions_source": {
+    "path": "/home/lanjinxin/workspace/wearable_ai_challenge/annotations/state_s1_decoder_v1/prepared_v2/sessions.jsonl",
+    "sha256": "cdfe53adf40f0533dc6ac4e8269cadaa810217c4e519a7bd6a2de9a419e02c21"
+  },
+  "model_protocol": {
+    "path": "/home/lanjinxin/workspace/wearable_ai_challenge/annotations/state_s1_decoder_v1/MODEL_PROTOCOL_v1.md",
+    "sha256": "969f026a519257aa4301e3a44cd80472105ce747f98192b06aa42419c95bf182"
+  },
+  "sessions": [
+    {
+      "input_index": 20,
+      "video_path": "0573fc312656e95a.mp4",
+      "domain": "Handyman",
+      "fold": 0,
+      "chunks": 12
+    },
+    {
+      "input_index": 25,
+      "video_path": "08b9fac1a8faa178.mp4",
+      "domain": "Handyman",
+      "fold": 0,
+      "chunks": 11
+    },
+    {
+      "input_index": 33,
+      "video_path": "0b4dd0cf02c47a4c.mp4",
+      "domain": "Arts and Crafts",
+      "fold": 0,
+      "chunks": 8
+    },
+    {
+      "input_index": 64,
+      "video_path": "175bd7e36afe2fb1.mp4",
+      "domain": "Handyman",
+      "fold": 2,
+      "chunks": 12
+    },
+    {
+      "input_index": 83,
+      "video_path": "1fbd5cb944aaea67.mp4",
+      "domain": "Arts and Crafts",
+      "fold": 2,
+      "chunks": 8
+    },
+    {
+      "input_index": 95,
+      "video_path": "2590c2cacdf4a6c2.mp4",
+      "domain": "Chef",
+      "fold": 2,
+      "chunks": 16
+    },
+    {
+      "input_index": 108,
+      "video_path": "297610660059baf0.mp4",
+      "domain": "Tutorial",
+      "fold": 3,
+      "chunks": 12
+    },
+    {
+      "input_index": 111,
+      "video_path": "2ae7eb1e3ffef5a5.mp4",
+      "domain": "Chef",
+      "fold": 0,
+      "chunks": 22
+    },
+    {
+      "input_index": 122,
+      "video_path": "2fc1de40daf2fd56.mp4",
+      "domain": "Chef",
+      "fold": 3,
+      "chunks": 12
+    },
+    {
+      "input_index": 194,
+      "video_path": "4a42f604a51bf1f2.mp4",
+      "domain": "Chef",
+      "fold": 0,
+      "chunks": 16
+    },
+    {
+      "input_index": 220,
+      "video_path": "53d963241050526d.mp4",
+      "domain": "Arts and Crafts",
+      "fold": 4,
+      "chunks": 20
+    },
+    {
+      "input_index": 243,
+      "video_path": "5cd4daa226681ce2.mp4",
+      "domain": "Handyman",
+      "fold": 3,
+      "chunks": 8
+    },
+    {
+      "input_index": 255,
+      "video_path": "61efb30f29304333.mp4",
+      "domain": "Tutorial",
+      "fold": 0,
+      "chunks": 16
+    },
+    {
+      "input_index": 261,
+      "video_path": "646a798bef1636ab.mp4",
+      "domain": "Handyman",
+      "fold": 4,
+      "chunks": 12
+    },
+    {
+      "input_index": 365,
+      "video_path": "84d6970fcd68dd67.mp4",
+      "domain": "Arts and Crafts",
+      "fold": 1,
+      "chunks": 14
+    },
+    {
+      "input_index": 404,
+      "video_path": "940314527f79a3ce.mp4",
+      "domain": "Tutorial",
+      "fold": 2,
+      "chunks": 14
+    },
+    {
+      "input_index": 468,
+      "video_path": "ac01e754ec86cfb7.mp4",
+      "domain": "Chef",
+      "fold": 4,
+      "chunks": 10
+    },
+    {
+      "input_index": 477,
+      "video_path": "af7ed655cd7b54a0.mp4",
+      "domain": "Arts and Crafts",
+      "fold": 3,
+      "chunks": 16
+    },
+    {
+      "input_index": 583,
+      "video_path": "d73510ad805c7958.mp4",
+      "domain": "Arts and Crafts",
+      "fold": 0,
+      "chunks": 12
+    },
+    {
+      "input_index": 592,
+      "video_path": "d9c5c309f8bc0a0d.mp4",
+      "domain": "Tutorial",
+      "fold": 0,
+      "chunks": 16
+    },
+    {
+      "input_index": 601,
+      "video_path": "dd70387359352264.mp4",
+      "domain": "Tutorial",
+      "fold": 4,
+      "chunks": 10
+    },
+    {
+      "input_index": 615,
+      "video_path": "e1903ff853dd84c6.mp4",
+      "domain": "Chef",
+      "fold": 1,
+      "chunks": 14
+    },
+    {
+      "input_index": 623,
+      "video_path": "e3b63c11a7c9e0ab.mp4",
+      "domain": "Tutorial",
+      "fold": 1,
+      "chunks": 12
+    },
+    {
+      "input_index": 670,
+      "video_path": "f75dbac8dc8474e0.mp4",
+      "domain": "Handyman",
+      "fold": 1,
+      "chunks": 15
+    }
+  ],
+  "fold_summary": {
+    "0": {
+      "sessions": 8,
+      "by_domain": {
+        "Arts and Crafts": 2,
+        "Chef": 2,
+        "Handyman": 2,
+        "Tutorial": 2
+      }
+    },
+    "1": {
+      "sessions": 4,
+      "by_domain": {
+        "Arts and Crafts": 1,
+        "Chef": 1,
+        "Handyman": 1,
+        "Tutorial": 1
+      }
+    },
+    "2": {
+      "sessions": 4,
+      "by_domain": {
+        "Arts and Crafts": 1,
+        "Chef": 1,
+        "Handyman": 1,
+        "Tutorial": 1
+      }
+    },
+    "3": {
+      "sessions": 4,
+      "by_domain": {
+        "Arts and Crafts": 1,
+        "Chef": 1,
+        "Handyman": 1,
+        "Tutorial": 1
+      }
+    },
+    "4": {
+      "sessions": 4,
+      "by_domain": {
+        "Arts and Crafts": 1,
+        "Chef": 1,
+        "Handyman": 1,
+        "Tutorial": 1
+      }
+    }
+  }
+}

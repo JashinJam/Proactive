@@ -1,0 +1,348 @@
+{
+  "schema_version": 1,
+  "status": "complete label-independent S1 annotation preparation",
+  "selection_seed": "20260717-state-s1-v1",
+  "labels_or_answers_read": false,
+  "model_outputs_or_errors_read": false,
+  "ratings_read": false,
+  "excluded_u1_formal_indices": [
+    19,
+    39,
+    56,
+    66,
+    117,
+    135,
+    192,
+    196,
+    244,
+    263,
+    293,
+    342,
+    369,
+    434,
+    496,
+    546,
+    580,
+    597,
+    672,
+    673
+  ],
+  "excluded_r1_pilot_indices": [
+    14,
+    123,
+    326,
+    687
+  ],
+  "sessions": 32,
+  "states": 444,
+  "splits": {
+    "train": {
+      "sessions": 24,
+      "states": 318,
+      "by_domain": {
+        "Arts and Crafts": 6,
+        "Chef": 6,
+        "Handyman": 6,
+        "Tutorial": 6
+      },
+      "by_length_band": {
+        "short": 9,
+        "middle": 9,
+        "long": 6
+      }
+    },
+    "heldout": {
+      "sessions": 8,
+      "states": 126,
+      "by_domain": {
+        "Arts and Crafts": 2,
+        "Chef": 2,
+        "Handyman": 2,
+        "Tutorial": 2
+      },
+      "by_length_band": {
+        "short": 3,
+        "middle": 3,
+        "long": 2
+      }
+    }
+  },
+  "selected_sessions": [
+    {
+      "input_index": 20,
+      "video_path": "0573fc312656e95a.mp4",
+      "domain": "Handyman",
+      "length_band": "middle",
+      "state_split": "train",
+      "chunks": 12
+    },
+    {
+      "input_index": 25,
+      "video_path": "08b9fac1a8faa178.mp4",
+      "domain": "Handyman",
+      "length_band": "short",
+      "state_split": "train",
+      "chunks": 11
+    },
+    {
+      "input_index": 33,
+      "video_path": "0b4dd0cf02c47a4c.mp4",
+      "domain": "Arts and Crafts",
+      "length_band": "short",
+      "state_split": "train",
+      "chunks": 8
+    },
+    {
+      "input_index": 64,
+      "video_path": "175bd7e36afe2fb1.mp4",
+      "domain": "Handyman",
+      "length_band": "middle",
+      "state_split": "train",
+      "chunks": 12
+    },
+    {
+      "input_index": 83,
+      "video_path": "1fbd5cb944aaea67.mp4",
+      "domain": "Arts and Crafts",
+      "length_band": "short",
+      "state_split": "train",
+      "chunks": 8
+    },
+    {
+      "input_index": 86,
+      "video_path": "22011cd3304c1679.mp4",
+      "domain": "Arts and Crafts",
+      "length_band": "short",
+      "state_split": "heldout",
+      "chunks": 12
+    },
+    {
+      "input_index": 95,
+      "video_path": "2590c2cacdf4a6c2.mp4",
+      "domain": "Chef",
+      "length_band": "middle",
+      "state_split": "train",
+      "chunks": 16
+    },
+    {
+      "input_index": 99,
+      "video_path": "26694a16b3f352ec.mp4",
+      "domain": "Handyman",
+      "length_band": "short",
+      "state_split": "heldout",
+      "chunks": 10
+    },
+    {
+      "input_index": 108,
+      "video_path": "297610660059baf0.mp4",
+      "domain": "Tutorial",
+      "length_band": "short",
+      "state_split": "train",
+      "chunks": 12
+    },
+    {
+      "input_index": 111,
+      "video_path": "2ae7eb1e3ffef5a5.mp4",
+      "domain": "Chef",
+      "length_band": "long",
+      "state_split": "train",
+      "chunks": 22
+    },
+    {
+      "input_index": 122,
+      "video_path": "2fc1de40daf2fd56.mp4",
+      "domain": "Chef",
+      "length_band": "short",
+      "state_split": "train",
+      "chunks": 12
+    },
+    {
+      "input_index": 159,
+      "video_path": "3cb5f9781a08b681.mp4",
+      "domain": "Handyman",
+      "length_band": "long",
+      "state_split": "heldout",
+      "chunks": 22
+    },
+    {
+      "input_index": 194,
+      "video_path": "4a42f604a51bf1f2.mp4",
+      "domain": "Chef",
+      "length_band": "middle",
+      "state_split": "train",
+      "chunks": 16
+    },
+    {
+      "input_index": 220,
+      "video_path": "53d963241050526d.mp4",
+      "domain": "Arts and Crafts",
+      "length_band": "long",
+      "state_split": "train",
+      "chunks": 20
+    },
+    {
+      "input_index": 243,
+      "video_path": "5cd4daa226681ce2.mp4",
+      "domain": "Handyman",
+      "length_band": "short",
+      "state_split": "train",
+      "chunks": 8
+    },
+    {
+      "input_index": 255,
+      "video_path": "61efb30f29304333.mp4",
+      "domain": "Tutorial",
+      "length_band": "long",
+      "state_split": "train",
+      "chunks": 16
+    },
+    {
+      "input_index": 261,
+      "video_path": "646a798bef1636ab.mp4",
+      "domain": "Handyman",
+      "length_band": "middle",
+      "state_split": "train",
+      "chunks": 12
+    },
+    {
+      "input_index": 313,
+      "video_path": "766a6be2a0a9a3fe.mp4",
+      "domain": "Arts and Crafts",
+      "length_band": "middle",
+      "state_split": "heldout",
+      "chunks": 12
+    },
+    {
+      "input_index": 365,
+      "video_path": "84d6970fcd68dd67.mp4",
+      "domain": "Arts and Crafts",
+      "length_band": "middle",
+      "state_split": "train",
+      "chunks": 14
+    },
+    {
+      "input_index": 404,
+      "video_path": "940314527f79a3ce.mp4",
+      "domain": "Tutorial",
+      "length_band": "middle",
+      "state_split": "train",
+      "chunks": 14
+    },
+    {
+      "input_index": 410,
+      "video_path": "95e64999cda20c44.mp4",
+      "domain": "Tutorial",
+      "length_band": "short",
+      "state_split": "heldout",
+      "chunks": 11
+    },
+    {
+      "input_index": 468,
+      "video_path": "ac01e754ec86cfb7.mp4",
+      "domain": "Chef",
+      "length_band": "short",
+      "state_split": "train",
+      "chunks": 10
+    },
+    {
+      "input_index": 477,
+      "video_path": "af7ed655cd7b54a0.mp4",
+      "domain": "Arts and Crafts",
+      "length_band": "long",
+      "state_split": "train",
+      "chunks": 16
+    },
+    {
+      "input_index": 506,
+      "video_path": "b7c4660550af9918.mp4",
+      "domain": "Tutorial",
+      "length_band": "middle",
+      "state_split": "heldout",
+      "chunks": 13
+    },
+    {
+      "input_index": 533,
+      "video_path": "c293f81e1c95b81a.mp4",
+      "domain": "Chef",
+      "length_band": "middle",
+      "state_split": "heldout",
+      "chunks": 18
+    },
+    {
+      "input_index": 549,
+      "video_path": "ccb5d74c42da3d7d.mp4",
+      "domain": "Chef",
+      "length_band": "long",
+      "state_split": "heldout",
+      "chunks": 28
+    },
+    {
+      "input_index": 583,
+      "video_path": "d73510ad805c7958.mp4",
+      "domain": "Arts and Crafts",
+      "length_band": "middle",
+      "state_split": "train",
+      "chunks": 12
+    },
+    {
+      "input_index": 592,
+      "video_path": "d9c5c309f8bc0a0d.mp4",
+      "domain": "Tutorial",
+      "length_band": "long",
+      "state_split": "train",
+      "chunks": 16
+    },
+    {
+      "input_index": 601,
+      "video_path": "dd70387359352264.mp4",
+      "domain": "Tutorial",
+      "length_band": "short",
+      "state_split": "train",
+      "chunks": 10
+    },
+    {
+      "input_index": 615,
+      "video_path": "e1903ff853dd84c6.mp4",
+      "domain": "Chef",
+      "length_band": "short",
+      "state_split": "train",
+      "chunks": 14
+    },
+    {
+      "input_index": 623,
+      "video_path": "e3b63c11a7c9e0ab.mp4",
+      "domain": "Tutorial",
+      "length_band": "middle",
+      "state_split": "train",
+      "chunks": 12
+    },
+    {
+      "input_index": 670,
+      "video_path": "f75dbac8dc8474e0.mp4",
+      "domain": "Handyman",
+      "length_band": "long",
+      "state_split": "train",
+      "chunks": 15
+    }
+  ],
+  "sources": {
+    "source": {
+      "path": "/data1/wearable_ai_challenge_data/egoproactive/wearable_ai_2026_egoproactive_val_700.jsonl",
+      "sha256": "feef69ddee605e7070ad0f133636c35739c6964514a46d76da294b6bf1964740"
+    },
+    "protocol": {
+      "path": "/home/lanjinxin/workspace/wearable_ai_challenge/annotations/state_s1_decoder_v1/PROTOCOL.md",
+      "sha256": "ca7600fef00f9b119e3e4ddae2679c3fe8e196bfa2efa2851228d6b1b617a518"
+    }
+  },
+  "artifacts": {
+    "sessions": {
+      "path": "/home/lanjinxin/workspace/wearable_ai_challenge/annotations/state_s1_decoder_v1/prepared_v2/sessions.jsonl",
+      "sha256": "cdfe53adf40f0533dc6ac4e8269cadaa810217c4e519a7bd6a2de9a419e02c21"
+    },
+    "template": {
+      "path": "/home/lanjinxin/workspace/wearable_ai_challenge/annotations/state_s1_decoder_v1/prepared_v2/annotation_template.json",
+      "sha256": "4e1a42fb21bf48cb82346ed55f1e430336c398d13070f9e59242af2c27fcad5c"
+    }
+  }
+}

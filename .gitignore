@@ -48,3 +48,6 @@
 
 # Downloaded papers; keep the project-authored Markdown audits and notes
 /literature/**/*.pdf
+
+# Generated annotation media derived from dataset videos
+/annotations/state_s1_decoder_v1/work_v1/media/

@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "status": "complete target-isolated S0 preparation",
+  "sessions": 20,
+  "states": 80,
+  "prediction_runner_reads_targets": false,
+  "inputs_contain_dynamic_state_targets": false,
+  "inputs_contain_current_or_future_answers": false,
+  "inputs_contain_oracle_static_plan": true,
+  "validation": {
+    "sessions": 20,
+    "sampled_states": 80,
+    "causal_timestamps_exact": true,
+    "forbidden_target_markers_absent": true
+  },
+  "sources": {
+    "samples": [
+      {
+        "path": "/home/lanjinxin/workspace/wearable_ai_challenge/annotations/u1_forced_generation_v1/formal_blind/part_a_samples.jsonl",
+        "sha256": "3417b738ec8454cd6444f45850b2c9604bec783387b817f1d44cce7ebfafeeb0"
+      },
+      {
+        "path": "/home/lanjinxin/workspace/wearable_ai_challenge/annotations/u1_forced_generation_v1/formal_blind/part_b_samples.jsonl",
+        "sha256": "a6814e8af7549c01609ee90b1614ee0ff222ca2a6f7a9fa33fd78f93104f45ab"
+      }
+    ],
+    "oracle": {
+      "path": "/home/lanjinxin/workspace/wearable_ai_challenge/annotations/u1_forced_generation_v1/oracle_states.formal_blind.json",
+      "sha256": "e8f1e0736398d46193009ddb3966599ccc2f8629cfaecdd55f270b5ec6018850"
+    }
+  },
+  "artifacts": {
+    "inputs": {
+      "path": "/home/lanjinxin/workspace/wearable_ai_challenge/annotations/state_s0_oracle_plan_v1/prepared/inputs.jsonl",
+      "sha256": "c0d44b933f926460020f6a2d362de3cd2ffed97a66cad5adcc0dddc4ced4a53b"
+    },
+    "targets": {
+      "path": "/home/lanjinxin/workspace/wearable_ai_challenge/annotations/state_s0_oracle_plan_v1/prepared/targets.jsonl",
+      "sha256": "09ae879afc8e3c2eb298ec07244201e2c2b461da55b6b96becbd6f74b06595b8"
+    }
+  }
+}

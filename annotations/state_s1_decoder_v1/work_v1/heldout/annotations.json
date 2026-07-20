@@ -1,0 +1,2012 @@
+[
+  {
+    "schema_version": 1,
+    "status": "incomplete",
+    "input_index": 86,
+    "video_path": "22011cd3304c1679.mp4",
+    "query": "How do I make a simple paper fortune wheel by drawing and cutting a spinner?",
+    "task": "Making a simple paper fortune wheel (drawing and cutting a spinner)",
+    "domain": "Arts and Crafts",
+    "length_band": "short",
+    "state_split": "heldout",
+    "provenance": {
+      "plan_inputs": [
+        "task",
+        "query"
+      ],
+      "chunk_inputs": [
+        "task",
+        "query",
+        "dialog_at_chunk",
+        "video_intervals_so_far"
+      ],
+      "excluded_inputs": [
+        "answers",
+        "future_dialog",
+        "future_video",
+        "model_outputs",
+        "R0/D1/D3 errors",
+        "ratings",
+        "existing_oracle_states"
+      ],
+      "annotation_type": "s1_training_or_heldout_causal_state_supervision"
+    },
+    "goal": "Make a functional paper fortune wheel with readable outcomes and a freely rotating spinner.",
+    "steps": [
+      {
+        "id": "s1",
+        "text": "Plan the wheel sections and write or draw the fortune outcomes.",
+        "completion_cues": [
+          "The wheel has a complete, legible set of divided outcomes."
+        ],
+        "incompletion_cues": [
+          "Sections or fortunes are missing or unclear."
+        ]
+      },
+      {
+        "id": "s2",
+        "text": "Draw and cut the wheel and its backing or pointer pieces.",
+        "completion_cues": [
+          "The required paper pieces are cleanly cut to usable shapes."
+        ],
+        "incompletion_cues": [
+          "The wheel or supporting pieces are uncut, incomplete, or damaged."
+        ]
+      },
+      {
+        "id": "s3",
+        "text": "Assemble the center pivot and spinner or pointer.",
+        "completion_cues": [
+          "The parts are centered and attached while remaining able to rotate."
+        ],
+        "incompletion_cues": [
+          "The pivot is missing, off-center, too loose, or jammed."
+        ]
+      },
+      {
+        "id": "s4",
+        "text": "Test the spin, improve readability, and finish the wheel.",
+        "completion_cues": [
+          "The spinner turns freely, stops on a clear fortune, and the wheel is finished."
+        ],
+        "incompletion_cues": [
+          "The wheel has not been tested or the outcome cannot be read reliably."
+        ]
+      }
+    ],
+    "chunk_states": [
+      {
+        "chunk_index": 0,
+        "observed_through_sec": 2.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 1,
+        "observed_through_sec": 10.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 2,
+        "observed_through_sec": 20.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 3,
+        "observed_through_sec": 28.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 4,
+        "observed_through_sec": 36.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 5,
+        "observed_through_sec": 39.7,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 6,
+        "observed_through_sec": 47.7,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 7,
+        "observed_through_sec": 52.5,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 8,
+        "observed_through_sec": 160.7,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 9,
+        "observed_through_sec": 168.7,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 10,
+        "observed_through_sec": 174.1,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 11,
+        "observed_through_sec": 182.1,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      }
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "incomplete",
+    "input_index": 99,
+    "video_path": "26694a16b3f352ec.mp4",
+    "query": "How do I sand a sticky window frame?",
+    "task": "Sanding a sticky window frame",
+    "domain": "Handyman",
+    "length_band": "short",
+    "state_split": "heldout",
+    "provenance": {
+      "plan_inputs": [
+        "task",
+        "query"
+      ],
+      "chunk_inputs": [
+        "task",
+        "query",
+        "dialog_at_chunk",
+        "video_intervals_so_far"
+      ],
+      "excluded_inputs": [
+        "answers",
+        "future_dialog",
+        "future_video",
+        "model_outputs",
+        "R0/D1/D3 errors",
+        "ratings",
+        "existing_oracle_states"
+      ],
+      "annotation_type": "s1_training_or_heldout_causal_state_supervision"
+    },
+    "goal": "Sand the rubbing areas of a sticky window frame so the window moves smoothly and the area is left clean.",
+    "steps": [
+      {
+        "id": "s1",
+        "text": "Inspect the window movement and identify the rubbing or swollen areas.",
+        "completion_cues": [
+          "The specific sticking surfaces are located and accessible."
+        ],
+        "incompletion_cues": [
+          "The source of sticking is unknown or the work area is inaccessible."
+        ]
+      },
+      {
+        "id": "s2",
+        "text": "Protect adjacent surfaces and sand the identified areas gradually.",
+        "completion_cues": [
+          "The high spots are reduced evenly without excessive material removal."
+        ],
+        "incompletion_cues": [
+          "The target area is unsanded, protected surfaces are at risk, or sanding is excessive."
+        ]
+      },
+      {
+        "id": "s3",
+        "text": "Remove dust and inspect the sanded surfaces.",
+        "completion_cues": [
+          "Sanding dust is cleared and the treated surfaces are smooth enough to test."
+        ],
+        "incompletion_cues": [
+          "Dust remains or rough and uneven high spots are still visible."
+        ]
+      },
+      {
+        "id": "s4",
+        "text": "Open and close the window, make minor corrections, and finish the surface.",
+        "completion_cues": [
+          "The window moves freely through repeated tests and the surface is left protected and clean."
+        ],
+        "incompletion_cues": [
+          "The window still binds, has not been retested, or the surface is unfinished."
+        ]
+      }
+    ],
+    "chunk_states": [
+      {
+        "chunk_index": 0,
+        "observed_through_sec": 2.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 1,
+        "observed_through_sec": 10.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 2,
+        "observed_through_sec": 33.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 3,
+        "observed_through_sec": 41.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 4,
+        "observed_through_sec": 45.6,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 5,
+        "observed_through_sec": 53.6,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 6,
+        "observed_through_sec": 77.6,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 7,
+        "observed_through_sec": 98.1,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 8,
+        "observed_through_sec": 104.5,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 9,
+        "observed_through_sec": 112.5,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      }
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "incomplete",
+    "input_index": 159,
+    "video_path": "3cb5f9781a08b681.mp4",
+    "query": "How do I replace a worn doormat grip pad?",
+    "task": "Replacing a worn doormat grip pad",
+    "domain": "Handyman",
+    "length_band": "long",
+    "state_split": "heldout",
+    "provenance": {
+      "plan_inputs": [
+        "task",
+        "query"
+      ],
+      "chunk_inputs": [
+        "task",
+        "query",
+        "dialog_at_chunk",
+        "video_intervals_so_far"
+      ],
+      "excluded_inputs": [
+        "answers",
+        "future_dialog",
+        "future_video",
+        "model_outputs",
+        "R0/D1/D3 errors",
+        "ratings",
+        "existing_oracle_states"
+      ],
+      "annotation_type": "s1_training_or_heldout_causal_state_supervision"
+    },
+    "goal": "Replace a worn doormat grip pad so the mat lies flat and resists sliding.",
+    "steps": [
+      {
+        "id": "s1",
+        "text": "Remove and inspect the mat, measure it, and clean and dry the floor and mat underside.",
+        "completion_cues": [
+          "The dimensions are known and both contact surfaces are clean and dry."
+        ],
+        "incompletion_cues": [
+          "The mat is not measured or dirt and moisture remain on contact surfaces."
+        ]
+      },
+      {
+        "id": "s2",
+        "text": "Remove the worn grip pad and prepare a correctly sized replacement.",
+        "completion_cues": [
+          "The old pad is removed and the new pad is cut to fit within the mat edges."
+        ],
+        "incompletion_cues": [
+          "The old pad remains or the replacement is missing or incorrectly sized."
+        ]
+      },
+      {
+        "id": "s3",
+        "text": "Position or attach the new grip pad evenly under the doormat.",
+        "completion_cues": [
+          "The grip pad lies flat, centered, and fully under the mat."
+        ],
+        "incompletion_cues": [
+          "The pad is wrinkled, exposed, off-center, or not secured as required."
+        ]
+      },
+      {
+        "id": "s4",
+        "text": "Replace the mat and test it for flatness and slipping.",
+        "completion_cues": [
+          "The mat lies flat and stays in place under repeated foot pressure."
+        ],
+        "incompletion_cues": [
+          "The mat curls, shifts, or has not been load-tested."
+        ]
+      }
+    ],
+    "chunk_states": [
+      {
+        "chunk_index": 0,
+        "observed_through_sec": 2.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 1,
+        "observed_through_sec": 6.4,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 2,
+        "observed_through_sec": 14.4,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 3,
+        "observed_through_sec": 22.4,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 4,
+        "observed_through_sec": 30.4,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 5,
+        "observed_through_sec": 37.6,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 6,
+        "observed_through_sec": 45.6,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 7,
+        "observed_through_sec": 47.6,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 8,
+        "observed_through_sec": 55.6,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 9,
+        "observed_through_sec": 63.6,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 10,
+        "observed_through_sec": 69.3,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 11,
+        "observed_through_sec": 77.3,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 12,
+        "observed_through_sec": 87.7,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 13,
+        "observed_through_sec": 95.7,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 14,
+        "observed_through_sec": 114.5,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 15,
+        "observed_through_sec": 122.9,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 16,
+        "observed_through_sec": 124.5,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 17,
+        "observed_through_sec": 134.1,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 18,
+        "observed_through_sec": 142.1,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 19,
+        "observed_through_sec": 144.7,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 20,
+        "observed_through_sec": 152.7,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 21,
+        "observed_through_sec": 156.2,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      }
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "incomplete",
+    "input_index": 313,
+    "video_path": "766a6be2a0a9a3fe.mp4",
+    "query": "How do I create a quick torn paper collage?",
+    "task": "Creating a quick torn paper collage",
+    "domain": "Arts and Crafts",
+    "length_band": "middle",
+    "state_split": "heldout",
+    "provenance": {
+      "plan_inputs": [
+        "task",
+        "query"
+      ],
+      "chunk_inputs": [
+        "task",
+        "query",
+        "dialog_at_chunk",
+        "video_intervals_so_far"
+      ],
+      "excluded_inputs": [
+        "answers",
+        "future_dialog",
+        "future_video",
+        "model_outputs",
+        "R0/D1/D3 errors",
+        "ratings",
+        "existing_oracle_states"
+      ],
+      "annotation_type": "s1_training_or_heldout_causal_state_supervision"
+    },
+    "goal": "Create a coherent torn-paper collage with securely attached, intentionally arranged pieces.",
+    "steps": [
+      {
+        "id": "s1",
+        "text": "Choose the collage idea, backing, and a useful range of paper colors and textures.",
+        "completion_cues": [
+          "The backing and enough suitable paper materials are selected for a clear composition."
+        ],
+        "incompletion_cues": [
+          "The concept, backing, or needed paper choices are missing."
+        ]
+      },
+      {
+        "id": "s2",
+        "text": "Tear paper into useful shapes and arrange the composition without glue.",
+        "completion_cues": [
+          "Torn pieces form a complete trial arrangement on the backing."
+        ],
+        "incompletion_cues": [
+          "Too few pieces are prepared or the arrangement is incomplete or incoherent."
+        ]
+      },
+      {
+        "id": "s3",
+        "text": "Glue the pieces in place while preserving the planned layers.",
+        "completion_cues": [
+          "All intended pieces are attached in the planned order with controlled adhesive."
+        ],
+        "incompletion_cues": [
+          "Pieces remain loose, misplaced, or covered with excessive adhesive."
+        ]
+      },
+      {
+        "id": "s4",
+        "text": "Press, dry, inspect, and finish the collage.",
+        "completion_cues": [
+          "The collage is flat and secure, dry enough to handle, and visually complete."
+        ],
+        "incompletion_cues": [
+          "Edges lift, adhesive remains unmanaged, or the design is unfinished."
+        ]
+      }
+    ],
+    "chunk_states": [
+      {
+        "chunk_index": 0,
+        "observed_through_sec": 2.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 1,
+        "observed_through_sec": 10.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 2,
+        "observed_through_sec": 12.2,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 3,
+        "observed_through_sec": 20.2,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 4,
+        "observed_through_sec": 30.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 5,
+        "observed_through_sec": 37.7,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 6,
+        "observed_through_sec": 45.7,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 7,
+        "observed_through_sec": 53.7,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 8,
+        "observed_through_sec": 61.7,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 9,
+        "observed_through_sec": 71.1,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 10,
+        "observed_through_sec": 79.1,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 11,
+        "observed_through_sec": 135.4,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      }
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "incomplete",
+    "input_index": 410,
+    "video_path": "95e64999cda20c44.mp4",
+    "query": "How do I add a bookmark in a PDF reader?",
+    "task": "How to add a bookmark in a PDF reader",
+    "domain": "Tutorial",
+    "length_band": "short",
+    "state_split": "heldout",
+    "provenance": {
+      "plan_inputs": [
+        "task",
+        "query"
+      ],
+      "chunk_inputs": [
+        "task",
+        "query",
+        "dialog_at_chunk",
+        "video_intervals_so_far"
+      ],
+      "excluded_inputs": [
+        "answers",
+        "future_dialog",
+        "future_video",
+        "model_outputs",
+        "R0/D1/D3 errors",
+        "ratings",
+        "existing_oracle_states"
+      ],
+      "annotation_type": "s1_training_or_heldout_causal_state_supervision"
+    },
+    "goal": "Add and verify a useful bookmark at the intended location in a PDF reader.",
+    "steps": [
+      {
+        "id": "s1",
+        "text": "Open the PDF and navigate to the page or location to bookmark.",
+        "completion_cues": [
+          "The correct document and intended location are visible in the reader."
+        ],
+        "incompletion_cues": [
+          "The wrong document or location is open or the PDF is not ready."
+        ]
+      },
+      {
+        "id": "s2",
+        "text": "Use the reader's bookmark command to create a bookmark at the current location.",
+        "completion_cues": [
+          "A new bookmark entry is created for the current PDF location."
+        ],
+        "incompletion_cues": [
+          "The bookmark command is not found or no entry is created."
+        ]
+      },
+      {
+        "id": "s3",
+        "text": "Name, organize, or save the bookmark if the reader allows it.",
+        "completion_cues": [
+          "The bookmark has a recognizable label and is stored in the intended list or group."
+        ],
+        "incompletion_cues": [
+          "The bookmark is unnamed, misplaced, or not retained."
+        ]
+      },
+      {
+        "id": "s4",
+        "text": "Navigate away and use the bookmark to verify that it returns to the correct location.",
+        "completion_cues": [
+          "Selecting the bookmark reliably opens the intended PDF location."
+        ],
+        "incompletion_cues": [
+          "The bookmark is untested, missing, or opens the wrong location."
+        ]
+      }
+    ],
+    "chunk_states": [
+      {
+        "chunk_index": 0,
+        "observed_through_sec": 2.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 1,
+        "observed_through_sec": 8.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 2,
+        "observed_through_sec": 14.1,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 3,
+        "observed_through_sec": 22.1,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 4,
+        "observed_through_sec": 29.8,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 5,
+        "observed_through_sec": 37.8,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 6,
+        "observed_through_sec": 43.7,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 7,
+        "observed_through_sec": 52.5,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 8,
+        "observed_through_sec": 57.4,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 9,
+        "observed_through_sec": 65.4,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 10,
+        "observed_through_sec": 73.4,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      }
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "incomplete",
+    "input_index": 506,
+    "video_path": "b7c4660550af9918.mp4",
+    "query": "How do I pair a Bluetooth keyboard?",
+    "task": "How to pair a Bluetooth keyboard",
+    "domain": "Tutorial",
+    "length_band": "middle",
+    "state_split": "heldout",
+    "provenance": {
+      "plan_inputs": [
+        "task",
+        "query"
+      ],
+      "chunk_inputs": [
+        "task",
+        "query",
+        "dialog_at_chunk",
+        "video_intervals_so_far"
+      ],
+      "excluded_inputs": [
+        "answers",
+        "future_dialog",
+        "future_video",
+        "model_outputs",
+        "R0/D1/D3 errors",
+        "ratings",
+        "existing_oracle_states"
+      ],
+      "annotation_type": "s1_training_or_heldout_causal_state_supervision"
+    },
+    "goal": "Pair a Bluetooth keyboard with the intended device and verify reliable typing.",
+    "steps": [
+      {
+        "id": "s1",
+        "text": "Power or charge the keyboard and place it in discoverable pairing mode.",
+        "completion_cues": [
+          "The keyboard is powered and visibly indicates pairing or discovery mode."
+        ],
+        "incompletion_cues": [
+          "The keyboard lacks power or is not in pairing mode."
+        ]
+      },
+      {
+        "id": "s2",
+        "text": "Open the device Bluetooth settings and scan for nearby devices.",
+        "completion_cues": [
+          "Bluetooth is enabled and the target keyboard appears in the available-device list."
+        ],
+        "incompletion_cues": [
+          "Bluetooth settings are not open, scanning is off, or the keyboard is not found."
+        ]
+      },
+      {
+        "id": "s3",
+        "text": "Select the keyboard and complete any confirmation or pairing code.",
+        "completion_cues": [
+          "The device reports the keyboard as paired or connected after any required confirmation."
+        ],
+        "incompletion_cues": [
+          "The wrong device is selected, the code fails, or pairing remains pending or rejected."
+        ]
+      },
+      {
+        "id": "s4",
+        "text": "Type a test and correct any connection or layout problem.",
+        "completion_cues": [
+          "Keystrokes appear correctly and the connection remains stable during the test."
+        ],
+        "incompletion_cues": [
+          "Typing is untested, incorrect, delayed, or disconnected."
+        ]
+      }
+    ],
+    "chunk_states": [
+      {
+        "chunk_index": 0,
+        "observed_through_sec": 2.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 1,
+        "observed_through_sec": 6.9,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 2,
+        "observed_through_sec": 12.8,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 3,
+        "observed_through_sec": 20.8,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 4,
+        "observed_through_sec": 22.9,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 5,
+        "observed_through_sec": 31.7,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 6,
+        "observed_through_sec": 35.5,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 7,
+        "observed_through_sec": 44.5,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 8,
+        "observed_through_sec": 52.5,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 9,
+        "observed_through_sec": 60.2,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 10,
+        "observed_through_sec": 68.2,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 11,
+        "observed_through_sec": 74.4,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 12,
+        "observed_through_sec": 82.4,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      }
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "incomplete",
+    "input_index": 533,
+    "video_path": "c293f81e1c95b81a.mp4",
+    "query": "How do I make pickle and cream cheese pinwheel bites?",
+    "task": "Making pickle and cream cheese pinwheel bites",
+    "domain": "Chef",
+    "length_band": "middle",
+    "state_split": "heldout",
+    "provenance": {
+      "plan_inputs": [
+        "task",
+        "query"
+      ],
+      "chunk_inputs": [
+        "task",
+        "query",
+        "dialog_at_chunk",
+        "video_intervals_so_far"
+      ],
+      "excluded_inputs": [
+        "answers",
+        "future_dialog",
+        "future_video",
+        "model_outputs",
+        "R0/D1/D3 errors",
+        "ratings",
+        "existing_oracle_states"
+      ],
+      "annotation_type": "s1_training_or_heldout_causal_state_supervision"
+    },
+    "goal": "Make neat pickle and cream cheese pinwheel bites that hold their rolled shape.",
+    "steps": [
+      {
+        "id": "s1",
+        "text": "Prepare the tortillas, softened cream cheese mixture, and drained pickles.",
+        "completion_cues": [
+          "The spread is smooth, pickles are drained, and all assembly ingredients are ready."
+        ],
+        "incompletion_cues": [
+          "The spread is too firm or unmixed, pickles are wet, or ingredients are missing."
+        ]
+      },
+      {
+        "id": "s2",
+        "text": "Spread the cream cheese evenly and arrange the pickles on the tortillas.",
+        "completion_cues": [
+          "Each tortilla has an even spread and a suitable pickle arrangement for rolling."
+        ],
+        "incompletion_cues": [
+          "Coverage is patchy or excessive or pickles are missing, wet, or badly positioned."
+        ]
+      },
+      {
+        "id": "s3",
+        "text": "Roll the tortillas tightly and chill or rest the rolls to firm them.",
+        "completion_cues": [
+          "The rolls are tight, closed, and firm enough to slice without unrolling."
+        ],
+        "incompletion_cues": [
+          "The rolls are loose, open, or too soft to slice cleanly."
+        ]
+      },
+      {
+        "id": "s4",
+        "text": "Trim, slice, arrange, and serve the pinwheel bites.",
+        "completion_cues": [
+          "Even pinwheel slices hold their shape and are arranged ready to serve."
+        ],
+        "incompletion_cues": [
+          "Slices are uneven, unraveling, unsliced, or not ready to serve."
+        ]
+      }
+    ],
+    "chunk_states": [
+      {
+        "chunk_index": 0,
+        "observed_through_sec": 2.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 1,
+        "observed_through_sec": 5.9,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 2,
+        "observed_through_sec": 13.9,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 3,
+        "observed_through_sec": 21.9,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 4,
+        "observed_through_sec": 31.2,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 5,
+        "observed_through_sec": 39.2,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 6,
+        "observed_through_sec": 55.2,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 7,
+        "observed_through_sec": 57.6,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 8,
+        "observed_through_sec": 65.6,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 9,
+        "observed_through_sec": 73.6,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 10,
+        "observed_through_sec": 79.7,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 11,
+        "observed_through_sec": 87.7,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 12,
+        "observed_through_sec": 92.8,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 13,
+        "observed_through_sec": 99.4,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 14,
+        "observed_through_sec": 107.4,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 15,
+        "observed_through_sec": 109.8,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 16,
+        "observed_through_sec": 117.8,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 17,
+        "observed_through_sec": 134.6,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      }
+    ]
+  },
+  {
+    "schema_version": 1,
+    "status": "incomplete",
+    "input_index": 549,
+    "video_path": "ccb5d74c42da3d7d.mp4",
+    "query": "How do I make fried egg and tomato toast?",
+    "task": "Making fried egg and tomato toast",
+    "domain": "Chef",
+    "length_band": "long",
+    "state_split": "heldout",
+    "provenance": {
+      "plan_inputs": [
+        "task",
+        "query"
+      ],
+      "chunk_inputs": [
+        "task",
+        "query",
+        "dialog_at_chunk",
+        "video_intervals_so_far"
+      ],
+      "excluded_inputs": [
+        "answers",
+        "future_dialog",
+        "future_video",
+        "model_outputs",
+        "R0/D1/D3 errors",
+        "ratings",
+        "existing_oracle_states"
+      ],
+      "annotation_type": "s1_training_or_heldout_causal_state_supervision"
+    },
+    "goal": "Prepare fried egg and tomato toast with properly cooked toppings on crisp toast.",
+    "steps": [
+      {
+        "id": "s1",
+        "text": "Gather and prepare the bread, egg, tomato, seasonings, and cookware.",
+        "completion_cues": [
+          "Ingredients are washed or portioned as needed and the pan and utensils are ready."
+        ],
+        "incompletion_cues": [
+          "Ingredients or equipment are missing or the tomato and bread are unprepared."
+        ]
+      },
+      {
+        "id": "s2",
+        "text": "Cook and season the tomato until suitably softened.",
+        "completion_cues": [
+          "The tomato is hot, softened to the intended texture, and seasoned without burning."
+        ],
+        "incompletion_cues": [
+          "The tomato is raw, watery, cold, burned, or unseasoned."
+        ]
+      },
+      {
+        "id": "s3",
+        "text": "Fry the egg to the desired doneness while toasting the bread.",
+        "completion_cues": [
+          "The egg white is safely set to preference and the bread is evenly toasted."
+        ],
+        "incompletion_cues": [
+          "The egg is unsafe or overcooked, the toast is pale or burned, or timing is incomplete."
+        ]
+      },
+      {
+        "id": "s4",
+        "text": "Assemble the tomato and egg on the toast, finish the seasoning, and serve.",
+        "completion_cues": [
+          "The toppings are neatly assembled on crisp toast and the dish is ready to eat."
+        ],
+        "incompletion_cues": [
+          "Assembly, final seasoning, or serving is incomplete or unstable."
+        ]
+      }
+    ],
+    "chunk_states": [
+      {
+        "chunk_index": 0,
+        "observed_through_sec": 2.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 1,
+        "observed_through_sec": 10.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 2,
+        "observed_through_sec": 17.1,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 3,
+        "observed_through_sec": 25.1,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 4,
+        "observed_through_sec": 28.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 5,
+        "observed_through_sec": 36.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 6,
+        "observed_through_sec": 46.9,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 7,
+        "observed_through_sec": 54.9,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 8,
+        "observed_through_sec": 58.7,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 9,
+        "observed_through_sec": 66.7,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 10,
+        "observed_through_sec": 75.4,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 11,
+        "observed_through_sec": 80.8,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 12,
+        "observed_through_sec": 83.7,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 13,
+        "observed_through_sec": 91.7,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 14,
+        "observed_through_sec": 123.7,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 15,
+        "observed_through_sec": 151.9,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 16,
+        "observed_through_sec": 166.1,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 17,
+        "observed_through_sec": 174.1,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 18,
+        "observed_through_sec": 182.1,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 19,
+        "observed_through_sec": 206.1,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 20,
+        "observed_through_sec": 236.5,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 21,
+        "observed_through_sec": 244.5,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 22,
+        "observed_through_sec": 260.5,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 23,
+        "observed_through_sec": 270.9,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 24,
+        "observed_through_sec": 278.9,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 25,
+        "observed_through_sec": 287.6,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 26,
+        "observed_through_sec": 302.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      },
+      {
+        "chunk_index": 27,
+        "observed_through_sec": 310.0,
+        "current_step_id": "",
+        "progress": "",
+        "completion_evidence": [],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": "",
+        "recovery_action": "",
+        "confidence": null
+      }
+    ]
+  }
+]

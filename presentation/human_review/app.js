@@ -37,6 +37,9 @@ const state = {
   completedSession: false,
   cutoff: 0,
   pendingSeek: null,
+  videoReady: false,
+  playbackGeneration: 0,
+  boundaryFrame: null,
   toastTimer: null,
 };
 
@@ -94,25 +97,39 @@ function bindStaticEvents() {
   dom.intervalButton.addEventListener("click", () => seekVideo(currentItem().interval[0]));
   dom.videoSeek.addEventListener("input", () => seekVideo(Number(dom.videoSeek.value)));
   dom.reviewVideo.addEventListener("loadedmetadata", () => {
-    dom.videoEmpty.hidden = true;
     if (state.pendingSeek !== null) {
       seekVideo(state.pendingSeek);
       state.pendingSeek = null;
     }
     clampVideo();
     updateVideoReadout();
+    setVideoReady(true);
   });
-  dom.reviewVideo.addEventListener("waiting", () => { dom.videoEmpty.hidden = false; dom.videoEmpty.textContent = "正在缓冲视频"; });
-  dom.reviewVideo.addEventListener("playing", () => { dom.videoEmpty.hidden = true; dom.playButton.textContent = "暂停"; });
+  dom.reviewVideo.addEventListener("loadstart", () => setVideoReady(false, "正在载入视频"));
+  dom.reviewVideo.addEventListener("loadeddata", () => setVideoReady(true));
+  dom.reviewVideo.addEventListener("canplay", () => setVideoReady(true));
+  dom.reviewVideo.addEventListener("seeked", () => setVideoReady(true));
+  dom.reviewVideo.addEventListener("progress", () => {
+    if (dom.reviewVideo.readyState >= 2) setVideoReady(true);
+  });
+  dom.reviewVideo.addEventListener("waiting", () => {
+    if (!dom.reviewVideo.paused) showVideoMessage("正在缓冲视频");
+  });
+  dom.reviewVideo.addEventListener("stalled", () => {
+    if (!dom.reviewVideo.paused) showVideoMessage("正在等待视频数据");
+  });
+  dom.reviewVideo.addEventListener("playing", () => { setVideoReady(true); dom.playButton.textContent = "暂停"; });
   dom.reviewVideo.addEventListener("pause", () => { dom.playButton.textContent = "播放"; });
   dom.reviewVideo.addEventListener("timeupdate", () => {
-    if (dom.reviewVideo.currentTime >= state.cutoff) {
-      dom.reviewVideo.pause();
-      if (dom.reviewVideo.currentTime > state.cutoff + 0.05) dom.reviewVideo.currentTime = state.cutoff;
-    }
+    if (!dom.reviewVideo.paused && dom.reviewVideo.readyState >= 2) setVideoReady(true);
     updateVideoReadout();
   });
   dom.reviewVideo.addEventListener("seeking", clampVideo);
+  dom.reviewVideo.addEventListener("error", () => {
+    const code = dom.reviewVideo.error?.code;
+    setVideoReady(false, `视频解码失败${code ? `（错误码 ${code}）` : ""}`);
+    showToast("视频加载或解码失败，请刷新后重试。", true);
+  });
   dom.previousItemButton.addEventListener("click", previousItem);
   dom.nextItemButton.addEventListener("click", nextItem);
   dom.clearItemButton.addEventListener("click", clearCurrentItem);
@@ -201,7 +218,7 @@ function renderSessionList() {
 async function loadSession(index) {
   const metadata = state.bootstrap.sessions[index];
   if (!metadata) return;
-  dom.reviewVideo.pause();
+  stopPlayback();
   try {
     const session = await api(`/api/session?study=${state.study}&reviewer=${state.reviewer}&session_id=${encodeURIComponent(metadata.session_id)}`);
     state.session = session;
@@ -229,8 +246,7 @@ async function loadSession(index) {
     }
     localStorage.setItem(`lastSession:${state.study}:${state.reviewer}`, metadata.session_id);
     dom.reviewVideo.src = `/media/${encodeURIComponent(session.video_path)}`;
-    dom.videoEmpty.hidden = false;
-    dom.videoEmpty.textContent = "正在载入视频";
+    setVideoReady(false, "正在载入视频");
     renderSession();
     setItem(state.itemIndex, true);
     renderSessionList();
@@ -273,6 +289,7 @@ function setItem(index, seekToInterval = false) {
   const targetStage = state.stages.findIndex((stage) => stage.itemIndices.includes(index));
   if (!state.completedSession && targetStage !== state.stageIndex) return;
   state.itemIndex = index;
+  stopPlayback();
   const item = currentItem();
   state.cutoff = Number(item.observed_through_sec);
   dom.videoSeek.max = String(state.cutoff);
@@ -684,12 +701,79 @@ function loadDraft() {
 
 function clearDraft() { localStorage.removeItem(draftKey()); }
 
-function togglePlayback() {
+async function togglePlayback() {
   if (!state.session) return;
-  if (dom.reviewVideo.paused) {
-    if (dom.reviewVideo.currentTime >= state.cutoff - 0.05) seekVideo(currentItem().interval[0]);
-    dom.reviewVideo.play().catch((error) => showToast(`视频无法播放：${error.message}`, true));
-  } else dom.reviewVideo.pause();
+  if (!dom.reviewVideo.paused) {
+    stopPlayback();
+    return;
+  }
+  const generation = ++state.playbackGeneration;
+  dom.playButton.disabled = true;
+  try {
+    if (dom.reviewVideo.readyState < 1) await waitForVideoEvent("loadedmetadata", 5000);
+    if (dom.reviewVideo.currentTime >= state.cutoff - 0.05) {
+      seekVideo(currentItem().interval[0]);
+    }
+    if (generation !== state.playbackGeneration) return;
+    await dom.reviewVideo.play();
+    if (generation !== state.playbackGeneration) return;
+    setVideoReady(true);
+    monitorPlaybackBoundary(generation);
+  } catch (error) {
+    if (generation !== state.playbackGeneration || error?.name === "AbortError") return;
+    showToast(`视频无法播放：${error.message}`, true);
+  } finally {
+    if (generation === state.playbackGeneration) dom.playButton.disabled = false;
+  }
+}
+
+function stopPlayback() {
+  state.playbackGeneration += 1;
+  if (state.boundaryFrame !== null) cancelAnimationFrame(state.boundaryFrame);
+  state.boundaryFrame = null;
+  if (!dom.reviewVideo.paused) dom.reviewVideo.pause();
+  dom.playButton.disabled = !state.videoReady;
+}
+
+function monitorPlaybackBoundary(generation) {
+  if (generation !== state.playbackGeneration || dom.reviewVideo.paused) return;
+  if (dom.reviewVideo.currentTime >= state.cutoff - 0.02) {
+    dom.reviewVideo.pause();
+    if (dom.reviewVideo.currentTime > state.cutoff) dom.reviewVideo.currentTime = state.cutoff;
+    updateVideoReadout();
+    return;
+  }
+  state.boundaryFrame = requestAnimationFrame(() => monitorPlaybackBoundary(generation));
+}
+
+function setVideoReady(ready, message = "") {
+  state.videoReady = ready;
+  dom.playButton.disabled = !ready;
+  dom.videoEmpty.hidden = ready;
+  if (message) dom.videoEmpty.textContent = message;
+}
+
+function showVideoMessage(message) {
+  dom.videoEmpty.textContent = message;
+  dom.videoEmpty.hidden = false;
+}
+
+function waitForVideoEvent(name, timeoutMs) {
+  return new Promise((resolve, reject) => {
+    const timeout = window.setTimeout(() => {
+      cleanup();
+      reject(new Error("视频加载超时"));
+    }, timeoutMs);
+    const onEvent = () => { cleanup(); resolve(); };
+    const onError = () => { cleanup(); reject(new Error("视频加载或解码失败")); };
+    const cleanup = () => {
+      window.clearTimeout(timeout);
+      dom.reviewVideo.removeEventListener(name, onEvent);
+      dom.reviewVideo.removeEventListener("error", onError);
+    };
+    dom.reviewVideo.addEventListener(name, onEvent, {once: true});
+    dom.reviewVideo.addEventListener("error", onError, {once: true});
+  });
 }
 
 function seekVideo(seconds) {

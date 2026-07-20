@@ -12,7 +12,7 @@
       "plan_inputs": ["task", "query"],
       "chunk_inputs": ["task", "query", "dialog_at_chunk", "video_through_interval_end"],
       "excluded_inputs": ["answers", "future_dialog", "future_video", "model_outputs", "R0/D1 errors"],
-      "annotation_type": "formal_blind_evaluation_only_oracle_non-deployable"
+      "annotation_type": "formal_blind_evaluation_only_oracle_non_deployable"
     },
     "goal": "Build a stable three-dimensional geometric sculpture from evenly cut straw segments joined with string.",
     "steps": [
@@ -85,7 +85,7 @@
       "plan_inputs": ["task", "query"],
       "chunk_inputs": ["task", "query", "dialog_at_chunk", "video_through_interval_end"],
       "excluded_inputs": ["answers", "future_dialog", "future_video", "model_outputs", "R0/D1 errors"],
-      "annotation_type": "formal_blind_evaluation_only_oracle_non-deployable"
+      "annotation_type": "formal_blind_evaluation_only_oracle_non_deployable"
     },
     "goal": "Shape stacked tissue paper into a secured and evenly fluffed decorative flower.",
     "steps": [
@@ -158,7 +158,7 @@
       "plan_inputs": ["task", "query"],
       "chunk_inputs": ["task", "query", "dialog_at_chunk", "video_through_interval_end"],
       "excluded_inputs": ["answers", "future_dialog", "future_video", "model_outputs", "R0/D1 errors"],
-      "annotation_type": "formal_blind_evaluation_only_oracle_non-deployable"
+      "annotation_type": "formal_blind_evaluation_only_oracle_non_deployable"
     },
     "goal": "Assemble a croissant sandwich with ham and cheese enclosed between the split halves.",
     "steps": [
@@ -231,7 +231,7 @@
       "plan_inputs": ["task", "query"],
       "chunk_inputs": ["task", "query", "dialog_at_chunk", "video_through_interval_end"],
       "excluded_inputs": ["answers", "future_dialog", "future_video", "model_outputs", "R0/D1 errors"],
-      "annotation_type": "formal_blind_evaluation_only_oracle_non-deployable"
+      "annotation_type": "formal_blind_evaluation_only_oracle_non_deployable"
     },
     "goal": "Assemble a two-slice sandwich with an even peanut butter layer and honey inside.",
     "steps": [
@@ -304,7 +304,7 @@
       "plan_inputs": ["task", "query"],
       "chunk_inputs": ["task", "query", "dialog_at_chunk", "video_through_interval_end"],
       "excluded_inputs": ["answers", "future_dialog", "future_video", "model_outputs", "R0/D1 errors"],
-      "annotation_type": "formal_blind_evaluation_only_oracle_non-deployable"
+      "annotation_type": "formal_blind_evaluation_only_oracle_non_deployable"
     },
     "goal": "Combine tahini and oats into a cohesive mixture and portion it into snack balls.",
     "steps": [
@@ -377,7 +377,7 @@
       "plan_inputs": ["task", "query"],
       "chunk_inputs": ["task", "query", "dialog_at_chunk", "video_through_interval_end"],
       "excluded_inputs": ["answers", "future_dialog", "future_video", "model_outputs", "R0/D1 errors"],
-      "annotation_type": "formal_blind_evaluation_only_oracle_non-deployable"
+      "annotation_type": "formal_blind_evaluation_only_oracle_non_deployable"
     },
     "goal": "Adjust the blind so its controls operate smoothly and the blind holds a balanced position.",
     "steps": [
@@ -450,7 +450,7 @@
       "plan_inputs": ["task", "query"],
       "chunk_inputs": ["task", "query", "dialog_at_chunk", "video_through_interval_end"],
       "excluded_inputs": ["answers", "future_dialog", "future_video", "model_outputs", "R0/D1 errors"],
-      "annotation_type": "formal_blind_evaluation_only_oracle_non-deployable"
+      "annotation_type": "formal_blind_evaluation_only_oracle_non_deployable"
     },
     "goal": "Mount a level, secure key hook at a practical location beside the door.",
     "steps": [
@@ -523,7 +523,7 @@
       "plan_inputs": ["task", "query"],
       "chunk_inputs": ["task", "query", "dialog_at_chunk", "video_through_interval_end"],
       "excluded_inputs": ["answers", "future_dialog", "future_video", "model_outputs", "R0/D1 errors"],
-      "annotation_type": "formal_blind_evaluation_only_oracle_non-deployable"
+      "annotation_type": "formal_blind_evaluation_only_oracle_non_deployable"
     },
     "goal": "Place and adjust a correctly oriented harness on the dog with a secure, comfortable fit.",
     "steps": [
@@ -596,7 +596,7 @@
       "plan_inputs": ["task", "query"],
       "chunk_inputs": ["task", "query", "dialog_at_chunk", "video_through_interval_end"],
       "excluded_inputs": ["answers", "future_dialog", "future_video", "model_outputs", "R0/D1 errors"],
-      "annotation_type": "formal_blind_evaluation_only_oracle_non-deployable"
+      "annotation_type": "formal_blind_evaluation_only_oracle_non_deployable"
     },
     "goal": "Fasten cufflinks through both aligned shirt cuffs so each link is secure and correctly oriented.",
     "steps": [
@@ -617,6 +617,42 @@
         "next_step_id": "s2",
         "recovery_action": "Open the cuff fully and align its corresponding holes before handling the cufflink.",
         "confidence": 0.95
+      },
+      {
+        "sample_id": "U1-Tutorial-S04-2-4",
+        "chunk_index": 3,
+        "observed_through_sec": 33.0,
+        "current_step_id": "s1",
+        "progress": "deviated",
+        "completion_evidence": ["A cufflink is picked up and brought to the cuff."],
+        "incompletion_or_error_evidence": ["The cuff remains folded over itself while insertion is attempted, leaving the corresponding holes difficult to align."],
+        "next_step_id": "s2",
+        "recovery_action": "Remove the cufflink, unfold the cuff completely, and align both holes before reorienting the post for insertion.",
+        "confidence": 0.96
+      },
+      {
+        "sample_id": "U1-Tutorial-S04-5-9",
+        "chunk_index": 8,
+        "observed_through_sec": 90.9,
+        "current_step_id": "s3",
+        "progress": "recovered",
+        "completion_evidence": ["The cufflink is withdrawn from the folded attempt and the cuff is opened and laid flatter.", "The post is then worked through the aligned cuff holes while the fastener is manipulated on the back side."],
+        "incompletion_or_error_evidence": ["The hands remain on the first cufflink and a locked fastener has not been clearly demonstrated."],
+        "next_step_id": "s4",
+        "recovery_action": "Rotate the first fastener fully into its locked position, tug-test it, and then prepare the other cuff.",
+        "confidence": 0.95
+      },
+      {
+        "sample_id": "U1-Tutorial-S04-10plus",
+        "chunk_index": 12,
+        "observed_through_sec": 126.3,
+        "current_step_id": "s4",
+        "progress": "ongoing",
+        "completion_evidence": ["The first gold cufflink is visibly seated through its cuff and the cuff is laid flat after handling.", "The second cuff is opened, its holes are brought together, and the second cufflink post is worked through them."],
+        "incompletion_or_error_evidence": ["The person is still manipulating the second link at the end of the interval, with no final lock or security check visible."],
+        "next_step_id": null,
+        "recovery_action": "Lock the second cufflink toggle, then gently tug and align both installed links.",
+        "confidence": 0.96
       }
     ]
   },
@@ -633,7 +669,7 @@
       "plan_inputs": ["task", "query"],
       "chunk_inputs": ["task", "query", "dialog_at_chunk", "video_through_interval_end"],
       "excluded_inputs": ["answers", "future_dialog", "future_video", "model_outputs", "R0/D1 errors"],
-      "annotation_type": "formal_blind_evaluation_only_oracle_non-deployable"
+      "annotation_type": "formal_blind_evaluation_only_oracle_non_deployable"
     },
     "goal": "Write and review a clear multi-item list with correctly placed commas and a consistent serial-comma choice.",
     "steps": [
@@ -642,6 +678,55 @@
       {"id": "s3", "text": "Handle the final conjunction and serial comma consistently.", "completion_cues": ["The punctuation before the final conjunction follows a consistent intended style."], "incompletion_cues": ["The last item boundary is ambiguous or inconsistent."]},
       {"id": "s4", "text": "Review the sentence for list clarity and punctuation errors.", "completion_cues": ["The full series has been checked and reads unambiguously."], "incompletion_cues": ["The written list has not been reviewed or still has visible punctuation issues."]}
     ],
-    "sampled_chunk_states": []
+    "sampled_chunk_states": [
+      {
+        "sample_id": "U1-Tutorial-S05-1_second",
+        "chunk_index": 1,
+        "observed_through_sec": 5.0,
+        "current_step_id": "s1",
+        "progress": "ongoing",
+        "completion_evidence": ["A notebook is opened to a blank page, a pen is picked up, and writing begins near the top of the page."],
+        "incompletion_or_error_evidence": ["No complete multi-item series is yet visible."],
+        "next_step_id": "s2",
+        "recovery_action": "Write a complete sentence containing at least three distinct list items.",
+        "confidence": 0.91
+      },
+      {
+        "sample_id": "U1-Tutorial-S05-2-4",
+        "chunk_index": 4,
+        "observed_through_sec": 26.1,
+        "current_step_id": "s3",
+        "progress": "ongoing",
+        "completion_evidence": ["A four-item series has been written across the first notebook line.", "Visible comma marks separate the internal items and a comma appears before the final conjunction."],
+        "incompletion_or_error_evidence": ["No separate review pass has yet been observed."],
+        "next_step_id": "s4",
+        "recovery_action": "Read the complete line back and verify every item boundary and the final conjunction punctuation.",
+        "confidence": 0.93
+      },
+      {
+        "sample_id": "U1-Tutorial-S05-5-9",
+        "chunk_index": 5,
+        "observed_through_sec": 32.3,
+        "current_step_id": "s4",
+        "progress": "deviated",
+        "completion_evidence": ["The four-item line remains complete in the notebook and the pen has been put down."],
+        "incompletion_or_error_evidence": ["The person switches to a phone weather screen instead of reviewing the written punctuation."],
+        "next_step_id": null,
+        "recovery_action": "Set the phone aside and review the written list item by item for missing or misplaced commas.",
+        "confidence": 0.98
+      },
+      {
+        "sample_id": "U1-Tutorial-S05-10plus",
+        "chunk_index": 15,
+        "observed_through_sec": 104.0,
+        "current_step_id": "s4",
+        "progress": "complete",
+        "completion_evidence": ["After the weather and laptop diversions, the person returns to the notebook and points the pen along the existing item boundaries.", "The written punctuation is revisited, additional notes or corrections are completed, and the pen is finally put down."],
+        "incompletion_or_error_evidence": [],
+        "next_step_id": null,
+        "recovery_action": "none",
+        "confidence": 0.9
+      }
+    ]
   }
 ]

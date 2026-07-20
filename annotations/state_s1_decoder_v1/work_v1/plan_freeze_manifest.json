@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "status": "query-only plans frozen; dynamic state annotations pending",
+  "plan_fields": [
+    "task",
+    "query"
+  ],
+  "new_s1_video_frames_inspected_before_plan_freeze": false,
+  "answers_or_model_outputs_read_for_plans": false,
+  "prior_engineering_dialog_exposure_by_plan_author": [
+    20,
+    25
+  ],
+  "sources": {
+    "sessions": {
+      "path": "/home/lanjinxin/workspace/wearable_ai_challenge/annotations/state_s1_decoder_v1/prepared_v2/sessions.jsonl",
+      "sha256": "cdfe53adf40f0533dc6ac4e8269cadaa810217c4e519a7bd6a2de9a419e02c21"
+    },
+    "template": {
+      "path": "/home/lanjinxin/workspace/wearable_ai_challenge/annotations/state_s1_decoder_v1/prepared_v2/annotation_template.json",
+      "sha256": "4e1a42fb21bf48cb82346ed55f1e430336c398d13070f9e59242af2c27fcad5c"
+    },
+    "plans": {
+      "path": "/home/lanjinxin/workspace/wearable_ai_challenge/annotations/state_s1_decoder_v1/plans_v1.json",
+      "sha256": "eefc6a0ab4c4da6ee66182a39e69da2e9dc175ee53901f998a6ae722e251ba71"
+    },
+    "protocol": {
+      "path": "/home/lanjinxin/workspace/wearable_ai_challenge/annotations/state_s1_decoder_v1/PROTOCOL.md",
+      "sha256": "ca7600fef00f9b119e3e4ddae2679c3fe8e196bfa2efa2851228d6b1b617a518"
+    }
+  },
+  "artifacts": {
+    "train": {
+      "path": "/home/lanjinxin/workspace/wearable_ai_challenge/annotations/state_s1_decoder_v1/work_v1/train/annotations.json",
+      "sha256": "b96a9bf11910164b3168781891dc49861302a95e4f65add462c0b7589e6b5e20",
+      "sessions": 24,
+      "states": 318
+    },
+    "heldout": {
+      "path": "/home/lanjinxin/workspace/wearable_ai_challenge/annotations/state_s1_decoder_v1/work_v1/heldout/annotations.json",
+      "sha256": "031cf8cd3c61e956b49b17dcb44e50923ce0ace61df0c6b02343c733cd22572b",
+      "sessions": 8,
+      "states": 126
+    }
+  },
+  "heldout_annotation_path_is_separate": true
+}

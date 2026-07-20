@@ -4,7 +4,9 @@
 from __future__ import annotations
 
 import argparse
+import base64
 import errno
+import hmac
 import json
 import mimetypes
 import re
@@ -55,6 +57,7 @@ class ReviewApplication:
 
 class ReviewHandler(SimpleHTTPRequestHandler):
     server_version = "EgoProactiveHumanReview/1.0"
+    protocol_version = "HTTP/1.1"
 
     def __init__(self, *args: Any, **kwargs: Any) -> None:
         super().__init__(*args, directory=str(STATIC_DIR), **kwargs)
@@ -67,7 +70,10 @@ class ReviewHandler(SimpleHTTPRequestHandler):
         self.send_header("X-Content-Type-Options", "nosniff")
         self.send_header("X-Frame-Options", "DENY")
         self.send_header("Referrer-Policy", "no-referrer")
-        self.send_header("Cache-Control", "no-store")
+        if urlparse(self.path).path.startswith("/media/"):
+            self.send_header("Cache-Control", "public, max-age=3600")
+        else:
+            self.send_header("Cache-Control", "no-store")
         super().end_headers()
 
     def do_GET(self) -> None:
@@ -75,6 +81,8 @@ class ReviewHandler(SimpleHTTPRequestHandler):
         try:
             if parsed.path == "/health":
                 self._json(HTTPStatus.OK, {"status": "ok"})
+                return
+            if not self._authorize():
                 return
             if parsed.path == "/api/bootstrap":
                 self._bootstrap(parse_qs(parsed.query))
@@ -97,6 +105,8 @@ class ReviewHandler(SimpleHTTPRequestHandler):
 
     def do_HEAD(self) -> None:
         parsed = urlparse(self.path)
+        if not self._authorize():
+            return
         if parsed.path.startswith("/media/"):
             self._serve_video(parsed.path[len("/media/") :], head_only=True)
             return
@@ -105,6 +115,8 @@ class ReviewHandler(SimpleHTTPRequestHandler):
     def do_POST(self) -> None:
         parsed = urlparse(self.path)
         try:
+            if not self._authorize():
+                return
             if parsed.path != "/api/save-session":
                 self._json(HTTPStatus.NOT_FOUND, {"error": "Unknown API endpoint"})
                 return
@@ -193,6 +205,23 @@ class ReviewHandler(SimpleHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(payload)
 
+    def _authorize(self) -> bool:
+        expected = self.server.auth_header  # type: ignore[attr-defined]
+        if expected is None:
+            return True
+        supplied = self.headers.get("Authorization", "")
+        if hmac.compare_digest(supplied, expected):
+            return True
+        payload = b"Authentication required\n"
+        self.send_response(HTTPStatus.UNAUTHORIZED)
+        self.send_header("WWW-Authenticate", 'Basic realm="EgoProactive Review", charset="UTF-8"')
+        self.send_header("Content-Type", "text/plain; charset=utf-8")
+        self.send_header("Content-Length", str(len(payload)))
+        self.end_headers()
+        if self.command != "HEAD":
+            self.wfile.write(payload)
+        return False
+
     def _serve_video(self, encoded_name: str, head_only: bool) -> None:
         filename = unquote(encoded_name)
         if not filename or Path(filename).name != filename:
@@ -251,21 +280,29 @@ class ReviewHandler(SimpleHTTPRequestHandler):
                 remaining -= len(block)
 
     def log_message(self, format: str, *args: Any) -> None:
-        if args and (str(args[0]).startswith("GET /health") or str(args[0]).startswith("GET /media/")):
+        if args and str(args[0]).startswith("GET /health"):
             return
         super().log_message(format, *args)
 
 
 class ReviewHTTPServer(ThreadingHTTPServer):
     app: ReviewApplication
+    auth_header: str | None
 
 
-def bind_server(host: str, requested_port: int, app: ReviewApplication, strict: bool) -> tuple[ReviewHTTPServer, int]:
+def bind_server(
+    host: str,
+    requested_port: int,
+    app: ReviewApplication,
+    strict: bool,
+    auth_header: str | None,
+) -> tuple[ReviewHTTPServer, int]:
     ports = [requested_port] if strict else list(range(requested_port, requested_port + 11))
     for port in ports:
         try:
             server = ReviewHTTPServer((host, port), ReviewHandler)
             server.app = app
+            server.auth_header = auth_header
             return server, port
         except OSError as exc:
             if exc.errno != errno.EADDRINUSE or port == ports[-1]:
@@ -279,6 +316,11 @@ def main() -> None:
     parser.add_argument("--port", type=int, default=8770)
     parser.add_argument("--strict-port", action="store_true", help="Fail instead of trying the next ten ports")
     parser.add_argument("--output-root", type=Path, default=DEFAULT_OUTPUT)
+    parser.add_argument(
+        "--auth-password-file",
+        type=Path,
+        help="Require browser Basic Auth with username 'review' and a password read from this file",
+    )
     args = parser.parse_args()
 
     for required in (STATIC_DIR / "index.html", VIDEO_DIR, U0_BLIND, U1_BLIND):
@@ -286,8 +328,15 @@ def main() -> None:
             raise SystemExit(f"Missing required review asset: {required}")
 
     app = ReviewApplication(args.output_root.resolve())
+    auth_header = None
+    if args.auth_password_file:
+        password = args.auth_password_file.read_text(encoding="utf-8").strip()
+        if len(password) < 12:
+            raise SystemExit("Review password must contain at least 12 characters")
+        credentials = base64.b64encode(f"review:{password}".encode("utf-8")).decode("ascii")
+        auth_header = f"Basic {credentials}"
     try:
-        server, port = bind_server(args.host, args.port, app, args.strict_port)
+        server, port = bind_server(args.host, args.port, app, args.strict_port, auth_header)
     except OSError as exc:
         if exc.errno == errno.EADDRINUSE:
             raise SystemExit(f"Ports {args.port}-{args.port + 10} are already in use") from None
@@ -295,6 +344,7 @@ def main() -> None:
 
     print(f"Human review UI: http://{args.host}:{port}", flush=True)
     print(f"Ratings output: {args.output_root.resolve()}", flush=True)
+    print(f"Authentication: {'required (user review)' if auth_header else 'disabled'}", flush=True)
     print("Blind keys are not loaded by this service.", flush=True)
     try:
         server.serve_forever()
@@ -306,4 +356,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

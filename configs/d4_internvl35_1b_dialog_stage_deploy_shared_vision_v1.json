@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "experiment_id": "20260719_internvl35_1b_d4_dialog_stage_deploy_shared_vision_v1",
+  "hypothesis": "The frozen D4 dialog-stage head composes exactly with the shared-vision causal feature extractor and session-local official-dialog state.",
+  "model": {
+    "repo_id": "OpenGVLab/InternVL3_5-1B-HF",
+    "revision": "9191dbccf312b537016f041b25d61c72e7c5c9f3",
+    "default_local_path": "/home/lanjinxin/model_weights/InternVL3_5-1B-HF",
+    "license": "Apache-2.0",
+    "total_parameters": 1060897792,
+    "weights_sha256": "11effd1da2fc0929957d56de4129d1e7d2aed044ea878d40bf83e95b63d38b39",
+    "dtype": "bfloat16",
+    "attention_implementation": "sdpa"
+  },
+  "decision_head": {
+    "path": "output/experiments/20260719_internvl35_1b_d4_dialog_stage_final_v1/decision_head.json",
+    "sha256": "531431710a01a71bdd02ffd7a9758428fe282323cc41fae2c1d6859e45408b13",
+    "parameters": 1052,
+    "feature_variant": "dialog_stage_fused",
+    "scalar_variant": "response_temporal",
+    "hidden_size": 1024,
+    "training_scope": "all_700_public_development_sessions"
+  },
+  "data": {
+    "input": "data/egoproactive/wearable_ai_2026_egoproactive_val_700.jsonl",
+    "video_folder": "data/egoproactive/val",
+    "dataset_repo": "facebook/wearable-ai",
+    "split": "egoproactive/val",
+    "license": "CC-BY-NC-4.0",
+    "input_sha256": "feef69ddee605e7070ad0f133636c35739c6964514a46d76da294b6bf1964740"
+  },
+  "starter_kit": {
+    "path": "data/starter_kit",
+    "model_py_sha256": "3cecb5ab2201b6b4be6aabbdebeeeb5322437e2d8c49d065018230dc9804edbe",
+    "proactive_py_sha256": "7c8adfe9fa2db5af4aace1cd260ec22132b18d82ef747f8a566eb8095e8fbc34",
+    "scorer_py_sha256": "072301da6c65b3e30c7581920d178c6d5136305f2db26914df4785f47d809ee1"
+  },
+  "inference": {
+    "frames_per_interval": 16,
+    "max_frames": 32,
+    "video_frame_size": 448,
+    "pad_token_id": 151643,
+    "max_history_turns": 4,
+    "max_new_tokens": 64,
+    "do_sample": false,
+    "seed": 20260713,
+    "decision_feature_mode": "shared_vision",
+    "candidate_vision_forward_passes_per_chunk": 1,
+    "candidate_language_forward_passes_per_chunk": 2,
+    "reference_forward_pass_breakdown": "one deterministic R0 generation, one shared vision projection, and the original two batch-one language candidate passes"
+  },
+  "validation_policy": {
+    "generation_rows_contain_answers": false,
+    "decision_head_was_trained_on_public_validation_labels": true,
+    "full_public_score_is_train_fit_not_generalization": true,
+    "online_neural_features_use_only_current_causal_prompt": true,
+    "online_dialog_features_use_only_official_current_prefix": true,
+    "oof_reference_is_non_promotable_diagnostic": true,
+    "classification": "equivalence verification of a val-supervised D4 leaderboard-engineering head; not hidden-test evidence"
+  }
+}

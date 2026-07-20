@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "experiment_id": "20260718_internvl35_1b_u1_visual_reliance_v1",
+  "hypothesis": "The frozen forced-no-state utterance generator may depend more on official assistant history than on current visual evidence, especially after the second chunk.",
+  "classification": "development-set mechanism audit; no training and no promotion claim",
+  "protocol": {
+    "path": "annotations/u1_visual_reliance_v1/PROTOCOL.md",
+    "sha256": "3e518f8b1f2e25487b1afc7cb1c42f27c9dc25cfde78f00067c7fc61d1d7b407"
+  },
+  "model": {
+    "repo_id": "OpenGVLab/InternVL3_5-1B-HF",
+    "revision": "9191dbccf312b537016f041b25d61c72e7c5c9f3",
+    "local_path": "/home/lanjinxin/model_weights/InternVL3_5-1B-HF",
+    "license": "Apache-2.0",
+    "total_parameters": 1060897792,
+    "weights_sha256": "11effd1da2fc0929957d56de4129d1e7d2aed044ea878d40bf83e95b63d38b39"
+  },
+  "sources": {
+    "gold_container": {
+      "path": "data/egoproactive/wearable_ai_2026_egoproactive_val_700.jsonl",
+      "sha256": "feef69ddee605e7070ad0f133636c35739c6964514a46d76da294b6bf1964740",
+      "role": "Inference-visible container only; answers are stripped before any generation."
+    },
+    "r0_session_records": {
+      "path": "output/experiments/20260713_internvl35_1b_no_plan_r0/session_records.jsonl",
+      "sha256": "00ce567c1d703a857cd73161f45212e919aa45ad4875257d34536d90fb829d76",
+      "role": "Frozen frame-count oracle for exact U1 input reconstruction; raw outputs are not used as generation context."
+    },
+    "full_content_records": {
+      "path": "output/experiments/20260716_internvl35_1b_fixed_gate_forced_generation_u1_v1_nostate_full/content_records.jsonl",
+      "sha256": "fc5ce549f9dd1ea4876d4f002fef3af8443521f58b9aac9eb1e9b110080a7e11",
+      "variant": "forced_no_state",
+      "role": "Frozen full-view baseline; copied, never regenerated."
+    }
+  },
+  "prepared_sample": {
+    "items": "annotations/u1_forced_generation_v1/sample_items.jsonl",
+    "items_sha256": "de38746a55fa7649615e4b6405b6d4904d6a891ca49ca0680b34219a2efbb974",
+    "manifest": "annotations/u1_forced_generation_v1/manifest.json",
+    "manifest_sha256": "704e7f15d6da9446e03641cd345e421db157b47635ae3a7c625723229dc2e8be",
+    "sessions": 20,
+    "chunks": 80
+  },
+  "starter_kit": {
+    "path": "data/starter_kit",
+    "model_py_sha256": "3cecb5ab2201b6b4be6aabbdebeeeb5322437e2d8c49d065018230dc9804edbe",
+    "proactive_py_sha256": "7c8adfe9fa2db5af4aace1cd260ec22132b18d82ef747f8a566eb8095e8fbc34",
+    "scorer_py_sha256": "072301da6c65b3e30c7581920d178c6d5136305f2db26914df4785f47d809ee1"
+  },
+  "video_folder": "data/egoproactive/val",
+  "views": [
+    "full",
+    "no_assistant_history",
+    "no_current_interval_video",
+    "masked_video"
+  ],
+  "generated_views": [
+    "no_assistant_history",
+    "no_current_interval_video",
+    "masked_video"
+  ],
+  "inference": {
+    "frames_per_interval": 16,
+    "max_frames": 32,
+    "video_frame_size": 448,
+    "mask_pixel_value": 127,
+    "pad_token_id": 151643,
+    "max_history_turns": 4,
+    "max_new_tokens": 64,
+    "do_sample": false,
+    "assistant_prefix": "$interrupt$",
+    "seed": 20260713,
+    "dtype": "bfloat16",
+    "attention_implementation": "sdpa"
+  },
+  "diagnostic_thresholds": {
+    "history_fallback_rate_increase": 0.2,
+    "current_video_fallback_rate_increase": 0.1,
+    "current_video_mean_similarity_below": 0.7,
+    "masked_video_fallback_rate_increase": 0.15,
+    "masked_video_mean_similarity_below": 0.65
+  },
+  "evaluation": {
+    "automatic_text_metrics_are_sensitivity_diagnostics_only": true,
+    "human_quality_claimed": false,
+    "reviewer_a_scores_used_for_thresholds": false,
+    "reviewer_b_files_read": false
+  },
+  "deployment": {
+    "deployable_system_claimed": false,
+    "unique_model_parameters": 1060897792,
+    "second_backbone_copy_added": false
+  }
+}

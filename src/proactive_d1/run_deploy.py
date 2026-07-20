@@ -1,4 +1,4 @@
-"""Run a serialized D1 scalar or fused head in the causal online R0 loop."""
+"""Run a serialized D1/D3/D4 decision head in the causal online R0 loop."""
 
 from __future__ import annotations
 
@@ -36,6 +36,8 @@ from .internvl_features import (
     DECISION_FEATURE_MODES,
     InternVLDecisionFeatureExtractor,
 )
+from proactive_d3.deploy import process_session_with_dynamics_head
+from proactive_d4.deploy import process_session_with_dialog_stage_head
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_CONFIG = PROJECT_ROOT / "configs" / "d1_internvl35_1b_scalar_deploy.json"
@@ -89,6 +91,10 @@ def _tracked_paths(config_path: Path) -> list[Path]:
         *sorted((PROJECT_ROOT / "src" / "proactive_r0").glob("*.py")),
         *sorted((PROJECT_ROOT / "src" / "proactive_d1").glob("*.py")),
         *sorted((PROJECT_ROOT / "src" / "proactive_d1" / "tests").glob("*.py")),
+        *sorted((PROJECT_ROOT / "src" / "proactive_d3").glob("*.py")),
+        *sorted((PROJECT_ROOT / "src" / "proactive_d3" / "tests").glob("*.py")),
+        *sorted((PROJECT_ROOT / "src" / "proactive_d4").glob("*.py")),
+        *sorted((PROJECT_ROOT / "src" / "proactive_d4" / "tests").glob("*.py")),
         config_path,
         PROJECT_ROOT / "configs" / "d1_internvl35_1b_scalar_final.json",
         PROJECT_ROOT / "configs" / "d1_internvl35_1b_neural_final.json",
@@ -170,16 +176,23 @@ def main(argv: list[str] | None = None) -> None:
     if len(head.feature_names) + 1 != int(head_config["parameters"]):
         raise ValueError("Serialized D1 deployment head parameter count mismatch")
     feature_variant = str(head_config["feature_variant"])
-    if feature_variant not in ("response_temporal", "fused_linear"):
+    neural_variants = ("fused_linear", "dynamics_fused", "dialog_stage_fused")
+    if feature_variant not in ("response_temporal", *neural_variants):
         raise ValueError(f"Unsupported D1 deployment feature variant: {feature_variant}")
-    if feature_variant == "fused_linear":
-        hidden_names = [name for name in head.feature_names if name.startswith("hidden_")]
+    if feature_variant in neural_variants:
+        hidden_names = [
+            name
+            for name in head.feature_names
+            if name.startswith("hidden_")
+            and len(name) == len("hidden_") + 4
+            and name[len("hidden_") :].isdigit()
+        ]
         if len(hidden_names) != int(head_config["hidden_size"]):
-            raise ValueError("Serialized D1 fused head hidden width mismatch")
+            raise ValueError("Serialized neural deployment head hidden width mismatch")
     elif any(name == "tag_margin" or name.startswith("hidden_") for name in head.feature_names):
         raise ValueError("Scalar D1 deployment head unexpectedly contains neural features")
     decision_feature_mode: str | None = None
-    if feature_variant == "fused_linear":
+    if feature_variant in neural_variants:
         decision_feature_mode = str(
             inference_config.get("decision_feature_mode", "sequential")
         )
@@ -188,7 +201,7 @@ def main(argv: list[str] | None = None) -> None:
                 f"Unsupported D1 decision feature mode: {decision_feature_mode}"
             )
     elif args.record_hidden_state:
-        parser.error("--record-hidden-state is only valid for fused_linear")
+        parser.error("--record-hidden-state is only valid for a neural feature head")
     all_source_rows = load_jsonl(input_path)
     if args.session_indices:
         try:
@@ -297,7 +310,7 @@ def main(argv: list[str] | None = None) -> None:
             "video_frame_size": int(inference_config["video_frame_size"]),
             "pad_token_id": int(inference_config["pad_token_id"]),
         }
-        if feature_variant == "fused_linear":
+        if feature_variant in neural_variants:
             model = InternVLDecisionFeatureExtractor(
                 **model_kwargs,
                 decision_feature_mode=decision_feature_mode,
@@ -306,7 +319,7 @@ def main(argv: list[str] | None = None) -> None:
             model = InternVLProactiveModel(**model_kwargs)
         if model.parameter_count != int(model_config["total_parameters"]):
             raise ValueError("Loaded D1 deployment model parameter count mismatch")
-        if feature_variant == "fused_linear" and (
+        if feature_variant in neural_variants and (
             not isinstance(model, InternVLDecisionFeatureExtractor)
             or model.hidden_size != int(head_config["hidden_size"])
         ):
@@ -315,10 +328,16 @@ def main(argv: list[str] | None = None) -> None:
             for position in range(len(records), len(generation_rows)):
                 session_started = time.monotonic()
                 input_index = input_indices[position]
-                if feature_variant == "fused_linear":
+                if feature_variant in neural_variants:
                     if not isinstance(model, InternVLDecisionFeatureExtractor):
-                        raise RuntimeError("D1 fused deployment model type changed")
-                    record = process_session_with_fused_head(
+                        raise RuntimeError("Neural deployment model type changed")
+                    if feature_variant == "dynamics_fused":
+                        processor = process_session_with_dynamics_head
+                    elif feature_variant == "dialog_stage_fused":
+                        processor = process_session_with_dialog_stage_head
+                    else:
+                        processor = process_session_with_fused_head
+                    record = processor(
                         generation_rows[position],
                         input_index,
                         video_folder,
@@ -374,7 +393,7 @@ def main(argv: list[str] | None = None) -> None:
         )
         metrics = _load_json(metrics_path)
     runtime = {
-        "status": f"complete online D1 {feature_variant} deployment run",
+        "status": f"complete online {feature_variant} deployment run",
         "completed_at": datetime.now().astimezone().isoformat(),
         "wall_time_seconds": round(time.monotonic() - started_at, 3),
         "peak_gpu_memory_bytes": model.peak_memory_bytes() if model else None,

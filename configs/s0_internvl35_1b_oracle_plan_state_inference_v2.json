@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "experiment_id": "20260717_internvl35_1b_oracle_plan_state_s0_v2",
+  "hypothesis": "After frozen content-free option-prior calibration, the Small backbone can decode current causal procedural state from an oracle static plan.",
+  "model": {
+    "repo_id": "OpenGVLab/InternVL3_5-1B-HF",
+    "revision": "9191dbccf312b537016f041b25d61c72e7c5c9f3",
+    "local_path": "/home/lanjinxin/model_weights/InternVL3_5-1B-HF",
+    "license": "Apache-2.0",
+    "total_parameters": 1060897792,
+    "weights_sha256": "11effd1da2fc0929957d56de4129d1e7d2aed044ea878d40bf83e95b63d38b39",
+    "dtype": "bfloat16",
+    "attention_implementation": "sdpa"
+  },
+  "prepared_inputs": {
+    "path": "annotations/state_s0_oracle_plan_v1/prepared/inputs.jsonl",
+    "sha256": "c0d44b933f926460020f6a2d362de3cd2ffed97a66cad5adcc0dddc4ced4a53b",
+    "manifest": "annotations/state_s0_oracle_plan_v1/prepared/manifest.json",
+    "manifest_sha256": "602a6c785fbb0032d2d50119ab74c5decd3272886a30dcba1c3ac7bca4436b73",
+    "states": 80,
+    "sessions": 20,
+    "contains_dynamic_state_targets": false,
+    "contains_current_or_future_answers": false,
+    "contains_oracle_static_plan": true
+  },
+  "data": {
+    "input_sha256": "c0d44b933f926460020f6a2d362de3cd2ffed97a66cad5adcc0dddc4ced4a53b"
+  },
+  "protocol": {
+    "path": "annotations/state_s0_oracle_plan_v1/PROTOCOL_v2.md",
+    "sha256": "7f47aaf7a0f0be6390a8801eb17f39ab743657527847f0fdb76bbcec46a7db3a",
+    "frozen_before_formal_state_predictions": true,
+    "v1_smoke_was_target_isolated_but_exposed_option_prior": true,
+    "experimenter_previously_inspected_state_schema_examples_and_aggregates": true,
+    "prediction_runner_reads_targets": false
+  },
+  "video_folder": "data/egoproactive/val",
+  "starter_kit": {
+    "path": "data/starter_kit",
+    "model_py_sha256": "3cecb5ab2201b6b4be6aabbdebeeeb5322437e2d8c49d065018230dc9804edbe",
+    "proactive_py_sha256": "7c8adfe9fa2db5af4aace1cd260ec22132b18d82ef747f8a566eb8095e8fbc34",
+    "scorer_py_sha256": "072301da6c65b3e30c7581920d178c6d5136305f2db26914df4785f47d809ee1"
+  },
+  "inference": {
+    "frames_per_interval": 16,
+    "max_frames": 32,
+    "video_frame_size": 448,
+    "pad_token_id": 151643,
+    "max_history_turns": 4,
+    "seed": 20260713,
+    "candidate_scoring": "complete_autoregressive_log_probability",
+    "vision_forward_passes_per_observed_state": 1,
+    "observed_language_forward_passes_per_state": 11,
+    "content_free_language_forward_passes_per_session": 11,
+    "candidate_batch_size": 1,
+    "views": ["official_dialog", "no_assistant_history"],
+    "targets": {
+      "step": ["s1", "s2", "s3", "s4"],
+      "progress": ["not_started", "ongoing", "complete", "deviated", "recovered"],
+      "error": ["absent", "present"]
+    },
+    "candidate_text": {
+      "step": ["1", "2", "3", "4"],
+      "progress": ["1", "2", "3", "4", "5"],
+      "error": ["1", "2"]
+    }
+  },
+  "calibration": {
+    "mode": "query_plan_no_observation",
+    "formula": "observed_candidate_logp - same_session_query_plan_no_video_no_dialog_candidate_logp",
+    "temperature": 1.0,
+    "post_prediction_search_allowed": false
+  },
+  "validation_policy": {
+    "classification": "oracle-plan zero-shot dynamic-state feasibility with frozen content-free option calibration; state-label-aware but prediction-frozen public evaluation, not hidden-test evidence",
+    "backbone_weights_changed": false,
+    "decision_labels_read": false,
+    "current_or_future_answers_read": false,
+    "ratings_read": false,
+    "deployable_static_planner_claimed": false,
+    "submission_model_promoted_by_s0": false
+  }
+}

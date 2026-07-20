@@ -69,6 +69,19 @@ def main() -> None:
         "key_sha256": sha256_file(key_path),
         "ratings_template_sha256": sha256_file(ratings_path),
         "ratings_from_interface_package_reused": False,
+        "frozen_protocol": {
+            "path": str(PROJECT_ROOT / "annotations/u1_forced_generation_v1/PROTOCOL.md"),
+            "sha256": sha256_file(
+                PROJECT_ROOT / "annotations/u1_forced_generation_v1/PROTOCOL.md"
+            ),
+        },
+        "code": {
+            "state_review_sha256": sha256_file(Path(__file__).resolve()),
+            "ratings_sha256": sha256_file(PROJECT_ROOT / "src/proactive_u1/ratings.py"),
+            "state_ratings_sha256": sha256_file(
+                PROJECT_ROOT / "src/proactive_u1/state_ratings.py"
+            ),
+        },
     }
     write_json(output_dir / "state_review_manifest.json", manifest)
     print(json.dumps(manifest, sort_keys=True))

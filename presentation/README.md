@@ -16,10 +16,10 @@
 从项目根目录启动：
 
 ```bash
-PYTHONPATH=src /home/lanjinxin/miniconda3/bin/python -m proactive_review.server
+bash scripts/human_review_server.sh start 8770
 ```
 
-默认从 `8770` 开始选择空闲端口，终端会打印实际地址。评审结果按 U0/U1 和 A/B 评审员隔离保存到 `output/human_reviews/`；服务不会加载 blind key。详细操作和数据路径见 [human_review/README.md](human_review/README.md)，评分协议见 [U0/U1 双人独立盲评执行细则](../reports/20260717_u0_u1_human_review_protocol.md)。
+该脚本在后台固定使用 `8770`，关闭 SSH 终端不会停止服务；`status/log/stop` 子命令用于管理进程。评审结果按 U0/U1 和 A/B 评审员隔离保存到 `output/human_reviews/`；服务不会加载 blind key。详细操作和数据路径见 [human_review/README.md](human_review/README.md)，评分协议见 [U0/U1 双人独立盲评执行细则](../reports/20260717_u0_u1_human_review_protocol.md)。
 
 ## 重建
 

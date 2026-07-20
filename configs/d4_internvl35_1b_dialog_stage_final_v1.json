@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "experiment_id": "20260719_internvl35_1b_d4_dialog_stage_final_v1",
+  "hypothesis": "The single frozen D1-fused plus eight dialog-stage feature set can be refit once on all public development sessions and serialized as a causal Small leaderboard candidate.",
+  "protocol": {
+    "path": "annotations/d4_dialog_stage_candidate_v1/PROTOCOL.md",
+    "sha256": "3ba126f48109797ec6cf0321b23f0670ed2a7b0e9e222620296b8711264ab873"
+  },
+  "model": {
+    "repo_id": "OpenGVLab/InternVL3_5-1B-HF",
+    "revision": "9191dbccf312b537016f041b25d61c72e7c5c9f3",
+    "license": "Apache-2.0",
+    "total_parameters": 1060897792,
+    "weights_sha256": "11effd1da2fc0929957d56de4129d1e7d2aed044ea878d40bf83e95b63d38b39"
+  },
+  "data": {
+    "input": "data/egoproactive/wearable_ai_2026_egoproactive_val_700.jsonl",
+    "license": "CC-BY-NC-4.0",
+    "input_sha256": "feef69ddee605e7070ad0f133636c35739c6964514a46d76da294b6bf1964740"
+  },
+  "starter_kit": {
+    "path": "data/starter_kit",
+    "model_py_sha256": "3cecb5ab2201b6b4be6aabbdebeeeb5322437e2d8c49d065018230dc9804edbe",
+    "proactive_py_sha256": "7c8adfe9fa2db5af4aace1cd260ec22132b18d82ef747f8a566eb8095e8fbc34",
+    "scorer_py_sha256": "072301da6c65b3e30c7581920d178c6d5136305f2db26914df4785f47d809ee1"
+  },
+  "sources": {
+    "r0_session_records": {
+      "path": "output/experiments/20260713_internvl35_1b_no_plan_r0/session_records.jsonl",
+      "sha256": "00ce567c1d703a857cd73161f45212e919aa45ad4875257d34536d90fb829d76"
+    },
+    "split_manifest": {
+      "path": "output/experiments/20260714_internvl35_1b_causal_scalar_decision_head_d1_oof_v2/split_manifest.json",
+      "sha256": "bd537e9e155586cf3af9f26052fda277fa3e1930e378538346cc197432ff86c0"
+    },
+    "neural_features": {
+      "path": "output/features/20260714_internvl35_1b_d1_neural_feature_cache_v1/features.npz",
+      "sha256": "cc5a5b3c6184987edc5f041eb2cb01a51ccfd88d6328d8308fcce3a4bd9122bf",
+      "hidden_size": 1024
+    },
+    "neural_summary": {
+      "path": "output/features/20260714_internvl35_1b_d1_neural_feature_cache_v1/summary.json",
+      "sha256": "8d9fd1bd9ced6e394cecc4048ee50c16a51804167b7687759f06f1b132b78a8b"
+    },
+    "d3d_config": {
+      "path": "configs/d3_internvl35_1b_dialog_policy_control_v1.json",
+      "sha256": "e360d8e008e2c80d16a9722c0f872d5b1883845cd7fe242a79e2672608d625e7"
+    }
+  },
+  "oof_reference": {
+    "experiment_dir": "output/experiments/20260718_internvl35_1b_d3_dialog_policy_control_v1",
+    "variant": "d1_fused_plus_dialog_stage",
+    "comparison_sha256": "cc5eee7d1f8b0d561cc99b49f735af5d84f3e66b1a1cd4c8c07b4ca5d1083088",
+    "diagnostics_sha256": "0e68f3b129e2ae01c980fef3c0957b6582840ad10feecb1b9647da6ec884959c",
+    "predictions_sha256": "467bd7c567d66b3041425b336343290c0b3d742f10d25d2279de987770ae43f5",
+    "metrics_sha256": "3c1f8b81eeac385597e202763c17f0a6fc2ec61b875b19243059fcd19c1d21d1",
+    "oof_macro_f1": 0.6846,
+    "diagnostic_non_promotable": true
+  },
+  "features": {
+    "variant": "dialog_stage_fused",
+    "source_oof_variant": "d1_fused_plus_dialog_stage",
+    "scalar_variant": "response_temporal",
+    "hidden_size": 1024,
+    "max_history_turns": 4,
+    "max_model_frames": 32,
+    "dialog_policy_names": [
+      "has_previous_chunk",
+      "assistant_added_since_previous",
+      "assistant_add_count_since_previous",
+      "log1p_visible_assistant_turns",
+      "assistant_turns_per_elapsed_chunk",
+      "log1p_chunks_since_assistant_addition",
+      "log1p_last_assistant_text_length",
+      "last_assistant_has_interrupt_tag"
+    ],
+    "feature_count": 1051,
+    "future_session_features": false
+  },
+  "training": {
+    "classifier": "class_balanced_linear_logistic_regression",
+    "optimizer": "lbfgs",
+    "seed": 20260714,
+    "max_iterations": 120,
+    "l2_selection": "median_of_five_frozen_oof_selected_l2",
+    "expected_l2_weight": 0.01,
+    "l2_reduction": "sum",
+    "dtype": "float64",
+    "fit_scope": "all_700_public_development_sessions"
+  },
+  "threshold": {
+    "selection": "median_of_five_frozen_oof_calibration_thresholds",
+    "expected_threshold_logit": 0.1263874797442615,
+    "full_fit_predictions_used_for_selection": false
+  },
+  "validation_policy": {
+    "classifier_training_reads_all_public_validation_labels": true,
+    "feature_set_frozen_from_non_promotable_d3d_diagnostic": true,
+    "regularization_selected_from_oof_calibration_folds": true,
+    "threshold_selected_from_oof_calibration_folds": true,
+    "full_fit_score_is_training_sanity_only": true,
+    "classification": "leaderboard-engineering full refit of one frozen dialog-stage candidate; OOF remains diagnostic public-validation evidence, not hidden-test generalization"
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "experiment_id": "20260720_internvl35_1b_d4_1_input_policy_search_v1",
+  "hypothesis": "A small frozen search over four causal inference-input limits can improve the val-supervised D4 leaderboard candidate without changing its backbone, head, threshold, prompt, dialog, precision, or decoding policy.",
+  "protocol": {
+    "path": "annotations/d4_1_input_policy_search_v1/PROTOCOL.md",
+    "sha256": "192f5b65d85b499dfd85f192f718997cdf9898f4f983457e5da76d348ace2568",
+    "user_authorized_independent_branch": true,
+    "changes_d3_scientific_baseline": false,
+    "changes_frozen_d4_submission": false
+  },
+  "model": {
+    "repo_id": "OpenGVLab/InternVL3_5-1B-HF",
+    "revision": "9191dbccf312b537016f041b25d61c72e7c5c9f3",
+    "default_local_path": "/data1/InternVL3_5-1B-HF",
+    "license": "Apache-2.0",
+    "total_parameters": 1060897792,
+    "weights_sha256": "11effd1da2fc0929957d56de4129d1e7d2aed044ea878d40bf83e95b63d38b39",
+    "dtype": "bfloat16",
+    "attention_implementation": "sdpa"
+  },
+  "decision_head": {
+    "path": "submission/d4_small/decision_head.json",
+    "sha256": "531431710a01a71bdd02ffd7a9758428fe282323cc41fae2c1d6859e45408b13",
+    "parameters": 1052,
+    "feature_variant": "dialog_stage_fused",
+    "hidden_size": 1024,
+    "threshold_logit": 0.1263874797442615,
+    "training_scope": "all_700_public_development_sessions"
+  },
+  "data": {
+    "input": "/data1/wearable_ai_challenge_data/egoproactive/wearable_ai_2026_egoproactive_val_700.jsonl",
+    "video_folder": "/data1/wearable_ai_challenge_data/egoproactive/val",
+    "dataset_repo": "facebook/wearable-ai",
+    "split": "egoproactive/val",
+    "license": "CC-BY-NC-4.0",
+    "input_sha256": "feef69ddee605e7070ad0f133636c35739c6964514a46d76da294b6bf1964740"
+  },
+  "starter_kit": {
+    "path": "starter_kit",
+    "model_py_sha256": "3cecb5ab2201b6b4be6aabbdebeeeb5322437e2d8c49d065018230dc9804edbe",
+    "proactive_py_sha256": "7c8adfe9fa2db5af4aace1cd260ec22132b18d82ef747f8a566eb8095e8fbc34",
+    "scorer_py_sha256": "072301da6c65b3e30c7581920d178c6d5136305f2db26914df4785f47d809ee1"
+  },
+  "frozen_inference": {
+    "video_frame_size": 448,
+    "pad_token_id": 151643,
+    "do_sample": false,
+    "seed": 20260713,
+    "decision_feature_mode": "shared_vision",
+    "system_prompt": "official starter-kit SYSTEM_PROMPT",
+    "dialog": "official answer-stripped chunk-aligned prefix",
+    "precision": "bfloat16",
+    "decoding": "greedy"
+  },
+  "search": {
+    "seed": 20260720,
+    "sessions_per_domain_per_subset": 20,
+    "length_strata": "within-domain session-length quartiles",
+    "max_frames": [16, 32, 64],
+    "frames_per_interval": [8, 16, 24],
+    "max_history_turns": [0, 2, 4, 8, 16],
+    "max_new_tokens": [16, 32, 64, 96],
+    "baseline": {
+      "max_frames": 32,
+      "frames_per_interval": 16,
+      "max_history_turns": 4,
+      "max_new_tokens": 64
+    },
+    "predefined_unique_variants": 16,
+    "joint_variant_after_search": true
+  },
+  "evaluation": {
+    "primary_metric": "official_macro_f1",
+    "tie_break": ["official_gmean_f1", "lower_total_gpu_inference_time", "stable_variant_id"],
+    "bootstrap_repetitions": 5000,
+    "bootstrap_seed": 20260720,
+    "per_session_model_inference_limit_seconds": 300,
+    "full_candidates": 2
+  },
+  "validation_policy": {
+    "answers_removed_before_inference": true,
+    "public_validation_labels_used_for_selection": true,
+    "classification": "val-supervised public-validation input-policy audit; not hidden-test or independent generalization evidence",
+    "best_claim": "D4.1 public-validation best input policy"
+  }
+}

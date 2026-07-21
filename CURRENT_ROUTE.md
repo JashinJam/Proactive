@@ -1,7 +1,7 @@
 # Current Route: C1 Small, PWR-Inspired
 
-> Updated: 2026-07-20
-> Status: D3 at official OOF Macro F1 0.6690 remains the formally promoted scientific baseline; D4 remains the frozen leaderboard-engineering candidate and now has a bundled 1,052-parameter head, hidden-input submission adapter, strict two-field publisher, parameter/license/dependency manifests, a CPU preflight, 48 passing R0--D4 regression tests, and an exact 10-chunk adapter GPU smoke; next merge the teammate-owned frame/history policy, adapt the official Docker template when released, and otherwise return to early-chunk utterance/grounding while remaining ratings are pending; leaderboard/container upload still requires user authorization
+> Updated: 2026-07-21
+> Status: D3 at official OOF Macro F1 0.6690 remains the formally promoted scientific baseline, and D4 remains the unchanged frozen leaderboard-engineering submission candidate. D4.1 shows that changing the frozen D4 input policy without adapting its head does not improve full-public-validation Macro F1. The post-D4.1 D4.2 adapted-policy audit is complete: `history8` reaches five-fold OOF Macro F1 `0.6988` versus the exact `0.6846` baseline, with paired-session interval `[+0.00817,+0.02036]`; its all-development `0.7469` is train-fit sanity only. D4.2 has not been promoted into the D4 submission; promotion, GPU equivalence smoke, Docker adaptation, and external upload each still require the stated authorization or release gate
 > Objective: maximize official C1 Macro F1 in the Small division without sacrificing causality, reproducibility, or prize eligibility
 
 ## 1. Decisions Already Made
@@ -24,6 +24,7 @@
 16. **U1-V identifies assistant history as the forced-generation bottleneck.** Removing assistant history makes all 80/80 samples fall back; removing the current interval lowers fallback `30.0% -> 26.25%` and does not trigger the preregistered current-visual gate. Masking all pixels changes wording at a threshold boundary but does not change aggregate fallback. Treat vision as an unstable content modifier, not a reliable state decoder.
 17. **D3-D reconstructs the decision gain from official dialog policy, and D4 is the frozen leaderboard candidate.** Eight answer-stripped causal dialog-stage scalars alone reach `0.6618`; D1 fused plus those scalars reaches diagnostic OOF Macro `0.6846`, with 5/5 positive folds, 4/4 positive domains, and session-bootstrap interval `[+0.0418,+0.0591]` versus D1. D4 does not retroactively promote this result: it full-refits exactly that one feature set, serializes a 1,052-parameter head, reproduces all cached online decisions, and passes an exact GPU smoke. Do not search related features.
 18. **D4 model-facing submission packaging is complete before the official template.** The adapter accepts arbitrary hidden JSONL/video mount paths, requires chunk-aligned official `dialog`, rejects `answers` by default, rewrites only runtime paths/hashes, invokes the frozen D4 runner without a scorer, and atomically publishes exact `video_path/answers` rows. The exact head is bundled in the handoff package. CPU preflight, 48 regressions, and a physical-GPU one-session smoke pass; the adapter prediction is byte-identical to the frozen D4 smoke. The official Docker base/interface remains pending until its announced release, and the project top-level source license still requires an owner decision.
+19. **Input-policy changes require policy-matched adaptation, and `history8` is the D4.2 candidate.** D4.1 held the D4 head fixed and found the default `(32,16,4,64)` policy best on the full public-validation set. D4.2 refit and calibrated the complete 1,052-parameter head inside five-fold session OOF for four mechanism-backed policies. `history8=(32,16,8,64)` reaches `0.6988`, `+0.0142` over exact baseline replay, with paired-session interval `[+0.00817,+0.02036]`, 5/5 positive folds, and 4/4 positive domains. `frames16` is an efficiency result, and `tokens16` is rejected. Because candidates were selected after D4.1 on public validation, this is val-supervised mechanism evidence, not hidden-test or independent-generalization evidence; do not replace the frozen D4 submission without separate authorization and an exact GPU equivalence smoke.
 
 ## 2. Target System Shape
 
@@ -230,11 +231,85 @@ parameters `1.060898844B/1.060898844B`.
 
 The official Docker template is still scheduled for release to top validation
 participants on 2026-08-08, so final CMD/mount/resource adaptation remains pending.
-The teammate-owned frame/history search must produce a synchronized config/manifest
-and rerun the adapter smoke before replacing the current defaults. The project also
-lacks a top-level source-code license; this owner decision must be resolved before
-claiming prize-source eligibility. Do not upload to the leaderboard or container registry without user authorization.
-See the [submission audit](reports/20260720_internvl35_1b_d4_submission_entrypoint_audit.md),
+The project also lacks a top-level source-code license; this owner decision must be
+resolved before claiming prize-source eligibility. Do not upload to the leaderboard
+or container registry without user authorization.
+
+#### D4.1 and D4.2: Input-Policy Audit and Policy-Matched Adaptation
+
+D4.1 completed on 2026-07-21 as an independent user-authorized public-validation
+input-policy audit. It froze InternVL3.5-1B, the D4 head, threshold
+`0.1263874797442615`, prompt, dialog, BF16 shared-vision inference, and greedy
+decoding while searching only `max_frames`, `frames_per_interval`,
+`max_history_turns`, and `max_new_tokens`. The protocol used seed `20260720`,
+non-overlapping domain-by-session-length 80-session search and confirmation sets,
+16 predefined policies plus one joint policy, then the baseline and two
+confirmation-selected candidates on all 700 sessions / 9,935 chunks. Its config
+SHA256 is `c906abff796954d1039e207710f7c98b61b05685add19bcda2fa9d6f50409fab`.
+
+With the frozen D4 head, the full-stage default `(32,16,4,64)` remains best at
+Macro/G-mean `0.7393/0.7393`; `history8=(32,16,8,64)` reaches `0.7378`, and
+`history16=(32,16,16,64)` reaches `0.7372`. Thus D4.1 does not justify changing
+the deployed input policy. These are full-fit-head public-validation scores and
+must not be compared as independent estimates to the OOF scores below.
+
+D4.2 then tested whether policy-matched head training recovers the signal hidden by
+that fixed-head comparison. Experiment
+`20260721_internvl35_1b_d4_2_adapted_input_policy_oof_v1`, config SHA256
+`71b88e99482a9d80bfd401f34604c7df5ab34b0aea723919c33e6fbf8caee453`, freezes the
+same backbone, official prompt/dialog, BF16 greedy shared-vision runner, 700-session
+data, and 1,051-feature D1-fused-plus-dialog-stage schema. It evaluates four
+mechanism-backed policies: baseline `(32,16,4,64)`, history8 `(32,16,8,64)`,
+frames16 `(16,16,4,64)`, and tokens16 `(32,16,4,16)`. Each candidate receives a
+fresh five-fold session OOF 1,052-parameter linear head: three folds fit, one fold
+calibrates, and one fold tests. Fit uses standardized float64, class-balanced
+logistic loss and L2 grid `{1e-5,1e-4,1e-3,1e-2}`; the calibration fold selects the
+exact Macro-F1 threshold. All inputs are answer-stripped and causal.
+Feature extraction comprised 32 tasks (four policies by eight deterministic session
+shards) and ran on eight GPUs.
+Baseline and `history8` reuse hash-pinned D4.1 generations but recompute their neural
+decision features; `tokens16` runs the shorter generation while reusing the exact
+D4.2 baseline decision features; `frames16` runs full inference. Resume duplicates
+were repaired without dropping unique records, and final coverage is exactly
+700 sessions / 9,935 chunks per policy.
+
+| Policy | Parameters `(frames, per interval, history, tokens)` | OOF Macro / G-mean | Delta vs baseline | Conclusion |
+|---|---|---:|---:|---|
+| `history8` | `(32,16,8,64)` | `0.6988 / 0.6988` | `+0.0142` | Best D4.2 candidate |
+| `frames16` | `(16,16,4,64)` | `0.6854 / 0.6854` | `+0.0008` | Efficiency-only candidate |
+| `baseline` | `(32,16,4,64)` | `0.6846 / 0.6846` | `+0.0000` | Exact D3-D/D4 OOF reproduction |
+| `tokens16` | `(32,16,4,16)` | `0.6844 / 0.6843` | `-0.0002` | Rejected |
+
+For `history8`, the 5,000-repetition paired-session bootstrap delta interval is
+`[+0.008166,+0.020363]`, median `+0.014298`, with positive fraction `1.0`; all five
+folds and all four domains improve. It changes 910 decisions, correcting 526 errors
+and adding 384. The maximum recorded session model time is `59.068s`, below the
+300-second limit. `frames16` lowers total recorded model time from `18046.5s` to
+`12062.2s` (about 33%) and peak GPU memory from about 3.12 GB to 2.83 GB, but its
+bootstrap interval `[-0.00570,+0.00742]` crosses zero. `tokens16` also has an
+interval crossing zero and provides no useful gain. The frozen baseline prediction
+and metric hashes reproduce exactly.
+
+The final `history8` train-fit uses all 700 sessions / 9,935 chunks, keeps the
+backbone frozen, and fits only the 1,052-parameter standardized class-balanced
+float64 linear head from zero initialization. It uses full-batch PyTorch LBFGS with
+learning rate `1.0`, `max_iter=120`, `history_size=20`, and `strong_wolfe` line
+search. The loss is BCE-with-logits with `pos_weight=negative/positive` plus
+`l2 * sum(weight^2)`. All five folds selected L2 `0.01`; their calibration
+thresholds are `[-0.1033205973584681, 0.12101525136349107,
+0.2615101606425694, 0.14533830805860642, 0.029494320189226535]`. The final threshold
+is their median, `0.12101525136349107`, and is not reselected from train-fit
+predictions. Its train-fit Macro/G-mean is
+`0.7469/0.7469`, interrupt/silent F1 is `0.7424/0.7514`, and confusion counts are
+TP/FP/TN/FN `3622/784/3799/1730`. This is training-closure sanity only. The head
+SHA256 is `dab9eaf100ea301055ab4d68856d406fb5927864bc96c71f2038688067b904c5`.
+The frozen D4 config, head, and submission were not modified; promotion requires
+separate authorization plus a GPU equivalence smoke.
+
+See the [D4.1 report](output/experiments/20260720_internvl35_1b_d4_1_input_policy_search_v1/report.md),
+[D4.2 report](output/experiments/20260721_internvl35_1b_d4_2_adapted_input_policy_oof_v1/report.md),
+[D4.2 train-fit metrics](output/experiments/20260721_internvl35_1b_d4_2_adapted_input_policy_oof_v1/final/train_fit_metrics.json),
+[submission audit](reports/20260720_internvl35_1b_d4_submission_entrypoint_audit.md),
 [submission contract](submission/d4_small/README.md),
 [combined U1-V/D3-D report](reports/20260719_u1_visual_reliance_and_d3_dialog_policy_control.md)
 and [D4 report](reports/20260719_internvl35_1b_d4_dialog_stage_candidate.md).

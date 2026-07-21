@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "experiment_id": "20260721_internvl35_1b_d4_2_adapted_input_policy_oof_v1",
+  "hypothesis": "Mechanism-motivated D4 input policies may benefit only after the complete dialog-stage linear head is retrained and calibrated on policy-matched causal features.",
+  "protocol": {
+    "path": "annotations/d4_2_adapted_input_policy_oof_v1/PROTOCOL.md",
+    "sha256": "d59245af8c9c447134fb1e02a0cb8fd548225c1c6e07fb4367ef30d6d03da212",
+    "frozen_before_gpu_inference": true,
+    "post_d4_1_candidate_selection": true,
+    "independent_generalization_evidence": false
+  },
+  "model": {
+    "repo_id": "OpenGVLab/InternVL3_5-1B-HF",
+    "revision": "9191dbccf312b537016f041b25d61c72e7c5c9f3",
+    "default_local_path": "/data1/InternVL3_5-1B-HF",
+    "license": "Apache-2.0",
+    "total_parameters": 1060897792,
+    "weights_sha256": "11effd1da2fc0929957d56de4129d1e7d2aed044ea878d40bf83e95b63d38b39",
+    "dtype": "bfloat16",
+    "attention_implementation": "sdpa"
+  },
+  "frozen_d4_head": {
+    "path": "submission/d4_small/decision_head.json",
+    "sha256": "531431710a01a71bdd02ffd7a9758428fe282323cc41fae2c1d6859e45408b13",
+    "parameters": 1052,
+    "feature_variant": "dialog_stage_fused",
+    "hidden_size": 1024,
+    "inference_only": true
+  },
+  "data": {
+    "input": "/data1/wearable_ai_challenge_data/egoproactive/wearable_ai_2026_egoproactive_val_700.jsonl",
+    "video_folder": "/data1/wearable_ai_challenge_data/egoproactive/val",
+    "dataset_repo": "facebook/wearable-ai",
+    "split": "egoproactive/val",
+    "license": "CC-BY-NC-4.0",
+    "input_sha256": "feef69ddee605e7070ad0f133636c35739c6964514a46d76da294b6bf1964740"
+  },
+  "starter_kit": {
+    "path": "starter_kit",
+    "model_py_sha256": "3cecb5ab2201b6b4be6aabbdebeeeb5322437e2d8c49d065018230dc9804edbe",
+    "proactive_py_sha256": "7c8adfe9fa2db5af4aace1cd260ec22132b18d82ef747f8a566eb8095e8fbc34",
+    "scorer_py_sha256": "072301da6c65b3e30c7581920d178c6d5136305f2db26914df4785f47d809ee1"
+  },
+  "d4_1_reference": {
+    "experiment_dir": "output/experiments/20260720_internvl35_1b_d4_1_input_policy_search_v1",
+    "comparison_sha256": "dd3fea75c42557c80ee4086a797666c3a7061413725929b54df28e0113292a9b",
+    "best_inference_sha256": "e861e8dc26204e9b5a1cd757a70d704ee94762453ad0cfc1e053accb247b11ff",
+    "classification": "post-selection public-validation evidence"
+  },
+  "compute_reuse": {
+    "baseline": {
+      "mode": "cached_generation_recomputed_decision_features",
+      "path": "output/experiments/20260720_internvl35_1b_d4_1_input_policy_search_v1/runs/full/d41_d58ddf9e0036/session_records.jsonl",
+      "sha256": "f99532890bff3f9faf2c6923b997f68ac5c6e3028fecae442a3269fc5fca73be"
+    },
+    "history8": {
+      "mode": "cached_generation_recomputed_decision_features",
+      "path": "output/experiments/20260720_internvl35_1b_d4_1_input_policy_search_v1/runs/full/d41_c883733b7cb0/session_records.jsonl",
+      "sha256": "af52d7454c36051c11302b5201c38df364e8797e82d5742c67c53c7216d0bc39"
+    },
+    "frames16": {
+      "mode": "full_inference"
+    },
+    "tokens16": {
+      "mode": "generation_with_d4_2_baseline_decision_features",
+      "baseline_name": "baseline"
+    }
+  },
+  "folds": {
+    "algorithm": "domain_stratified_sha256_round_robin",
+    "seed": "d1-session-oof-v1",
+    "count": 5,
+    "calibration_fold_offset": 1,
+    "reference_file_sha256": "bd537e9e155586cf3af9f26052fda277fa3e1930e378538346cc197432ff86c0"
+  },
+  "frozen_inference": {
+    "video_frame_size": 448,
+    "pad_token_id": 151643,
+    "do_sample": false,
+    "seed": 20260713,
+    "decision_feature_mode": "shared_vision",
+    "system_prompt": "official starter-kit SYSTEM_PROMPT",
+    "dialog": "official answer-stripped chunk-aligned prefix",
+    "precision": "bfloat16",
+    "decoding": "greedy"
+  },
+  "candidates": [
+    {
+      "name": "baseline",
+      "mechanism": "exact D4 input and OOF replay control",
+      "parameters": {"max_frames": 32, "frames_per_interval": 16, "max_history_turns": 4, "max_new_tokens": 64}
+    },
+    {
+      "name": "history8",
+      "mechanism": "adapt the complete head to the longer assistant-history representation",
+      "parameters": {"max_frames": 32, "frames_per_interval": 16, "max_history_turns": 8, "max_new_tokens": 64}
+    },
+    {
+      "name": "frames16",
+      "mechanism": "compact cumulative visual context as regularization and lower compute",
+      "parameters": {"max_frames": 16, "frames_per_interval": 16, "max_history_turns": 4, "max_new_tokens": 64}
+    },
+    {
+      "name": "tokens16",
+      "mechanism": "short decision-oriented decode to reduce response noise and latency",
+      "parameters": {"max_frames": 32, "frames_per_interval": 16, "max_history_turns": 4, "max_new_tokens": 16}
+    }
+  ],
+  "features": {
+    "scalar_variant": "response_temporal",
+    "dialog_variant": "d1_fused_plus_dialog_stage",
+    "dialog_policy_names": [
+      "has_previous_chunk",
+      "assistant_added_since_previous",
+      "assistant_add_count_since_previous",
+      "log1p_visible_assistant_turns",
+      "assistant_turns_per_elapsed_chunk",
+      "log1p_chunks_since_assistant_addition",
+      "log1p_last_assistant_text_length",
+      "last_assistant_has_interrupt_tag"
+    ],
+    "hidden_size": 1024,
+    "feature_count": 1051,
+    "future_session_features": false
+  },
+  "training": {
+    "classifier": "class_balanced_linear_logistic_regression",
+    "optimizer": "lbfgs",
+    "seed": 20260714,
+    "max_iterations": 120,
+    "dtype": "float64",
+    "l2_weights": [0.00001, 0.0001, 0.001, 0.01],
+    "l2_reduction": "sum",
+    "l2_selection": "calibration_fold_macro_f1",
+    "threshold_selection": "exact_calibration_fold_macro_f1",
+    "final_l2": "median_of_five_selected_l2",
+    "final_threshold": "median_of_five_calibration_thresholds"
+  },
+  "evaluation": {
+    "primary_metric": "official_macro_f1",
+    "tie_break": ["official_gmean_f1", "lower_total_model_inference_seconds", "stable_candidate_id"],
+    "bootstrap_repetitions": 5000,
+    "bootstrap_seed": 20260721,
+    "per_session_model_inference_limit_seconds": 300,
+    "baseline_oof_macro_f1": 0.6846,
+    "baseline_oof_predictions_sha256": "467bd7c567d66b3041425b336343290c0b3d742f10d25d2279de987770ae43f5",
+    "baseline_oof_metrics_sha256": "3c1f8b81eeac385597e202763c17f0a6fc2ec61b875b19243059fcd19c1d21d1"
+  },
+  "validation_policy": {
+    "answers_removed_before_feature_inference": true,
+    "candidate_selection_used_d4_1_public_labels": true,
+    "fold_test_labels_used_only_after_fold_predictions": true,
+    "full_fit_score_is_training_sanity_only": true,
+    "classification": "post-D4.1 val-supervised adapted-policy OOF audit; not hidden-test or independent generalization evidence"
+  }
+}

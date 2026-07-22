@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "experiment_id": "20260720_internvl35_1b_d4_early_grounding_u2_prepare_v1",
+  "protocol_sha256": "679912125d2c76ec35fc96619dc35ecf96d94458f563410baa12927c707c2d46",
+  "source_hashes": {
+    "u0_item_records": "fa8d6ea6869d7ec55df46182a1cae1ca49dcbfffbb9c4cf3739029427b1caaca",
+    "gold_container": "feef69ddee605e7070ad0f133636c35739c6964514a46d76da294b6bf1964740",
+    "d4_oof_predictions": "467bd7c567d66b3041425b336343290c0b3d742f10d25d2279de987770ae43f5",
+    "d4_final_predictions": "c2be105287e495212f192733266e0b750a1647e01d33b13860c5db03533eb0ad"
+  },
+  "summary": {
+    "seed": "20260720-u2-early-grounding-v1",
+    "selection_policy": "Complete intersection: early U0 position, A/B should_interrupt=yes, D4 OOF interrupt, and D4 final interrupt; no score ranking.",
+    "samples": 21,
+    "sessions": 21,
+    "by_position": {
+      "2-4": 12,
+      "1:second": 9
+    },
+    "by_domain": {
+      "Arts and Crafts": 7,
+      "Tutorial": 6,
+      "Handyman": 3,
+      "Chef": 5
+    },
+    "by_u0_fallback_status": {
+      "nonfallback": 7,
+      "fallback": 14
+    },
+    "generation_sample_contains_answers": false,
+    "gold_answer_used_for_selection": false,
+    "human_ratings_used_only_as_boolean_consensus": true
+  },
+  "items_sha256": "4e079328902ebaf1fe44ac32711d9430a69540395c860e1d2bae551cc908fc6f",
+  "key_sha256": "62c0418de161e46a33a137f2ee96e3a4125d378fbbcd34bf69a7006d69c4e4d4"
+}

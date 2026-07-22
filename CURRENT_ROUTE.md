@@ -1,7 +1,7 @@
 # Current Route: C1 Small, PWR-Inspired
 
-> Updated: 2026-07-20
-> Status: D3 at official OOF Macro F1 0.6690 remains the formally promoted scientific baseline; D4 remains the frozen leaderboard-engineering candidate and now has a bundled 1,052-parameter head, hidden-input submission adapter, strict two-field publisher, parameter/license/dependency manifests, a CPU preflight, 48 passing R0--D4 regression tests, and an exact 10-chunk adapter GPU smoke; next merge the teammate-owned frame/history policy, adapt the official Docker template when released, and otherwise return to early-chunk utterance/grounding while remaining ratings are pending; leaderboard/container upload still requires user authorization
+> Updated: 2026-07-22
+> Status: decision-first development remains active, but the local D5/D6 action-history branch is now closed; D3 at official OOF Macro F1 0.6690 remains the formally promoted scientific baseline and D4 at diagnostic OOF Macro F1 0.6846 remains the frozen leaderboard-engineering candidate; D5's 0.6912 gain was unstable, while D6 structured thresholds fell to 0.6747 and were negative on all three new stability splits; do not continue feature/threshold search on the same public data; the public schema/starter runner provide chunk-aligned dialog but the hidden-test dialog contract is not explicit in the live rules, so confirm it and prepare a fallback before independently integrating the teammate-owned frame/history policy and adapting the official Docker template; new human content/state evaluation and utterance training remain paused
 > Objective: maximize official C1 Macro F1 in the Small division without sacrificing causality, reproducibility, or prize eligibility
 
 ## 1. Decisions Already Made
@@ -19,11 +19,14 @@
 11. **A generic nonlinear head is not the missing capacity.** The single preregistered width-8 residual MLP reaches `0.6351`, only `+0.0010` over D1, with paired-session 95% interval `[-0.0011,+0.0031]`, 3/5 strictly positive folds, and two domains slightly worse. It is not promoted and must not be post-hoc tuned on the same folds.
 12. **Final-MLP adaptation learns tag-margin signal but does not provide a stable fused gain.** Naive three-position BF16 replay and the two historical feasibility smokes retain their failed status. A six-state, same-batch-corrected cache later reproduced all 9,935 D1 rows exactly and enabled the one frozen OOF run. `adapted_fused_linear` reaches `0.6357`, only `+0.0016` over D1, with bootstrap `[-0.00425,+0.00756]` and 2/5 positive folds. It is rejected; do not search more ranks, layers, or learning rates on the same split.
 13. **Decision and content quality are separate objectives.** D1 remains frozen for leaderboard development while utterance quality is audited independently. Content diagnostics must not be folded into or substituted for the official C1 Macro F1.
-14. **U0/U1 diagnostics now block the larger oracle-state replication.** Reviewer A and U1-V identify a strong language-history interface effect but no repeatable step/progress residual. Keep the frozen state package gate, but do not expand annotation while it remains unresolved.
+14. **U0/U1 diagnostics now block the larger oracle-state replication.** U0 A/B and U1-V identify a strong language-history interface effect but no repeatable step/progress residual. U0 confirms the fallback/second-chunk failure but also finds groundedness kappa only `0.0508`, so content promotion requires a more explicit new grounding rubric. Keep the frozen state package gate and do not expand annotation while it remains unresolved.
 15. **D3 establishes cross-chunk dynamics as a stable decision signal.** The preregistered primary reaches official OOF Macro `0.6690`, `+0.0349` over exact D1 replay, with positive session-bootstrap lower bound, 5/5 positive folds, 4/4 positive domains, and positive non-first gain. It is promoted for decision development, but the gain includes official dialog-history policy signal and must not be described as purely visual procedural understanding.
 16. **U1-V identifies assistant history as the forced-generation bottleneck.** Removing assistant history makes all 80/80 samples fall back; removing the current interval lowers fallback `30.0% -> 26.25%` and does not trigger the preregistered current-visual gate. Masking all pixels changes wording at a threshold boundary but does not change aggregate fallback. Treat vision as an unstable content modifier, not a reliable state decoder.
 17. **D3-D reconstructs the decision gain from official dialog policy, and D4 is the frozen leaderboard candidate.** Eight answer-stripped causal dialog-stage scalars alone reach `0.6618`; D1 fused plus those scalars reaches diagnostic OOF Macro `0.6846`, with 5/5 positive folds, 4/4 positive domains, and session-bootstrap interval `[+0.0418,+0.0591]` versus D1. D4 does not retroactively promote this result: it full-refits exactly that one feature set, serializes a 1,052-parameter head, reproduces all cached online decisions, and passes an exact GPU smoke. Do not search related features.
-18. **D4 model-facing submission packaging is complete before the official template.** The adapter accepts arbitrary hidden JSONL/video mount paths, requires chunk-aligned official `dialog`, rejects `answers` by default, rewrites only runtime paths/hashes, invokes the frozen D4 runner without a scorer, and atomically publishes exact `video_path/answers` rows. The exact head is bundled in the handoff package. CPU preflight, 48 regressions, and a physical-GPU one-session smoke pass; the adapter prediction is byte-identical to the frozen D4 smoke. The official Docker base/interface remains pending until its announced release, and the project top-level source license still requires an owner decision.
+18. **D4 model-facing submission packaging is complete before the official template.** The adapter accepts arbitrary hidden JSONL/video mount paths, currently requires chunk-aligned `dialog`, rejects `answers` by default, rewrites only runtime paths/hashes, invokes the frozen D4 runner without a scorer, and atomically publishes exact `video_path/answers` rows. The public schema supports this contract, but hidden-test availability and organizer-provided versus self-fed semantics remain unconfirmed. The exact head is bundled in the handoff package. CPU preflight, 48 regressions, and a physical-GPU one-session smoke pass; the adapter prediction is byte-identical to the frozen D4 smoke. The official Docker base/interface remains pending until its announced release, and the project top-level source license still requires an owner decision.
+19. **U2 confirms an early language cold start but does not validate fact-first grounding.** On the complete 21-item fixed-D4 early pool, removing assistant history makes 21/21 views fall back, while removing only the current interval slightly improves coverage. A current-interval predicted-fact block rescues 3/21 query-only cases (`+14.29pp` nonempty), below the frozen `+20pp` condition, and does not change full-history coverage. Predicted facts frequently resemble instructions rather than pure observations, so automatic results cannot promote content quality. Freeze v1, calibrate the explicit current-visual-support rubric, and do not tune prompts on the same 21 items.
+20. **Decision-first D5 completed with a positive but non-promotable result.** The user paused new human content/state work under the working assumption that hidden inference would mirror the public chunk-aligned dialog contract, while prioritizing leaderboard Macro F1. A 2026-07-22 live-rules recheck found that this hidden contract is not explicitly guaranteed, so it remains a deployment risk rather than a settled fact. D5 exactly replays D4 and its primary reaches `0.6912` (`+0.0066`), 5/5 positive folds, 3/4 positive domains, and both class F1 values above `0.67`. It still fails the frozen gate because bootstrap is `[-0.00025,+0.01356]` and alternate split deltas are `+0.0072/-0.0007/+0.0016`. Freeze D5 v1 without full refit; D4 remains the submission candidate.
+21. **D6 rejects per-stage threshold calibration as the explanation or deployment path for D5.** D6 reuses the exact D4 model and logit, adds no feature columns, and only calibrates shrunk thresholds over position, previous action, or the last-two action pattern. The primary falls to `0.6747` (`-0.0099`), with bootstrap `[-0.01482,-0.00492]`, 0/5 positive folds, 0/4 positive domains, and stability deltas `-0.0080/-0.0019/-0.0066`. Position-only calibration is just `+0.0009` with an interval crossing zero and cannot replace the preregistered primary. Freeze D6 without transport or deployment; stop local action-history threshold/feature search on this public set.
 
 ## 2. Target System Shape
 
@@ -239,6 +242,55 @@ See the [submission audit](reports/20260720_internvl35_1b_d4_submission_entrypoi
 [combined U1-V/D3-D report](reports/20260719_u1_visual_reliance_and_d3_dialog_policy_control.md)
 and [D4 report](reports/20260719_internvl35_1b_d4_dialog_stage_candidate.md).
 
+### D5: Decision Fusion and Causal Action History
+
+D5 was preregistered on 2026-07-21 before any D5 fit or metric inspection. It is a
+CPU-only, public-validation-supervised leaderboard experiment that leaves D3 and
+D4 frozen. The sole primary combines the exact D4 matrix, the non-duplicate D3
+dynamics block, and 18 features derived only from organizer-visible prior actions
+in the current dialog prefix. Four controls isolate D4 replay, dynamics scalars,
+full dynamics, and action history. The fixed five-fold session rotation, L2 grid,
+threshold calibration, official scorer, session bootstrap, fold/domain/position
+breakdowns, and three additional label-independent stability splits replace any
+human evaluation. See `annotations/d5_decision_fusion_v1/PROTOCOL.md`.
+
+Do not modify D3/D4 source configs or search history windows after the result. Only
+a primary gain of at least `+0.005` over exact D4, with a positive bootstrap lower
+bound, 4/5 positive folds, 3/4 positive domains, non-first improvement, both class
+F1 values at least `0.67`, and positive gain on all stability splits may trigger a
+single all-development refit and deployment integration.
+
+D5 completed over all 700 sessions / 9,935 chunks without GPU or human evaluation.
+D4 replay is byte-exact at `0.6846`. Dynamics-only reaches `0.6853`, action-history
+reaches `0.6889`, and the primary union reaches `0.6912`; however, its paired
+session-bootstrap lower bound is `-0.00025`, and the three additional split deltas
+are `+0.0072/-0.0007/+0.0016`. The promotion gate therefore fails. Do not full-refit,
+deploy, or post-hoc tune D5 v1. The next automatic decision step should be a new,
+separately frozen low-dimensional structured-calibration study that removes exact
+duplicate columns before fitting. See the
+[D5 report](reports/20260721_internvl35_1b_decision_fusion_d5.md).
+
+### D6: Low-Dimensional Structured Threshold Calibration
+
+D6 was frozen and completed on 2026-07-21 as the direct follow-up to D5. Every
+variant reuses the exact D4 fold model, selected L2, and scalar logit; candidates
+add no feature columns and differ only in calibration-fold thresholds over coarse
+position, previous action, or the last-two `II/IS/SI/SS` pattern. Local thresholds
+require at least 64 rows and both classes, and the primary shrinks them toward the
+global threshold with the fixed effective-minority pseudocount 256 rule.
+
+D4 again replays byte-exactly at `0.6846`. Position-only calibration is `0.6855`
+(`+0.0009`) with bootstrap `[-0.00221,+0.00398]`, 3/5 positive folds, and 2/4
+positive domains, so it is an unpromotable control. Previous-action, unshrunk
+last-two, and shrunk last-two reach `0.6778/0.6633/0.6747`. The primary has
+bootstrap `[-0.01482,-0.00492]`, 0/5 positive folds, 0/4 positive domains, and
+three new stability deltas `-0.0080/-0.0019/-0.0066`. Independent rerun artifacts
+are byte-identical. Freeze D6 without threshold transport, adapter integration, or
+GPU smoke. The failure shows that independently maximizing group-local Macro does
+not preserve the global Macro confusion balance; do not tune the bins or shrinkage
+on this set. See the
+[D6 report](reports/20260721_internvl35_1b_structured_calibration_d6.md).
+
 ### U0: Frozen-Gate Utterance Audit
 
 Audit the existing D1 fused OOF answers without running or training a model. Produce reproducible full-set statistics by domain, task, chunk position, confusion outcome, fallback status, and session repetition. Freeze a 200-item blind human-review sample with separate review and answer-key files; the review file must not expose gold decisions, gold utterances, D1 confidence, or source-system labels.
@@ -246,6 +298,8 @@ Audit the existing D1 fused OOF answers without running or training a model. Pro
 U0 is complete only when the source hashes, sampling seed, exact stratum counts, rubric, rating template, and generated artifact hashes are recorded. Human ratings may remain pending, but automatic statistics and the review package must be reproducible byte-for-byte.
 
 U0 automatic audit completed on 2026-07-16 over all 700 sessions / 9,935 chunks. D1 predicts 4,613 interrupts, of which 2,586 (`56.06%`) use the hard-coded fallback; 1,647/3,165 binary TP are fallback. Fallback binary precision is `63.69%` versus `74.89%` for non-fallback text, but these are decision-label precisions and do not establish semantic correctness. The second chunk is the sharpest interface failure: 423/426 predicted interrupts are fallback. A deterministic 200-item, five-stratum, four-domain-balanced blind-review package is frozen; automatic artifacts reproduce byte-for-byte with manifest SHA256 `92ba38ec6f600086464eb4098d5a9242fcfcf0350fc3ed213aecdb153fd07291`. See the [U0 report](reports/20260716_d1_utterance_u0_audit.md).
+
+U0 two-reviewer analysis completed on 2026-07-20. Both locked 200-row files validate with exact A/B coverage. Pair-average spoken content composite is `2.3063`; fallback/nonfallback are `1.5413/3.0713`, and second-chunk composite is only `1.7857`. Correctness/specificity agreement is usable (quadratic kappa `0.6655/0.7050`), but groundedness has a systematic A/B scale shift (`2.4375/4.0125`) and kappa only `0.0508`; hallucination and unsafe flags also require raw contingency interpretation. A review-informed early pool is frozen as the complete 21-item intersection of early position, A/B `should_interrupt=yes`, and both D4 OOF/final interrupt decisions. See the [dual-reviewer report](reports/20260720_u0_dual_reviewer_analysis.md).
 
 ### U1: Fixed-D1-Gate Forced Generation
 
@@ -275,6 +329,26 @@ specific step, but history supplies the generation skeleton and can produce
 plausible stale instructions without current visual evidence. Prioritize early
 language cold start and grounding only after the D4 decision candidate; do not
 resume S1 from this result.
+
+### U2: Fixed-D4 Early Utterance and Grounding Diagnostic
+
+U2 completed its automatic run on 2026-07-20 over the complete 21-item early pool
+frozen by the U0 dual-review protocol. All D4 decisions remain fixed, generation
+inputs contain no answers or future context, 21/21 frozen R0 full-view responses
+replay exactly, and one model load produces 21 predicted-fact records plus six
+paired utterance views per sample. The official scorer was not invoked.
+
+`full_history` falls back on 8/21 items. Removing current-interval video falls back
+on 7/21, while removing assistant history with full causal video falls back on
+21/21. Query/current-only generation is nonempty on 3/21; injecting the frozen
+predicted facts raises this to 6/21, a `+14.29pp` rescue that fails the preregistered
+`+20pp` condition. Adding facts to full history changes 8 texts but leaves coverage
+unchanged. Fact strings are 21/21 nonempty/non-`unclear`, but qualitative inspection
+finds imperative, potentially unsupported content, so this is not a correctness
+result. The 126-utterance and 21-fact blind packages are ready; calibrate the
+current-visual-support rubric before two-reviewer scoring. Do not tune U2 v1 on the
+same pool or change D4 from these automatic diagnostics. See the
+[U2 report](reports/20260720_internvl35_1b_d4_early_grounding_u2.md).
 
 ### R2: Granularity Sensitivity
 
@@ -355,8 +429,9 @@ negative at second chunks (`-0.35`, 80% generation fallback) and large at 5--9
 and 10+ (`+2.06/+1.93`). Actual model history is capped at four assistant turns;
 one-turn contexts have 81.5% fallback, while two-to-four-turn contexts rarely
 fall back. This strongly implicates the language/history interface but does not
-prove that vision is unused. Reviewer B was not read, and the separate
-240-candidate no-state/step/full package is not present in the supplied A CSV.
+prove that vision is unused. At that decision point Reviewer B was not read, and the separate
+240-candidate no-state/step/full package was not present in the supplied A CSV. U0-B was later
+completed and aggregated on 2026-07-20; U1-B and the state-package ratings remain pending.
 
 Pause the remaining 421 S1 states without deleting any asset. U1-V and D3-D are
 now complete: U1-V identifies assistant history rather than current visual state
@@ -364,7 +439,7 @@ as the dominant generation dependency, and D3-D reconstructs most or more than
 all of D3's OOF gain from official dialog-stage features. Neither result satisfies
 the state-resumption gate. Resume S1 only if the separate state-package ratings
 pass or a new, independently frozen residual audit localizes repeatable errors to
-step/progress transitions. Reviewer B and the state package may be incorporated
+step/progress transitions. U1 Reviewer B and the state package may be incorporated
 later under their frozen gates, but they no longer block D4 decision engineering.
 See the [A-only diagnostic](reports/20260718_u0_u1_reviewer_a_diagnostic.md),
 [combined U1-V/D3-D report](reports/20260719_u1_visual_reliance_and_d3_dialog_policy_control.md),

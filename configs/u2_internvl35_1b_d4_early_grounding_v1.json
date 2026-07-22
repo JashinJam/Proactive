@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "experiment_id": "20260720_internvl35_1b_d4_early_grounding_u2_v1",
+  "hypothesis": "A short current-interval visual-fact pass may rescue early utterance generation without assistant history and may make history-conditioned wording more explicitly sensitive to current visual evidence.",
+  "classification": "review-informed public-validation mechanism diagnostic; no training, gate tuning, or automatic quality promotion",
+  "protocol": {
+    "path": "annotations/u2_early_grounding_v1/PROTOCOL.md",
+    "sha256": "679912125d2c76ec35fc96619dc35ecf96d94458f563410baa12927c707c2d46"
+  },
+  "model": {
+    "repo_id": "OpenGVLab/InternVL3_5-1B-HF",
+    "revision": "9191dbccf312b537016f041b25d61c72e7c5c9f3",
+    "local_path": "/home/lanjinxin/model_weights/InternVL3_5-1B-HF",
+    "license": "Apache-2.0",
+    "total_parameters": 1060897792,
+    "weights_sha256": "11effd1da2fc0929957d56de4129d1e7d2aed044ea878d40bf83e95b63d38b39"
+  },
+  "sources": {
+    "gold_container": {
+      "path": "data/egoproactive/wearable_ai_2026_egoproactive_val_700.jsonl",
+      "sha256": "feef69ddee605e7070ad0f133636c35739c6964514a46d76da294b6bf1964740",
+      "role": "Inference-visible container only; the entire answers field is stripped before generation."
+    },
+    "r0_session_records": {
+      "path": "output/experiments/20260713_internvl35_1b_no_plan_r0/session_records.jsonl",
+      "sha256": "00ce567c1d703a857cd73161f45212e919aa45ad4875257d34536d90fb829d76",
+      "role": "Frozen raw-response and frame-count correctness oracle; never used as model context."
+    }
+  },
+  "prepared_sample": {
+    "items": "annotations/u2_early_grounding_v1/sample_items.jsonl",
+    "items_sha256": "4e079328902ebaf1fe44ac32711d9430a69540395c860e1d2bae551cc908fc6f",
+    "key": "annotations/u2_early_grounding_v1/sample_key.jsonl",
+    "key_sha256": "62c0418de161e46a33a137f2ee96e3a4125d378fbbcd34bf69a7006d69c4e4d4",
+    "manifest": "annotations/u2_early_grounding_v1/sample_manifest.json",
+    "manifest_sha256": "0937bee740e11b1f7b10f60d4f9efa2c020d6b0ceee905d12c15eacb056786ef",
+    "samples": 21,
+    "sessions": 21,
+    "selection_uses_gold_answer": false,
+    "selection_uses_human_boolean_consensus": true,
+    "d4_oof_and_final_gate_both_interrupt": true
+  },
+  "starter_kit": {
+    "path": "data/starter_kit",
+    "model_py_sha256": "3cecb5ab2201b6b4be6aabbdebeeeb5322437e2d8c49d065018230dc9804edbe",
+    "proactive_py_sha256": "7c8adfe9fa2db5af4aace1cd260ec22132b18d82ef747f8a566eb8095e8fbc34",
+    "scorer_py_sha256": "072301da6c65b3e30c7581920d178c6d5136305f2db26914df4785f47d809ee1"
+  },
+  "video_folder": "data/egoproactive/val",
+  "views": [
+    "full_history",
+    "no_current_video",
+    "query_only_full_video",
+    "query_only_current_video",
+    "facts_full_history",
+    "facts_query_current"
+  ],
+  "inference": {
+    "frames_per_interval": 16,
+    "max_frames": 32,
+    "video_frame_size": 448,
+    "pad_token_id": 151643,
+    "max_history_turns": 4,
+    "utterance_max_new_tokens": 64,
+    "fact_max_new_tokens": 32,
+    "do_sample": false,
+    "assistant_prefix": "$interrupt$",
+    "seed": 20260713,
+    "dtype": "bfloat16",
+    "attention_implementation": "sdpa",
+    "fact_system_prompt_sha256": "960bf420e742dfa646406e90b77f0bcab24df23ce39e288e2ca72f82b7941928"
+  },
+  "review_priority_thresholds": {
+    "facts_non_unclear_rate_at_least": 0.8,
+    "fact_query_nonempty_gain_at_least": 0.2
+  },
+  "review": {
+    "blind_seed": "20260720-u2-six-view-review-v1",
+    "reviewers": 2,
+    "calibration_required_before_formal_rating": true,
+    "variant_key_hidden_until_both_reviewers_lock": true
+  },
+  "evaluation": {
+    "automatic_text_metrics_are_sensitivity_diagnostics_only": true,
+    "predicted_fact_overlap_is_grounding_quality": false,
+    "human_quality_claimed_before_ratings": false,
+    "official_scorer_invoked": false,
+    "d4_gate_changed": false
+  },
+  "deployment": {
+    "fixed_d4_system_parameters": 1060898844,
+    "runtime_model_parameters_loaded": 1060897792,
+    "second_backbone_copy_added": false,
+    "fact_and_utterance_pass_reuse_one_model": true
+  }
+}

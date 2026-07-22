@@ -6,6 +6,9 @@
 
 ## 当前报告
 
+- [7 月 17 日至 7 月 22 日完整工作梳理与汇报报告](20260722_0717_0722_complete_progress_review.md)：按决策、正文与状态三条线完整串联 D3、U1、S0、U1-V/D3-D、D4、U0 双评、U2、D5、D6 和提交工程，解释每一步动机、数据、困境、承接关系及一周收口计划。
+- [D6 低维结构化门槛校准 OOF 报告](20260721_internvl35_1b_structured_calibration_d6.md)：精确复现 D4 后比较 position、previous-action 和 last-two action 分组门槛；position 仅 `+0.0009` 且不稳定，主候选为 `0.6747`（`-0.0099`），三组新 split 全负，明确不晋级。
+- [D5 决策融合与 Causal Action-History OOF 报告](20260721_internvl35_1b_decision_fusion_d5.md)：D4 精确 replay、D3 dynamics/action-history 五变体、三组额外 session split 与冻结晋级门槛；主候选 `0.6912` 但因 bootstrap/stability 未通过而不晋级。
 - [C1 Small R0 完整技术与实验报告](20260713_internvl35_1b_no_plan_r0.md)：冻结的 InternVL3.5-1B no-plan 基线，包含完整管线与配置、官方评测、诊断、局限性和复现命令。
 - [C1 Small R1 Oracle 紧凑状态协议试验报告](20260714_internvl35_1b_oracle_state_r1_pilot_v1.md)：四个 session 的因果 Oracle 标注协议、受控状态变体、官方子集指标、格式混杂和 R1 门槛决策。
 - [C1 Small R0-F 格式消融实验报告](20260714_internvl35_1b_r0f_format_ablation.md)：完整 700-session response-intent repair、被否决的 tag-grammar smoke test、官方分数、domain/首 chunk 分析和验证集监督边界。

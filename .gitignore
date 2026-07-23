@@ -8,8 +8,7 @@
 /wearable-ai-leaderboard/
 
 # Generated dashboard prediction data
-/presentation/results_dashboard/data.js
-/presentation/results_dashboard/data_manifest.json
+/presentation
 
 # Python and notebook caches
 **/__pycache__/

@@ -127,10 +127,10 @@ Every result report must include both class F1s, TP/FP/TN/FN, and predicted inte
 Canonical local implementation:
 
 ```text
-data/starter_kit/run_evaluation.py
+starter_kit/run_evaluation.py
 ```
 
-From `data/starter_kit/`, evaluate an existing prediction file with the official entry point and the appropriate prediction-path arguments:
+From `starter_kit/`, evaluate an existing prediction file with the official entry point and the appropriate prediction-path arguments:
 
 ```bash
 python run_evaluation.py --task proactive --eval-only
@@ -164,9 +164,8 @@ The public validation labels are visible. Therefore:
 
 ## 9. Authoritative Local References
 
-- [Starter-kit README](data/starter_kit/README.md)
-- [Official scorer](data/starter_kit/run_evaluation.py)
-- [Official proactive tests](data/starter_kit/tests/test_run_evaluation_proactive.py)
+- [Starter-kit README](starter_kit/README.md)
+- [Official scorer](starter_kit/run_evaluation.py)
+- [Official proactive tests](starter_kit/tests/test_run_evaluation_proactive.py)
 - [Leaderboard mirror](wearable-ai-leaderboard/README.md)
 - [PWR audit](literature/papers/challenge1_proactive/PWR_audit.md)
-

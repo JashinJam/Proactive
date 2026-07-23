@@ -5,11 +5,15 @@ import unittest
 from pathlib import Path
 
 from proactive_r0.core import (
+    CAUSAL_MULTISCALE_FRAME_SAMPLING,
     CausalInferenceConfig,
+    DETERMINISTIC_HALF_STRIDE_JITTER_FRAME_SAMPLING,
     StarterKitSymbols,
     build_messages,
     canonicalize_response,
+    half_stride_jitter_frames,
     process_session,
+    select_causal_frames,
     subsample_frames,
     validate_prediction_rows,
     validate_source_rows,
@@ -83,6 +87,71 @@ class CausalCoreTest(unittest.TestCase):
     def test_subsample_frames_matches_official_stride(self) -> None:
         self.assertEqual(subsample_frames(list(range(10)), 4), [0, 2, 5, 7])
         self.assertEqual(subsample_frames([1, 2], 4), [1, 2])
+
+    def test_uniform_policy_is_backward_compatible(self) -> None:
+        groups = [[(0, index) for index in range(16)], [(1, index) for index in range(16)]]
+        config = CausalInferenceConfig(16, 12, 8, 64)
+        self.assertEqual(
+            select_causal_frames(groups, [(0.0, 8.0), (8.0, 16.0)], config),
+            subsample_frames(groups[0] + groups[1], 12),
+        )
+
+    def test_half_stride_jitter_is_deterministic_and_bounded(self) -> None:
+        self.assertEqual(half_stride_jitter_frames(list(range(10)), 4), [1, 3, 6, 8])
+        self.assertEqual(half_stride_jitter_frames([1, 2], 4), [1, 2])
+        groups = [list(range(16)), list(range(16, 32)), list(range(32, 48))]
+        config = CausalInferenceConfig(
+            16,
+            32,
+            8,
+            64,
+            frame_sampling=DETERMINISTIC_HALF_STRIDE_JITTER_FRAME_SAMPLING,
+        )
+        selected = select_causal_frames(
+            groups, [(0.0, 8.0), (8.0, 16.0), (16.0, 24.0)], config
+        )
+        self.assertEqual(selected, half_stride_jitter_frames(list(range(48)), 32))
+        self.assertEqual(len(selected), 32)
+        self.assertTrue(all(value < 48 for value in selected))
+
+    def test_causal_multiscale_budget_order_and_tails(self) -> None:
+        groups = [
+            [(interval, index) for index in range(16)] for interval in range(4)
+        ]
+        config = CausalInferenceConfig(
+            16, 32, 8, 64, frame_sampling=CAUSAL_MULTISCALE_FRAME_SAMPLING
+        )
+        selected = select_causal_frames(
+            groups,
+            [(0.0, 3.0), (4.0, 10.0), (10.0, 18.0), (18.0, 26.0)],
+            config,
+        )
+        self.assertEqual(len(selected), 32)
+        self.assertEqual(selected, sorted(selected))
+        self.assertEqual(len(set(selected)), len(selected))
+        self.assertEqual(sum(interval == 3 for interval, _ in selected), 16)
+        self.assertEqual(sum(interval == 2 for interval, _ in selected), 8)
+        self.assertIn((2, 15), selected)
+        self.assertIn((1, 15), selected)
+        self.assertTrue(all(interval <= 3 for interval, _ in selected))
+
+    def test_causal_multiscale_short_and_gapped_history(self) -> None:
+        groups = [[(0, 0), (0, 1)], [(1, 0)], [(2, 0), (2, 1), (2, 2)]]
+        config = CausalInferenceConfig(
+            16, 32, 8, 64, frame_sampling=CAUSAL_MULTISCALE_FRAME_SAMPLING
+        )
+        self.assertEqual(
+            select_causal_frames(
+                groups, [(0.0, 0.5), (10.0, 10.5), (90.0, 100.0)], config
+            ),
+            groups[0] + groups[1] + groups[2],
+        )
+
+    def test_causal_multiscale_rejects_non_frozen_budget(self) -> None:
+        with self.assertRaisesRegex(ValueError, "requires"):
+            CausalInferenceConfig(
+                8, 32, 8, 64, frame_sampling=CAUSAL_MULTISCALE_FRAME_SAMPLING
+            )
 
     def test_build_messages_uses_only_current_dialog_history(self) -> None:
         messages = build_messages(

@@ -24,7 +24,7 @@ from proactive_r0.core import (
     StarterKitSymbols,
     build_messages,
     canonicalize_response,
-    subsample_frames,
+    select_causal_frames,
 )
 
 
@@ -159,7 +159,7 @@ def process_session_with_dialog_stage_head(
         raise ValueError(f"Unsupported D4 deployment domain: {row.get('domain')!r}")
     state = OnlineDialogPolicyState()
     hidden_names = _hidden_names(head.feature_names)
-    cumulative_frames: list[object] = []
+    observed_frame_groups: list[list[object]] = []
     answers: list[str] = []
     chunks: list[dict[str, object]] = []
     previous_end: float | None = None
@@ -169,8 +169,10 @@ def process_session_with_dialog_stage_head(
             intervals=[interval],
             frames_per_interval=config.frames_per_interval,
         )
-        cumulative_frames.extend(current_frames)
-        model_frames = subsample_frames(cumulative_frames, config.max_frames)
+        observed_frame_groups.append(current_frames)
+        model_frames = select_causal_frames(
+            observed_frame_groups, intervals[: chunk_index + 1], config
+        )
         messages = build_messages(
             row=row,
             chunk_index=chunk_index,
@@ -207,6 +209,7 @@ def process_session_with_dialog_stage_head(
             "interval": list(interval),
             "current_interval_frames": len(current_frames),
             "model_input_frames": len(model_frames),
+            "frame_sampling": config.frame_sampling,
             "raw_response": raw_response,
             "r0_answer": r0_answer,
             "r0_normalization": r0_normalization,

@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "experiment_id": "20260721_internvl35_1b_decision_fusion_d5_oof_v1",
+  "hypothesis": "Frozen D3 causal dynamics and compact organizer-visible prior-action history provide complementary session-held-out decision signal beyond the exact D4 dialog-stage head.",
+  "classification": "single-preregistered-primary public-validation-supervised leaderboard-engineering OOF study; not hidden-test evidence",
+  "protocol": {
+    "path": "annotations/d5_decision_fusion_v1/PROTOCOL.md",
+    "sha256": "66d1c6344b9996ef4041654eac51f724c515d6195d68cbb4025aa405966a40f3"
+  },
+  "base_configs": {
+    "d3_oof": {
+      "path": "configs/d3_internvl35_1b_causal_dynamics_oof.json",
+      "sha256": "0373ccf9971229d4515d79c027731f97b8f71e1f16328bdae2ec839ab8e54d07"
+    },
+    "d3_dialog_control": {
+      "path": "configs/d3_internvl35_1b_dialog_policy_control_v1.json",
+      "sha256": "e360d8e008e2c80d16a9722c0f872d5b1883845cd7fe242a79e2672608d625e7"
+    }
+  },
+  "model": {
+    "repo_id": "OpenGVLab/InternVL3_5-1B-HF",
+    "revision": "9191dbccf312b537016f041b25d61c72e7c5c9f3",
+    "license": "Apache-2.0",
+    "backbone_parameters": 1060897792,
+    "weights_sha256": "11effd1da2fc0929957d56de4129d1e7d2aed044ea878d40bf83e95b63d38b39"
+  },
+  "data": {
+    "input": "data/egoproactive/wearable_ai_2026_egoproactive_val_700.jsonl",
+    "input_sha256": "feef69ddee605e7070ad0f133636c35739c6964514a46d76da294b6bf1964740",
+    "license": "CC-BY-NC-4.0"
+  },
+  "starter_kit": {
+    "path": "data/starter_kit",
+    "model_py_sha256": "3cecb5ab2201b6b4be6aabbdebeeeb5322437e2d8c49d065018230dc9804edbe",
+    "proactive_py_sha256": "7c8adfe9fa2db5af4aace1cd260ec22132b18d82ef747f8a566eb8095e8fbc34",
+    "scorer_py_sha256": "072301da6c65b3e30c7581920d178c6d5136305f2db26914df4785f47d809ee1"
+  },
+  "sources": {
+    "r0_session_records": {
+      "path": "output/experiments/20260713_internvl35_1b_no_plan_r0/session_records.jsonl",
+      "sha256": "00ce567c1d703a857cd73161f45212e919aa45ad4875257d34536d90fb829d76"
+    },
+    "split_manifest": {
+      "path": "output/experiments/20260714_internvl35_1b_causal_scalar_decision_head_d1_oof_v2/split_manifest.json",
+      "sha256": "bd537e9e155586cf3af9f26052fda277fa3e1930e378538346cc197432ff86c0"
+    },
+    "neural_features": {
+      "path": "output/features/20260714_internvl35_1b_d1_neural_feature_cache_v1/features.npz",
+      "sha256": "cc5a5b3c6184987edc5f041eb2cb01a51ccfd88d6328d8308fcce3a4bd9122bf",
+      "hidden_size": 1024
+    },
+    "neural_summary": {
+      "path": "output/features/20260714_internvl35_1b_d1_neural_feature_cache_v1/summary.json",
+      "sha256": "8d9fd1bd9ced6e394cecc4048ee50c16a51804167b7687759f06f1b132b78a8b"
+    },
+    "d3_predictions": {
+      "path": "output/experiments/20260717_internvl35_1b_causal_dynamics_d3_oof_v1/variants/dynamics_fused/predictions.jsonl",
+      "sha256": "c8b836d90768ef609747b40d968d1551c5b90aa91c72fd6d017514eed3b3535a"
+    },
+    "d3_metrics": {
+      "path": "output/experiments/20260717_internvl35_1b_causal_dynamics_d3_oof_v1/variants/dynamics_fused/metrics.json",
+      "sha256": "4f661845fb6c7adc92c22ca6aab7d3e641efc7fee56bbd25b1125a9dbdfaeae0"
+    },
+    "d4_predictions": {
+      "path": "output/experiments/20260718_internvl35_1b_d3_dialog_policy_control_v1/variants/d1_fused_plus_dialog_stage/predictions.jsonl",
+      "sha256": "467bd7c567d66b3041425b336343290c0b3d742f10d25d2279de987770ae43f5"
+    },
+    "d4_metrics": {
+      "path": "output/experiments/20260718_internvl35_1b_d3_dialog_policy_control_v1/variants/d1_fused_plus_dialog_stage/metrics.json",
+      "sha256": "3c1f8b81eeac385597e202763c17f0a6fc2ec61b875b19243059fcd19c1d21d1"
+    },
+    "d4_oof_records": {
+      "path": "output/experiments/20260718_internvl35_1b_d3_dialog_policy_control_v1/variants/d1_fused_plus_dialog_stage/oof_records.jsonl",
+      "sha256": "834177470a83e2ece94ca427e76e52afdc52f738395dad642519429189732253"
+    }
+  },
+  "features": {
+    "d1_scalar_variant": "response_temporal",
+    "max_history_turns": 4,
+    "max_model_frames": 32,
+    "dialog_policy_names": [
+      "has_previous_chunk",
+      "assistant_added_since_previous",
+      "assistant_add_count_since_previous",
+      "log1p_visible_assistant_turns",
+      "assistant_turns_per_elapsed_chunk",
+      "log1p_chunks_since_assistant_addition",
+      "log1p_last_assistant_text_length",
+      "last_assistant_has_interrupt_tag"
+    ],
+    "dynamic_scalar_names": [
+      "has_previous_chunk",
+      "tag_margin_delta_previous",
+      "tag_margin_abs_delta_previous",
+      "tag_margin_delta_history_mean",
+      "hidden_cosine_previous",
+      "hidden_delta_rms_previous",
+      "hidden_cosine_history_mean",
+      "hidden_delta_rms_history_mean"
+    ],
+    "omitted_duplicate_dynamic_scalars": ["has_previous_chunk"],
+    "action_history_names": [
+      "action_lag2_interrupt",
+      "action_lag2_available",
+      "action_lag3_interrupt",
+      "action_lag3_available",
+      "action_lag4_interrupt",
+      "action_lag4_available",
+      "action_interrupt_rate_last2",
+      "action_interrupt_rate_last4",
+      "action_interrupt_rate_last8",
+      "action_log1p_consecutive_interrupts",
+      "action_log1p_consecutive_silents",
+      "action_log1p_chunks_since_silent",
+      "action_last2_ii",
+      "action_last2_is",
+      "action_last2_si",
+      "action_last2_ss",
+      "action_transition_rate_last4",
+      "action_transition_rate_last8"
+    ],
+    "variants": [
+      "d4_replay",
+      "d4_plus_dynamic_scalar",
+      "d4_plus_full_dynamics",
+      "d4_plus_action_history",
+      "d4_plus_full_dynamics_history"
+    ],
+    "primary_variant": "d4_plus_full_dynamics_history"
+  },
+  "training": {
+    "folds": 5,
+    "calibration_fold_offset": 1,
+    "classifier": "class_balanced_linear_logistic_regression",
+    "optimizer": "lbfgs",
+    "seed": 20260714,
+    "max_iterations": 120,
+    "dtype": "float64",
+    "l2_weights": [0.00001, 0.0001, 0.001, 0.01],
+    "l2_reduction": "sum",
+    "threshold_selection": "exact_calibration_fold_macro_f1"
+  },
+  "stability": {
+    "enabled": true,
+    "split_algorithm": "domain_stratified_sha256_round_robin",
+    "split_seeds": [
+      "d5-stability-20260721-a",
+      "d5-stability-20260721-b",
+      "d5-stability-20260721-c"
+    ],
+    "variants": ["d4_replay", "d4_plus_full_dynamics_history"]
+  },
+  "references": {
+    "d3_macro_f1": 0.669,
+    "d4_macro_f1": 0.6846,
+    "d4_interrupt_f1": 0.6893,
+    "d4_silent_f1": 0.6799,
+    "d4_non_first_macro_f1": 0.6596438307651076,
+    "d3_d4_decision_agreement": 0.824861600402617
+  },
+  "evaluation": {
+    "primary_metric": "macro_f1",
+    "official_scorer": "data/starter_kit/run_evaluation.py",
+    "bootstrap_repetitions": 5000,
+    "bootstrap_seed": 20260721,
+    "promotion": {
+      "minimum_macro_f1_delta_vs_d4": 0.005,
+      "require_positive_session_bootstrap_lower_bound": true,
+      "minimum_positive_folds": 4,
+      "minimum_positive_domains": 3,
+      "require_non_first_chunk_gain": true,
+      "minimum_interrupt_f1": 0.67,
+      "minimum_silent_f1": 0.67,
+      "require_all_stability_splits_positive": true
+    }
+  },
+  "validation_policy": {
+    "feature_construction_reads_answers": false,
+    "feature_construction_reads_predictions": false,
+    "feature_construction_reads_future_chunks": false,
+    "action_history_source": "organizer-visible answer-stripped cumulative dialog prefix",
+    "linear_head_fit_reads_fit_fold_public_validation_labels": true,
+    "l2_and_threshold_read_only_calibration_fold_labels": true,
+    "test_fold_labels_used_only_after_predictions": true,
+    "previous_action_gold_cross_check_runs_after_all_predictions": true,
+    "external_data_used": false,
+    "human_evaluation_used": false
+  }
+}

@@ -1,7 +1,7 @@
 # Current Route: C1 Small, PWR-Inspired
 
-> Updated: 2026-07-21
-> Status: D3 at official OOF Macro F1 0.6690 remains the formally promoted scientific baseline, and D4 remains the unchanged frozen leaderboard-engineering submission candidate. D4.1 shows that changing the frozen D4 input policy without adapting its head does not improve full-public-validation Macro F1. The post-D4.1 D4.2 adapted-policy audit is complete: `history8` reaches five-fold OOF Macro F1 `0.6988` versus the exact `0.6846` baseline, with paired-session interval `[+0.00817,+0.02036]`; its all-development `0.7469` is train-fit sanity only. D4.2 has not been promoted into the D4 submission; promotion, GPU equivalence smoke, Docker adaptation, and external upload each still require the stated authorization or release gate
+> Updated: 2026-07-22
+> Status: D3 at official OOF Macro F1 0.6690 remains the formally promoted scientific baseline. D4 remains an unchanged frozen reference bundle, while the separately packaged D4.2 `history8` candidate is the active leaderboard-engineering baseline: its five-fold OOF Macro F1 is `0.6988` versus exact baseline `0.6846`, paired-session interval `[+0.00817,+0.02036]`, and D4.3 reproduces all online fields on 102/102 four-domain GPU-smoke chunks with maximum logit difference `1.22e-7`. D5 was re-run on the exact D4.2 session folds after withdrawing the exact-query-grouped protocol: the D5 baseline reproduces D4.2 at `0.6988`; causal multiscale reaches `0.6988`, dual-view reaches at most `0.6846`, the visual-temporal residual reaches `0.6983`, and the equal-mix robust head reaches clean `0.6918`. Every bounded D5 candidate misses its frozen promotion gate. D6 is a user-authorized, preregistered query-conditioned causal visual-memory plus late-attention-LoRA experiment and has not produced efficacy results. Its 102-chunk zero-init/causality GPU smoke passes with exact zero hidden/tag differences, zero residual, peak allocation 2.91 GiB, and maximum session model time 22.94 seconds. Its rotation-0 trainability smoke also passes: all 48 adapter tensors and optimizer moments change, peak allocation is 7.11 GiB, maximum session model time is 26.87 seconds, and the full-fold estimate is 37.34 hours. Formal five-fold OOF is running one fold each on GPUs 1--5 under the user-authorized shared-GPU resource amendment; architecture, training, evaluation, and the 70 GiB peak gate are unchanged. Until the complete frozen protocol passes all gates, D4.2 `history8` remains the active leaderboard-engineering candidate. Docker adaptation and external upload remain behind their release/authorization gates.
 > Objective: maximize official C1 Macro F1 in the Small division without sacrificing causality, reproducibility, or prize eligibility
 
 ## 1. Decisions Already Made
@@ -23,8 +23,11 @@
 15. **D3 establishes cross-chunk dynamics as a stable decision signal.** The preregistered primary reaches official OOF Macro `0.6690`, `+0.0349` over exact D1 replay, with positive session-bootstrap lower bound, 5/5 positive folds, 4/4 positive domains, and positive non-first gain. It is promoted for decision development, but the gain includes official dialog-history policy signal and must not be described as purely visual procedural understanding.
 16. **U1-V identifies assistant history as the forced-generation bottleneck.** Removing assistant history makes all 80/80 samples fall back; removing the current interval lowers fallback `30.0% -> 26.25%` and does not trigger the preregistered current-visual gate. Masking all pixels changes wording at a threshold boundary but does not change aggregate fallback. Treat vision as an unstable content modifier, not a reliable state decoder.
 17. **D3-D reconstructs the decision gain from official dialog policy, and D4 is the frozen leaderboard candidate.** Eight answer-stripped causal dialog-stage scalars alone reach `0.6618`; D1 fused plus those scalars reaches diagnostic OOF Macro `0.6846`, with 5/5 positive folds, 4/4 positive domains, and session-bootstrap interval `[+0.0418,+0.0591]` versus D1. D4 does not retroactively promote this result: it full-refits exactly that one feature set, serializes a 1,052-parameter head, reproduces all cached online decisions, and passes an exact GPU smoke. Do not search related features.
-18. **D4 model-facing submission packaging is complete before the official template.** The adapter accepts arbitrary hidden JSONL/video mount paths, requires chunk-aligned official `dialog`, rejects `answers` by default, rewrites only runtime paths/hashes, invokes the frozen D4 runner without a scorer, and atomically publishes exact `video_path/answers` rows. The exact head is bundled in the handoff package. CPU preflight, 48 regressions, and a physical-GPU one-session smoke pass; the adapter prediction is byte-identical to the frozen D4 smoke. The official Docker base/interface remains pending until its announced release, and the project top-level source license still requires an owner decision.
-19. **Input-policy changes require policy-matched adaptation, and `history8` is the D4.2 candidate.** D4.1 held the D4 head fixed and found the default `(32,16,4,64)` policy best on the full public-validation set. D4.2 refit and calibrated the complete 1,052-parameter head inside five-fold session OOF for four mechanism-backed policies. `history8=(32,16,8,64)` reaches `0.6988`, `+0.0142` over exact baseline replay, with paired-session interval `[+0.00817,+0.02036]`, 5/5 positive folds, and 4/4 positive domains. `frames16` is an efficiency result, and `tokens16` is rejected. Because candidates were selected after D4.1 on public validation, this is val-supervised mechanism evidence, not hidden-test or independent-generalization evidence; do not replace the frozen D4 submission without separate authorization and an exact GPU equivalence smoke.
+18. **D4 model-facing submission packaging is complete before the official template, with one open input-contract risk.** The adapter accepts arbitrary hidden JSONL/video mount paths, currently requires chunk-aligned official `dialog`, rejects `answers` by default, rewrites only runtime paths/hashes, invokes the frozen D4 runner without a scorer, and atomically publishes exact `video_path/answers` rows. The public schema and starter runner support this dialog contract, but the live rules do not explicitly guarantee hidden-test field availability or organizer-provided versus self-fed assistant-history semantics. Confirm that contract from organizer clarification or the official template before external submission. The exact head is bundled in the handoff package. CPU preflight, 48 regressions, and a physical-GPU one-session smoke pass; the adapter prediction is byte-identical to the frozen D4 smoke. The official Docker base/interface remains pending until its announced release, and the project top-level source license still requires an owner decision.
+19. **Input-policy changes require policy-matched adaptation, and the independently packaged `history8` candidate passed D4.3.** D4.1 held the D4 head fixed and found the default `(32,16,4,64)` policy best on the full public-validation set. D4.2 refit and calibrated the complete 1,052-parameter head inside five-fold session OOF for four mechanism-backed policies. `history8=(32,16,8,64)` reaches `0.6988`, `+0.0142` over exact baseline replay, with paired-session interval `[+0.00817,+0.02036]`, 5/5 positive folds, and 4/4 positive domains. D4.3 then reproduced raw responses, neural features, dialog features, decisions, and answers on all 102 chunks from four long, four-domain sessions; maximum logit difference is `1.22e-7`, peak memory is 3.48 GB, and maximum session wall time is 112.70 seconds. `submission/d4_2_history8_small` is the active pre-template leaderboard-engineering candidate; `submission/d4_small` remains unchanged. This is still val-supervised public-validation evidence, not hidden-test or independent-generalization evidence.
+20. **D5 bounded model, sampling, and robustness extensions have been re-run on the exact D4.2 session folds and rejected.** The D5 baseline exactly reproduces the frozen D4.2 `history8` predictions and metrics at Macro/G-mean `0.6988/0.6988`. The causal multiscale sampler also rounds to Macro `0.6988` (`+0.0000`), but its paired-session interval `[-0.00605,+0.00612]` crosses zero and only 2/5 folds improve. The selected dual-view candidate reaches `0.6846` (`-0.0142`); the dialog-gated alternative is worse at `0.6793`. The 39,073-parameter visual-temporal residual reaches `0.6983` (`-0.0005`) with interval `[-0.00213,+0.00099]`. The equal-mix clean/history4/assistant-drop/frame-jitter head reaches clean `0.6918` (`-0.0070`); its per-view deltas are `-0.0070/+0.0012/+0.2215/-0.0024`, so the static gate fails and self-fed is not run. None is promoted or eligible for post-hoc variants on these folds. The withdrawn grouped-fold outputs are retained only as historical artifacts; they are not an active evaluation route or comparison baseline.
+
+21. **D6 is preregistered, both prerequisite GPU smokes pass, and formal five-fold OOF is running.** The single candidate injects a query-conditioned, strictly causal 128-dimensional visual memory residual immediately before language layer 24 at the assistant boundary and adds rank-8 LoRA to attention `q/k/v/o` projections in layers 24--27. It keeps the D4.2 `history8` input policy, official prompt/dialog, frozen adapter-disabled utterance generation, exact D4.2 five-fold session manifest, policy-matched 1,052-parameter decision head, official scorer, and public-validation interpretation. The frozen protocol is `annotations/d6_query_memory_lora_oof_v1/PROTOCOL.md`. The four-domain 102-chunk zero-init audit exactly reproduces all D4.3 hidden/tag values, keeps candidate updates identical, and passes future-mutation causality, memory, and latency gates. The resumed rotation-0 trainability smoke completes without an efficacy conclusion: calibration BCE improves from `3.83714` to `0.66121`, all 48 adapter tensors and optimizer moments change, peak allocation is 7.11 GiB, maximum session model time is 26.87 seconds, and the estimated formal single-fold duration is 37.34 hours. Formal folds 0--4 then started concurrently on GPUs 1--5 under the separate user-authorized shared-GPU resource amendment. No efficacy result exists yet. No injection layer, memory width, rank, target layer, learning rate, feature, L2, or threshold variant may be added after formal OOF predictions become visible.
 
 ## 2. Target System Shape
 
@@ -219,8 +222,8 @@ maximum logit difference is `6.32e-8` and peak memory is 3.466 GB.
 D4 is now the frozen **leaderboard-engineering candidate**, while D3 remains the
 formally promoted scientific baseline. No feature, L2-grid, threshold-policy, or
 history-window search is allowed on this branch. On 2026-07-20 the model-facing
-submission adapter completed: it accepts organizer JSONL/video paths, requires
-chunk-aligned official dialog, rejects answers by default, writes only the official
+submission adapter completed: it accepts organizer JSONL/video paths, currently
+requires chunk-aligned official dialog, rejects answers by default, writes only the official
 two prediction fields atomically, and records parameter/input/output hashes. CPU
 preflight and 48 regressions pass. A physical-GPU one-session adapter smoke takes
 44.206s, peaks at 3,466,037,248 bytes, sees no preexisting process on the selected
@@ -229,13 +232,19 @@ prompt, margin, dialog features, logits, decisions, and answers versus the froze
 D4 smoke. The hidden-test form values are model license `Apache-2.0` and total/active
 parameters `1.060898844B/1.060898844B`.
 
+The public schema and starter runner support the current dialog-dependent adapter,
+but the live rules do not explicitly guarantee the hidden-test dialog fields or
+whether assistant turns will be organizer-provided versus self-fed. Treat this as
+a P0 deployment contract risk until organizer clarification or the official Docker
+template resolves it; do not infer hidden compatibility from public-val replay.
+
 The official Docker template is still scheduled for release to top validation
 participants on 2026-08-08, so final CMD/mount/resource adaptation remains pending.
 The project also lacks a top-level source-code license; this owner decision must be
 resolved before claiming prize-source eligibility. Do not upload to the leaderboard
 or container registry without user authorization.
 
-#### D4.1 and D4.2: Input-Policy Audit and Policy-Matched Adaptation
+#### D4.1--D4.3: Input-Policy Adaptation and GPU Promotion Audit
 
 D4.1 completed on 2026-07-21 as an independent user-authorized public-validation
 input-policy audit. It froze InternVL3.5-1B, the D4 head, threshold
@@ -303,16 +312,136 @@ predictions. Its train-fit Macro/G-mean is
 `0.7469/0.7469`, interrupt/silent F1 is `0.7424/0.7514`, and confusion counts are
 TP/FP/TN/FN `3622/784/3799/1730`. This is training-closure sanity only. The head
 SHA256 is `dab9eaf100ea301055ab4d68856d406fb5927864bc96c71f2038688067b904c5`.
-The frozen D4 config, head, and submission were not modified; promotion requires
-separate authorization plus a GPU equivalence smoke.
+The frozen D4 config, head, and submission were not modified. Under the user's
+explicit promotion authorization, D4.3 ran the history8 online path on source
+indices `143,356,472,609`, covering all four domains and 102 chunks. All discrete
+fields match exactly; hidden/tag values are exact and maximum logit difference is
+`1.2215805633708499e-7`. Peak allocated memory is `3,481,809,920` bytes and the
+longest session takes `112.698s`. The independent
+`submission/d4_2_history8_small` bundle and its CPU preflight pass, so history8 is
+the active leaderboard-engineering baseline. This is an engineering promotion,
+not new generalization evidence.
 
 See the [D4.1 report](output/experiments/20260720_internvl35_1b_d4_1_input_policy_search_v1/report.md),
 [D4.2 report](output/experiments/20260721_internvl35_1b_d4_2_adapted_input_policy_oof_v1/report.md),
 [D4.2 train-fit metrics](output/experiments/20260721_internvl35_1b_d4_2_adapted_input_policy_oof_v1/final/train_fit_metrics.json),
+[D4.3 GPU report](reports/20260721_internvl35_1b_d4_3_history8_gpu_equivalence.md),
 [submission audit](reports/20260720_internvl35_1b_d4_submission_entrypoint_audit.md),
-[submission contract](submission/d4_small/README.md),
+[active history8 submission contract](submission/d4_2_history8_small/README.md),
+[frozen D4 submission contract](submission/d4_small/README.md),
 [combined U1-V/D3-D report](reports/20260719_u1_visual_reliance_and_d3_dialog_policy_control.md)
 and [D4 report](reports/20260719_internvl35_1b_d4_dialog_stage_candidate.md).
+
+#### D5: D4-Session-Fold Bounded Extensions
+
+On 2026-07-22 the exact-query-grouped protocol was withdrawn from the active route.
+All D5 heads were re-run with the exact D4.2 five-fold session manifest
+(`domain_stratified_sha256_round_robin`, seed `d1-session-oof-v1`), using three
+folds for fit, one for calibration, and one for test. The D5 baseline exactly
+reproduces the frozen D4.2 `history8` predictions and metrics: Macro/G-mean
+`0.6988/0.6988`, predictions SHA256
+`d154789b8f41583558878e93b9bb618643a5f64d1ad5b397d84cfd592e31c121`.
+
+The single frozen sampler `causal_multiscale_16_8_8_v1` reaches Macro/G-mean
+`0.6988/0.6988`, with an unrounded paired-session median delta near zero and 95%
+interval `[-0.00605,+0.00612]`. Only 2/5 folds improve; Tutorial declines, and
+the previous-interrupt stratum changes by `-0.0045`. It fails the minimum-gain,
+positive-interval, fold, and previous-response gates. Stop this sampler family.
+
+The two frozen dual-view linear candidates combine uniform-history8 features with
+multiscale tag-margin and hidden-state differences. `shared_delta` obtains Macro
+`0.6846`, delta `-0.0142`; `dialog_gated_delta` obtains `0.6793`, delta `-0.0195`.
+The gated-minus-shared selection margin is `-0.0053`, so `shared_delta` is selected
+only mechanically and is not promoted. Stop both fusion variants.
+
+The independently frozen 39,073-parameter causal visual-temporal residual obtains
+Macro/G-mean `0.6983/0.6983`, delta `-0.0005`. Its paired-session interval
+`[-0.00213,+0.00099]` crosses zero, only one fold is strictly positive, and the
+previous-interrupt stratum falls by `-0.0026`; it is rejected. This result only
+rejects the frozen pooling/GRU residual on these folds, not visual information in
+general.
+
+The final frozen robustness candidate fits one equal-weight linear head on clean
+history8, history4, assistant-drop, and deterministic half-stride frame-jitter
+views. Its standard-head Macros are `0.6988/0.6905/0.3500/0.6958`; the robust
+head obtains `0.6918/0.6917/0.5715/0.6934`, corresponding to deltas
+`-0.0070/+0.0012/+0.2215/-0.0024`. Clean retention and every perturbation-gain
+gate fail, so the experiment stops before self-fed inference.
+
+All D5 evidence is post-selection and public-validation supervised; it does not
+replace the D3 scientific baseline, establish hidden-test improvement, alter either
+D4 submission bundle, or authorize an external upload. The old grouped-fold
+outputs remain only as historical experiment artifacts and are not an active
+baseline. See the [session baseline report](reports/20260722_internvl35_1b_d5_session_history8_baseline.md),
+[multiscale report](reports/20260722_internvl35_1b_d5_causal_multiscale_session_oof.md),
+[dual-view report](reports/20260722_internvl35_1b_d5_dual_view_session_oof.md),
+[visual-temporal report](reports/20260722_internvl35_1b_d5_visual_temporal_session_oof.md),
+and [robust multiview report](reports/20260722_internvl35_1b_d5_robust_session_oof.md).
+
+Naming/provenance note: collaborator commit `c732103` also contributes earlier
+experiments named D5 decision fusion and D6 structured calibration. They use the
+older D4 `0.6846` baseline, not the D4.2 `history8` session-fold baseline above.
+The action-history/full-dynamics fusion reaches `0.6912` but fails its bootstrap
+and alternate-split gates; the subsequent grouped-threshold primary reaches
+`0.6747` and is negative on every fixed fold and stability split. Both branches
+are closed, non-promotable historical evidence. Preserve their artifacts without
+confusing them with the active D5 families or the query-memory LoRA D6 below. See
+the [historical decision-fusion report](reports/20260721_internvl35_1b_decision_fusion_d5.md)
+and [historical structured-calibration report](reports/20260721_internvl35_1b_structured_calibration_d6.md).
+
+#### D6: Query-Conditioned Causal Visual Memory and Late-Attention LoRA
+
+D6 was authorized and preregistered on 2026-07-22 before implementation, smoke
+inference, or efficacy results. It contains one architecture only. The implementation
+and frozen execution CLIs are now present, but no efficacy result exists. InternVL3.5-1B,
+its vision tower/projector, and language layers 0--23 remain frozen. At the input
+to language layer 24, the assistant-boundary hidden queries only projected patch
+tokens belonging to the current interval among the exact D4 uniform 32-frame
+input. A 128-dimensional four-head attention result updates a session-local
+`GRUCell(128,128)` state; a zero-initialized `Linear(128,1024)` residual is added
+only at that assistant-boundary position. Language layers 24--27 attention
+`q_proj/k_proj/v_proj/o_proj` receive rank-8, alpha-16, dropout-0 local LoRA with
+zero-initialized B matrices. Adapter-disabled frozen `history8` generation remains
+the sole utterance source so the experiment changes only the decision
+representation.
+
+The memory has 627,072 parameters, LoRA has 327,680, and the refit decision head
+has 1,052, for 1,061,853,596 total inference-time parameters. Training uses the
+exact D4.2 five-fold session manifest, three fit folds, one calibration fold, and
+one test fold. The adapter uses class-balanced tag-margin BCE, session-local
+truncated BPTT, AdamW, and calibration-BCE early stopping; the complete
+1,051-feature D4.2 head is then refit with its unchanged L2 and threshold rules.
+Formal inference is gated by a 102-chunk zero-init/causality audit and one
+rotation-0 trainability/resource smoke. Peak allocation above 70 GiB, estimated
+single-fold wall time above 48 hours, or inference-session model time above 240
+seconds stops the experiment without altering the architecture.
+
+The zero-init/causality gate completed on 2026-07-22 over the frozen D4.3 source
+indices `143,356,472,609` (102 chunks). Raw response, prompt-token count, and frame
+count match on 102/102 chunks; maximum hidden, tag-margin, silent-log-probability,
+and interrupt-log-probability differences are all exactly zero. Memory residual and
+silent/interrupt update differences are zero, future-only dialog/interval mutation
+does not change the historical first-chunk signature, peak allocated memory is
+2.91 GiB, and maximum session model time is 22.94 seconds. This is an equivalence
+and causality audit only. The complete rotation-0 trainability/resource smoke
+passes after exact session-boundary recovery across resource migrations. All 48
+adapter tensors and optimizer moments change, peak allocation is 7.11 GiB,
+maximum session model time is 26.87 seconds, and the estimate for one formal fold
+is 37.34 hours. Architecture, training, evaluation, and the 70 GiB peak gate are
+unchanged. Formal folds 0--4 are now running concurrently on GPUs 1--5 under the
+separate user-authorized shared-GPU resource amendment; no efficacy predictions
+or metrics are available yet.
+
+Promotion requires Macro F1 at least `0.7038`, a positive 5,000-repetition
+paired-session bootstrap lower bound, at least 4/5 positive folds and 3/4 positive
+domains, no decline for previous-interrupt, previous-silent, or non-first chunks,
+both class F1 values non-degenerate, and all causal/parameter/memory/timeout gates.
+`LoRA-disabled` and `memory-disabled` are fixed test-fold diagnostics evaluated
+through the primary fold head and cannot select a candidate. Failure ends this
+structure family on these folds; success permits only the preregistered
+all-development refit and a separate 102-chunk online audit. No external upload is
+authorized. All D6 evidence is post-selection and public-validation supervised,
+not hidden-test or independent-generalization evidence.
 
 ### U0: Frozen-Gate Utterance Audit
 
@@ -321,6 +450,14 @@ Audit the existing D1 fused OOF answers without running or training a model. Pro
 U0 is complete only when the source hashes, sampling seed, exact stratum counts, rubric, rating template, and generated artifact hashes are recorded. Human ratings may remain pending, but automatic statistics and the review package must be reproducible byte-for-byte.
 
 U0 automatic audit completed on 2026-07-16 over all 700 sessions / 9,935 chunks. D1 predicts 4,613 interrupts, of which 2,586 (`56.06%`) use the hard-coded fallback; 1,647/3,165 binary TP are fallback. Fallback binary precision is `63.69%` versus `74.89%` for non-fallback text, but these are decision-label precisions and do not establish semantic correctness. The second chunk is the sharpest interface failure: 423/426 predicted interrupts are fallback. A deterministic 200-item, five-stratum, four-domain-balanced blind-review package is frozen; automatic artifacts reproduce byte-for-byte with manifest SHA256 `92ba38ec6f600086464eb4098d5a9242fcfcf0350fc3ed213aecdb153fd07291`. See the [U0 report](reports/20260716_d1_utterance_u0_audit.md).
+
+The dedicated U0 A/B aggregation completed on 2026-07-20 and validates all 400
+review rows. Pair-average spoken-content composite is `2.3063`; fallback and
+nonfallback means are `1.5413/3.0713`, and second-chunk composite is `1.7857`.
+Groundedness is not stable across reviewers: A/B means are `2.4375/4.0125` and
+quadratic kappa is `0.0508`. Keep both original ratings and the adjudication list;
+do not silently average groundedness into a content-promotion claim. See the
+[U0 dual-reviewer report](reports/20260720_u0_dual_reviewer_analysis.md).
 
 ### U1: Fixed-D1-Gate Forced Generation
 
@@ -350,6 +487,20 @@ specific step, but history supplies the generation skeleton and can produce
 plausible stale instructions without current visual evidence. Prioritize early
 language cold start and grounding only after the D4 decision candidate; do not
 resume S1 from this result.
+
+### U2: Fixed-D4 Early Grounding Diagnostic
+
+U2 completed automatically on 2026-07-20 over the frozen 21-item early-chunk
+intersection informed by the U0 reviews. It keeps the D4 gate fixed and compares
+query-only/full-history views with assistant-history removal, current-video
+removal, and a current-interval predicted-fact block. Removing assistant history
+makes 21/21 candidates fall back; removing current video does not worsen coverage.
+The fact block rescues 3/21 query-only cases (`+14.29pp` nonempty), below the
+predeclared `+20pp` gate, and does not change full-history coverage. The 21 fact
+strings are nonempty but are often imperative rather than pure observations, so
+the automatic differences do not establish grounding or hallucination improvement.
+Freeze v1 without post-hoc prompt/frame/history tuning. See the
+[U2 report](reports/20260720_internvl35_1b_d4_early_grounding_u2.md).
 
 ### R2: Granularity Sensitivity
 
@@ -513,6 +664,6 @@ Record a resolved decision here, with date and supporting report, before downstr
 
 - [PWR audit](literature/papers/challenge1_proactive/PWR_audit.md)
 - [C1 task specification](C1_SPEC.md)
-- [Official starter kit](data/starter_kit/README.md)
+- [Official starter kit](starter_kit/README.md)
 - [Active literature index](literature/README.md)
 - [2026-07-13 archive manifest](../deprecated/wearable_ai_challenge/2026-07-13_pre_pwr_reset/MANIFEST.md)

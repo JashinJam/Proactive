@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "validated handoff artifacts; no leaderboard or container upload performed",
+  "oof_development_evidence": {
+    "classification": "post-D4.1 val-supervised five-fold session OOF; not independent generalization evidence",
+    "macro_f1": 0.6988,
+    "gmean_f1": 0.6988,
+    "interrupt_f1": 0.7049,
+    "silent_f1": 0.6928,
+    "sessions": 700,
+    "chunks": 9935,
+    "delta_macro_f1_vs_d4_replay": 0.0142,
+    "paired_session_interval": [0.00816642819308808, 0.020363330798666895],
+    "predictions_sha256": "d154789b8f41583558878e93b9bb618643a5f64d1ad5b397d84cfd592e31c121"
+  },
+  "hidden_test_model": {
+    "classification": "single all-development refit for organizer Docker inference",
+    "bundle_head_path": "submission/d4_2_history8_small/decision_head.json",
+    "head_sha256": "dab9eaf100ea301055ab4d68856d406fb5927864bc96c71f2038688067b904c5",
+    "head_parameters": 1052,
+    "public_train_fit_macro_f1": 0.7469,
+    "public_train_fit_is_generalization_evidence": false
+  },
+  "gpu_equivalence": {
+    "sessions": 4,
+    "chunks": 102,
+    "all_discrete_fields_exact": true,
+    "max_logit_abs_difference": 1.2215805633708499e-7,
+    "max_session_wall_time_seconds": 112.69845794606954,
+    "peak_gpu_memory_bytes": 3481809920,
+    "audit_path": "output/experiments/20260721_internvl35_1b_d4_3_history8_gpu_equivalence_v1/equivalence_audit.json"
+  },
+  "external_actions": {
+    "validation_predictions_uploaded": false,
+    "docker_image_uploaded": false,
+    "requires_user_authorization": true
+  }
+}

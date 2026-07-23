@@ -1,0 +1,201 @@
+review_id,reviewer_slot,should_interrupt,decision_confidence_1_5,timeliness_1_5,correctness_1_5,specificity_1_5,actionability_1_5,groundedness_1_5,plan_consistency_1_5,conciseness_1_5,safety_1_5,generic_flag,hallucination_flag,unsafe_flag,primary_error_type,notes,session_id,session_revision,confirmed_at
+U0-0001,B,yes,5,4,,,,,,,,,,,,,766a6be2a0a9a3fe-88166765,1,2026-07-17T05:06:12+00:00
+U0-0002,B,yes,5,4,5,4,4,5,5,5,5,no,no,no,none,,359ed9ce38fdf4dc-f6d09774,1,2026-07-17T06:08:54+00:00
+U0-0110,B,yes,4,5,3,1,1,5,3,3,3,yes,no,no,generic,,359ed9ce38fdf4dc-f6d09774,1,2026-07-17T06:08:54+00:00
+U0-0003,B,yes,5,3,1,1,1,3,3,1,3,yes,no,no,generic,,abb677e14413b086-0421ce11,1,2026-07-17T06:14:15+00:00
+U0-0004,B,yes,4,2,,,,,,,,,,,,,99a3ca6d27786917-60ad730d,1,2026-07-17T06:16:52+00:00
+U0-0005,B,yes,5,5,5,5,5,5,5,5,5,no,no,no,none,,542fdfa17f6fa982-52f6842f,1,2026-07-17T06:19:01+00:00
+U0-0006,B,no,4,2,2,2,2,3,2,2,3,yes,no,no,generic,,0028bee556249cd3-2ba386f9,1,2026-07-17T06:45:32+00:00
+U0-0007,B,yes,5,5,5,5,5,5,5,5,5,no,no,no,none,,62c5f025661b0e9e-31771049,1,2026-07-17T07:13:17+00:00
+U0-0008,B,no,4,1,1,1,1,3,1,1,3,yes,no,no,generic,,9bee20d4cc3565da-dc51a7ef,1,2026-07-17T07:16:08+00:00
+U0-0009,B,yes,4,4,1,1,4,4,1,1,4,no,no,no,stale,,c2014f26905b8ebc-9bdd9c8d,1,2026-07-17T07:19:32+00:00
+U0-0010,B,no,4,4,,,,,,,,,,,,"The user is sewing, so the assistant should remain silent.",8787ee2c88cd53dd-018d153e,1,2026-07-17T07:26:19+00:00
+U0-0011,B,yes,3,3,,,,,,,,,,,,"The user hasn't stopped checking wall types and is still drilling holes, so the assistant needs to interrupt and give a reminder.",6d839f832037b10b-cfa93deb,1,2026-07-17T07:33:53+00:00
+U0-0012,B,no,4,4,,,,,,,,,,,,,7ed9ed16b76f4750-425f877e,1,2026-07-17T07:38:17+00:00
+U0-0013,B,no,4,4,,,,,,,,,,,,,83cc5bd425be68a0-aa8c82ab,1,2026-07-17T07:43:23+00:00
+U0-0024,B,no,4,1,1,5,5,4,3,3,3,no,no,no,premature,,83cc5bd425be68a0-aa8c82ab,1,2026-07-17T07:43:23+00:00
+U0-0014,B,no,5,5,,,,,,,,,,,,"The user is still arranging the spice labels, so the assistant should stay quiet.",0a970d7f75d8b8d3-a6dcaa96,1,2026-07-17T07:52:31+00:00
+U0-0015,B,no,4,4,1,1,1,3,3,2,3,yes,no,no,generic,"The user hasn't returned to the workspace yet, so the assistant stays quiet for now.",113b52b758726ddb-7de65f35,1,2026-07-17T08:01:26+00:00
+U0-0016,B,yes,4,4,,,,,,,,,,,,"The user paid no attention to whether the water was boiling and instead went outside. As the user's intention is unclear, the assistant should interrupt to ask.",37d115699f18ee8c-86a6896b,1,2026-07-17T08:05:47+00:00
+U0-0017,B,yes,4,4,1,1,1,4,2,2,4,yes,no,no,generic,,51c154734fb81c60-4593b1d2,1,2026-07-17T08:07:28+00:00
+U0-0018,B,no,4,4,1,1,1,3,1,1,3,yes,no,no,generic,,99eb6e68af1b3d37-81d2a517,1,2026-07-17T08:09:05+00:00
+U0-0019,B,no,4,4,,,,,,,,,,,,"The user hasn't pressed the origami flat yet, so the assistant stays quiet for the time being.",59ab05ffd855d744-0d0abaa9,1,2026-07-17T08:11:00+00:00
+U0-0020,B,uncertain,2,2,1,1,1,4,1,1,4,yes,no,no,generic,"It is uncertain whether the user temporarily needs laundry assistance, so the assistant cannot decide whether to continue teaching the user the riffle method.",14c11936417182ad-5dba742e,1,2026-07-17T08:19:31+00:00
+U0-0043,B,yes,5,5,4,1,1,4,1,1,4,yes,no,no,generic,,9e587b74180f1c94-7bcd554f,1,2026-07-17T08:22:14+00:00
+U0-0021,B,no,4,4,1,1,1,3,1,1,4,no,no,no,wrong_timing,"The user hasn't cut the melon into bite-sized pieces yet, so the assistant should wait.",9e587b74180f1c94-7bcd554f,1,2026-07-17T08:22:14+00:00
+U0-0149,B,no,3,3,2,4,4,4,1,3,4,no,no,no,wrong_action,,9d573b5e8e238353-d089e4c8,1,2026-07-17T08:38:40+00:00
+U0-0022,B,yes,4,4,1,1,1,4,1,1,4,yes,no,no,generic,,9d573b5e8e238353-d089e4c8,1,2026-07-17T08:38:40+00:00
+U0-0023,B,yes,4,4,2,4,4,4,2,3,4,no,yes,no,hallucination,,14e98d6cd1072bfc-08299b90,1,2026-07-17T08:41:22+00:00
+U0-0025,B,no,4,2,2,4,4,4,2,4,4,no,no,no,wrong_timing,,1862206fbd777a04-c37a8927,1,2026-07-17T08:46:25+00:00
+U0-0125,B,no,4,2,2,4,4,4,2,3,4,no,no,no,stale,,1862206fbd777a04-c37a8927,1,2026-07-17T08:46:25+00:00
+U0-0026,B,yes,4,4,1,1,1,4,2,2,3,yes,no,no,generic,,891af79a51c57d53-7931c967,1,2026-07-17T08:47:01+00:00
+U0-0027,B,no,4,4,,,,,,,,,,,,"The user hasn't emptied the refrigerator yet, so the assistant should remain silent.",dc07ae1154a60fdc-f3cd2162,1,2026-07-17T08:47:47+00:00
+U0-0159,B,no,4,2,2,2,4,4,2,4,4,no,yes,no,hallucination,,f4c33329955a5e7f-f887cb01,1,2026-07-17T09:12:47+00:00
+U0-0028,B,yes,3,3,4,4,4,4,4,4,4,no,no,no,none,"The user seems to have finished drawing all the grids. It is unclear if the user needs to draw more, so the assistant should interrupt to ask.",f4c33329955a5e7f-f887cb01,1,2026-07-17T09:12:47+00:00
+U0-0143,B,yes,4,4,3,4,4,4,2,3,4,no,no,no,wrong_action,,d7d04813264380b5-5b474af3,1,2026-07-17T09:16:19+00:00
+U0-0029,B,no,4,2,2,4,4,4,2,4,4,no,no,no,wrong_timing,,d7d04813264380b5-5b474af3,1,2026-07-17T09:16:19+00:00
+U0-0030,B,yes,4,4,3,4,4,4,3,4,4,no,no,no,none,,12dfa2496c4ae46d-dc7ac276,1,2026-07-17T09:17:45+00:00
+U0-0031,B,yes,4,4,3,4,4,4,3,3,4,no,yes,no,hallucination,,5fdcf288e74afb70-08d8bb49,1,2026-07-17T09:20:10+00:00
+U0-0032,B,no,4,2,2,2,4,4,2,4,4,no,no,no,wrong_action,,008a392f0747e13b-f44af4d4,1,2026-07-17T09:21:34+00:00
+U0-0033,B,yes,4,3,1,1,1,4,1,3,4,yes,no,no,generic,,d2618d834c9b96c8-a4aaad79,1,2026-07-17T09:22:30+00:00
+U0-0034,B,no,4,2,2,4,4,4,2,4,4,no,yes,no,hallucination,,e9203b673adb9f69-6746541f,1,2026-07-17T09:25:06+00:00
+U0-0035,B,no,4,1,1,1,1,4,1,1,4,no,yes,no,hallucination,,3522c7b5cbdbe25d-9255289c,1,2026-07-17T09:25:59+00:00
+U0-0036,B,yes,4,3,,,,,,,,,,,,,84d6970fcd68dd67-7d5e6e65,1,2026-07-17T09:26:32+00:00
+U0-0037,B,yes,4,4,1,1,1,4,1,1,4,yes,no,no,generic,,a01249fa8a41722b-b1d8fb09,1,2026-07-17T09:27:08+00:00
+U0-0038,B,yes,4,4,2,4,3,3,2,3,4,no,no,no,wrong_action,,4031482e3291f02b-a712e534,1,2026-07-17T09:30:20+00:00
+U0-0199,B,yes,4,4,1,4,4,4,3,3,4,no,no,no,stale,,4031482e3291f02b-a712e534,1,2026-07-17T09:30:20+00:00
+U0-0039,B,yes,4,4,1,4,4,4,2,4,4,no,no,no,wrong_object,,9abf47152bb7309d-ef1ec5ec,1,2026-07-17T13:11:34+00:00
+U0-0040,B,no,4,2,1,1,1,4,2,3,4,no,no,no,premature,,e0deb53ced2f4fe0-bfc0a3a8,1,2026-07-17T13:12:24+00:00
+U0-0041,B,no,4,1,1,1,1,3,3,3,3,yes,no,no,generic,,33a95b223d81ab5d-a2dc8b61,1,2026-07-17T09:31:53+00:00
+U0-0042,B,yes,4,4,2,3,3,4,2,3,4,no,no,no,wrong_action,,932ea5bd09bba1c7-fb2580ca,1,2026-07-17T09:32:31+00:00
+U0-0044,B,no,4,4,,,,,,,,,,,,,16b74672db8025bb-68cd2c6b,1,2026-07-17T09:34:32+00:00
+U0-0167,B,yes,4,3,1,1,1,4,2,3,4,yes,no,no,generic,,16b74672db8025bb-68cd2c6b,1,2026-07-17T09:34:32+00:00
+U0-0045,B,yes,4,2,1,1,1,4,2,3,4,yes,no,no,generic,,5ffb0890d41b657b-919e5cd6,1,2026-07-17T13:13:18+00:00
+U0-0046,B,yes,4,4,1,1,1,4,2,3,4,yes,no,no,generic,,70fe7910369441cb-89d5f2d3,1,2026-07-17T13:14:28+00:00
+U0-0118,B,no,4,2,1,1,1,4,2,3,4,yes,no,no,wrong_timing,,70fe7910369441cb-89d5f2d3,1,2026-07-17T13:14:28+00:00
+U0-0047,B,yes,4,4,1,1,1,4,2,3,4,yes,no,no,generic,,822f4439932ecf6a-d3ac829c,1,2026-07-17T13:15:00+00:00
+U0-0048,B,yes,5,4,1,1,1,4,2,3,4,yes,no,no,generic,,136ec63c00695767-f80c1a54,1,2026-07-17T13:15:23+00:00
+U0-0049,B,yes,4,4,1,1,1,4,2,3,4,yes,no,no,generic,,fcd7ac944675ba99-a891b2e7,1,2026-07-17T09:35:28+00:00
+U0-0050,B,no,5,2,1,1,1,4,2,3,4,yes,no,no,wrong_timing,,b599b3a879ce1783-d61dda55,1,2026-07-17T13:15:54+00:00
+U0-0160,B,yes,5,5,1,1,1,4,2,3,4,yes,no,no,generic,,0e7a1aa0bc246683-29af396f,1,2026-07-17T09:38:30+00:00
+U0-0051,B,uncertain,3,3,1,1,1,4,2,3,4,yes,no,no,generic,"It is uncertain whether the user has adjusted the straps properly, so the assistant is unsure if it should interrupt the user.",0e7a1aa0bc246683-29af396f,1,2026-07-17T09:38:30+00:00
+U0-0052,B,no,4,4,,,,,,,,,,,,,90d533170e9c1373-4eb3538e,1,2026-07-17T09:41:00+00:00
+U0-0053,B,yes,4,4,4,4,4,4,4,4,4,no,no,no,none,,59f325da8667be52-32454662,1,2026-07-17T13:16:39+00:00
+U0-0054,B,yes,5,4,5,5,5,4,4,5,5,no,no,no,none,,733c295802e59c9a-9b670dc7,1,2026-07-17T09:44:54+00:00
+U0-0095,B,yes,4,4,4,4,4,4,4,4,4,no,no,no,none,,733c295802e59c9a-9b670dc7,1,2026-07-17T09:44:54+00:00
+U0-0055,B,no,4,4,,,,,,,,,,,,,29c6acf1a701deca-b5501b90,1,2026-07-17T09:45:19+00:00
+U0-0056,B,no,4,2,2,4,4,4,2,3,4,no,no,no,stale,,0d2c47b8b45472e6-26915248,1,2026-07-17T09:46:19+00:00
+U0-0057,B,no,4,2,1,4,4,4,1,4,4,no,no,no,wrong_timing,,b27e74ddecbb7bec-d6c11025,1,2026-07-17T09:47:30+00:00
+U0-0141,B,no,4,4,,,,,,,,,,,,,f8de5ddb8ff95a04-a53347e7,1,2026-07-17T09:48:48+00:00
+U0-0058,B,yes,4,4,1,1,1,4,2,3,4,yes,no,no,generic,,f8de5ddb8ff95a04-a53347e7,1,2026-07-17T09:48:48+00:00
+U0-0059,B,yes,4,4,1,1,1,4,1,3,4,yes,no,no,generic,,6ccc91b5ec93b34f-c393f9e2,1,2026-07-17T09:49:09+00:00
+U0-0060,B,yes,4,3,4,4,4,4,4,4,4,no,no,no,none,,b4bac0ea2c14e92a-8fa6ea65,1,2026-07-17T09:51:06+00:00
+U0-0061,B,yes,4,4,1,1,1,4,1,3,4,yes,no,no,generic,,cfcac7de1fca4d8d-f398a815,1,2026-07-17T09:51:28+00:00
+U0-0062,B,yes,4,3,3,3,3,4,3,3,3,no,no,no,none,,185cc0116eb5dd32-26885267,1,2026-07-17T13:17:50+00:00
+U0-0063,B,yes,4,4,1,1,1,4,1,3,4,yes,no,no,generic,,60761e778b60f93b-544f936d,1,2026-07-17T09:52:00+00:00
+U0-0064,B,yes,4,4,1,1,1,4,1,2,3,no,yes,no,wrong_action,,91bb11d60b173c2f-debeca81,1,2026-07-17T09:54:57+00:00
+U0-0093,B,yes,4,4,2,2,3,4,3,3,4,no,no,no,wrong_action,,91bb11d60b173c2f-debeca81,1,2026-07-17T09:54:57+00:00
+U0-0065,B,yes,4,4,1,1,1,4,1,3,4,yes,no,no,generic,,4affc43ddd19ad2c-e9b33ac9,1,2026-07-17T09:55:40+00:00
+U0-0066,B,yes,4,4,5,5,5,5,5,5,5,no,no,no,none,,424e376f6c5d3b7a-d9bf126c,1,2026-07-17T09:56:27+00:00
+U0-0067,B,yes,4,4,4,5,5,4,4,4,5,no,no,no,none,,e3c96c1627710e00-774b04af,1,2026-07-17T09:57:04+00:00
+U0-0068,B,no,5,5,,,,,,,,,,,,,fa8e2cabc2dc4fc9-8d42cf11,1,2026-07-17T09:57:30+00:00
+U0-0069,B,no,4,4,,,,,,,,,,,,,9d8733825f2d1b80-6d1839ac,1,2026-07-17T09:57:48+00:00
+U0-0070,B,yes,4,4,,,,,,,,,,,,,4248b0a8cbe5cf92-2d1709c7,1,2026-07-17T09:58:16+00:00
+U0-0071,B,yes,4,4,2,4,4,4,2,3,2,no,no,no,wrong_object,,eb59a469b3ac920b-ccf07527,1,2026-07-17T09:59:14+00:00
+U0-0072,B,yes,4,4,2,3,3,4,3,3,4,no,no,no,wrong_action,,096ac5a885857526-6afcd13d,1,2026-07-17T10:01:04+00:00
+U0-0073,B,yes,4,4,4,4,4,4,4,4,4,no,no,no,none,,c8de43fef9d332e1-7d240df2,1,2026-07-17T10:02:53+00:00
+U0-0074,B,yes,4,4,1,1,1,4,2,3,4,yes,no,no,generic,,f4b2e6ba35043fc6-3df8bc8c,1,2026-07-17T13:18:17+00:00
+U0-0075,B,yes,4,4,,,,,,,,,,,,,53d963241050526d-8f5ccef8,1,2026-07-17T10:03:17+00:00
+U0-0076,B,no,4,1,1,1,1,4,1,3,4,yes,no,no,generic,"The user hasn't completely taken out the light bulb yet, so the assistant should remain silent.",17e3cb885c9d4a9f-128a943f,1,2026-07-17T10:04:40+00:00
+U0-0077,B,no,4,2,1,1,1,4,2,3,4,no,no,no,wrong_timing,,e6e5d83c44d373b2-acb7c9f8,1,2026-07-17T10:06:04+00:00
+U0-0078,B,no,4,4,,,,,,,,,,,,,181cf339d5b6fc7a-f27347c6,1,2026-07-17T10:07:15+00:00
+U0-0079,B,uncertain,3,3,1,1,1,4,3,3,4,yes,no,no,generic,"There are still purple and pink tissue papers on the table, and it is unclear whether the user will continue layering them.",cba0787dd64384ae-d3ef7f4b,1,2026-07-17T10:41:36+00:00
+U0-0080,B,yes,4,4,3,4,4,4,3,2,4,no,no,no,premature,,a600e1ee58f6e90e-92dd99a6,1,2026-07-17T10:43:19+00:00
+U0-0081,B,yes,4,4,1,1,1,4,2,3,4,yes,no,no,generic,,d5ed5a8283b24eba-f4aca6ff,1,2026-07-17T10:43:58+00:00
+U0-0082,B,no,4,2,1,1,1,4,2,3,4,no,no,no,wrong_timing,,e617633267e59431-57a56486,1,2026-07-17T10:44:47+00:00
+U0-0083,B,yes,4,4,4,4,4,4,4,4,4,no,no,no,none,,d09da942f934856a-f95f5fd9,1,2026-07-17T10:45:21+00:00
+U0-0084,B,no,5,1,1,1,1,4,1,1,4,no,no,no,generic,"The user hasn't added the milk yet, so the assistant should stay quiet.",d7cbab825d4eec1a-e2a1ddc6,1,2026-07-17T10:46:20+00:00
+U0-0085,B,no,4,4,,,,,,,,,,,,,c61524307dd6ab09-f388ef98,1,2026-07-17T10:46:56+00:00
+U0-0086,B,no,4,4,,,,,,,,,,,,,04d7bcbd7e28c6dc-1d42bd46,1,2026-07-17T10:47:34+00:00
+U0-0087,B,no,4,4,,,,,,,,,,,,"The user has only emptied one compartment of the linen cabinet; towels and bed sheets still remain in the other compartments, so the assistant should remain silent for the time being.",2f208880e04c7c9b-f1723d1f,1,2026-07-17T10:49:49+00:00
+U0-0088,B,no,4,4,,,,,,,,,,,,,235e6ec7c54cad76-896e7b80,1,2026-07-17T10:50:06+00:00
+U0-0089,B,yes,4,4,1,4,4,4,1,4,4,no,no,no,wrong_action,,4e45aa0b7b1cefbc-fcff7978,1,2026-07-17T10:50:44+00:00
+U0-0090,B,yes,4,4,1,1,1,4,2,3,4,yes,no,no,generic,,8b90e65b465f2508-0e74dc95,1,2026-07-17T10:51:13+00:00
+U0-0091,B,yes,4,4,1,4,4,4,2,3,2,no,no,no,wrong_action,,07b99132cfca55ee-3db96677,1,2026-07-17T11:00:56+00:00
+U0-0092,B,yes,5,4,3,4,4,4,3,4,4,no,no,no,none,,af27f2e6ff292d4d-90ba6b54,1,2026-07-17T11:03:11+00:00
+U0-0124,B,yes,4,4,2,4,4,4,3,4,4,no,no,no,stale,,af27f2e6ff292d4d-90ba6b54,1,2026-07-17T11:03:11+00:00
+U0-0094,B,no,4,4,,,,,,,,,,,,,2590c2cacdf4a6c2-65f945c6,1,2026-07-17T11:03:28+00:00
+U0-0096,B,no,4,4,1,1,1,4,2,3,4,yes,no,no,wrong_timing,"The user hasn't folded the paper into three vertical panels yet, so the assistant should wait.",0b4dd0cf02c47a4c-585fe975,1,2026-07-17T11:05:04+00:00
+U0-0097,B,no,4,4,1,1,1,4,2,3,4,yes,no,no,generic,"The user hasn't put the broccoli into the microwave yet, so the assistant should stay quiet.",319063b5835634fe-63454c01,1,2026-07-17T11:06:02+00:00
+U0-0098,B,yes,4,3,5,5,5,5,5,5,5,no,no,no,none,,80083bc2e1af840f-95be32f0,1,2026-07-17T11:06:46+00:00
+U0-0099,B,yes,4,4,2,2,2,4,2,3,4,no,no,no,wrong_action,,fba33dd3a93a3cb1-5b3b6185,1,2026-07-17T11:08:36+00:00
+U0-0100,B,yes,4,2,,,,,,,,,,,,,4cb1a0fbdeaba951-e0621599,1,2026-07-17T11:09:15+00:00
+U0-0101,B,yes,4,4,1,1,1,4,2,3,4,yes,no,no,generic,,e5a1fae29e61a4e9-086a2b87,1,2026-07-17T11:09:42+00:00
+U0-0102,B,no,4,2,1,1,1,4,2,3,4,yes,no,no,generic,"The user is still doodling, so the assistant should not interrupt and remain silent.",f23939aec00dae2a-6c4c64c9,1,2026-07-17T11:10:58+00:00
+U0-0103,B,yes,4,4,1,1,1,4,2,3,4,yes,no,no,generic,,4ad436063d96fea1-ebda2ade,1,2026-07-17T11:13:52+00:00
+U0-0104,B,no,4,4,1,1,1,4,2,3,4,yes,no,no,generic,"The user hasn't tightened all the screws, so the assistant should keep waiting.",8c2572f5ad2b0fb8-81b5ed8c,1,2026-07-17T11:15:25+00:00
+U0-0105,B,yes,5,4,1,1,1,4,2,3,4,yes,no,no,generic,,2eb730c7f48154f6-3055cee3,1,2026-07-17T11:15:55+00:00
+U0-0106,B,no,4,4,,,,,,,,,,,,,b6e4f82a0f050d96-853ceb01,1,2026-07-17T11:49:37+00:00
+U0-0107,B,no,5,2,1,1,1,4,2,3,4,yes,no,no,generic,"The user hasn't sprinkled the shredded Parmesan cheese yet, so the assistant should keep waiting.",2c898865d2824341-76887b80,1,2026-07-17T11:52:40+00:00
+U0-0108,B,no,4,4,1,1,1,4,2,3,4,no,no,no,premature,,a480e49e44ba04b5-08a80639,1,2026-07-17T11:54:07+00:00
+U0-0109,B,no,4,2,1,1,1,4,2,3,4,yes,no,no,wrong_timing,,86f3d55356270dfc-fe5f633e,1,2026-07-17T11:55:47+00:00
+U0-0111,B,no,4,2,1,1,1,4,2,3,4,yes,no,no,wrong_timing,"The user still has one head of lettuce left to dry, so the assistant should stay quiet.",bff70d917a9eecd7-a48a1d68,1,2026-07-17T11:58:34+00:00
+U0-0112,B,yes,5,3,1,1,1,4,2,3,4,yes,no,no,generic,,1921a8ff5ff4da14-155784c9,1,2026-07-17T11:59:17+00:00
+U0-0113,B,yes,5,3,1,1,1,4,2,3,4,yes,no,no,generic,,e6cf2d5884653792-99b450fc,1,2026-07-17T12:05:17+00:00
+U0-0114,B,no,4,2,1,3,3,4,3,3,4,no,no,no,wrong_object,,c243716b87e66d96-f821ce45,1,2026-07-17T12:07:09+00:00
+U0-0115,B,yes,4,4,4,4,4,4,4,4,4,no,no,no,none,,175bd7e36afe2fb1-590da5f2,1,2026-07-17T12:07:48+00:00
+U0-0116,B,no,4,2,1,1,1,4,2,3,4,yes,no,no,wrong_timing,,0b188aff54b23521-5dcd3301,1,2026-07-17T12:08:15+00:00
+U0-0117,B,yes,4,4,4,4,4,4,4,4,4,no,no,no,none,,99b41b274db14f16-58178ac1,1,2026-07-17T12:09:03+00:00
+U0-0119,B,yes,4,4,1,1,1,4,2,3,4,yes,no,no,generic,,b1d18dfae411e5b6-c5f40b0e,1,2026-07-17T12:09:55+00:00
+U0-0120,B,yes,4,4,4,4,4,4,4,4,4,no,no,no,none,,14f7ae08d9edfb96-d228fca1,1,2026-07-17T12:16:06+00:00
+U0-0121,B,no,4,4,,,,,,,,,,,,,93369104441c8bdd-c41cc80b,1,2026-07-17T12:16:31+00:00
+U0-0122,B,no,4,2,1,1,1,4,2,3,4,yes,no,no,wrong_timing,"The user hasn't poured in the honey and vanilla extract yet, so the assistant needs to remain silent.",505edd30646d7a51-87aa558a,1,2026-07-17T12:17:55+00:00
+U0-0123,B,yes,4,3,3,4,4,4,3,3,4,no,no,no,stale,,9e97874daed5852e-1ae55cb1,1,2026-07-17T12:18:53+00:00
+U0-0126,B,yes,5,4,4,4,4,4,4,4,4,no,no,no,none,,8c7588f2a424b8fd-d2a3cf7d,1,2026-07-17T12:19:29+00:00
+U0-0127,B,yes,4,3,1,1,1,4,2,3,4,yes,no,no,generic,"The user hasn't attempted to tighten the screws of the toilet seat with a screwdriver, so the assistant needs to wait for the user's next move.",e243dd75d82b5ef5-6644a68e,1,2026-07-17T12:21:42+00:00
+U0-0128,B,yes,5,4,1,1,1,4,2,3,4,yes,no,no,generic,,46fb9be9147b08ef-0f03bf06,1,2026-07-17T12:22:35+00:00
+U0-0129,B,yes,5,5,5,5,5,5,5,5,5,no,no,no,none,,4d459d476b184b3b-e521f236,1,2026-07-17T12:23:19+00:00
+U0-0130,B,yes,4,4,1,1,1,4,1,3,4,yes,no,no,generic,"The user has not installed the batteries, so the assistant needs to remind the user.",fc264c696a11a50c-6901e34f,1,2026-07-17T12:25:00+00:00
+U0-0131,B,yes,5,5,,,,,,,,,,,,,ddd45588155515b7-7c85a543,1,2026-07-17T12:25:16+00:00
+U0-0132,B,yes,5,5,1,1,1,4,1,3,4,yes,no,no,generic,,25dc3fd5b95232e8-e934c858,1,2026-07-17T12:25:41+00:00
+U0-0133,B,yes,5,3,1,1,1,4,2,3,4,yes,no,no,generic,,76f6a9c88251a6e7-f119ae4a,1,2026-07-17T12:26:15+00:00
+U0-0134,B,no,3,2,1,1,1,4,2,3,4,yes,no,no,generic,,8f693926d354be4e-6940f1c3,1,2026-07-17T12:27:22+00:00
+U0-0135,B,yes,5,3,3,3,1,4,1,1,4,no,no,no,other,"No specific operating steps are provided, only brief hints.",b8fd1f910f46eba8-98cce895,1,2026-07-17T12:29:39+00:00
+U0-0136,B,no,4,4,,,,,,,,,,,,,fb9d3b11c2278193-8f319333,1,2026-07-17T12:30:27+00:00
+U0-0137,B,yes,4,4,1,1,1,4,2,3,4,yes,no,no,generic,,91303fcf06530363-1091f347,1,2026-07-17T12:30:57+00:00
+U0-0138,B,yes,4,4,1,1,1,4,2,3,4,yes,no,no,generic,,7acfba838209ca7d-2f7bb17f,1,2026-07-17T12:32:02+00:00
+U0-0139,B,yes,4,4,,,,,,,,,,,,,e39c79a85a659d6a-e5e00010,1,2026-07-17T12:32:49+00:00
+U0-0140,B,yes,4,4,4,4,4,4,4,4,4,no,no,no,none,,c5ae58e40e8b0caa-74b89d79,1,2026-07-17T12:33:36+00:00
+U0-0142,B,yes,4,4,4,4,4,4,4,4,4,no,no,no,none,,cd4cf4fa16f8bc56-46d97e76,1,2026-07-17T12:34:16+00:00
+U0-0144,B,no,4,4,1,1,1,4,4,3,4,no,no,no,wrong_timing,,cfa3002990f24a07-60d85bac,1,2026-07-17T12:34:58+00:00
+U0-0145,B,yes,4,4,1,1,1,4,2,3,4,yes,no,no,generic,,55f4d40026db8f8a-9b3b42f3,1,2026-07-17T12:35:29+00:00
+U0-0146,B,yes,4,3,1,1,1,4,2,3,4,yes,no,no,generic,,993b650b92312576-b6daad0b,1,2026-07-17T12:36:15+00:00
+U0-0147,B,yes,4,4,3,4,4,4,3,3,4,no,no,no,wrong_action,,995408ac589c3d17-2ab7236f,1,2026-07-17T12:36:51+00:00
+U0-0148,B,no,4,4,,,,,,,,,,,,,7780858e86198cb7-07fb1030,1,2026-07-17T12:37:18+00:00
+U0-0150,B,no,4,1,1,1,1,4,2,3,4,no,no,no,stale,,da4ac778f470dbb5-e4f66aac,1,2026-07-17T12:37:48+00:00
+U0-0151,B,yes,4,4,1,1,1,4,2,3,4,yes,no,no,generic,,fd0da78e30963e61-4b87a707,1,2026-07-17T12:38:32+00:00
+U0-0152,B,yes,5,5,5,5,5,5,5,5,5,no,no,no,none,,381357a6b6652eac-fa99645b,1,2026-07-17T12:39:05+00:00
+U0-0153,B,no,4,2,3,3,3,4,4,3,4,no,no,no,premature,,23534bf4ec3530a3-4511e6a5,1,2026-07-17T12:40:05+00:00
+U0-0154,B,yes,5,1,,,,,,,,,,,,,126b5c0d5744b44c-e9bedc1b,1,2026-07-17T12:40:23+00:00
+U0-0155,B,yes,5,1,,,,,,,,,,,,,5f9f657fada16d4a-07fdd4c8,1,2026-07-17T12:40:37+00:00
+U0-0156,B,yes,4,4,1,1,1,4,2,3,4,yes,no,no,generic,,343ad98d329ac9b0-70b707bd,1,2026-07-17T12:41:31+00:00
+U0-0157,B,yes,4,4,4,4,4,4,4,4,4,no,no,no,none,,4fc1922db3df47c4-cc6c7cae,1,2026-07-17T12:43:11+00:00
+U0-0174,B,yes,4,4,4,4,4,4,4,4,4,no,no,no,none,,4fc1922db3df47c4-cc6c7cae,1,2026-07-17T12:43:11+00:00
+U0-0158,B,yes,4,4,4,4,4,4,4,4,4,no,no,no,none,,e37f1607af3e8239-612ebc67,1,2026-07-17T12:45:32+00:00
+U0-0161,B,no,5,2,4,4,4,4,4,4,4,no,no,no,wrong_timing,,908edba416baccfe-7355675f,1,2026-07-17T12:47:00+00:00
+U0-0162,B,yes,4,2,,,,,,,,,,,,,8247c850100cdec9-caf9fa90,1,2026-07-17T12:47:28+00:00
+U0-0163,B,no,4,3,3,4,4,4,3,4,4,no,no,no,stale,,b00c7a882446587f-0217e2ef,1,2026-07-17T12:48:16+00:00
+U0-0164,B,yes,4,4,1,1,1,4,2,3,4,yes,no,no,generic,,96a70936bccea9bd-229893dd,1,2026-07-17T12:50:16+00:00
+U0-0165,B,yes,4,4,1,1,1,4,2,3,4,yes,no,no,generic,,aac31709beff7418-2ed6b9f5,1,2026-07-17T12:50:31+00:00
+U0-0166,B,no,5,2,1,1,1,4,2,3,4,yes,no,no,wrong_timing,"The user hasn't placed the shoes on the shoe tray yet, so the assistant should wait.",7ce7fef418c428d6-db73f619,1,2026-07-17T12:52:24+00:00
+U0-0168,B,yes,5,5,1,1,1,4,2,3,4,yes,no,no,generic,,6347a62131c3b60e-5ac68a3f,1,2026-07-17T12:52:55+00:00
+U0-0191,B,no,4,2,1,1,1,4,2,3,4,yes,no,no,wrong_timing,"The user hasn't trimmed the excess twine nor attached the decorative buttons, so the assistant should keep waiting.",4bfdcea4656475d2-125ae6ce,1,2026-07-17T12:55:00+00:00
+U0-0169,B,no,4,2,4,4,4,4,4,4,4,no,no,no,wrong_timing,,4bfdcea4656475d2-125ae6ce,1,2026-07-17T12:55:00+00:00
+U0-0170,B,yes,5,5,1,1,1,4,2,3,4,yes,no,no,generic,,6b116dacc9a80d0d-0cd0bb99,1,2026-07-17T12:55:23+00:00
+U0-0171,B,yes,5,5,1,1,1,4,2,3,4,yes,no,no,generic,,252ec8533cd8fdc1-c2e54368,1,2026-07-17T12:56:20+00:00
+U0-0179,B,yes,5,5,1,1,1,4,2,3,4,yes,no,no,generic,,252ec8533cd8fdc1-c2e54368,1,2026-07-17T12:56:20+00:00
+U0-0172,B,yes,5,1,,,,,,,,,,,,,7d6278d775aa962c-cfec8265,1,2026-07-17T12:56:42+00:00
+U0-0173,B,yes,4,4,1,1,1,4,2,3,4,yes,no,no,generic,,99d5ec76296211fd-3705c781,1,2026-07-17T12:57:07+00:00
+U0-0175,B,yes,5,5,1,1,1,4,2,3,4,yes,no,no,generic,,ca42dc98a92a0625-e3c5ecd3,1,2026-07-17T12:57:29+00:00
+U0-0176,B,yes,5,2,,,,,,,,,,,,,5f331a6a74380892-846c8395,1,2026-07-17T12:57:55+00:00
+U0-0177,B,yes,4,2,4,4,4,4,4,4,4,no,no,no,none,,647cd73e25621c81-8f3b0f30,1,2026-07-17T12:59:09+00:00
+U0-0178,B,yes,5,5,5,5,5,5,5,5,5,no,no,no,none,,b2ef7aa0312409c2-8fec37b1,1,2026-07-17T12:59:29+00:00
+U0-0180,B,yes,4,4,4,4,4,4,4,4,4,no,no,no,none,,4ed14ae209371b8f-1a01de99,1,2026-07-17T13:00:20+00:00
+U0-0181,B,no,4,2,1,1,1,4,2,3,4,yes,no,no,wrong_timing,"The user hasn't traced out the center point yet, so the assistant needs to keep observing.",3bd40d7062287d58-73499c57,1,2026-07-17T13:01:38+00:00
+U0-0182,B,yes,4,2,,,,,,,,,,,,,e531cded0108b6c3-4db7a53d,1,2026-07-17T13:02:03+00:00
+U0-0183,B,no,4,3,1,1,1,4,2,3,4,yes,no,no,wrong_timing,"The user hasn't prepared the materials yet, so the assistant needs to keep waiting.",17d55640c0ceccb8-6607c7bc,1,2026-07-17T13:03:44+00:00
+U0-0184,B,no,4,4,,,,,,,,,,,,"The user hasn't fixed it with adhesive tape yet, so the assistant needs to keep observing.",af7ed655cd7b54a0-db91cd87,1,2026-07-17T13:05:02+00:00
+U0-0185,B,no,4,3,1,1,1,4,2,3,4,yes,no,no,wrong_timing,"The user hasn't removed the screws of the power strip, so the assistant needs to keep waiting.",e6b2c56a98ab688a-bf96c76e,1,2026-07-17T13:06:35+00:00
+U0-0186,B,yes,4,2,4,4,4,4,4,4,4,no,no,no,none,,02481510e18faa48-af65213a,1,2026-07-17T13:07:33+00:00
+U0-0187,B,yes,4,4,4,4,4,4,4,4,4,no,no,no,none,,9ef3ec589819245d-22bd31ee,1,2026-07-17T13:08:07+00:00
+U0-0188,B,yes,4,4,3,3,3,4,3,3,4,no,no,no,wrong_object,,fd9ea501e99e40a8-693f9d1b,1,2026-07-17T13:09:07+00:00
+U0-0189,B,yes,5,5,5,5,5,5,5,5,5,no,no,no,none,,d2037e676003fddb-a2a78dca,1,2026-07-17T13:09:28+00:00
+U0-0190,B,yes,4,1,1,1,1,4,2,3,4,yes,no,no,generic,,7680dce9e6ce8546-340859ae,1,2026-07-17T13:10:08+00:00
+U0-0192,B,no,5,2,1,1,1,4,2,3,4,no,no,no,wrong_timing,,d7a644cd2893ebdb-6b4fd039,1,2026-07-17T13:18:55+00:00
+U0-0193,B,no,4,4,1,1,1,4,2,3,4,yes,no,no,wrong_timing,,4aa9a9785a424295-6f99d242,1,2026-07-17T13:19:26+00:00
+U0-0194,B,no,4,2,4,4,4,4,4,4,4,no,no,no,wrong_timing,,73e2b0144139df78-bf46c797,1,2026-07-17T13:19:55+00:00
+U0-0195,B,yes,4,4,1,1,1,4,2,3,4,yes,no,no,generic,,2dfb2ebedda99a75-d7cac76a,1,2026-07-17T13:20:10+00:00
+U0-0196,B,no,4,4,1,1,1,4,2,3,4,yes,no,no,wrong_timing,,94fa143ee6c3130e-335a2d9f,1,2026-07-17T13:20:52+00:00
+U0-0197,B,yes,5,5,1,1,1,4,2,3,4,yes,no,no,generic,,3cb5f9781a08b681-9e1d16f6,1,2026-07-17T13:21:16+00:00
+U0-0198,B,no,5,2,1,1,1,4,2,3,4,yes,no,no,wrong_timing,,7ba0ff671b9b7693-e691dd99,1,2026-07-17T13:21:50+00:00
+U0-0200,B,no,4,4,,,,,,,,,,,,,15eadc001185bcfc-ade73765,1,2026-07-17T13:22:34+00:00

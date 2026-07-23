@@ -59,6 +59,11 @@ class SubmissionInputTest(unittest.TestCase):
 
 
 class RuntimeConfigTest(unittest.TestCase):
+    def test_default_starter_kit_exists(self) -> None:
+        from proactive_d4.submission import DEFAULT_STARTER_KIT
+
+        self.assertTrue((DEFAULT_STARTER_KIT / "run_evaluation.py").is_file())
+
     def test_runtime_paths_replace_pinned_development_paths(self) -> None:
         frozen = json.loads(DEFAULT_CONFIG.read_text(encoding="utf-8"))
         original = copy.deepcopy(frozen)

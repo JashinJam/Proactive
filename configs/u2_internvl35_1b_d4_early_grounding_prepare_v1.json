@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "experiment_id": "20260720_internvl35_1b_d4_early_grounding_u2_prepare_v1",
+  "protocol": {
+    "path": "annotations/u2_early_grounding_v1/PROTOCOL.md",
+    "sha256": "679912125d2c76ec35fc96619dc35ecf96d94458f563410baa12927c707c2d46"
+  },
+  "sources": {
+    "u0_item_records": {
+      "path": "output/experiments/20260720_u0_dual_reviewer_analysis_v1/item_records.jsonl",
+      "sha256": "fa8d6ea6869d7ec55df46182a1cae1ca49dcbfffbb9c4cf3739029427b1caaca"
+    },
+    "gold_container": {
+      "path": "data/egoproactive/wearable_ai_2026_egoproactive_val_700.jsonl",
+      "sha256": "feef69ddee605e7070ad0f133636c35739c6964514a46d76da294b6bf1964740"
+    },
+    "d4_oof_predictions": {
+      "path": "output/experiments/20260718_internvl35_1b_d3_dialog_policy_control_v1/variants/d1_fused_plus_dialog_stage/predictions.jsonl",
+      "sha256": "467bd7c567d66b3041425b336343290c0b3d742f10d25d2279de987770ae43f5"
+    },
+    "d4_final_predictions": {
+      "path": "output/experiments/20260719_internvl35_1b_d4_dialog_stage_final_v1/train_fit_predictions.jsonl",
+      "sha256": "c2be105287e495212f192733266e0b750a1647e01d33b13860c5db03533eb0ad"
+    }
+  },
+  "selection": {
+    "seed": "20260720-u2-early-grounding-v1",
+    "positions": [
+      "1:second",
+      "2-4"
+    ],
+    "requires_reviewer_a_yes": true,
+    "requires_reviewer_b_yes": true,
+    "requires_d4_oof_interrupt": true,
+    "requires_d4_final_interrupt": true,
+    "score_ranking_used": false,
+    "expected": {
+      "samples": 21,
+      "sessions": 21,
+      "by_position": {
+        "1:second": 9,
+        "2-4": 12
+      },
+      "by_domain": {
+        "Arts and Crafts": 7,
+        "Chef": 5,
+        "Tutorial": 6,
+        "Handyman": 3
+      },
+      "by_u0_fallback_status": {
+        "fallback": 14,
+        "nonfallback": 7
+      }
+    }
+  },
+  "outputs": {
+    "items": "annotations/u2_early_grounding_v1/sample_items.jsonl",
+    "key": "annotations/u2_early_grounding_v1/sample_key.jsonl",
+    "manifest": "annotations/u2_early_grounding_v1/sample_manifest.json"
+  }
+}

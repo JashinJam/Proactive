@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "experiment_id": "20260720_u0_dual_reviewer_analysis_v1",
+  "hypothesis": "The U0 timing and content conclusions should be separated into stable two-reviewer findings and explicit disagreement regions before selecting early-chunk utterance interventions.",
+  "protocol": {
+    "path": "annotations/u0_dual_reviewer_analysis_v1/PROTOCOL.md",
+    "sha256": "2d3a80ddc336e37ae80a9dd63071356abfd8ba7041a8864ca786f8bfd655ab4f"
+  },
+  "sources": {
+    "reviewer_a": {
+      "path": "src/proactive_u0/u0_reviewer_A_ratings.csv",
+      "sha256": "4e1476f6576150d1e135b9ad8ef047029c04829d78a234114e93592d6d0c9feb",
+      "role": "Locked original Reviewer A export."
+    },
+    "reviewer_b": {
+      "path": "src/proactive_u0/u0_reviewer_B_ratings.csv",
+      "sha256": "7d9eb9fbea15bdfd5b89d4c4165268b05442f65e42ce8ef8c085ae1a7b93d750",
+      "role": "Locked original Reviewer B export."
+    },
+    "blind_items": {
+      "path": "output/experiments/20260716_internvl35_1b_d1_utterance_u0_v1/review_items_blind.jsonl",
+      "sha256": "35fef3e15a4fbe73efdfc61a50e9ca550556434316ac7ff0cc15784d9c298337",
+      "role": "Frozen reviewer-visible context and model action."
+    },
+    "review_key": {
+      "path": "output/experiments/20260716_internvl35_1b_d1_utterance_u0_v1/review_key.jsonl",
+      "sha256": "84e8508bf90bb1c76398402dcff051d82bbbd89bbc804640c65fbef33d7f2afb",
+      "role": "Frozen post-lock stratum, chunk identity, fallback, and official outcome mapping."
+    }
+  },
+  "analysis": {
+    "expected_items": 200,
+    "expected_reviewer_rows": 400,
+    "bootstrap_unit": "session",
+    "bootstrap_seed": 20260720,
+    "bootstrap_samples": 10000,
+    "score_pair_aggregation": "arithmetic mean of original A/B ratings",
+    "flag_pair_aggregation": "mean of original A/B binary flags",
+    "adjudication_replaces_primary_values": false,
+    "population_prevalence_claim_allowed": false
+  },
+  "deployment": {
+    "model_loaded": false,
+    "gpu_required": false,
+    "decision_predictions_changed": false,
+    "official_metric_recomputed": false
+  }
+}

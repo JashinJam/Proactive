@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "experiment_id": "20260722_internvl35_1b_d5_visual_temporal_session_oof_v1",
+  "hypothesis": "A 39,073-parameter causal GRU residual over current-interval vision states improves the D4-fold history8 linear base.",
+  "protocol": {
+    "path": "annotations/d5_visual_temporal_residual_v1/PROTOCOL.md",
+    "sha256": "5193e652b98882e130e4866932f5197aa57ccd5e7078a08f56a24075e7c69dcc"
+  },
+  "data": {
+    "input": "/data1/wearable_ai_challenge_data/egoproactive/wearable_ai_2026_egoproactive_val_700.jsonl",
+    "input_sha256": "feef69ddee605e7070ad0f133636c35739c6964514a46d76da294b6bf1964740"
+  },
+  "starter_kit": {
+    "path": "starter_kit",
+    "scorer_py_sha256": "072301da6c65b3e30c7581920d178c6d5136305f2db26914df4785f47d809ee1"
+  },
+  "base": {
+    "records": "output/experiments/20260720_internvl35_1b_d4_1_input_policy_search_v1/runs/full/d41_c883733b7cb0/session_records.jsonl",
+    "records_sha256": "af52d7454c36051c11302b5201c38df364e8797e82d5742c67c53c7216d0bc39",
+    "cache": "output/experiments/20260721_internvl35_1b_d4_2_adapted_input_policy_oof_v1/candidates/d42_c883733b7cb0/features.npz",
+    "cache_sha256": "a9780f9aef5b3c0cf66aafd873b5b32484b6330cd524ad3a06d1a6de8be9727e",
+    "parameters": {"max_frames": 32, "frames_per_interval": 16, "max_history_turns": 8, "max_new_tokens": 64}
+  },
+  "visual": {
+    "feature_config": "configs/d5_internvl35_1b_visual_temporal_features_v1.json",
+    "shard_root": "output/experiments/20260721_internvl35_1b_d5_visual_temporal_features_v1",
+    "width": 1024,
+    "shards": [
+      {"id": 0, "first_index": 0, "last_index": 87},
+      {"id": 1, "first_index": 88, "last_index": 174},
+      {"id": 2, "first_index": 175, "last_index": 262},
+      {"id": 3, "first_index": 263, "last_index": 349},
+      {"id": 4, "first_index": 350, "last_index": 437},
+      {"id": 5, "first_index": 438, "last_index": 524},
+      {"id": 6, "first_index": 525, "last_index": 612},
+      {"id": 7, "first_index": 613, "last_index": 699}
+    ]
+  },
+  "baseline": {
+    "summary": "output/experiments/20260722_internvl35_1b_d5_session_history8_baseline_v1/summary.json",
+    "summary_sha256": "0e606683279ce809b23362f4c2510104384a32dd3b0ca7899d5af58b37ac85b1",
+    "predictions": "output/experiments/20260722_internvl35_1b_d5_session_history8_baseline_v1/predictions.jsonl",
+    "predictions_sha256": "d154789b8f41583558878e93b9bb618643a5f64d1ad5b397d84cfd592e31c121",
+    "macro_f1": 0.6988
+  },
+  "folds": {
+    "manifest": "output/experiments/20260721_internvl35_1b_d4_2_adapted_input_policy_oof_v1/fold_manifest.json",
+    "manifest_sha256": "bd537e9e155586cf3af9f26052fda277fa3e1930e378538346cc197432ff86c0",
+    "algorithm": "domain_stratified_sha256_round_robin",
+    "seed": "d1-session-oof-v1",
+    "count": 5,
+    "calibration_fold_offset": 1
+  },
+  "features": {
+    "scalar_variant": "response_temporal",
+    "dialog_variant": "d1_fused_plus_dialog_stage",
+    "hidden_size": 1024,
+    "feature_count": 1051
+  },
+  "base_training": {
+    "seed": 20260714,
+    "max_iterations": 120,
+    "l2_weights": [0.00001, 0.0001, 0.001, 0.01],
+    "l2_reduction": "sum",
+    "threshold_selection": "base_only_exact_calibration_fold_macro_f1"
+  },
+  "temporal_training": {
+    "projection_width": 32,
+    "gru_hidden_width": 32,
+    "parameters": 39073,
+    "optimizer": "adamw",
+    "learning_rate": 0.0003,
+    "weight_decay": 0.01,
+    "max_epochs": 100,
+    "calibration_loss_patience": 10,
+    "gradient_norm_clip": 1.0,
+    "seed": 20260721,
+    "loss": "class_balanced_bce_with_logits",
+    "threshold_selection": "exact_calibration_fold_macro_f1"
+  },
+  "evaluation": {
+    "primary_metric": "official_macro_f1",
+    "bootstrap_repetitions": 5000,
+    "bootstrap_seed": 20260721,
+    "promotion_gates": {
+      "minimum_macro_improvement": 0.005,
+      "paired_session_interval_lower_above_zero": true,
+      "positive_folds": 4,
+      "positive_domains": 3,
+      "require_previous_interrupt_and_silent_nondecline": true,
+      "reject_class_collapse": true
+    },
+    "classification": "post-selection val-supervised D4-session-fold visual temporal OOF; not independent generalization evidence"
+  },
+  "model_accounting": {
+    "backbone_parameters": 1060897792,
+    "base_head_parameters": 1052,
+    "temporal_parameters": 39073,
+    "total_parameters": 1060937917,
+    "small_limit": 2000000000
+  }
+}

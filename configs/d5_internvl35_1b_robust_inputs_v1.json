@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "experiment_id": "20260721_internvl35_1b_d5_robust_input_features_v1",
+  "protocol": {
+    "path": "annotations/d5_robust_multiview_head_v1/PROTOCOL.md",
+    "sha256": "1c81ab7aeedd71312275497fd4d272554c8b40b4ab1420f17c128e8736273410"
+  },
+  "data": {
+    "input": "/data1/wearable_ai_challenge_data/egoproactive/wearable_ai_2026_egoproactive_val_700.jsonl",
+    "video_folder": "/data1/wearable_ai_challenge_data/egoproactive/val",
+    "dataset_repo": "facebook/wearable-ai",
+    "split": "egoproactive/val",
+    "license": "CC-BY-NC-4.0",
+    "input_sha256": "feef69ddee605e7070ad0f133636c35739c6964514a46d76da294b6bf1964740"
+  },
+  "transformation": {
+    "name": "drop_all_assistant_turns_v1",
+    "require_answer_free_input": true,
+    "retain_non_assistant_turns": true
+  }
+}

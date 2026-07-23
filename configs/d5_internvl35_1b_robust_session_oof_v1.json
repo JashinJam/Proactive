@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "experiment_id": "20260722_internvl35_1b_d5_robust_session_oof_v1",
+  "hypothesis": "Equal-weight clean and answer-free perturbation training improves static robustness while retaining clean D4 session-level OOF performance.",
+  "protocol": {
+    "path": "annotations/d5_robust_multiview_head_v1/PROTOCOL.md",
+    "sha256": "bcf8199d51c5d5e1718173bd8a628256b362dbff797213128f361d44a1972415"
+  },
+  "data": {
+    "input": "/data1/wearable_ai_challenge_data/egoproactive/wearable_ai_2026_egoproactive_val_700.jsonl",
+    "video_folder": "/data1/wearable_ai_challenge_data/egoproactive/val",
+    "dataset_repo": "facebook/wearable-ai",
+    "split": "egoproactive/val",
+    "license": "CC-BY-NC-4.0",
+    "input_sha256": "feef69ddee605e7070ad0f133636c35739c6964514a46d76da294b6bf1964740"
+  },
+  "starter_kit": {
+    "path": "starter_kit",
+    "scorer_py_sha256": "072301da6c65b3e30c7581920d178c6d5136305f2db26914df4785f47d809ee1"
+  },
+  "folds": {
+    "manifest": "output/experiments/20260721_internvl35_1b_d4_2_adapted_input_policy_oof_v1/fold_manifest.json",
+    "manifest_sha256": "bd537e9e155586cf3af9f26052fda277fa3e1930e378538346cc197432ff86c0",
+    "algorithm": "domain_stratified_sha256_round_robin",
+    "seed": "d1-session-oof-v1",
+    "count": 5,
+    "calibration_fold_offset": 1
+  },
+  "baseline": {
+    "summary": "output/experiments/20260722_internvl35_1b_d5_session_history8_baseline_v1/summary.json",
+    "summary_sha256": "0e606683279ce809b23362f4c2510104384a32dd3b0ca7899d5af58b37ac85b1",
+    "predictions": "output/experiments/20260722_internvl35_1b_d5_session_history8_baseline_v1/predictions.jsonl",
+    "predictions_sha256": "d154789b8f41583558878e93b9bb618643a5f64d1ad5b397d84cfd592e31c121",
+    "macro_f1": 0.6988
+  },
+  "views": {
+    "clean_history8": {
+      "input": "/data1/wearable_ai_challenge_data/egoproactive/wearable_ai_2026_egoproactive_val_700.jsonl",
+      "input_sha256": "feef69ddee605e7070ad0f133636c35739c6964514a46d76da294b6bf1964740",
+      "records": "output/experiments/20260720_internvl35_1b_d4_1_input_policy_search_v1/runs/full/d41_c883733b7cb0/session_records.jsonl",
+      "records_sha256": "af52d7454c36051c11302b5201c38df364e8797e82d5742c67c53c7216d0bc39",
+      "cache": "output/experiments/20260721_internvl35_1b_d4_2_adapted_input_policy_oof_v1/candidates/d42_c883733b7cb0/features.npz",
+      "cache_sha256": "a9780f9aef5b3c0cf66aafd873b5b32484b6330cd524ad3a06d1a6de8be9727e",
+      "parameters": {
+        "max_frames": 32,
+        "frames_per_interval": 16,
+        "max_history_turns": 8,
+        "max_new_tokens": 64,
+        "frame_sampling": "uniform_cumulative_v1"
+      }
+    },
+    "history4": {
+      "input": "/data1/wearable_ai_challenge_data/egoproactive/wearable_ai_2026_egoproactive_val_700.jsonl",
+      "input_sha256": "feef69ddee605e7070ad0f133636c35739c6964514a46d76da294b6bf1964740",
+      "records": "output/experiments/20260720_internvl35_1b_d4_1_input_policy_search_v1/runs/full/d41_d58ddf9e0036/session_records.jsonl",
+      "records_sha256": "f99532890bff3f9faf2c6923b997f68ac5c6e3028fecae442a3269fc5fca73be",
+      "cache": "output/experiments/20260721_internvl35_1b_d4_2_adapted_input_policy_oof_v1/candidates/d42_d58ddf9e0036/features.npz",
+      "cache_sha256": "f099f89bbef6d4737ed77e85af74ebca354f5ca27d45aef932e578667f83163c",
+      "parameters": {
+        "max_frames": 32,
+        "frames_per_interval": 16,
+        "max_history_turns": 4,
+        "max_new_tokens": 64,
+        "frame_sampling": "uniform_cumulative_v1"
+      }
+    },
+    "assistant_drop": {
+      "input": "output/experiments/20260721_internvl35_1b_d5_robust_input_features_v1/assistant_drop_input.jsonl",
+      "input_sha256": "c2421322c935c1c3a9b0ed800fd51eeeca0ffa44e09a722174b5a7749fb605ce",
+      "feature_config": "configs/d5_internvl35_1b_robust_assistant_drop_features_v1.json",
+      "feature_config_sha256": "de1d00c4b1e7d4a7b53faa918dd856c6eecdf23043ae0a00d840d306c16baa2b",
+      "shard_root": "output/experiments/20260721_internvl35_1b_d5_robust_input_features_v1/assistant_drop",
+      "shards": [
+        {"id": 0, "first_index": 0, "last_index": 116, "records_sha256": "49326b23f629be1922fa2f8ede62dba92de490ed96c058989e71b5131ed8a05a", "config_sha256": "7134887a04602985018899d533b70c78e9f2c216751b947c9db93496b6c21fc3", "runtime_sha256": "a360ef6415502e600df855fa9c8c975c19bbcfa10e1df0140f5b2c23e7e02422"},
+        {"id": 1, "first_index": 117, "last_index": 233, "records_sha256": "ac2ffbac725480296c19f8ae858456d758881f3fc4b0c0ea765a36ae9534eae2", "config_sha256": "7cb3e05fad597b54631f0a025c6c45f55248f78100f15cb9ae17b6698e5571fa", "runtime_sha256": "00d8955ffceb11c75422172d83012dc22e0510b91dd4953a5c4efa2a7a310d21"},
+        {"id": 2, "first_index": 234, "last_index": 350, "records_sha256": "1a44e5538398016c76068270d30a7bf9a3eb01ca107b4a5fb3594e0e99632d72", "config_sha256": "4c2bf87048df044b3765fb608e601d0cb1d342a0de7d58f03fd772c97572cd24", "runtime_sha256": "11c3c179952e1bf12ba119822339b7e18c5166eb48e44d65e5e7fc724cc34091"},
+        {"id": 3, "first_index": 351, "last_index": 466, "records_sha256": "670adfc128d606ba9b7f94c258a545364d4e7fc585a31a435d7b740f84db265e", "config_sha256": "d328e2c2115edc93a7b3aec8163ad5e8beffe5ead245a047344d51a4accfcdc1", "runtime_sha256": "d508b9187b094e1316e6f7df58608d5ec46040d3422c39678778fac8be87aaa3"},
+        {"id": 4, "first_index": 467, "last_index": 583, "records_sha256": "75190d4e0557846a72b373c8da3f89228357fdaddf1617277901ac9f89af5e47", "config_sha256": "cc38a17b9e42efbc7b7989c1e5c2e1eabb5b4e69fbcd7f36f50dced4f42da47e", "runtime_sha256": "3c5bcbc4e1c94ca60809673014e1fc32f542e23711222add14b36b57f7aed59c"},
+        {"id": 5, "first_index": 584, "last_index": 699, "records_sha256": "74e99bfa12f99e0ea52ae597c8c1f2e51b7b0cf33f85853e1b848a66e66190d1", "config_sha256": "f8e6613766fd4b9098b213c6b98da285f2a4a3b390f3697ff5312b318ca5a356", "runtime_sha256": "84d1c290928ca1736526cc9a1c6a8a6a1357b29aff65f9d900ff716a7da99781"}
+      ],
+      "parameters": {
+        "max_frames": 32,
+        "frames_per_interval": 16,
+        "max_history_turns": 8,
+        "max_new_tokens": 64,
+        "frame_sampling": "uniform_cumulative_v1"
+      }
+    },
+    "frame_jitter": {
+      "input": "/data1/wearable_ai_challenge_data/egoproactive/wearable_ai_2026_egoproactive_val_700.jsonl",
+      "input_sha256": "feef69ddee605e7070ad0f133636c35739c6964514a46d76da294b6bf1964740",
+      "feature_config": "configs/d5_internvl35_1b_robust_frame_jitter_features_v1.json",
+      "feature_config_sha256": "d87c03a0f29f782069a5053655611fc5716a73699341a194a476b8ee75334157",
+      "shard_root": "output/experiments/20260721_internvl35_1b_d5_robust_input_features_v1/frame_jitter",
+      "shards": [
+        {"id": 0, "first_index": 0, "last_index": 116, "records_sha256": "07b7fa295225981cb46cb3c78e7fe007f828bbe84cc56c52e1cbe0774b3579a2", "config_sha256": "585769dc791c6b8600f2f48afc2a4f542edd20c7988ed7f7142b4d48016a43af", "runtime_sha256": "a593be78f4f052c506d095d88f486e21c96fd481178a1a8c83ab00ee0a5370d7"},
+        {"id": 1, "first_index": 117, "last_index": 233, "records_sha256": "c43062871294bcba34f4874fa7aa2b9a0fb67755a4460531baeb2f793b819cd1", "config_sha256": "34c2b2e7ffcd1dc34c4ec67c9abdf88015d79e07b73041e247b181eec37660e6", "runtime_sha256": "53dd526ba0a4a75634dac0e259564639424e826d0f85bf144cdddeab0674925a"},
+        {"id": 2, "first_index": 234, "last_index": 350, "records_sha256": "bb9998d0e14625608d1758ba5a47c05dbbf22d8b4aae32564adfb98a2755d617", "config_sha256": "1eb339950080d109ac8a54a354330a20fb975b3760c88d6e64f598d5bf5c86b7", "runtime_sha256": "fed46756192e30f415df9835b5500490c2e366fbc8c491adc9c27c46aa6238e4"},
+        {"id": 3, "first_index": 351, "last_index": 466, "records_sha256": "aa7df5a89d5ef8e7e0e3d9c619ba910f210825c1763933b3655babb8fe2366cc", "config_sha256": "6c386f5df44b2c2b620337949840c8aa3137115ce3dd78b6d04cf72f8266a1bf", "runtime_sha256": "b2e812993efd8924c9c696a64c6de894c9663a4675417988fe7b7a9937a19e3c"},
+        {"id": 4, "first_index": 467, "last_index": 583, "records_sha256": "08cf6c30357e91502e2df23569f8434e3d11f6cf17c3a9d43204dffc3f86bd8a", "config_sha256": "d9ba17c4a33f05801413e32aeec246f93c408e179e801e3b1ffbf26fe0642b63", "runtime_sha256": "29e4031079556a656f65227c249999e644a02eba6c78c4c22857155918f5f5db"},
+        {"id": 5, "first_index": 584, "last_index": 699, "records_sha256": "cd868529c5fd2f49ef561879f0226c6b6f0a994614550a6b70268612f5fab5f4", "config_sha256": "60a21adfe1c0f841ab87334d01e6af9c023993ec4b0513664b00b9924aad025d", "runtime_sha256": "6f0c42b2198bf3a207e61cc2a16c65a28e344a719069f0f305fc3cb02e616317"}
+      ],
+      "parameters": {
+        "max_frames": 32,
+        "frames_per_interval": 16,
+        "max_history_turns": 8,
+        "max_new_tokens": 64,
+        "frame_sampling": "deterministic_half_stride_jitter_v1"
+      }
+    }
+  },
+  "features": {
+    "scalar_variant": "response_temporal",
+    "dialog_variant": "d1_fused_plus_dialog_stage",
+    "hidden_size": 1024,
+    "feature_count": 1051
+  },
+  "training": {
+    "classifier": "class_balanced_linear_logistic_regression",
+    "optimizer": "lbfgs",
+    "views": ["clean_history8", "history4", "assistant_drop", "frame_jitter"],
+    "view_weighting": "equal_by_view",
+    "seed": 20260714,
+    "robust_seed_offset": 10000,
+    "max_iterations": 120,
+    "dtype": "float64",
+    "l2_weights": [0.00001, 0.0001, 0.001, 0.01],
+    "l2_reduction": "sum",
+    "threshold_selection": "pooled_four_view_exact_calibration_fold_macro_f1"
+  },
+  "evaluation": {
+    "primary_metric": "official_macro_f1",
+    "bootstrap_repetitions": 5000,
+    "bootstrap_seed": 20260721,
+    "static_gates": {
+      "maximum_clean_drop": 0.002,
+      "minimum_each_perturbation_gain": 0.01,
+      "reject_class_collapse": true
+    },
+    "classification": "post-selection val-supervised D4-session-fold multiview robustness OOF; not independent generalization evidence"
+  },
+  "model_accounting": {
+    "backbone_parameters": 1060897792,
+    "head_parameters": 1052,
+    "total_parameters": 1060898844,
+    "small_limit": 2000000000,
+    "precision": "backbone BF16 cache; float64 linear training"
+  }
+}

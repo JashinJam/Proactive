@@ -38,7 +38,7 @@ DEFAULT_HEAD = (
     / "d4_small"
     / "decision_head.json"
 )
-DEFAULT_STARTER_KIT = PROJECT_ROOT / "data" / "starter_kit"
+DEFAULT_STARTER_KIT = PROJECT_ROOT / "starter_kit"
 DEFAULT_MANIFEST = PROJECT_ROOT / "submission" / "d4_small" / "manifest.json"
 
 

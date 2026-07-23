@@ -1,0 +1,206 @@
+{
+  "schema_version": 1,
+  "experiment_id": "20260722_internvl35_1b_d6_query_memory_lora_oof_v1",
+  "hypothesis": "A query-conditioned causal current-interval visual memory injected before language layer 24, together with rank-8 LoRA on layers 24-27 attention, improves the D4.2 history8 decision representation after policy-matched head adaptation.",
+  "protocol": {
+    "path": "annotations/d6_query_memory_lora_oof_v1/PROTOCOL.md",
+    "sha256": "eda95ccca756966d57b59a2ce4b21bc71699dd51acd63b096e0b007c5d4ae4d7",
+    "frozen_before_implementation": true,
+    "frozen_before_gpu_efficacy_inference": true,
+    "post_selection": true,
+    "independent_generalization_evidence": false
+  },
+  "model": {
+    "repo_id": "OpenGVLab/InternVL3_5-1B-HF",
+    "revision": "9191dbccf312b537016f041b25d61c72e7c5c9f3",
+    "default_local_path": "/data1/InternVL3_5-1B-HF",
+    "license": "Apache-2.0",
+    "weights_sha256": "11effd1da2fc0929957d56de4129d1e7d2aed044ea878d40bf83e95b63d38b39",
+    "base_parameters": 1060897792,
+    "dtype": "bfloat16",
+    "attention_implementation": "sdpa",
+    "hidden_size": 1024,
+    "language_layers": 28,
+    "image_tokens_per_frame": 256
+  },
+  "data": {
+    "input": "/data1/wearable_ai_challenge_data/egoproactive/wearable_ai_2026_egoproactive_val_700.jsonl",
+    "video_folder": "/data1/wearable_ai_challenge_data/egoproactive/val",
+    "dataset_repo": "facebook/wearable-ai",
+    "split": "egoproactive/val",
+    "license": "CC-BY-NC-4.0",
+    "input_sha256": "feef69ddee605e7070ad0f133636c35739c6964514a46d76da294b6bf1964740",
+    "sessions": 700,
+    "chunks": 9935
+  },
+  "starter_kit": {
+    "path": "starter_kit",
+    "scorer_path": "starter_kit/run_evaluation.py",
+    "scorer_sha256": "072301da6c65b3e30c7581920d178c6d5136305f2db26914df4785f47d809ee1"
+  },
+  "d4_2_reference": {
+    "experiment_dir": "output/experiments/20260721_internvl35_1b_d4_2_adapted_input_policy_oof_v1",
+    "fold_manifest": "output/experiments/20260721_internvl35_1b_d4_2_adapted_input_policy_oof_v1/fold_manifest.json",
+    "fold_manifest_sha256": "bd537e9e155586cf3af9f26052fda277fa3e1930e378538346cc197432ff86c0",
+    "history8_candidate_id": "d42_c883733b7cb0",
+    "history8_features": "output/experiments/20260721_internvl35_1b_d4_2_adapted_input_policy_oof_v1/candidates/d42_c883733b7cb0/features.npz",
+    "history8_features_sha256": "a9780f9aef5b3c0cf66aafd873b5b32484b6330cd524ad3a06d1a6de8be9727e",
+    "history8_raw_generation_records": "output/experiments/20260720_internvl35_1b_d4_1_input_policy_search_v1/runs/full/d41_c883733b7cb0/session_records.jsonl",
+    "history8_raw_generation_records_sha256": "af52d7454c36051c11302b5201c38df364e8797e82d5742c67c53c7216d0bc39",
+    "history8_oof_predictions": "output/experiments/20260721_internvl35_1b_d4_2_adapted_input_policy_oof_v1/candidates/d42_c883733b7cb0/oof_predictions.jsonl",
+    "history8_oof_predictions_sha256": "d154789b8f41583558878e93b9bb618643a5f64d1ad5b397d84cfd592e31c121",
+    "history8_macro_f1": 0.6988
+  },
+  "frozen_inference": {
+    "max_frames": 32,
+    "frames_per_interval": 16,
+    "max_history_turns": 8,
+    "max_new_tokens": 64,
+    "frame_sampling": "uniform_cumulative_v1",
+    "video_frame_size": 448,
+    "pad_token_id": 151643,
+    "do_sample": false,
+    "seed": 20260722,
+    "decision_feature_mode": "shared_vision_two_batch1_language_forwards",
+    "generation_mode": "adapter_disabled_frozen_history8_cache",
+    "answers_removed_before_model_input": true
+  },
+  "memory": {
+    "injection_layer": 24,
+    "injection_position": "assistant_boundary_prompt_tokens_minus_one",
+    "input_size": 1024,
+    "memory_size": 128,
+    "attention_heads": 4,
+    "head_size": 32,
+    "shared_input_layer_norm": true,
+    "qkv_bias": true,
+    "attention_output_projection": false,
+    "attention_dropout": 0.0,
+    "state_update": "gru_cell_context_input_previous_state_hidden_then_layer_norm",
+    "session_initial_state": "zeros",
+    "state_detach_after_each_chunk": true,
+    "injection_bias": true,
+    "injection_zero_init_weight": true,
+    "injection_zero_init_bias": true,
+    "compute_dtype": "float32",
+    "visual_evidence": "projected_patch_tokens_from_selected_current_interval_frames_only",
+    "parameters": 627072
+  },
+  "lora": {
+    "layers": [24, 25, 26, 27],
+    "projections": ["q_proj", "k_proj", "v_proj", "o_proj"],
+    "rank": 8,
+    "alpha": 16,
+    "scaling": 2.0,
+    "dropout": 0.0,
+    "bias": "none",
+    "a_init": "kaiming_uniform_a_sqrt_5",
+    "b_init": "zeros",
+    "compute_dtype": "float32",
+    "parameters": 327680,
+    "trainable_tensors": 32
+  },
+  "folds": {
+    "algorithm": "domain_stratified_sha256_round_robin",
+    "seed": "d1-session-oof-v1",
+    "count": 5,
+    "calibration_fold_offset": 1,
+    "fit_folds": 3,
+    "test_labels_sentinel_until_prediction_freeze": true
+  },
+  "adapter_training": {
+    "objective": "class_balanced_interrupt_minus_silent_tag_margin_bce",
+    "optimizer": "adamw",
+    "memory_learning_rate": 0.0003,
+    "lora_learning_rate": 0.0001,
+    "weight_decay": 0.01,
+    "gradient_clip_norm": 1.0,
+    "gradient_accumulation_target_chunks": 64,
+    "optimizer_step_only_at_session_boundary": true,
+    "maximum_epochs": 5,
+    "epoch_zero_control": true,
+    "early_stopping_metric": "calibration_class_balanced_bce",
+    "early_stopping_patience": 2,
+    "early_stopping_min_delta": 0.0,
+    "scheduler": "none",
+    "seed": 20260722,
+    "checkpoint_boundary": "optimizer_step_at_session_boundary_or_epoch_end",
+    "checkpoint_base_weights": false
+  },
+  "features": {
+    "scalar_variant": "response_temporal",
+    "dialog_variant": "d1_fused_plus_dialog_stage",
+    "hidden_size": 1024,
+    "feature_count": 1051,
+    "decision_head_parameters": 1052,
+    "future_session_features": false
+  },
+  "head_training": {
+    "classifier": "class_balanced_linear_logistic_regression",
+    "optimizer": "lbfgs",
+    "seed": 20260714,
+    "max_iterations": 120,
+    "dtype": "float64",
+    "l2_weights": [0.00001, 0.0001, 0.001, 0.01],
+    "l2_reduction": "sum",
+    "l2_selection": "calibration_fold_macro_f1",
+    "threshold_selection": "exact_calibration_fold_macro_f1"
+  },
+  "fixed_diagnostics": {
+    "variants": ["lora_disabled", "memory_disabled"],
+    "scope": "test_fold_only",
+    "head_policy": "reuse_primary_head_standardization_l2_and_threshold_without_refit",
+    "selection_eligible": false
+  },
+  "smoke": {
+    "source_indices": [143, 356, 472, 609],
+    "chunks": 102,
+    "zero_init_equivalence": true,
+    "future_mutation_causality": true,
+    "rotation_zero_complete_one_epoch_trainability": true,
+    "efficacy_conclusion_allowed": false
+  },
+  "resources": {
+    "gpu_type": "NVIDIA A800-SXM4-80GB",
+    "maximum_parallel_folds": 5,
+    "minimum_free_memory_gib": 75,
+    "require_no_foreign_compute_process": true,
+    "maximum_peak_allocated_gib": 70,
+    "maximum_estimated_single_fold_hours": 48,
+    "maximum_smoke_session_model_seconds": 240,
+    "official_session_timeout_seconds": 300
+  },
+  "evaluation": {
+    "primary_metric": "official_macro_f1",
+    "minimum_macro_gain": 0.005,
+    "minimum_macro_f1": 0.7038,
+    "bootstrap_repetitions": 5000,
+    "bootstrap_seed": 20260722,
+    "bootstrap_lower_bound_strictly_positive": true,
+    "minimum_positive_folds": 4,
+    "minimum_positive_domains": 3,
+    "require_previous_interrupt_non_decrease": true,
+    "require_previous_silent_non_decrease": true,
+    "require_non_first_non_decrease": true,
+    "require_both_class_f1_non_degenerate": true
+  },
+  "parameter_accounting": {
+    "base": 1060897792,
+    "memory": 627072,
+    "lora": 327680,
+    "decision_head": 1052,
+    "total": 1061853596,
+    "small_limit": 2000000000
+  },
+  "environment": {
+    "python": "3.13.13",
+    "torch": "2.6.0+cu124",
+    "transformers": "5.12.1",
+    "peft_required": false
+  },
+  "stop_policy": {
+    "stop_family_on_any_promotion_gate_failure": true,
+    "post_hoc_architecture_or_hyperparameter_search": false,
+    "external_upload_authorized": false
+  }
+}

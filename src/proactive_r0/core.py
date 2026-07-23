@@ -12,6 +12,16 @@ from typing import Callable, Protocol, Sequence
 INTERRUPT_TAG = "$interrupt$"
 SILENT_TAG = "$silent$"
 EMPTY_INTERRUPT_UTTERANCE = "Please continue with the next step."
+UNIFORM_CUMULATIVE_FRAME_SAMPLING = "uniform_cumulative_v1"
+CAUSAL_MULTISCALE_FRAME_SAMPLING = "causal_multiscale_16_8_8_v1"
+DETERMINISTIC_HALF_STRIDE_JITTER_FRAME_SAMPLING = (
+    "deterministic_half_stride_jitter_v1"
+)
+FRAME_SAMPLING_POLICIES = (
+    UNIFORM_CUMULATIVE_FRAME_SAMPLING,
+    CAUSAL_MULTISCALE_FRAME_SAMPLING,
+    DETERMINISTIC_HALF_STRIDE_JITTER_FRAME_SAMPLING,
+)
 
 
 class ProactiveModel(Protocol):
@@ -33,6 +43,7 @@ class CausalInferenceConfig:
     max_frames: int
     max_history_turns: int
     max_new_tokens: int
+    frame_sampling: str = UNIFORM_CUMULATIVE_FRAME_SAMPLING
 
     def __post_init__(self) -> None:
         if self.frames_per_interval <= 0:
@@ -43,6 +54,15 @@ class CausalInferenceConfig:
             raise ValueError("max_history_turns must be -1 or non-negative")
         if self.max_new_tokens <= 0:
             raise ValueError("max_new_tokens must be positive")
+        if self.frame_sampling not in FRAME_SAMPLING_POLICIES:
+            raise ValueError(f"Unsupported frame sampling policy: {self.frame_sampling}")
+        if self.frame_sampling == CAUSAL_MULTISCALE_FRAME_SAMPLING and (
+            self.frames_per_interval != 16 or self.max_frames != 32
+        ):
+            raise ValueError(
+                "causal_multiscale_16_8_8_v1 requires frames_per_interval=16 "
+                "and max_frames=32"
+            )
 
 
 @dataclass(frozen=True)
@@ -107,6 +127,129 @@ def subsample_frames(frames: Sequence[object], max_frames: int) -> list[object]:
         return selected
     stride = len(selected) / max_frames
     return [selected[int(index * stride)] for index in range(max_frames)]
+
+
+def half_stride_jitter_frames(
+    frames: Sequence[object], max_frames: int
+) -> list[object]:
+    """Select the midpoint of each uniform stride bin deterministically."""
+    selected = list(frames)
+    if len(selected) <= max_frames:
+        return selected
+    stride = len(selected) / max_frames
+    return [
+        selected[min(len(selected) - 1, int((index + 0.5) * stride))]
+        for index in range(max_frames)
+    ]
+
+
+def _inclusive_uniform_indices(size: int, count: int) -> list[int]:
+    """Select ordered unique indices spanning both ends of a non-empty sequence."""
+    if size <= 0 or count <= 0:
+        return []
+    if count >= size:
+        return list(range(size))
+    if count == 1:
+        return [size - 1]
+    return [round(index * (size - 1) / (count - 1)) for index in range(count)]
+
+
+def causal_multiscale_frames(
+    interval_frames: Sequence[Sequence[object]],
+    intervals: Sequence[tuple[float, float]],
+    *,
+    max_frames: int = 32,
+) -> list[object]:
+    """Keep current detail while preserving recent and long-range causal context."""
+    if len(interval_frames) != len(intervals) or not interval_frames:
+        raise ValueError("Frame groups and observed intervals must align and be non-empty")
+    if max_frames != 32:
+        raise ValueError("causal_multiscale_16_8_8_v1 has a frozen 32-frame budget")
+
+    references: list[tuple[int, int, float, object]] = []
+    for interval_index, (frames, interval) in enumerate(zip(interval_frames, intervals)):
+        start, end = interval
+        if start < 0 or end <= start:
+            raise ValueError("Observed intervals must satisfy 0 <= start < end")
+        count = len(frames)
+        for frame_index, frame in enumerate(frames):
+            # This matches the official extractor: the interval endpoint itself is
+            # not sampled, so the final item is the available interval tail.
+            timestamp = start + (end - start) * frame_index / max(count, 1)
+            references.append((interval_index, frame_index, timestamp, frame))
+    if len(references) <= max_frames:
+        return [reference[3] for reference in references]
+
+    selected: dict[tuple[int, int], tuple[int, int, float, object]] = {}
+
+    def add(reference: tuple[int, int, float, object]) -> None:
+        selected[(reference[0], reference[1])] = reference
+
+    current = [reference for reference in references if reference[0] == len(intervals) - 1]
+    for index in _inclusive_uniform_indices(len(current), 16):
+        add(current[index])
+
+    if len(intervals) >= 2:
+        previous = [
+            reference for reference in references if reference[0] == len(intervals) - 2
+        ]
+        for index in _inclusive_uniform_indices(len(previous), 8):
+            add(previous[index])
+
+    older = [reference for reference in references if reference[0] < len(intervals) - 2]
+    if older:
+        anchor_count = min(8, len(older))
+        start_time, end_time = older[0][2], older[-1][2]
+        targets = (
+            [end_time]
+            if anchor_count == 1
+            else [
+                start_time + (end_time - start_time) * index / (anchor_count - 1)
+                for index in range(anchor_count)
+            ]
+        )
+        available = list(older)
+        for target in targets:
+            reference = min(
+                available,
+                key=lambda value: (abs(value[2] - target), -value[2], value[0], value[1]),
+            )
+            add(reference)
+            available.remove(reference)
+
+    if len(selected) < max_frames:
+        for reference in reversed(references):
+            add(reference)
+            if len(selected) == max_frames:
+                break
+
+    ordered = sorted(selected.values(), key=lambda value: (value[0], value[1]))
+    if len(ordered) > max_frames:
+        raise RuntimeError("Causal multiscale sampling exceeded its frame budget")
+    return [reference[3] for reference in ordered]
+
+
+def select_causal_frames(
+    interval_frames: Sequence[Sequence[object]],
+    intervals: Sequence[tuple[float, float]],
+    config: CausalInferenceConfig,
+) -> list[object]:
+    """Apply the configured policy to frames from observed intervals only."""
+    if len(interval_frames) != len(intervals):
+        raise ValueError("Frame groups and observed intervals must align")
+    if config.frame_sampling == UNIFORM_CUMULATIVE_FRAME_SAMPLING:
+        return subsample_frames(
+            [frame for group in interval_frames for frame in group], config.max_frames
+        )
+    if config.frame_sampling == CAUSAL_MULTISCALE_FRAME_SAMPLING:
+        return causal_multiscale_frames(
+            interval_frames, intervals, max_frames=config.max_frames
+        )
+    if config.frame_sampling == DETERMINISTIC_HALF_STRIDE_JITTER_FRAME_SAMPLING:
+        return half_stride_jitter_frames(
+            [frame for group in interval_frames for frame in group], config.max_frames
+        )
+    raise ValueError(f"Unsupported frame sampling policy: {config.frame_sampling}")
 
 
 def build_messages(
@@ -210,7 +353,7 @@ def process_session(
         for interval in row["video_intervals"]  # type: ignore[index]
     ]
 
-    cumulative_frames: list[object] = []
+    observed_frame_groups: list[list[object]] = []
     answers: list[str] = []
     chunks: list[dict[str, object]] = []
     for chunk_index, interval in enumerate(intervals):
@@ -219,8 +362,10 @@ def process_session(
             intervals=[interval],
             frames_per_interval=config.frames_per_interval,
         )
-        cumulative_frames.extend(current_frames)
-        model_frames = subsample_frames(cumulative_frames, config.max_frames)
+        observed_frame_groups.append(current_frames)
+        model_frames = select_causal_frames(
+            observed_frame_groups, intervals[: chunk_index + 1], config
+        )
         messages = build_messages(
             row=row,
             chunk_index=chunk_index,

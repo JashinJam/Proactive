@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "experiment_id": "20260722_internvl35_1b_d5_causal_multiscale_session_oof_v1",
+  "hypothesis": "The frozen causal 16/8/8 visual sampling policy improves D4 session-level OOF Macro-F1 over history8 uniform cumulative sampling.",
+  "protocol": {
+    "path": "annotations/d5_causal_multiscale_sampling_v1/PROTOCOL.md",
+    "sha256": "bac68b2a50d506f7bc541872c611be107b0657f220d34de1868b81b39be91095"
+  },
+  "data": {
+    "input": "/data1/wearable_ai_challenge_data/egoproactive/wearable_ai_2026_egoproactive_val_700.jsonl",
+    "video_folder": "/data1/wearable_ai_challenge_data/egoproactive/val",
+    "input_sha256": "feef69ddee605e7070ad0f133636c35739c6964514a46d76da294b6bf1964740"
+  },
+  "starter_kit": {
+    "path": "starter_kit",
+    "scorer_py_sha256": "072301da6c65b3e30c7581920d178c6d5136305f2db26914df4785f47d809ee1"
+  },
+  "multiscale": {
+    "parameters": {
+      "max_frames": 32,
+      "frames_per_interval": 16,
+      "max_history_turns": 8,
+      "max_new_tokens": 64,
+      "frame_sampling": "causal_multiscale_16_8_8_v1"
+    },
+    "feature_config": "configs/d5_internvl35_1b_causal_multiscale_features_v1.json",
+    "shard_root": "output/experiments/20260721_internvl35_1b_d5_causal_multiscale_features_v1",
+    "shards": [
+      {"id": 0, "first_index": 0, "last_index": 87, "runtime_first_index": 0, "runtime_last_index": 174, "intentional_prefix": true},
+      {"id": 4, "first_index": 88, "last_index": 174},
+      {"id": 1, "first_index": 175, "last_index": 262, "runtime_first_index": 175, "runtime_last_index": 349, "intentional_prefix": true},
+      {"id": 5, "first_index": 263, "last_index": 349},
+      {"id": 2, "first_index": 350, "last_index": 437, "runtime_first_index": 350, "runtime_last_index": 524, "intentional_prefix": true},
+      {"id": 6, "first_index": 438, "last_index": 524},
+      {"id": 3, "first_index": 525, "last_index": 586, "runtime_first_index": 525, "runtime_last_index": 699, "intentional_prefix": true},
+      {"id": 10, "first_index": 587, "last_index": 612},
+      {"id": 7, "first_index": 613, "last_index": 699}
+    ]
+  },
+  "baseline": {
+    "summary": "output/experiments/20260722_internvl35_1b_d5_session_history8_baseline_v1/summary.json",
+    "summary_sha256": "0e606683279ce809b23362f4c2510104384a32dd3b0ca7899d5af58b37ac85b1",
+    "predictions": "output/experiments/20260722_internvl35_1b_d5_session_history8_baseline_v1/predictions.jsonl",
+    "predictions_sha256": "d154789b8f41583558878e93b9bb618643a5f64d1ad5b397d84cfd592e31c121",
+    "macro_f1": 0.6988
+  },
+  "folds": {
+    "manifest": "output/experiments/20260721_internvl35_1b_d4_2_adapted_input_policy_oof_v1/fold_manifest.json",
+    "manifest_sha256": "bd537e9e155586cf3af9f26052fda277fa3e1930e378538346cc197432ff86c0",
+    "algorithm": "domain_stratified_sha256_round_robin",
+    "seed": "d1-session-oof-v1",
+    "count": 5,
+    "calibration_fold_offset": 1
+  },
+  "features": {
+    "scalar_variant": "response_temporal",
+    "dialog_variant": "d1_fused_plus_dialog_stage",
+    "hidden_size": 1024,
+    "feature_count": 1051
+  },
+  "training": {
+    "classifier": "class_balanced_linear_logistic_regression",
+    "optimizer": "lbfgs",
+    "seed": 20260714,
+    "max_iterations": 120,
+    "dtype": "float64",
+    "l2_weights": [0.00001, 0.0001, 0.001, 0.01],
+    "l2_reduction": "sum",
+    "threshold_selection": "exact_calibration_fold_macro_f1"
+  },
+  "evaluation": {
+    "primary_metric": "official_macro_f1",
+    "bootstrap_repetitions": 5000,
+    "bootstrap_seed": 20260721,
+    "promotion_gates": {
+      "minimum_macro_improvement": 0.005,
+      "paired_session_interval_lower_above_zero": true,
+      "positive_folds": 4,
+      "positive_domains": 3,
+      "require_previous_interrupt_and_silent_nondecline": true,
+      "reject_class_collapse": true
+    },
+    "classification": "post-selection val-supervised D4-session-fold OOF sampling experiment; not independent generalization evidence"
+  },
+  "model_accounting": {
+    "backbone_parameters": 1060897792,
+    "head_parameters": 1052,
+    "total_parameters": 1060898844,
+    "precision": "backbone BF16; float64 linear training"
+  }
+}

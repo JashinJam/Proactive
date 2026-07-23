@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "experiment_id": "20260721_internvl35_1b_d5_visual_temporal_features_v1",
+  "hypothesis": "Current-interval vision states expose causal temporal progress not retained by the language decision hidden state.",
+  "protocol": {
+    "path": "annotations/d5_visual_temporal_residual_v1/PROTOCOL.md",
+    "sha256": "ecc94fe84db7f9a2bee6894ed07690f7d4d1c7893cb99fc97162dbd0e9d56229"
+  },
+  "model": {
+    "repo_id": "OpenGVLab/InternVL3_5-1B-HF",
+    "revision": "9191dbccf312b537016f041b25d61c72e7c5c9f3",
+    "default_local_path": "/data1/InternVL3_5-1B-HF",
+    "license": "Apache-2.0",
+    "total_parameters": 1060897792,
+    "weights_sha256": "11effd1da2fc0929957d56de4129d1e7d2aed044ea878d40bf83e95b63d38b39",
+    "dtype": "bfloat16",
+    "attention_implementation": "sdpa"
+  },
+  "data": {
+    "input": "/data1/wearable_ai_challenge_data/egoproactive/wearable_ai_2026_egoproactive_val_700.jsonl",
+    "video_folder": "/data1/wearable_ai_challenge_data/egoproactive/val",
+    "input_sha256": "feef69ddee605e7070ad0f133636c35739c6964514a46d76da294b6bf1964740"
+  },
+  "starter_kit": {
+    "path": "starter_kit",
+    "model_py_sha256": "3cecb5ab2201b6b4be6aabbdebeeeb5322437e2d8c49d065018230dc9804edbe"
+  },
+  "inference": {
+    "frames_per_interval": 16,
+    "max_frames": 32,
+    "frame_sampling": "causal_multiscale_16_8_8_v1",
+    "video_frame_size": 448,
+    "pad_token_id": 151643,
+    "seed": 20260713,
+    "vision_width": 1024,
+    "pooling": "mean_current_frames_and_spatial_tokens_then_l2"
+  },
+  "validation_policy": {
+    "generation_rows_contain_answers": false,
+    "labels_used_for_features": false,
+    "future_intervals_read": false,
+    "classification": "answer-free frozen visual feature extraction"
+  }
+}

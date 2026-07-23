@@ -206,6 +206,17 @@ def main(argv: list[str] | None = None) -> None:
             )
     elif args.record_hidden_state:
         parser.error("--record-hidden-state is only valid for a neural feature head")
+    frame_sampling = str(
+        inference_config.get("frame_sampling", "uniform_cumulative_v1")
+    )
+    if (
+        frame_sampling != "uniform_cumulative_v1"
+        and feature_variant != "dialog_stage_fused"
+    ):
+        raise ValueError(
+            "Non-uniform frame sampling is currently implemented only for "
+            "dialog_stage_fused deployment"
+        )
     all_source_rows = load_jsonl(input_path)
     if args.session_indices:
         try:
@@ -301,6 +312,7 @@ def main(argv: list[str] | None = None) -> None:
         max_frames=int(inference_config["max_frames"]),
         max_history_turns=int(inference_config["max_history_turns"]),
         max_new_tokens=int(inference_config["max_new_tokens"]),
+        frame_sampling=frame_sampling,
     )
     model: InternVLProactiveModel | None = None
     if len(records) < len(generation_rows):
@@ -361,6 +373,8 @@ def main(argv: list[str] | None = None) -> None:
                         causal_config,
                         head,
                     )
+                session_elapsed = time.monotonic() - session_started
+                record["session_wall_time_seconds"] = session_elapsed
                 handle.write(json.dumps(record, ensure_ascii=True) + "\n")
                 handle.flush()
                 os.fsync(handle.fileno())
@@ -370,7 +384,7 @@ def main(argv: list[str] | None = None) -> None:
                     position + 1,
                     len(generation_rows),
                     len(record["chunks"]),  # type: ignore[arg-type]
-                    time.monotonic() - session_started,
+                    session_elapsed,
                 )
     _validate_records(records, generation_rows, input_indices)
     predictions = [record["prediction"] for record in records]
@@ -407,6 +421,14 @@ def main(argv: list[str] | None = None) -> None:
         "total_parameters": int(model_config["total_parameters"]) + len(head.feature_names) + 1,
         "decision_feature_mode": decision_feature_mode,
         "hidden_state_recorded": args.record_hidden_state,
+        "max_session_wall_time_seconds": max(
+            (
+                float(record["session_wall_time_seconds"])
+                for record in records
+                if "session_wall_time_seconds" in record
+            ),
+            default=None,
+        ),
     }
     write_json(output_dir / "runtime.json", runtime)
     (output_dir / "README.md").write_text(

@@ -136,7 +136,7 @@ def code_snapshot(project_root: Path, tracked_paths: Iterable[Path]) -> dict[str
         if path.is_file()
     }
     return {
-        "umbrella_git_repository": False,
+        "project_repository": _git_state(project_root),
         "file_sha256": hashes,
         "nested_repositories": [
             _git_state(project_root / "STRIDE"),

@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "experiment_id": "20260721_internvl35_1b_d5_causal_multiscale_features_v1",
+  "hypothesis": "Causal 16/8/8 multiscale frame selection preserves current detail and longer visual context better than cumulative uniform sampling.",
+  "protocol": {
+    "path": "annotations/d5_causal_multiscale_sampling_v1/PROTOCOL.md",
+    "sha256": "4ed1d478c4396a983bbbb2dcf6d4469b51ea2b188a498a6fa9c6d92af62375c1",
+    "frozen_before_feature_extraction": true
+  },
+  "model": {
+    "repo_id": "OpenGVLab/InternVL3_5-1B-HF",
+    "revision": "9191dbccf312b537016f041b25d61c72e7c5c9f3",
+    "default_local_path": "/data1/InternVL3_5-1B-HF",
+    "license": "Apache-2.0",
+    "total_parameters": 1060897792,
+    "weights_sha256": "11effd1da2fc0929957d56de4129d1e7d2aed044ea878d40bf83e95b63d38b39",
+    "dtype": "bfloat16",
+    "attention_implementation": "sdpa"
+  },
+  "decision_head": {
+    "path": "submission/d4_2_history8_small/decision_head.json",
+    "sha256": "dab9eaf100ea301055ab4d68856d406fb5927864bc96c71f2038688067b904c5",
+    "parameters": 1052,
+    "feature_variant": "dialog_stage_fused",
+    "scalar_variant": "response_temporal",
+    "hidden_size": 1024,
+    "training_scope": "all_700_public_development_sessions"
+  },
+  "data": {
+    "input": "/data1/wearable_ai_challenge_data/egoproactive/wearable_ai_2026_egoproactive_val_700.jsonl",
+    "video_folder": "/data1/wearable_ai_challenge_data/egoproactive/val",
+    "dataset_repo": "facebook/wearable-ai",
+    "split": "egoproactive/val",
+    "license": "CC-BY-NC-4.0",
+    "input_sha256": "feef69ddee605e7070ad0f133636c35739c6964514a46d76da294b6bf1964740"
+  },
+  "starter_kit": {
+    "path": "starter_kit",
+    "model_py_sha256": "3cecb5ab2201b6b4be6aabbdebeeeb5322437e2d8c49d065018230dc9804edbe",
+    "proactive_py_sha256": "7c8adfe9fa2db5af4aace1cd260ec22132b18d82ef747f8a566eb8095e8fbc34",
+    "scorer_py_sha256": "072301da6c65b3e30c7581920d178c6d5136305f2db26914df4785f47d809ee1"
+  },
+  "inference": {
+    "frames_per_interval": 16,
+    "max_frames": 32,
+    "frame_sampling": "causal_multiscale_16_8_8_v1",
+    "video_frame_size": 448,
+    "pad_token_id": 151643,
+    "max_history_turns": 8,
+    "max_new_tokens": 64,
+    "do_sample": false,
+    "seed": 20260713,
+    "decision_feature_mode": "shared_vision",
+    "candidate_vision_forward_passes_per_chunk": 1,
+    "candidate_language_forward_passes_per_chunk": 2
+  },
+  "validation_policy": {
+    "generation_rows_contain_answers": false,
+    "decision_head_was_trained_on_public_validation_labels": true,
+    "full_public_score_is_train_fit_not_generalization": true,
+    "online_neural_features_use_only_current_causal_prompt": true,
+    "online_dialog_features_use_only_official_current_prefix": true,
+    "frame_selection_uses_only_observed_intervals": true,
+    "classification": "post-selection val-supervised multiscale feature extraction; not hidden-test evidence"
+  }
+}
